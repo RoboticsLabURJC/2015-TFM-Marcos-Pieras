@@ -1,0 +1,139 @@
+import sys, traceback, Ice
+import jderobot
+import numpy as np
+import threading
+import cv2
+#from matplotlib import pyplot as plt
+from datetime import datetime
+sys.path.insert(0, '/home/marc/caffe/python')
+import caffe
+
+
+class Control():
+
+    def __init__(self):
+        self.lock = threading.Lock()
+        self.effectON = False
+        self.probabilidades = 0
+        self.labels = None
+        self.flag = 0
+
+        model_file = '/home/marc/Dropbox/tfmDeepLearning/semana2/clasificacionEscena/places205VGG16/deploy_10.prototxt'
+        pretrained_file = '/home/marc/Dropbox/tfmDeepLearning/semana2/clasificacionEscena/places205VGG16/snapshot_iter_765280.caffemodel'
+
+
+    
+        self.net = caffe.Net(model_file,pretrained_file,caffe.TEST)
+      
+        try:
+            ic = Ice.initialize(sys.argv)
+            properties = ic.getProperties()
+            camera = ic.propertyToProxy("Camarareal.Camera.Proxy")
+            self.cameraProxy = jderobot.CameraPrx.checkedCast(camera)
+            if self.cameraProxy:
+                self.image = self.cameraProxy.getImageData("RGB8")
+                self.height= self.image.description.height
+                self.width = self.image.description.width
+            else:
+                print 'Interface camera not connected'
+
+        except:
+            traceback.print_exc()
+            exit()
+            status = 1
+
+    def update(self):
+        if self.cameraProxy:
+            self.lock.acquire()
+            #print 'updtcontrol'
+            self.image = self.cameraProxy.getImageData("RGB8")
+            self.height= self.image.description.height
+            self.width = self.image.description.width
+            self.lock.release()
+
+    def getImage(self):
+        if self.cameraProxy:
+            self.lock.acquire()
+            #print 'getimage'
+            image = np.zeros((self.height, self.width, 3), np.uint8)
+            image = np.frombuffer(self.image.pixelData, dtype=np.uint8)
+            image.shape = self.height, self.width, 3
+            if self.effectON:
+                image = self.opencvtest(image)
+            self.lock.release()
+            return image
+
+    def effect(self):
+        self.effectON = not self.effectON
+
+    def getProb(self):
+
+        return self.probabilidades
+
+    def getLabels(self):
+
+        return self.labels
+
+    def getFlag(self):
+
+        return self.flag
+
+    def setFlag(self,name):
+
+        self.flag = name
+
+    def opencvtest(self, img):
+
+    	start_time = datetime.now()
+        
+        transformer = caffe.io.Transformer({'data': self.net.blobs['data'].data.shape})
+        transformer.set_mean('data', np.load('/home/marc/Dropbox/tfmDeepLearning/semana2/clasificacionEscena/modeloPlaces205AlexNet/ol.npy').mean(1).mean(1))
+        #transformer.set_mean('data', )
+        mean = np.array([105.487823486, 113.741088867, 116.060394287])
+        transformer.set_mean('data', mean)
+        
+
+
+        transformer.set_transpose('data', (2,0,1))
+        transformer.set_raw_scale('data', 255.0)
+        self.net.blobs['data'].reshape(1,3,224,224)
+
+
+        self.net.blobs['data'].data[...] = transformer.preprocess('data',img)
+        output = self.net.forward()
+        label_mapping = np.loadtxt('/home/marc/Dropbox/tfmDeepLearning/semana2/clasificacionEscena/modeloGoogleNet/categoryIndex_places205.csv', str, delimiter=',')
+        best_n = self.net.blobs['prob'].data[0].flatten().argsort()[-1:-6:-1]
+        prob5best = self.net.blobs['prob'].data[0][best_n]
+        labelsCorrects = self.fixLabels(label_mapping[best_n])
+        
+        
+        
+        self.labels = labelsCorrects
+        self.probabilidades = prob5best
+        
+        end_time = datetime.now()
+        dt = end_time - start_time
+        print float(dt.microseconds)/1000,dt.seconds
+        #print dt.microseconds
+        self.effectON = False
+        self.flag = 1
+
+        return img
+
+    def fixLabels(self,arrayWrongLabels):
+        '''
+        This function fixes the labels
+        '/d/driveway 67' -> 'driveway'
+
+        '''
+        correctLabels =  []
+        
+        for i in range(0,np.shape(arrayWrongLabels)[0]):
+
+            a = arrayWrongLabels[i][3:]
+            b =  a.find(' ')
+            #print arrayWrongLabels[i][3:b+3]
+            
+            correctLabels.append(arrayWrongLabels[i][3:b+3])
+
+        return correctLabels
