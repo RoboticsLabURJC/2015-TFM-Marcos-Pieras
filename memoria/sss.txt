@@ -1,0 +1,17 @@
+
+\begin{figure}[!h]
+		
+\centering
+\subfigure[Imagen MR1 con registro.]{\includegraphics[width=7cm]{5conMRI1.png}}
+\subfigure[Imagen MR2 con registro.]{\includegraphics[width=7cm]{5conMRI2.png}}
+
+\label{6A}
+\end{figure}
+
+
+
+\begin{figure}[hptb]
+\centering         
+\includegraphics[width=0.5\linewidth]{diagramAI.png}
+\caption{Diagrama de flux de l'algorisme.} \label{diagramaI}
+\end{figure}

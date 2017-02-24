@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{imagenet}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei.
+\newblock {ImageNet: A Large-Scale Hierarchical Image Database}.
+\newblock In {\em CVPR09}, 2009.
+
+\bibitem{voc07}
+M.~Everingham, S.~M.~A. Eslami, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and
+  A.~Zisserman.
+\newblock The pascal visual object classes challenge: A retrospective.
+\newblock {\em International Journal of Computer Vision}, 111(1):98--136,
+  January 2015.
+
+\bibitem{coco}
+Tsung{-}Yi Lin, Michael Maire, Serge~J. Belongie, Lubomir~D. Bourdev, Ross~B.
+  Girshick, James Hays, Pietro Perona, Deva Ramanan, Piotr Doll{\'{a}}r, and
+  C.~Lawrence Zitnick.
+\newblock Microsoft {COCO:} common objects in context.
+\newblock {\em CoRR}, abs/1405.0312, 2014.
+
+\bibitem{ssd}
+Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott~E. Reed,
+  Cheng{-}Yang Fu, and Alexander~C. Berg.
+\newblock {SSD:} single shot multibox detector.
+\newblock {\em CoRR}, abs/1512.02325, 2015.
+
+\bibitem{salton}
+Gerard Salton and Michael~J. McGill.
+\newblock {\em Introduction to Modern Information Retrieval}.
+\newblock McGraw-Hill, Inc., New York, NY, USA, 1986.
+
+\end{thebibliography}
