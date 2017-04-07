@@ -15,3 +15,88 @@
 \includegraphics[width=0.5\linewidth]{diagramAI.png}
 \caption{Diagrama de flux de l'algorisme.} \label{diagramaI}
 \end{figure}
+
+
+%So, the most intuitive way to perform object detection with neural networks, could be to select some region in the image an then evaluate with an image classification architecture, this kind of algorithms are called region based object detection. In the figure \ref{regionbased} we can observe the pipeline of those algorithms.
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.7\linewidth]{objectDetection/rcnn.png}
+%\caption{Region based pipeline.} \label{regionbased}
+%\end{figure}
+%
+%
+%The RCNN algorithm \cite{rcnn}, was one of the first algorithms using this scheme, in addition it used a bounding box regression to improve the location of the object. In the figure \ref{rcnn} we can observe the pipeline.
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.7\linewidth]{objectDetection/rcnn2.png}
+%\caption{Pipeline of RCNN.} \label{rcnn}
+%\end{figure}
+%
+%To point out, this architecture is made by order systems, the cnn is from image classification tasks, and it is trained with an image detection dataset,finnaly the SVM and the ridge regression are learned a posteriori with an object detector dataset. So, this architecture does not face the problem of object detection as an \textit{end-to-end} problem. Besides, it is very slow, it has to compute the cnn features for every proposal.
+%
+%
+%Thus, we can improve the speed by computing the cnn feature of the whole image and then perform the region proposal algorithm on the cnn features, in this way, we only compute the cnn features once. \cite{fastrcnn}
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.7\linewidth]{objectDetection/fastRcnn.png}
+%\caption{Pipeline of Fast Rcnn.} \label{fastrcnn}
+%\end{figure}
+%
+%Although we have increased the speed of the system, it is very slow, specially the region proposal algorithm.
+%
+%
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.7\linewidth]{objectDetection/fasterRCNN.png}
+%\caption{Pipeline of Fast Rcnn.} \label{fastrcnn}
+%\end{figure}
+%
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.7\linewidth]{objectDetection/fasterRCNN2.png}
+%\caption{Pipeline of Fast Rcnn.} \label{fastrcnn}
+%\end{figure}
+%
+%
+%\cite{fasterrcnn}
+%
+%
+%
+%Up to here, the object detections algorithms are based on region proposal, the common pipeline is extract CNN features, apply a region proposal method and then classify these regions. One direction that the community has taken to improve the results consists to extract features with another CNN architecture. The original paper used the VGG archietcture \cite{vgg} but they has been replaced by other recent architecture like \cite{resnet}, \cite{inception} or \cite{pvanet}. Adding this new feature extractors has improved the results on all these object detection challenges. In the figure \ref{resulPas} we can observe, the improving using several methods.
+%
+%
+%
+%
+%
+%Another paradigm, consist to avoid region proposal stage in the pipeline. As we can observe in figure \ref{yolo}, they discretize the image in a fixed grid, and for each grid they propose a set of different shape and size boundings boxes. Also, each cell predicts some conditional class probabilities, these probabilities are conditioned on the grid cell containing an object. Finally, we multiply the conditional class probabilities and the individual box confidence predictiion. These methods are called, single shot detectors, because,.
+%
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.7\linewidth]{objectDetection/yoloArchitec.png}
+%\caption{Regression-based architecture.} \label{yolo}
+%\end{figure}
+%
+%
+%Among this methods, one that has a lot of success is Single shot multibox detector \cite{ssd}. This method
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.7\linewidth]{objectDetection/ssdArchitecture.png}
+%\caption{SSD architecture.} \label{ssdArch}
+%\end{figure}
+%
+%
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.7\linewidth]{objectDetection/comparisionMulti2.png}
+%\caption{Pipeline of Fast Rcnn.} \label{fastrcnn}
+%\end{figure}
+%
+%Finally, as a matter of completeness, we ought to mention 

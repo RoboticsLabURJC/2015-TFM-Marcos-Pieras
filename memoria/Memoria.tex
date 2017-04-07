@@ -10,6 +10,7 @@
 \usepackage{float}
 %\usepackage[spanish]{babel}
 \usepackage[british,UKenglish,USenglish,english,american]{babel}
+
 \usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -54,7 +55,7 @@
 	\vspace{4cm}
 	
 	\Huge
-	\textbf{Object detection with deep learning techniques}
+	\textbf{An hybrid architecture for multiple people tracking}
 		
 	
 \end{center}
@@ -89,28 +90,212 @@
 \section{Introduction}
 
 
-\section{Object detection}
+\textbf{Tracking}
 
-%\textit{Where are the instances of a particular object class in the image ( %if any ) ?}
+Tracking is the analysis of video sequences for the purpose of establishing the location of the target over a sequence of frames.
 
-%
-%
-%\begin{figure}[hptb]
-%\centering         
-%\includegraphics[width=0.7\linewidth]{objectDetection/objectdetection.png}
-%\caption{Comparision interpolated and normal curve.} \label{diagramaI}
-%\end{figure}
+\section{Objectives}
+
+\section{Theoretical basis}
 
 
+\subsection{Optical flow}
 
-\subsection{Object detection pre-Deep learning}
+\subsection{Deep learning}
 
 
-\subsection{Object detection with deep learning}
 
-\cite{ssd}
 
-\section{Datasets for object detection}
+
+\subsubsection{Object detection}
+
+
+
+Deep learning allows computational models that are composed of multiple processing layers to learn representations of data with multiple levels of abstraction. Traditional methods relay in hand-crafted ( also called engineered ) features to build a representation of the instance, and then learn a predictor to inference some label about it. These features are made by an expert to highlight the parts that they thought it could be more discriminative. Later on, the community applied the kernel methods, this methods try to find discriminability increasing the dimensionality of the features. In contrast, deep learning techniques, features are learned from the raw data and also are deeper than the hand-crafted features and kernels, therefore allows to compute more intrinsic properties. In the figure \ref{deepEsquem} we summarizzes the differences.
+
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.6\linewidth]{objectDetection/esquema2.png}
+\caption{Comparision between traditional and deep learning methods.} \label{deepEsquem}
+\end{figure}
+
+
+
+Although, the studies of neural networks begun in the sixties \cite{minski}, they didn't get relevance till 2012, when AlexNet \cite{alexnet} was published. The emergence of these techniques was dued by three aspects:
+
+\begin{itemize}
+
+\item The increasing size of the dataset. Neural networks need a lot of data to get trained properly.
+
+\item The increasing of computing capabilities. Neural networks need a lot of computing capabilities to get trained well.
+
+\item Optimization details. Till recent years, we did not know the details to trained well the networks. For instance, these details are activations functions ( ReLu, LeakyRelu), to no overfit ( dropout ), heuristic optimization techniques (adam, SGD).
+
+
+\end{itemize}
+
+
+Deep learning techniques has revolutionized the field of machine learning, specially Computer vision. For instance in image recognition, convolutional neural networks supposed a breakthrough in this tasks. As we can observe in figure \ref{imageDeep}, in 2012 with the AlexNet architecture \ref{alexnet}, it cut in a half the previous error in this contest. 
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.7\linewidth]{objectDetection/deepImagenet.png}
+\caption{Classification error in IMAGENET.} \label{imageDeep}
+\end{figure}
+
+
+In object detection as well, the emergence of the neural networks has supposed a turning point. As we can observe in \ref{deepObjet}, the mean average precision, has almost doubled with the use of neural networks.
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.7\linewidth]{objectDetection/deepObjectMod.png}
+\caption{Mean average precion over the years in PASCAL dataset.} \label{deepObjet}
+\end{figure}
+
+
+
+Actual object detectors are based on three main family of archictectures \cite{cnnComparision}, of which names are: FasterRCNN, RFCN, and SSD. In \ref{refArchite} we can observe a scheme of these systems.
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Faster RCNN.]{\includegraphics[width=5cm]{objectDetection/compFaster.png}}
+\subfigure[RFCN.]{\includegraphics[width=5cm]{objectDetection/compRFCN.png}}
+\subfigure[SSD.]{\includegraphics[width=5cm]{objectDetection/compSSD.png}}\\
+
+
+\caption{Object detection architectures.}
+\label{refArchite}
+\end{figure}
+
+\begin{itemize}
+
+\item Faster RCNN \cite{fasterrcnn}, it is the last output of a tryology of detectors developed by R. Girshick and his team. Which are called Region-Based object detecors. They work as follows: Use some mechanism to extract region of an image that probable to be an object and then classify those proposals with a CNN. The first paper to do so, was \cite{rcnn}, and supposse a breaktrough in the field, increasing the precision of the state of the art of those days. But, it had a messy pipeline, slow and difficult to train. Later on, they developed \cite{fastrcnn}, in this paper they applied the region proposal algorithm in the cnn feature map, so, they avoid to compute the features for each proposal. They increase the speed and it could be trained much easily. Finally, they showed FasterRCNN, in this algorithm, they eluded the external region proposal algorithm and they implemented a CNN to compute those proposals. This CNN share parameters with the main net and they saved a lot of time. This network, has become the standard object detector with CNN. With the association of novel net architecture like ResNet \cite{resnet}, Inception \cite{inception}, and \cite{pvanet} they have won all the contests.
+
+
+\item RFCN \cite{rfcn}, it stands for Region-based fully convolutional network. It is  based on a Region-based architecture, altough after the feature map they add an region-sensitive layer, this layer activates in the position where there are an object. It has an inspiration in the architectures fully convolutional used in semantic segmantic.
+
+
+\item SSD, it stands fot Single shot multibox detector. These family of mehtods differs from previous ones considering that these treats the problem of object detection as regression. So, they are called Regression-based object detector or single shot object detector due it does not have a regresion proposal algorithm, they classify the image with one mechanism. The maximium exponent of these algoirthms are \cite{yolo} and \cite{ssd}. These work as follows, they discretize the image in a fixed grid and for each grid it predicts a class, additionally for each single grid it predict some number of bounding boxes with different shape and sizes. It merges all, and apply a Non-Maximum supression algorithm and obtain a detections. We can observe this pipeline in \ref{yolo}. This is the case of YOLO algorithm, the SSD works the same but with a multiresolution scheme which allows to deal with small objects.
+
+
+
+\end{itemize}
+
+
+
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.7\linewidth]{objectDetection/yoloArchitec.png}
+\caption{Regresion-based architecure.} \label{yolo}
+\end{figure}
+
+
+In this survey \cite{cnnComparision}, they compare the different methods including changing the features extractors ( ResNet, Inception, VGG ) and they measured the precision ( mean average precision ) and computing time. This results are showed in \ref{comparisio}. The conlcusion are, SSD is fatest detector, RFCN it has the best balance between speed-acurracy and FasterRCNN, is the most acurate detector altough is slower than the other ones.
+
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.9\linewidth]{objectDetection/comparisionTensor.png}
+\caption{Comparision architectures.} \label{comparisio}
+\end{figure}
+
+We will finish off our review with numeric comparision of the methods, as we can observe in the table \ref{tableDet}. This information is extracted from the original papers with their implementation, all of them are trained with theu union of the trainning set of VOC07, VOC12, and COCO, and subsequently evaluate on VOC07 test set and evaluate on a Nvidia Titan X gpu.   
+
+\begin{table}[]
+\centering
+
+\begin{tabular}{lllll}
+                    & \textit{mAP} & \textit{mAP\_person} & \textit{FPS} & \textit{Proposals} \\
+\textbf{RCNN}       & 66           & 64.2                 & 0.077        & 2000               \\
+\textbf{FastRCNN}   & 70           & 69.9                 & 6.7          & 2000               \\
+\textbf{FasterRCNN} & 85.6         & 82.3                 & 7            & 6000               \\
+\textbf{SSD300}     & 81.2         & 81.4                 & 46           & 8732               \\
+\textbf{SSD512}     & 83.2         & 84.6                 & 19           & 24564              \\
+\textbf{YOLO}       & 66.4         & 63.5                 & 45           & 98                 \\
+\textbf{YOLOv2}     & 78.6         & 81.3                 & 40           & -                  \\
+\textbf{RFCN}       & 83.6         & -                    & 10           & -                  \\
+\textbf{PVANET}     & 84.9         & -                    & 31.3         & 300               
+\end{tabular}
+
+\caption{Results on VOC07.}
+\label{tableDet}
+\end{table}
+
+
+\subsubsection{Tracking}
+
+As we said above, Deep learning techinques has increasded the perfomance all the aspects of computer vision.
+
+
+Visual tracking go back to begings of the field of computer vision, before the introduction of neural networks, has been a clear distinction in the paradigms  \cite{visualTrackingSurvey}:
+
+\begin{itemize}
+
+\item \textbf{Tracking using matching} ( or apparence based methods ), this trackers perform a matching of the representation of the target model built from the previous frame(s). The most prominent mehtods are those based on Optical flow, KLT \ref{klt} and MeanShift \ref{meanshift}.
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.7\linewidth]{trackingDeepLearning/apparenceBasedTracking.png}
+\caption{Regresion-based architecure.} \label{yolo}
+\end{figure}
+
+
+\item \textbf{Tracking using discriminative classification}. This way of perfoming tracking consist to build a model on the distinction of the target foreground against the background. Also called Tracking-by-detection, and the comunity has focused on how to update the representation of the model \cite{tld}, \cite{struc} and how to solve the problem of data association, which consist to link detection across the frames \cite{dataAsso2} \cite{dataAsso1}.
+
+
+\end{itemize}
+
+The deep learning techniques in tracking. \cite{thrun}
+
+\begin{itemize}
+
+\item \textbf{Online training for tracking}. These methods use the same approach commented before, perform tracking by in an online manner update the classifier. A typical tracker will sample patches near the target object, which are considered as foreground. Some patches farther from the target object are also sampled, and these are considered as background. These patches are then used to train a foreground-background  classifier, and this classifier is used to score patches from the next frame to estimate the new location of the target object. These methods showed a state-of-the-art perfomance results. Unfortunately, neural networks are slow to train. It can be improved by using what is called fine-tuning, only train the top layers which are most discriminative semantically, in addition it could take advantage of the large amount of annotated videos \cite{deep1} \cite{deep2}.
+
+
+
+\item \textbf{Model based trackers}. These also are similar to the tracking by detection paradigm, these methods use a neural network to extract instances of the frames and then linked with temporal restrictions. 
+
+
+\item \textbf{Siamese based tracking}. Similar to apparence matching tracking, many candidate are passed through the network, and the patch with highest similarity is selected as the tracking output \cite{trackingSiamese}.
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.7\linewidth]{trackingDeepLearning/siameseTracking.png}
+\caption{Regresion-based architecure.} \label{yolo}
+\end{figure}
+
+\item \textbf{Tracking as regression}, these methods are an extension of object localization using neural networks, those methods given an image containing an object predict the bounding box which contain the object. 
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.7\linewidth]{trackingDeepLearning/regressionTracking.png}
+\caption{Regresion-based architecure.} \label{yolo}
+\end{figure}
+
+
+\item \textbf{Tracking with RNN}
+
+
+\end{itemize}
+
+
+
+\section{Software implementation}
+
+\section{Experiments}
+
+
+\subsection{Datasets for object detection}
 
 This section describes the most common datasets used in object detection tasks.
 
@@ -131,7 +316,7 @@ Throughout the history of computer vision research datasets have played a critic
 In the next subsections, we will explain the main datasets for object detection task.
 
 
-\subsection{Pascal Visual Objects Classes}
+\subsubsection{Pascal Visual Objects Classes}
 
 The Pascal Visual Object Classes (VOC) challenge  \cite{voc07} is a benchmark in visual object category recognition and detection. Organised annually from 2005 to 2012, the challenge and its associated dataset has become accepted as one of the most benchmark for object detection. All the images are from the flickr consumer photographs website and annotated with the Mechanical turk tool.
 
@@ -156,11 +341,11 @@ The challenge of the year 2007, it contains 10 thousand images in the trainval a
 The 2012's edition is also, one of the most used dataset in object detection tasks. It increases the volume of images of the 2007 edition up to 10 thousand images on trainval and test set and similar quantity of instances per image. 
 
 
-\subsection{ImageNet}
+\subsubsection{ImageNet}
 
 
 
-ImageNet project \cite{imagenet} with the challenge ImageNet Large Scale Visual Recognition Challenge [ILSVRC] was the first large-scale database, temporally developed to supply the deep learning techinques, eager of feed with tons of images. ImageNet aims to populate the majority of the 80000 synsets of WordNet with an average of 500-1000 clean and full resolution images. The collection was based on the query of that words on several image search engines and human refined on the Amazon Mechanical Turk platform.
+ImageNet project \cite{imagenet} with the challenge ImageNet Large Scale Visual Recognition Challenge [ILSVRC] was the first large-scale database, temporally developed to supply the deep learning techniques, eager of feed with tons of images. ImageNet aims to populate the majority of the 80000 synsets of WordNet with an average of 500-1000 clean and full resolution images. The collection was based on the query of that words on several image search engines and human refined on the Amazon Mechanical Turk platform.
 
 In 2016, the project collects more than 10 million of annotated images with 1000 classes. Although its main purpose is image classification, it has an object detection challenge with $200$ categories with over a 1 million images with objects annotated.
 
@@ -170,7 +355,7 @@ In 2016, the project collects more than 10 million of annotated images with 1000
 
 
 
-\subsection{COCO}
+\subsubsection{COCO}
 
 The Microsoft Common Objects in Context also known as COCO dataset \cite{coco}, is a dataset that address the three core research problems in scene understanding:
 
@@ -181,7 +366,7 @@ The Microsoft Common Objects in Context also known as COCO dataset \cite{coco}, 
 
 \item contextual reasoning between objects, nowadays natural images contain multiple objects, and their identity can only be solved using context, due to small size or ambiguos appearance in the image, so in this dataset, images contain scenes rather isolated objects. 
 
-\item the precise 2D localization of objects, also the detailed spatial understanding of object layout will be a core component of an image understaning system, so this dataset struggle to do so.
+\item the precise 2D localization of objects, also the detailed spatial understanding of object layout will be a core component of an image understanding system, so this dataset struggle to do so.
 
 
 
@@ -267,7 +452,7 @@ In addition, another prominent feature of the COCO over the other two, is the nu
 \caption{Distribution of pascal.} \label{instancesImage}
 \end{figure}
 
-Moreover, the COCO dataset uses images from non-canonical point view, allowing to the algorithm to be robust to everyday views. This feature can be observed in the plot \ref{iconic}, in this plot we can observe differences views of the same category. And clearly the coco's images is the most uniconic representation.
+Moreover, the COCO dataset uses images from non-canonical point view, allowing to the algorithm to be robust to everyday views. This feature can be observed in the plot \ref{iconic}, in this plot we can observe differences views of the same category. And clearly the coco's images is the most uni-conic representation.
 
 \begin{figure}[H]
 		
@@ -298,9 +483,7 @@ Finally, the table \ref{dataset0} summarizes the main statistics of the dataset 
 \end{table}
 
 
-
-
-\section{Evaluate}
+\subsubsection{Evaluation of object detection algorithms}
 
 In order to compare the performance of the different datasets, each challenges establish a clear measure. In this thesis, we used the interpolated average precision (AP), used in the Pascal VOC challenge (based on \cite{salton}).
 
@@ -323,7 +506,7 @@ The precision at each recall level $r$ is \textit{interpolated} by taking the ma
 
 $$ p_{interp}(r) = max_{\hat r: \hat r>r} p( \hat r)$$
 
-The authors justified this measurment as a way to reduce the impact of the 'wiggles' in the precision/recall curve, caused by small variations in the ranking of examples. In the figure \ref{diagramaI}, we can observe this effect on the curve.
+The authors justified this measurement as a way to reduce the impact of the 'wiggles' in the precision/recall curve, caused by small variations in the ranking of examples. In the figure \ref{diagramaI}, we can observe this effect on the curve.
 
 \begin{figure}[H]
 \centering         
@@ -340,6 +523,90 @@ $$ a_{0} = \dfrac{area(B_{p} \cap B_{gt})}{area(B_{p} \cup B_{gt})} $$
 where $B_{p} \cap B_{gt}$ denotes the intersection of the predicted and ground truth bounding boxes and $ B_{p} \cup B_{gt} $ their union. The treshold of 50 \%  was set deliberately low to account for inaccuracies in bounding boxes in the ground truth data. Multiple detections of the same object in an image were considered false detections.
 
 Finally, we want to point out, even we don't take into account in our implementation,  setting the threshold IoU to a value of $0.5$ could cause misdetections of small objects \cite{imagenet}, they propose an adaptive setting of that threshold based on the size of the ground truth and so detect correctly small objects. In practice this change only affects $5.5\%$ of objects in the detection validation set.
+
+
+
+
+
+
+
+
+\subsection{Datasets for multiple object tracking}
+
+Evaluating and comparing multi-target tracking methods is not trivial for numerous resasons. 
+
+\begin{itemize}
+
+\item First, the perfect solution one aims to achieve is difficult to define clearly. Partially visible, occluded, or cropped targets, reflections, and objects that are very closely resemble targets; all impose intrinsic ambiguities, such that even humans may not agree on one particular ideal solution.
+
+\item Second, a number of different evaluation metrics with free parameters and ambiguous definitions often lead to inconsistent quantitative results across the literature.
+
+\item Finally, the lack of pre-defined test and training data makes it difficult to compare different methods fairly.
+
+\end{itemize}
+
+
+In contrast to other research areas in computer vision, still lacks large-scale benchmarks.
+
+\subsubsection{PETS}
+
+Targeted primarily at surveillance applications \cite{pets}. The 2009 version consisted of 3 subsets, S1 targeted at person count and density estimation, S2 targeted at people tracking, and S3 targeted at flow analysis and event recognition. In the \ref{petsExample} we can observe one image from this dataset.
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.5\linewidth]{datasetTracking/View_001.jpg}
+\caption{Example of Pets.} \label{petsExample}
+\end{figure}
+
+Even for this widely used benchmark, we observe that tracking results are commonly obtained in an inconsistent fashion: involving using different subsets of available data, different detection inputs, inconsistent model training that is often prone to over-fitting, and varying evaluation scripts. Results are thus not easily comparable \cite{mot}.
+
+
+\subsubsection{MOT challenge}
+
+The aim of the Multiple object tracking [MOT] is to standardize the use of multiple people trackings datasets, in order to do so, they solve the problems in this kind of dataset, explained above.
+
+
+\subsubsection{Evaluation of multiple people tracking algorithms}
+
+A critical point with any dataset is how to measure the performance of the algorithms. A large number of metrics for quantitative evaluation of multiple target tracking have been proposed. Choosing unique general evaluation is still ongoing. 
+
+On the one hand, it is desirable to summarize the performance into one single number to enable a direct comparison. On the other hand, one might not want to lose information about the individual errors made by the algorithms and provide several performance estimates, which precludes a clear ranking.
+
+
+We will explain two sets of measures that have established themselves in the literature the CLEAR metrics \cite{clear}, and a set of track quality measures \cite{wu}.
+
+As in the object detection metrics, we can classify each tracket, whether it is a true positive, that describes an actual (annotated) target, whether the output is a false alarm ( or false positive, FP ). This decisions is typically made by the well-known thresholding measure of Intersection of the union [IoU]. Also a target that is mised by any tracker is a false negative.
+
+Due to we are working with multiple object, we assume that each ground truth trajectory has one unique start and one unique end point, that is not fragmented. So we need to penalty re-identification. This is called, identity switch [IDSW], and it is counted as if a ground truth target $i$ is matched to track $j$ and the last known assignment was $ k = j$. The next figure summarizes the stated measures ( the grey area indicate the the matching threshold ).
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.7\linewidth]{datasetTracking/trackins.png}
+\caption{Example of measures.} \label{petsExample}
+\end{figure}
+
+Then after determining true matches and establishing the correspondandes it is now possible to compute the metrics over all the sequences.
+
+
+The multiple object tracking accuracy [MOTA] \cite{clear} is perhaps the most widely used figure to evaluate a tracker's perfomance. The main reason for this is its expressiveness as it combines as it combines three sources of errors defined above:
+
+$$ MOTA = 1 - \frac{\sum_{t} (FN_{t}+FP_{t}+IDSW_{t})}{ \sum_{t} GT_{t}}$$
+
+where $t$ is the frame index and GT is the number of ground truth objects. This measures gives an indication of the overall performance.
+
+The multiple object tracking precision [MOTP] is the average dissimilarity between all true postives and their corresponding ground truth targets. For bounding box overlap, that is computed as 
+
+$$ MOTP =  \frac{\sum _{t,i} d_{t,i}}{ \sum_{t} c_{t}} $$
+
+where $c_{t}$ denotes the number of matches in frame $t$ and $d_{t,i}$ is the bounding box overlap of target $i$ with its assigned ground truth object. Thereby gives the average overlap between all correctly matched hypotheses. So, the MOTP is a measure of localization precision.
+
+
+As we have stated above, another metrics are the track quality measures. Each ground truth trajectory can be classified as mostly tracked (MT), partially tracked (PT), and mostly lost (ML). This is done based on how much of the trajectory is recovered by the tracking algorithm. A target is mostly tracked if it is successfully tracked for at least $80 \%$ of its life span, without consider if there are an identity switch. If a track is only recovered for less than $20 \%$ of its total length, it is said to be mostly lost (ML). All other tracks are partially tracked. Finally antoher quality measure is track fragmentations (FM), it counts how many times a ground truth trajectory is resumed at a later point.
+
+\section{Conclusions}
+
+\subsection{Future work}
 
 
 \bibliography{mybib}{}

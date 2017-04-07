@@ -82,7 +82,7 @@ class CameraFilter:
         self.NormalFlow = 1
 
         # count
-        #self.listDetecciones = [51,77,104,125,150,175,200,225,250,275,300]
+       
         self.listDetecciones = []
         self.detecCount = 0
         self.punteroDete = []
@@ -90,7 +90,7 @@ class CameraFilter:
 
         self.lock.acquire()
 
-
+        # first detections
         if self.NormalFlow==1 and self.net.getFlagFinished()==0:
 
             if self.NormalFlow2 == 1:
@@ -102,6 +102,7 @@ class CameraFilter:
             
             img = self.img 
             
+            # we get the first detection
             while True:
                 print('inside')
                 self.roi = self.net.getDetections()
@@ -119,22 +120,22 @@ class CameraFilter:
             
         else:
             
-        # We have the first detection and starts the normal flow, sends image 100 to net and starst LK
+        # We have the first detection and starts the normal flow, sends frame N to net and starst LK
             startA = time.time()
             self.NormalFlow = 0
             
+
+            # send the next frame to the Net
             if self.net.getFlagFinished() == 1:
 
                 self.net.setFlagFinished()
-                #self.listDetecciones.append(self.idxImage+self.FrameNetwork)
-                print('sssssssssssssssss',self.idxImage+self.FrameNetwork)
                 name = self.dirsImages[self.idxImage+self.FrameNetwork]
                 self.listDetecciones.append(self.idxImage+self.FrameNetwork)
                 idxPoint = name.find('.')
                 namePoint = name[0:idxPoint]
                 self.net.processImage(namePoint)
                 
-                #self.roi = self.net.getDetections()
+
 
 
                 alfa = self.net.getDetections()
@@ -142,14 +143,12 @@ class CameraFilter:
                 if self.idxImage >10:
                     self.punteroDete.append(np.shape(alfa)[0])
                     self.punterCUMSUM = np.cumsum(self.punteroDete)
-                    #print(self.punteroDete)
-                    #print(np.shape(alfa))
                     self.roiBuffer = np.append(self.roiBuffer,alfa,0)
-                    print('buf',self.roiBuffer)
+                    
 
             self.idxImage += 1
             
-            # manage detections
+            # upload detections
             print(self.idxImage,self.listDetecciones[self.detecCount])
             if self.idxImage == self.listDetecciones[self.detecCount]:
                 self.alf = 0
@@ -165,6 +164,8 @@ class CameraFilter:
 
             self.effectON = False
             
+
+            # compute LK
             frame1 = cv2.imread(self.pathImages+'/'+self.dirsImages[self.idxImage-1])
             frame2 = cv2.imread(self.pathImages+'/'+self.dirsImages[self.idxImage])
             frame2 =cv2.cvtColor(frame2,cv2.COLOR_BGR2RGB)
@@ -172,7 +173,7 @@ class CameraFilter:
             img = frame2
             
             self.roi = np.array(self.roi)
-            #self.roi2 = np.copy(self.roi)
+            
             numObj= np.shape(self.roi)[0]
             listOf = []
 

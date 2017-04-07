@@ -767,12 +767,12 @@ def lucasKanadeTrackerMedianScaleStatic2(roiFrame1,roiFrame2,xmin,ymin,xmax,ymax
     #       ROI1 in RGB
     #       ROI2 in RGB
     # OUTPUT:
-    #       DisplacementX
-    #       DisplacementY
+    #       boundingbox prediction
+    #       flag for lost trackets
+    #       
 
     
-    #frame1 = cv2.imread(directoryImages+'/'+listImages[x-1])
-    #roiFrame1 = frame1[ymin:ymax,xmin:xmax]
+
     
     
     feature_params = dict( maxCorners = 1000,qualityLevel = 0.1,minDistance = 2,blockSize = 7 )
@@ -780,11 +780,12 @@ def lucasKanadeTrackerMedianScaleStatic2(roiFrame1,roiFrame2,xmin,ymin,xmax,ymax
 
     lk_params = dict( winSize  = (15,15),maxLevel = 4,criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 10, 0.03))
     
-    #dircX = 0
-    #dircY = 0
+
     trackLost = 0
     good_new = []
     good_old = []
+
+    # different shapes=> lost
     if np.shape(roiFrame1)[0]==0 or np.shape(roiFrame1)[1]==0:
         trackLost = 1
         return xmin,ymin,xmax,ymax,trackLost
@@ -792,12 +793,10 @@ def lucasKanadeTrackerMedianScaleStatic2(roiFrame1,roiFrame2,xmin,ymin,xmax,ymax
     old_gray = cv2.cvtColor(roiFrame1, cv2.COLOR_RGB2GRAY)
     equ = cv2.equalizeHist(old_gray)
     
-    #old_frame = cv2.filter2D(roiFrame1, -1, kernel_sharpen_1)
-    #old_gray = cv2.cvtColor(old_frame, cv2.COLOR_RGB2GRAY)
+
     p0 = cv2.goodFeaturesToTrack(equ, mask = None, **feature_params)
 
-    #print('point',np.shape(p0)[0])
-    #print(p0)
+    # no points=> lost
     if p0 is None:
 
         xmin = int(xmin)
@@ -809,40 +808,37 @@ def lucasKanadeTrackerMedianScaleStatic2(roiFrame1,roiFrame2,xmin,ymin,xmax,ymax
     else:
         if np.shape(p0)[0]!=0:
 
-            #print('sa',np.shape(p0))
-            #frame2 = cv2.imread(directoryImages+'/'+listImages[x])
-            #roiFrame2 = frame2[ymin:ymax,xmin:xmax]
+            # preprocessing, grayscale conversion and histogram equalization
             frame_gray = cv2.cvtColor(roiFrame2, cv2.COLOR_RGB2GRAY)
             equ2 = cv2.equalizeHist(frame_gray)
-            #output_2 = cv2.GaussianBlur(roiFrame2,(9,9),0)
+            
 
             p1, st, err = cv2.calcOpticalFlowPyrLK(equ, equ2, p0, None, **lk_params)
             good_new = p1[st==1]
             good_old = p0[st==1]
-            #print('tam2',np.shape(good_new),np.shape(good_old))
-
+            
+            # order by the error and erase the highest part
             err = err[[st==1]].flatten()
             indx = np.argsort(err)
             half_indx = indx[:len(indx) // 2]
             good_old = (p0[[st==1]])[half_indx]
             good_new = (p1[[st==1]])[half_indx]
-            #print('points',np.shape(half_indx))
 
 
-            #dx = np.median(good_new[:, 0] - good_old[:, 0])
-            #dy = np.median(good_new[:, 1] - good_old[:, 1])
+            # delete static points
+
             ll = [good_new[:, 0] - good_old[:, 0],good_new[:, 1] - good_old[:, 1]]
-            #print(ll)
+            
             thresHOLD = 1.3
             idxOFstatic0 = np.where(ll[:][0]>thresHOLD) 
             idxOFstatic1 = np.where(ll[:][0]<-thresHOLD)
             idx1Fstatic0 = np.where(ll[:][1]>thresHOLD) 
             idx1Fstatic1 = np.where(ll[:][1]<-thresHOLD)
-            #print('.l')
+            
             idxOFstaticX = list(set(idxOFstatic0[0]) | set(idxOFstatic1[0]))
             idxOFstaticY = list(set(idx1Fstatic0[0]) | set(idx1Fstatic1[0]))
 
-            #print(idxOFstaticX,idxOFstaticY)
+            
             
             if np.shape(idxOFstaticX)[0] ==0 and np.shape(idxOFstaticY)[0] ==0:
                 
@@ -853,39 +849,31 @@ def lucasKanadeTrackerMedianScaleStatic2(roiFrame1,roiFrame2,xmin,ymin,xmax,ymax
                 dx = np.median(good_new[idxOFstaticX, 0] - good_old[idxOFstaticX, 0])
                 dy = 0
 
-                #print('x')
+               
 
             elif np.shape(idxOFstaticY)[0] ==0:
                 
                 dx = np.median(good_new[idxOFstaticX, 0] - good_old[idxOFstaticX, 0])
                 dy = 0
 
-                #print('y')
+                
             
             #elif np.shape(idxOFstaticX)[0] != 0 and np.shape(idxOFstaticY)[0] !=0:
             else:
                 dx = np.median(good_new[idxOFstaticX, 0] - good_old[idxOFstaticX, 0])
                 dy = np.median(good_new[idxOFstaticY, 1] - good_old[idxOFstaticY, 1])
 
-                #print('alright')
-
+                
             idxOFgodd = list(set(idxOFstaticX) | set(idxOFstaticY))
-            #print(idxOFgodd)
-            
-            #dx = np.median(good_new[idxOFstaticX, 0] - good_old[idxOFstaticX, 0])
-            #dy = np.median(good_new[idxOFstaticY, 1] - good_old[idxOFstaticY, 1])
-            #print('m1',dx,dy)
-           
+
 
             good_new2 = good_new[idxOFgodd, :]
             good_old2 = good_old[idxOFgodd, :]
 
-            #good_new2 = good_new
-            #good_old2 = good_old
-
             
+            # compute scale
             i, j = np.triu_indices(len(good_old2), k=1)
-            #print('numP',np.shape(good_new))
+            
 
             pdiff0 = good_old2[i] - good_old2[j]
             pdiff1 = good_new2[i] - good_new2[j]
@@ -894,10 +882,9 @@ def lucasKanadeTrackerMedianScaleStatic2(roiFrame1,roiFrame2,xmin,ymin,xmax,ymax
             p1_dist = np.sum(pdiff1 ** 2, axis=1)
             ds = np.median(np.sqrt((p1_dist / (p0_dist + 2**-23))))
             
-            #print(dx,dy,ds)
-            #print('---------')
+
             if np.isnan(dx) or np.isnan(dy) or np.isnan(ds) :
-                #print('m1',dx,dy,ds,np.isnan(dx))
+                
 
                 xmin = int(xmin)
                 ymin = int(ymin)
@@ -928,8 +915,8 @@ def lucasKanadeTrackerMedianScaleStatic2(roiFrame1,roiFrame2,xmin,ymin,xmax,ymax
             xmax = int(xmax)
             ymax = int(ymax)
             return xmin,ymin,xmax,ymax,trackLost
-    #print(endA-startA)
+    
     return xmin,ymin,xmax,ymax,trackLost
-    #return xmin,ymin,xmax,ymax,trackLost
+    
 
 
