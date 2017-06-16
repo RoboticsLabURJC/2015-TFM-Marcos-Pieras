@@ -1,0 +1,464 @@
+\begin{thebibliography}{10}
+
+\bibitem{boltzmann}
+David~H. Ackley, Geoffrey~E. Hinton, and Terrence~J. Sejnowski.
+\newblock A learning algorithm for boltzmann machines.
+\newblock {\em Cognitive Science}, 9(1):147 -- 169, 1985.
+
+\bibitem{siamesSImi}
+Sean Bell and Kavita Bala.
+\newblock Learning visual similarity for product design with convolutional
+  neural networks.
+\newblock {\em ACM Trans. on Graphics (SIGGRAPH)}, 34(4), 2015.
+
+\bibitem{siamLecun}
+Jane Bromley, Isabelle Guyon, Yann Lecun, Eduard Säckinger, and Roopak Shah.
+\newblock Signature verification using a "siamese" time delay neural network.
+\newblock In {\em In NIPS Proc}, 1994.
+
+\bibitem{siameLecun2}
+S.~Chopra, R.~Hadsell, and Y.~LeCun.
+\newblock Learning a similarity metric discriminatively, with application to
+  face verification.
+\newblock In {\em 2005 IEEE Computer Society Conference on Computer Vision and
+  Pattern Recognition (CVPR'05)}, volume~1, pages 539--546 vol. 1, June 2005.
+
+\bibitem{rfcn}
+Jifeng Dai, Yi~Li, Kaiming He, and Jian Sun.
+\newblock {R-FCN:} object detection via region-based fully convolutional
+  networks.
+\newblock {\em CoRR}, abs/1605.06409, 2016.
+
+\bibitem{deep2}
+Martin Danelljan, Gustav Hager, Fahad Shahbaz~Khan, and Michael Felsberg.
+\newblock Learning spatially regularized correlation filters for visual
+  tracking.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  December 2015.
+
+\bibitem{ward}
+Abir Das, Anirban Chakraborty, and Amit~K. Roy-Chowdhury.
+\newblock {\em Consistent Re-identification in a Camera Network}, pages
+  330--345.
+\newblock Springer International Publishing, Cham, 2014.
+
+\bibitem{imagenet}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei.
+\newblock {ImageNet: A Large-Scale Hierarchical Image Database}.
+\newblock In {\em CVPR09}, 2009.
+
+\bibitem{voc07}
+M.~Everingham, S.~M.~A. Eslami, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and
+  A.~Zisserman.
+\newblock The pascal visual object classes challenge: A retrospective.
+\newblock {\em International Journal of Computer Vision}, 111(1):98--136,
+  January 2015.
+
+\bibitem{pets}
+J.~Ferryman and A.~Ellis.
+\newblock Pets2010: Dataset and challenge.
+\newblock In {\em Proceedings of the 2010 7th IEEE International Conference on
+  Advanced Video and Signal Based Surveillance}, AVSS '10, pages 143--150,
+  Washington, DC, USA, 2010. IEEE Computer Society.
+
+\bibitem{patch2}
+Philipp Fischer, Alexey Dosovitskiy, Eddy Ilg, Philip H{\"{a}}usser, Caner
+  Hazirbas, Vladimir Golkov, Patrick van~der Smagt, Daniel Cremers, and Thomas
+  Brox.
+\newblock Flownet: Learning optical flow with convolutional networks.
+\newblock {\em CoRR}, abs/1504.06852, 2015.
+
+\bibitem{Fukushima}
+Kunihiko Fukushima.
+\newblock Neocognitron: A hierarchical neural network capable of visual pattern
+  recognition.
+\newblock {\em Neural Networks}, 1(2):119 -- 130, 1988.
+
+\bibitem{fastrcnn}
+Ross Girshick.
+\newblock Fast r-cnn.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  December 2015.
+
+\bibitem{rcnn}
+Ross Girshick, Jeff Donahue, Trevor Darrell, and Jitendra Malik.
+\newblock Rich feature hierarchies for accurate object detection and semantic
+  segmentation.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, June 2014.
+
+\bibitem{caviar}
+Doug Gray, Shane Brennan, and Hai Tao.
+\newblock Evaluating appearance models for recognition, reacquisition, and
+  tracking.
+\newblock In {\em In IEEE International Workshop on Performance Evaluation for
+  Tracking and Surveillance, Rio de Janeiro}, 2007.
+
+\bibitem{lbp}
+Douglas Gray and Hai Tao.
+\newblock {\em Viewpoint Invariant Pedestrian Recognition with an Ensemble of
+  Localized Features}, pages 262--275.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2008.
+
+\bibitem{faceCMC}
+Patrick Grother, Ross~J. Micheals, and P.~Jonathon Phillips.
+\newblock {\em Face Recognition Vendor Test 2002 Performance Metrics}, pages
+  937--945.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2003.
+
+\bibitem{harris}
+Chris Harris and Mike Stephens.
+\newblock A combined corner and edge detector.
+\newblock In {\em Alvey vision conference}, volume~15, pages 10--5244.
+  Citeseer, 1988.
+
+\bibitem{resnet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock {\em CoRR}, abs/1512.03385, 2015.
+
+\bibitem{thrun}
+David Held, Sebastian Thrun, and Silvio Savarese.
+\newblock Learning to track at 100 {FPS} with deep regression networks.
+\newblock {\em CoRR}, abs/1604.01802, 2016.
+
+\bibitem{hinton06}
+Geoffrey~E. Hinton, Simon Osindero, and Yee-Whye Teh.
+\newblock A fast learning algorithm for deep belief nets.
+\newblock {\em Neural Comput.}, 18(7):1527--1554, July 2006.
+
+\bibitem{prod11}
+Martin Hirzer, Csaba Beleznai, Peter~M. Roth, and Horst Bischof.
+\newblock Person re-identification by descriptive and discriminative
+  classification.
+\newblock In {\em Proc. Scandinavian Conference on Image Analysis (SCIA)},
+  2011.
+
+\bibitem{cnnComparision}
+Jonathan Huang, Vivek Rathod, Chen Sun, Menglong Zhu, Anoop Korattikara,
+  Alireza Fathi, Ian Fischer, Zbigniew Wojna, Yang Song, Sergio Guadarrama, and
+  Kevin Murphy.
+\newblock Speed/accuracy trade-offs for modern convolutional object detectors.
+\newblock {\em CoRR}, abs/1611.10012, 2016.
+
+\bibitem{yoloDark}
+{J. Redmon}.
+\newblock You only look once.
+\newblock \url{https://github.com/pjreddie/darknet} [2017-06-11], 2017.
+
+\bibitem{medianFlowPython}
+{Jay Rambhia}.
+\newblock Median flow tracker in python.
+\newblock \url{https://github.com/jayrambhia/MFTracker} [2015-08-15], 2015.
+
+\bibitem{medianFlow}
+Zdenek Kalal, Krystian Mikolajczyk, and Jiri Matas.
+\newblock Forward-backward error: Automatic detection of tracking failures.
+\newblock In {\em Pattern recognition (ICPR), 2010 20th international
+  conference on}, pages 2756--2759. IEEE, 2010.
+
+\bibitem{pvanet}
+Kye{-}Hyeon Kim, Yeongjae Cheon, Sanghoon Hong, Byung{-}Seok Roh, and Minje
+  Park.
+\newblock {PVANET:} deep but lightweight neural networks for real-time object
+  detection.
+\newblock {\em CoRR}, abs/1608.08021, 2016.
+
+\bibitem{siameseOne}
+Gregory Koch, Richard Zemel, and Ruslan Salakhutdinov.
+\newblock Siamese neural networks for one-shot image recognition.
+\newblock 2015.
+
+\bibitem{alexnet}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q. Weinberger,
+  editors, {\em Advances in Neural Information Processing Systems 25}, pages
+  1097--1105. Curran Associates, Inc., 2012.
+
+\bibitem{kiisme}
+M.~Köstinger, M.~Hirzer, P.~Wohlhart, P.~M. Roth, and H.~Bischof.
+\newblock Large scale metric learning from equivalence constraints.
+\newblock In {\em 2012 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 2288--2295, June 2012.
+
+\bibitem{patch3}
+Laura Leal{-}Taix{\'{e}}, Cristian Canton{-}Ferrer, and Konrad Schindler.
+\newblock Learning by tracking: Siamese {CNN} for robust target association.
+\newblock {\em CoRR}, abs/1604.07866, 2016.
+
+\bibitem{mot}
+Laura Leal{-}Taix{\'{e}}, Anton Milan, Ian~D. Reid, Stefan Roth, and Konrad
+  Schindler.
+\newblock Motchallenge 2015: Towards a benchmark for multi-target tracking.
+\newblock {\em CoRR}, abs/1504.01942, 2015.
+
+\bibitem{lecunZip}
+Y.~LeCun, B.~Boser, J.~S. Denker, D.~Henderson, R.~E. Howard, W.~Hubbard, and
+  L.~D. Jackel.
+\newblock Backpropagation applied to handwritten zip code recognition.
+\newblock {\em Neural Computation}, 1(4):541--551, Dec 1989.
+
+\bibitem{cuk2}
+W.~Li and X.~Wang.
+\newblock Locally aligned feature transforms across views.
+\newblock In {\em 2013 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 3594--3601, June 2013.
+
+\bibitem{cuk3}
+W.~Li, R.~Zhao, T.~Xiao, and X.~Wang.
+\newblock Deepreid: Deep filter pairing neural network for person
+  re-identification.
+\newblock In {\em 2014 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 152--159, June 2014.
+
+\bibitem{cuk1}
+Wei Li, Rui Zhao, and Xiaogang Wang.
+\newblock {\em Human Reidentification with Transferred Metric Learning}, pages
+  31--44.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2013.
+
+\bibitem{lda}
+Shengcai Liao, Yang Hu, and Stan~Z. Li.
+\newblock Joint dimension reduction and metric learning for person
+  re-identification.
+\newblock {\em CoRR}, abs/1406.4216, 2014.
+
+\bibitem{coco}
+Tsung{-}Yi Lin, Michael Maire, Serge~J. Belongie, Lubomir~D. Bourdev, Ross~B.
+  Girshick, James Hays, Pietro Perona, Deva Ramanan, Piotr Doll{\'{a}}r, and
+  C.~Lawrence Zitnick.
+\newblock Microsoft {COCO:} common objects in context.
+\newblock {\em CoRR}, abs/1405.0312, 2014.
+
+\bibitem{ssd}
+Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott~E. Reed,
+  Cheng{-}Yang Fu, and Alexander~C. Berg.
+\newblock {SSD:} single shot multibox detector.
+\newblock {\em CoRR}, abs/1512.02325, 2015.
+
+\bibitem{LucasKana}
+Bruce~D. Lucas and Takeo Kanade.
+\newblock An iterative image registration technique with an application to
+  stereo vision.
+\newblock In {\em Proceedings of the 7th International Joint Conference on
+  Artificial Intelligence - Volume 2}, IJCAI'81, pages 674--679, San Francisco,
+  CA, USA, 1981. Morgan Kaufmann Publishers Inc.
+
+\bibitem{EC1}
+{M. Chatterjee, Y. Luo}.
+\newblock Similarity learning with cnn.
+\newblock \url{http://slazebni.cs.illinois.edu/spring17/lec09_similarity.pdf}
+  [2016-12-15], 2016.
+
+\bibitem{raid}
+N.~Martinel and C.~Micheloni.
+\newblock Re-identify people in wide area camera network.
+\newblock In {\em 2012 IEEE Computer Society Conference on Computer Vision and
+  Pattern Recognition Workshops}, pages 31--36, June 2012.
+
+\bibitem{McCulloch}
+Warren~S. McCulloch and Walter Pitts.
+\newblock A logical calculus of the ideas immanent in nervous activity.
+\newblock {\em The bulletin of mathematical biophysics}, 5(4):115--133, 1943.
+
+\bibitem{pairwise}
+Alexis Mignon.
+\newblock Pcca: A new approach for distance learning from sparse pairwise
+  constraints.
+\newblock In {\em Proceedings of the 2012 IEEE Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, CVPR '12, pages 2666--2672, Washington, DC,
+  USA, 2012. IEEE Computer Society.
+
+\bibitem{minsky69perceptrons}
+Marvin Minsky and Seymour Papert.
+\newblock {\em Perceptrons: An Introduction to Computational Geometry}.
+\newblock MIT Press, Cambridge, MA, USA, 1969.
+
+\bibitem{deep1}
+Hyeonseob Nam and Bohyung Han.
+\newblock Learning multi-domain convolutional neural networks for visual
+  tracking.
+\newblock {\em CoRR}, abs/1510.07945, 2015.
+
+\bibitem{ssdCode}
+{Paul B.}
+\newblock Single shot detector tensorflow.
+\newblock \url{https://github.com/balancap/SSD-Tensorflow} [2017-02-21], 2017.
+
+\bibitem{alvin}
+Dean~A. Pomerleau.
+\newblock Alvinn: An autonomous land vehicle in a neural network.
+\newblock In D.~S. Touretzky, editor, {\em Advances in Neural Information
+  Processing Systems 1}, pages 305--313. Morgan-Kaufmann, 1989.
+
+\bibitem{yolo}
+Joseph Redmon, Santosh~Kumar Divvala, Ross~B. Girshick, and Ali Farhadi.
+\newblock You only look once: Unified, real-time object detection.
+\newblock {\em CoRR}, abs/1506.02640, 2015.
+
+\bibitem{fasterrcnn}
+Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun.
+\newblock Faster r-cnn: Towards real-time object detection with region proposal
+  networks.
+\newblock In C.~Cortes, N.~D. Lawrence, D.~D. Lee, M.~Sugiyama, and R.~Garnett,
+  editors, {\em Advances in Neural Information Processing Systems 28}, pages
+  91--99. Curran Associates, Inc., 2015.
+
+\bibitem{prid450}
+Peter~M. Roth, Martin Hirzer, Martin K{\"o}stinger, Csaba Beleznai, and Horst
+  Bischof.
+\newblock {\em Mahalanobis Distance Learning for Person Re-identification},
+  pages 247--267.
+\newblock Springer London, London, 2014.
+
+\bibitem{Rumelhart}
+D.~E. Rumelhart, G.~E. Hinton, and R.~J. Williams.
+\newblock Parallel distributed processing: Explorations in the microstructure
+  of cognition, vol. 1.
+\newblock chapter Learning Internal Representations by Error Propagation, pages
+  318--362. MIT Press, Cambridge, MA, USA, 1986.
+
+\bibitem{savaresee}
+Amir Sadeghian, Alexandre Alahi, and Silvio Savarese.
+\newblock Tracking the untrackable: Learning to track multiple cues with
+  long-term dependencies.
+\newblock {\em arXiv preprint arXiv:1701.01909}, 2017.
+
+\bibitem{salton}
+Gerard Salton and Michael~J. McGill.
+\newblock {\em Introduction to Modern Information Retrieval}.
+\newblock McGraw-Hill, Inc., New York, NY, USA, 1986.
+
+\bibitem{shi}
+Jianbo Shi and Carlo Tomasi.
+\newblock Good features to track.
+\newblock In {\em Computer Vision and Pattern Recognition, 1994. Proceedings
+  CVPR'94., 1994 IEEE Computer Society Conference on}, pages 593--600. IEEE,
+  1994.
+
+\bibitem{siameDescri}
+Edgar Simo-Serra, Eduard Trulls, Luis Ferraz, Iasonas Kokkinos, Pascal Fua, and
+  Francesc Moreno-Noguer.
+\newblock Discriminative learning of deep convolutional feature point
+  descriptors.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  December 2015.
+
+\bibitem{visualTrackingSurvey}
+A.~W.~M. Smeulders, D.~M. Chu, R.~Cucchiara, S.~Calderara, A.~Dehghan, and
+  M.~Shah.
+\newblock Visual tracking: An experimental survey.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  36(7):1442--1468, July 2014.
+
+\bibitem{clear}
+Rainer Stiefelhagen, Keni Bernardin, Rachel Bowers, John Garofolo, Djamel
+  Mostefa, and Padmanabhan Soundararajan.
+\newblock {\em The CLEAR 2006 Evaluation}, pages 1--44.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2007.
+
+\bibitem{inception}
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
+  Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich.
+\newblock Going deeper with convolutions.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR)}, 2015.
+
+\bibitem{trackingSiamese}
+Ran Tao, Efstratios Gavves, and Arnold W.~M. Smeulders.
+\newblock Siamese instance search for tracking.
+\newblock {\em CoRR}, abs/1605.05863, 2016.
+
+\bibitem{Gammon}
+Gerald Tesauro.
+\newblock Temporal difference learning and td-gammon.
+\newblock {\em Commun. ACM}, 38(3):58--68, March 1995.
+
+\bibitem{viper}
+{UC Santa Cruz}.
+\newblock Viper: Viewpoint invariant pedestrian recognition.
+\newblock \url{https://vision.soe.ucsc.edu/node/178} [2016-12-15], 2007.
+
+\bibitem{grid}
+{University of London}.
+\newblock Qmul underground re-identification.
+\newblock
+  \url{http://personal.ie.cuhk.edu.hk/~ccloy/downloads_qmul_underground_reid.html}
+  [2016-12-15], 2009.
+
+\bibitem{townCenter}
+{University of Oxford}.
+\newblock Town centre dataset.
+\newblock
+  \url{http://www.robots.ox.ac.uk/ActiveVision/Research/Projects/2009bbenfold_headpose/project.html#datasets}
+  [2017-02-21], 2011.
+
+\bibitem{bagword}
+Joost van~de Weijer, Cordelia Schmid, Jakob Verbeek, and Diane Larlus.
+\newblock Learning color names for real-world applications.
+\newblock {\em Trans. Img. Proc.}, 18(7):1512--1523, July 2009.
+
+\bibitem{siameseQuer}
+Nam~N. Vo and James Hays.
+\newblock Localizing and orienting street views using overhead imagery.
+\newblock {\em CoRR}, abs/1608.00161, 2016.
+
+\bibitem{Waibel}
+Alexander Waibel, Toshiyuki Hanazawa, Geofrey Hinton, Kiyohiro Shikano, and
+  Kevin~J. Lang.
+\newblock Readings in speech recognition.
+\newblock chapter Phoneme Recognition Using Time-delay Neural Networks, pages
+  393--404. Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1990.
+
+\bibitem{lids}
+T.~Wang, S.~Gong, X.~Zhu, and S.~Wang.
+\newblock Person re-identification by discriminative selection in video
+  ranking.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  38(12):2501--2514, Dec 2016.
+
+\bibitem{ssdCode2}
+{Wei Lee}.
+\newblock Single shot detector caffe.
+\newblock \url{https://github.com/weiliu89} [2017-02-21], 2017.
+
+\bibitem{lnnn}
+Kilian~Q. Weinberger and Lawrence~K. Saul.
+\newblock Distance metric learning for large margin nearest neighbor
+  classification.
+\newblock {\em J. Mach. Learn. Res.}, 10:207--244, June 2009.
+
+\bibitem{adaline}
+B~Widrow.
+\newblock An adaptive ‘adaline’neuron using chemical ‘memistors’,
+  1553--1552, 1960.
+
+\bibitem{wu}
+Bo~Wu and R.~Nevatia.
+\newblock Tracking of multiple, partially occluded humans based on static body
+  part detection.
+\newblock In {\em 2006 IEEE Computer Society Conference on Computer Vision and
+  Pattern Recognition (CVPR'06)}, volume~1, pages 951--958, June 2006.
+
+\bibitem{patch1}
+Sergey Zagoruyko and Nikos Komodakis.
+\newblock Learning to compare image patches via convolutional neural networks.
+\newblock {\em CoRR}, abs/1504.03641, 2015.
+
+\bibitem{sift}
+R.~Zhao, W.~Ouyang, and X.~Wang.
+\newblock Learning mid-level filters for person re-identification.
+\newblock In {\em 2014 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 144--151, June 2014.
+
+\bibitem{market}
+Liang Zheng, Liyue Shen, Lu~Tian, Shengjin Wang, Jingdong Wang, and Qi~Tian.
+\newblock Scalable person re-identification: A benchmark.
+\newblock In {\em Computer Vision, IEEE International Conference on}, 2015.
+
+\bibitem{pastPresent}
+Liang Zheng, Yi~Yang, and Alexander~G. Hauptmann.
+\newblock Person re-identification: Past, present and future.
+\newblock {\em CoRR}, abs/1610.02984, 2016.
+
+\end{thebibliography}
