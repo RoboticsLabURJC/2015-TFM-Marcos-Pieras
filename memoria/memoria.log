@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  16 JUN 2017 10:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  18 JUN 2017 23:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -750,9 +750,6 @@ LaTeX Warning: Unused global option(s):
 
 (./memoria.aux
 
-LaTeX Warning: Label `corner' multiply defined.
-
-
 LaTeX Warning: Label `track1w' multiply defined.
 
 
@@ -863,7 +860,7 @@ LaTeX Info: Redefining \nameref on input line 34.
 \c@lstlisting=\count148
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- <Logo_URJC.png, id=156, 1027.84pt x 1027.84pt>
+ <Logo_URJC.png, id=160, 1027.84pt x 1027.84pt>
 File: Logo_URJC.png Graphic file (type png)
 
 <use Logo_URJC.png>
@@ -890,7 +887,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Warning: Citation `rosenblat' on page 3 undefined on input line 90.
 
-<intro/model.png, id=217, 686.26387pt x 398.08725pt>
+<intro/model.png, id=222, 686.26387pt x 398.08725pt>
 File: intro/model.png Graphic file (type png)
  <use intro/model.png>
 Package pdftex.def Info: intro/model.png used on input line 101.
@@ -909,11 +906,12 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
- [4 <./intro/model.png>] <intro/figure_1.png, id=248, 2681.217pt x 1501.7706pt>
-File: intro/figure_1.png Graphic file (type png)
+ [4 <./intro/model.png>] <intro/iamgeWihtou.png, id=253, 2681.217pt x 1501.7706
+pt>
+File: intro/iamgeWihtou.png Graphic file (type png)
 
-<use intro/figure_1.png>
-Package pdftex.def Info: intro/figure_1.png used on input line 156.
+<use intro/iamgeWihtou.png>
+Package pdftex.def Info: intro/iamgeWihtou.png used on input line 156.
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
 
 Overfull \hbox (0.67188pt too wide) in paragraph at lines 168--169
@@ -921,605 +919,588 @@ Overfull \hbox (0.67188pt too wide) in paragraph at lines 168--169
  com-put-ing ca-pa-bil-i-ties helped train larger
  []
 
-[5 <./intro/figure_1.png>]
-<intro/deteccions.jpg, id=271, 1927.2pt x 1084.05pt>
+[5 <./intro/iamgeWihtou.png>]
+Overfull \hbox (2.96642pt too wide) in paragraph at lines 223--224
+\OT1/cmr/m/n/12 Besides of the pre-vi-ous stated ob-jec-tives, the so-lu-tion m
+ust guar-an-tee the next re-quirments: 
+ []
+
+[6] <intro/deteccions.jpg, id=283, 1927.2pt x 1084.05pt>
 File: intro/deteccions.jpg Graphic file (type jpg)
 
 <use intro/deteccions.jpg>
-Package pdftex.def Info: intro/deteccions.jpg used on input line 231.
+Package pdftex.def Info: intro/deteccions.jpg used on input line 249.
 (pdftex.def)             Requested size: 130.88284pt x 73.60855pt.
- <intro/pounts.jpg, id=272, 1927.2pt x 1084.05pt>
+ <intro/pounts.jpg, id=284, 1927.2pt x 1084.05pt>
 File: intro/pounts.jpg Graphic file (type jpg)
 
 <use intro/pounts.jpg>
-Package pdftex.def Info: intro/pounts.jpg used on input line 232.
+Package pdftex.def Info: intro/pounts.jpg used on input line 250.
 (pdftex.def)             Requested size: 130.88284pt x 73.60855pt.
- <intro/alcover2.png, id=273, 583.27913pt x 325.215pt>
+ <intro/alcover2.png, id=285, 583.27913pt x 325.215pt>
 File: intro/alcover2.png Graphic file (type png)
 
 <use intro/alcover2.png>
-Package pdftex.def Info: intro/alcover2.png used on input line 233.
+Package pdftex.def Info: intro/alcover2.png used on input line 251.
 (pdftex.def)             Requested size: 130.88284pt x 72.97668pt.
- <intro/out2.png, id=274, 128.48pt x 256.96pt>
+ <intro/out2.png, id=286, 128.48pt x 256.96pt>
 File: intro/out2.png Graphic file (type png)
 
 <use intro/out2.png>
-Package pdftex.def Info: intro/out2.png used on input line 234.
+Package pdftex.def Info: intro/out2.png used on input line 252.
 (pdftex.def)             Requested size: 36.9877pt x 73.97733pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--234
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
 []\OT1/cmr/m/n/10 (d)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--234
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
 \OT1/cmr/m/n/10 Iden-tity
  []
 
+<intro/objesName.png, id=288, 2681.217pt x 1501.7706pt>
+File: intro/objesName.png Graphic file (type png)
 
-Underfull \vbox (badness 1584) has occurred while \output is active []
-
- [6]
-<intro/figure_1-22.png, id=284, 2681.217pt x 1501.7706pt>
-File: intro/figure_1-22.png Graphic file (type png)
-
-<use intro/figure_1-22.png>
-Package pdftex.def Info: intro/figure_1-22.png used on input line 253.
+<use intro/objesName.png>
+Package pdftex.def Info: intro/objesName.png used on input line 271.
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
-
-<objectDetection/compFaster.png, id=287, 699.21225pt x 330.63525pt>
-File: objectDetection/compFaster.png Graphic file (type png)
-
-<use objectDetection/compFaster.png>
-Package pdftex.def Info: objectDetection/compFaster.png used on input line 267.
-
-(pdftex.def)             Requested size: 142.26378pt x 67.2711pt.
-
-<objectDetection/compSSD.png, id=288, 710.655pt x 317.08463pt>
-File: objectDetection/compSSD.png Graphic file (type png)
-
-<use objectDetection/compSSD.png>
-Package pdftex.def Info: objectDetection/compSSD.png used on input line 268.
-(pdftex.def)             Requested size: 142.26378pt x 63.47385pt.
-
-<objectDetection/compRFCN.png, id=289, 697.70662pt x 338.16338pt>
-File: objectDetection/compRFCN.png Graphic file (type png)
-
-<use objectDetection/compRFCN.png>
-Package pdftex.def Info: objectDetection/compRFCN.png used on input line 269.
-(pdftex.def)             Requested size: 142.26378pt x 68.94725pt.
  [7 <./intro/deteccions.jpg> <./intro/pounts.jpg> <./intro/alcover2.png> <./int
-ro/out2.png (PNG copy)> <./intro/figure_1-22.png> <./objectDetection/compFaster
-.png> <./objectDetection/compSSD.png> <./objectDetection/compRFCN.png>]
-<objectDetection/retall1.png, id=322, 346.29375pt x 311.06212pt>
+ro/out2.png (PNG copy)> <./intro/objesName.png>]
+<objectDetection/retall1.png, id=319, 346.29375pt x 311.06212pt>
 File: objectDetection/retall1.png Graphic file (type png)
 
 <use objectDetection/retall1.png>
-Package pdftex.def Info: objectDetection/retall1.png used on input line 290.
+Package pdftex.def Info: objectDetection/retall1.png used on input line 308.
 (pdftex.def)             Requested size: 199.16928pt x 178.91153pt.
 
-<objectDetection/retall2.png, id=323, 346.29375pt x 311.06212pt>
+<objectDetection/retall2.png, id=320, 346.29375pt x 311.06212pt>
 File: objectDetection/retall2.png Graphic file (type png)
 
 <use objectDetection/retall2.png>
-Package pdftex.def Info: objectDetection/retall2.png used on input line 291.
+Package pdftex.def Info: objectDetection/retall2.png used on input line 309.
 (pdftex.def)             Requested size: 199.16928pt x 178.91153pt.
 
-<objectDetection/ssdArchitecture2.png, id=324, 738.65962pt x 271.31363pt>
+<objectDetection/ssdArchitecture2.png, id=321, 738.65962pt x 271.31363pt>
 File: objectDetection/ssdArchitecture2.png Graphic file (type png)
 
 <use objectDetection/ssdArchitecture2.png>
 Package pdftex.def Info: objectDetection/ssdArchitecture2.png used on input lin
-e 301.
+e 319.
 (pdftex.def)             Requested size: 341.43306pt x 125.4102pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <./objectDetection/retall1.png> <./objectDetection/retall2.png>]
-<objectDetection/comparisionTensor.png, id=347, 697.70662pt x 421.27388pt>
+ [8 <./objectDetection/retall1.png> <./objectDetection/retall2.png> <./objectDe
+tection/ssdArchitecture2.png>]
+<objectDetection/comparisionTensor.png, id=342, 697.70662pt x 421.27388pt>
 File: objectDetection/comparisionTensor.png Graphic file (type png)
 
 <use objectDetection/comparisionTensor.png>
 Package pdftex.def Info: objectDetection/comparisionTensor.png used on input li
-ne 340.
+ne 358.
 (pdftex.def)             Requested size: 409.71692pt x 247.39236pt.
- [9 <./objectDetection/ssdArchitecture2.png> <./objectDetection/comparisionTens
-or.png>]
-<lucasKanade/flat.png, id=358, 278.54062pt x 274.626pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9 <./objectDetection/comparisionTensor.png>]
+<lucasKanade/flat.png, id=352, 278.54062pt x 274.626pt>
 File: lucasKanade/flat.png Graphic file (type png)
 
 <use lucasKanade/flat.png>
-Package pdftex.def Info: lucasKanade/flat.png used on input line 404.
+Package pdftex.def Info: lucasKanade/flat.png used on input line 422.
 (pdftex.def)             Requested size: 142.26378pt x 140.26692pt.
 
-<lucasKanade/edge.png, id=359, 274.626pt x 275.22826pt>
+<lucasKanade/edge.png, id=353, 274.626pt x 275.22826pt>
 File: lucasKanade/edge.png Graphic file (type png)
 
 <use lucasKanade/edge.png>
-Package pdftex.def Info: lucasKanade/edge.png used on input line 405.
+Package pdftex.def Info: lucasKanade/edge.png used on input line 423.
 (pdftex.def)             Requested size: 142.26378pt x 142.57356pt.
 
-<lucasKanade/corner.png, id=360, 272.81924pt x 268.6035pt>
+<lucasKanade/corner.png, id=354, 272.81924pt x 268.6035pt>
 File: lucasKanade/corner.png Graphic file (type png)
 
 <use lucasKanade/corner.png>
-Package pdftex.def Info: lucasKanade/corner.png used on input line 406.
+Package pdftex.def Info: lucasKanade/corner.png used on input line 424.
 (pdftex.def)             Requested size: 142.26378pt x 140.06808pt.
- [10] [11 <./lucasKanade/flat.png> <./lucasKanade/edge.png> <./lucasKanade/corn
-er.png>]
-<lucasKanade/harrisMillora.png, id=378, 424.28513pt x 402.60413pt>
-File: lucasKanade/harrisMillora.png Graphic file (type png)
 
-<use lucasKanade/harrisMillora.png>
-Package pdftex.def Info: lucasKanade/harrisMillora.png used on input line 452.
-(pdftex.def)             Requested size: 273.14923pt x 259.18927pt.
+Underfull \vbox (badness 2197) has occurred while \output is active []
 
-<lucasKanade/retall1g.png, id=382, 1171.37625pt x 890.32625pt>
+ [10]
+[11 <./lucasKanade/flat.png> <./lucasKanade/edge.png> <./lucasKanade/corner.png
+>] <lucasKanade/retall1g.png, id=374, 1171.37625pt x 890.32625pt>
 File: lucasKanade/retall1g.png Graphic file (type png)
 
 <use lucasKanade/retall1g.png>
-Package pdftex.def Info: lucasKanade/retall1g.png used on input line 480.
+Package pdftex.def Info: lucasKanade/retall1g.png used on input line 500.
 (pdftex.def)             Requested size: 142.26378pt x 108.12514pt.
 
-<lucasKanade/retall2g.png, id=383, 1171.37625pt x 890.32625pt>
+<lucasKanade/retall2g.png, id=375, 1171.37625pt x 890.32625pt>
 File: lucasKanade/retall2g.png Graphic file (type png)
 
 <use lucasKanade/retall2g.png>
-Package pdftex.def Info: lucasKanade/retall2g.png used on input line 481.
+Package pdftex.def Info: lucasKanade/retall2g.png used on input line 501.
 (pdftex.def)             Requested size: 142.26378pt x 108.12514pt.
- [12 <./lucasKanade/harrisMillora.png>] [13 <./lucasKanade/retall1g.png (PNG co
-py)> <./lucasKanade/retall2g.png (PNG copy)>]
+ [12 <./lucasKanade/retall1g.png (PNG copy)> <./lucasKanade/retall2g.png (PNG c
+opy)>]
 
-LaTeX Warning: Citation `horn' on page 14 undefined on input line 522.
+LaTeX Warning: Citation `horn' on page 13 undefined on input line 542.
 
-[14] <lucasKanade/piram.png, id=411, 723.30225pt x 440.847pt>
+[13] <lucasKanade/piram.png, id=396, 723.30225pt x 440.847pt>
 File: lucasKanade/piram.png Graphic file (type png)
 
 <use lucasKanade/piram.png>
-Package pdftex.def Info: lucasKanade/piram.png used on input line 603.
+Package pdftex.def Info: lucasKanade/piram.png used on input line 642.
 (pdftex.def)             Requested size: 273.14923pt x 166.48094pt.
- [15 <./lucasKanade/piram.png>]
-<siamese/retall1.png, id=432, 803.0pt x 1067.99pt>
-File: siamese/retall1.png Graphic file (type png)
- <use siamese/retall1.png>
-Package pdftex.def Info: siamese/retall1.png used on input line 659.
-(pdftex.def)             Requested size: 85.35826pt x 113.51929pt.
+ [14] [15 <./lucasKanade/piram.png>]
 
-<siamese/retall2.png, id=433, 803.0pt x 1067.99pt>
-File: siamese/retall2.png Graphic file (type png)
- <use siamese/retall2.png>
-Package pdftex.def Info: siamese/retall2.png used on input line 660.
-(pdftex.def)             Requested size: 85.35826pt x 113.51929pt.
+LaTeX Warning: Citation `ahmed' on page 16 undefined on input line 701.
 
-<siamese/retall3.png, id=434, 803.0pt x 1067.99pt>
-File: siamese/retall3.png Graphic file (type png)
- <use siamese/retall3.png>
-Package pdftex.def Info: siamese/retall3.png used on input line 661.
-(pdftex.def)             Requested size: 85.35826pt x 113.51929pt.
 
-[16] [17 <./siamese/retall1.png (PNG copy)> <./siamese/retall2.png (PNG copy)> 
-<./siamese/retall3.png (PNG copy)>]
-<flows/arc.png, id=472, 340.27126pt x 658.46pt>
+LaTeX Warning: Citation `lealTaixe' on page 16 undefined on input line 703.
+
+[16] <flows/arc.png, id=450, 340.27126pt x 658.46pt>
 File: flows/arc.png Graphic file (type png)
  <use flows/arc.png>
-Package pdftex.def Info: flows/arc.png used on input line 705.
+Package pdftex.def Info: flows/arc.png used on input line 728.
 (pdftex.def)             Requested size: 170.71652pt x 330.35449pt.
 
-<flows/detetc.png, id=473, 359.3425pt x 392.46625pt>
+<flows/detetc.png, id=451, 339.2675pt x 520.94624pt>
 File: flows/detetc.png Graphic file (type png)
  <use flows/detetc.png>
-Package pdftex.def Info: flows/detetc.png used on input line 707.
-(pdftex.def)             Requested size: 170.71652pt x 186.45932pt.
+Package pdftex.def Info: flows/detetc.png used on input line 730.
+(pdftex.def)             Requested size: 170.71652pt x 262.13382pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
 File: intro/deteccions.jpg Graphic file (type jpg)
 
 <use intro/deteccions.jpg>
-Package pdftex.def Info: intro/deteccions.jpg used on input line 725.
+Package pdftex.def Info: intro/deteccions.jpg used on input line 748.
 (pdftex.def)             Requested size: 284.52756pt x 160.03659pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [18 <./flows/arc.png> <./flows/detetc.png>]
-<objectDetection/det.png, id=486, 2681.217pt x 1501.7706pt>
+<objectDetection/det.png, id=468, 2681.217pt x 1501.7706pt>
 File: objectDetection/det.png Graphic file (type png)
 
 <use objectDetection/det.png>
-Package pdftex.def Info: objectDetection/det.png used on input line 739.
+Package pdftex.def Info: objectDetection/det.png used on input line 762.
 (pdftex.def)             Requested size: 426.79134pt x 239.05078pt.
- [19 <./objectDetection/det.png>]
 File: intro/pounts.jpg Graphic file (type jpg)
-
-<use intro/pounts.jpg>
-Package pdftex.def Info: intro/pounts.jpg used on input line 775.
+ <use intro/pounts.jpg>
+Package pdftex.def Info: intro/pounts.jpg used on input line 798.
 (pdftex.def)             Requested size: 199.16928pt x 112.01733pt.
 File: intro/alcover2.png Graphic file (type png)
  <use intro/alcover2.png>
-Package pdftex.def Info: intro/alcover2.png used on input line 776.
+Package pdftex.def Info: intro/alcover2.png used on input line 799.
 (pdftex.def)             Requested size: 199.16928pt x 111.04802pt.
 
-<changeCamera/tomeu.png, id=502, 2071.74pt x 501.875pt>
+[19 <./objectDetection/det.png>]
+<changeCamera/tomeu.png, id=487, 2071.74pt x 501.875pt>
 File: changeCamera/tomeu.png Graphic file (type png)
 
 <use changeCamera/tomeu.png>
-Package pdftex.def Info: changeCamera/tomeu.png used on input line 793.
+Package pdftex.def Info: changeCamera/tomeu.png used on input line 816.
 (pdftex.def)             Requested size: 409.71692pt x 99.24748pt.
 
-<changeCamera/out2.png, id=504, 2192.19pt x 501.875pt>
+<changeCamera/out2.png, id=489, 2192.19pt x 501.875pt>
 File: changeCamera/out2.png Graphic file (type png)
 
 <use changeCamera/out2.png>
-Package pdftex.def Info: changeCamera/out2.png used on input line 801.
+Package pdftex.def Info: changeCamera/out2.png used on input line 824.
 (pdftex.def)             Requested size: 409.71692pt x 93.795pt.
- [20 <./changeCamera/tomeu.png (PNG copy)>]
+ [20 <./changeCamera/tomeu.png (PNG copy)> <./changeCamera/out2.png (PNG copy)>
+]
 
-LaTeX Warning: Reference `prepoe' on page 21 undefined on input line 831.
+LaTeX Warning: Reference `prepoe' on page 21 undefined on input line 854.
 
-<tracker/preprocesing.png, id=521, 2681.217pt x 1501.7706pt>
+<tracker/preprocesing.png, id=505, 2681.217pt x 1501.7706pt>
 File: tracker/preprocesing.png Graphic file (type png)
 
 <use tracker/preprocesing.png>
-Package pdftex.def Info: tracker/preprocesing.png used on input line 836.
+Package pdftex.def Info: tracker/preprocesing.png used on input line 859.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
 
-Underfull \vbox (badness 6842) has occurred while \output is active []
-
- [21 <./changeCamera/out2.png (PNG copy)>]
-<implementation/pointsSIN_EQU.jpg, id=529, 135.50626pt x 326.21875pt>
+<implementation/pointsSIN_EQU.jpg, id=507, 135.50626pt x 326.21875pt>
 File: implementation/pointsSIN_EQU.jpg Graphic file (type jpg)
 
 <use implementation/pointsSIN_EQU.jpg>
-Package pdftex.def Info: implementation/pointsSIN_EQU.jpg used on input line 84
-6.
+Package pdftex.def Info: implementation/pointsSIN_EQU.jpg used on input line 86
+9.
 (pdftex.def)             Requested size: 85.35826pt x 205.49898pt.
 
-<implementation/pointsEQU.jpg, id=530, 135.50626pt x 326.21875pt>
+<implementation/pointsEQU.jpg, id=508, 135.50626pt x 326.21875pt>
 File: implementation/pointsEQU.jpg Graphic file (type jpg)
 
 <use implementation/pointsEQU.jpg>
-Package pdftex.def Info: implementation/pointsEQU.jpg used on input line 847.
+Package pdftex.def Info: implementation/pointsEQU.jpg used on input line 870.
 (pdftex.def)             Requested size: 85.35826pt x 205.49898pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22 <./tracker/preprocesing.png> <./implementation/pointsSIN_EQU.jpg> <./imple
-mentation/pointsEQU.jpg>] <tracker/forwardBack.png, id=541, 914.2155pt x 268.90
-463pt>
+ [21 <./tracker/preprocesing.png>]
+<tracker/forwardBack.png, id=516, 914.2155pt x 268.90463pt>
 File: tracker/forwardBack.png Graphic file (type png)
 
 <use tracker/forwardBack.png>
-Package pdftex.def Info: tracker/forwardBack.png used on input line 889.
+Package pdftex.def Info: tracker/forwardBack.png used on input line 912.
 (pdftex.def)             Requested size: 199.16928pt x 58.58064pt.
 
-<tracker/forwardBack2.png, id=542, 716.07526pt x 311.06212pt>
+<tracker/forwardBack2.png, id=517, 716.07526pt x 311.06212pt>
 File: tracker/forwardBack2.png Graphic file (type png)
 
 <use tracker/forwardBack2.png>
-Package pdftex.def Info: tracker/forwardBack2.png used on input line 890.
+Package pdftex.def Info: tracker/forwardBack2.png used on input line 913.
 (pdftex.def)             Requested size: 199.16928pt x 86.51773pt.
-
-<implementation/matching.png, id=543, 987.2082pt x 1172.9421pt>
+ [22 <./implementation/pointsSIN_EQU.jpg> <./implementation/pointsEQU.jpg> <./t
+racker/forwardBack.png> <./tracker/forwardBack2.png>] <implementation/matching.
+png, id=530, 987.2082pt x 1172.9421pt>
 File: implementation/matching.png Graphic file (type png)
 
 <use implementation/matching.png>
-Package pdftex.def Info: implementation/matching.png used on input line 916.
+Package pdftex.def Info: implementation/matching.png used on input line 939.
 (pdftex.def)             Requested size: 136.57462pt x 162.25993pt.
- [23 <./tracker/forwardBack.png> <./tracker/forwardBack2.png>]
-<implementation/reejctMore.png, id=553, 135.50626pt x 326.21875pt>
+
+<implementation/reejctMore.png, id=531, 135.50626pt x 326.21875pt>
 File: implementation/reejctMore.png Graphic file (type png)
 
 <use implementation/reejctMore.png>
-Package pdftex.def Info: implementation/reejctMore.png used on input line 927.
+Package pdftex.def Info: implementation/reejctMore.png used on input line 950.
 (pdftex.def)             Requested size: 71.13188pt x 171.24748pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 927--927
+Underfull \hbox (badness 10000) in paragraph at lines 950--950
 []\OT1/cmr/m/n/10 (a) Im-age
  []
 
-<implementation/filterVeloPoints.png, id=554, 2681.217pt x 1501.7706pt>
+<implementation/filterVeloPoints.png, id=532, 2681.217pt x 1501.7706pt>
 File: implementation/filterVeloPoints.png Graphic file (type png)
 
 <use implementation/filterVeloPoints.png>
 Package pdftex.def Info: implementation/filterVeloPoints.png used on input line
- 928.
+ 951.
 (pdftex.def)             Requested size: 369.88582pt x 207.17583pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6658) has occurred while \output is active []
 
- [24 <./implementation/matching.png> <./implementation/reejctMore.png (PNG copy
-)> <./implementation/filterVeloPoints.png>]
-<lucasKanade/dataAssociation.jpg, id=566, 1927.2pt x 1084.05pt>
+ [23 <./implementation/matching.png>]
+<lucasKanade/dataAssociation.jpg, id=540, 1927.2pt x 1084.05pt>
 File: lucasKanade/dataAssociation.jpg Graphic file (type jpg)
 
 <use lucasKanade/dataAssociation.jpg>
-Package pdftex.def Info: lucasKanade/dataAssociation.jpg used on input line 972
+Package pdftex.def Info: lucasKanade/dataAssociation.jpg used on input line 990
 .
 (pdftex.def)             Requested size: 341.43306pt x 192.0439pt.
- [25 <./lucasKanade/dataAssociation.jpg>]
+ [24 <./implementation/reejctMore.png (PNG copy)> <./implementation/filterVeloP
+oints.png>]
+<siamese/retall1.png, id=551, 803.0pt x 1067.99pt>
 File: siamese/retall1.png Graphic file (type png)
+ <use siamese/retall1.png>
+Package pdftex.def Info: siamese/retall1.png used on input line 1031.
+(pdftex.def)             Requested size: 76.82234pt x 102.16084pt.
 
-<use siamese/retall1.png>
-Package pdftex.def Info: siamese/retall1.png used on input line 1007.
-(pdftex.def)             Requested size: 85.35826pt x 113.51929pt.
+Underfull \hbox (badness 10000) in paragraph at lines 1031--1031
+[]\OT1/cmr/m/n/10 (a) Cost func-
+ []
+
+<siamese/retall2.png, id=552, 803.0pt x 1067.99pt>
 File: siamese/retall2.png Graphic file (type png)
  <use siamese/retall2.png>
-Package pdftex.def Info: siamese/retall2.png used on input line 1008.
-(pdftex.def)             Requested size: 85.35826pt x 113.51929pt.
+Package pdftex.def Info: siamese/retall2.png used on input line 1032.
+(pdftex.def)             Requested size: 76.82234pt x 102.16084pt.
+
+<siamese/retall3.png, id=553, 803.0pt x 1067.99pt>
 File: siamese/retall3.png Graphic file (type png)
  <use siamese/retall3.png>
-Package pdftex.def Info: siamese/retall3.png used on input line 1009.
-(pdftex.def)             Requested size: 85.35826pt x 113.51929pt.
+Package pdftex.def Info: siamese/retall3.png used on input line 1033.
+(pdftex.def)             Requested size: 76.82234pt x 102.16084pt.
 
-<siamese/cosineDistance.png, id=573, 240.9pt x 320.397pt>
+Underfull \hbox (badness 2856) in paragraph at lines 1033--1033
+[]\OT1/cmr/m/n/10 (c) In-put stack-
+ []
+
+<siamese/cosineDistance.png, id=554, 240.9pt x 320.397pt>
 File: siamese/cosineDistance.png Graphic file (type png)
 
 <use siamese/cosineDistance.png>
-Package pdftex.def Info: siamese/cosineDistance.png used on input line 1010.
-(pdftex.def)             Requested size: 85.35826pt x 113.52417pt.
+Package pdftex.def Info: siamese/cosineDistance.png used on input line 1034.
+(pdftex.def)             Requested size: 76.82234pt x 102.17224pt.
 
-Underfull \hbox (badness 3942) in paragraph at lines 1010--1010
-[]\OT1/cmr/m/n/10 (d) Fea-tures with
- []
-
-<siamese/retall2cnnMAss.png, id=574, 240.9pt x 320.397pt>
+<siamese/retall2cnnMAss.png, id=555, 240.9pt x 320.397pt>
 File: siamese/retall2cnnMAss.png Graphic file (type png)
 
 <use siamese/retall2cnnMAss.png>
-Package pdftex.def Info: siamese/retall2cnnMAss.png used on input line 1011.
-(pdftex.def)             Requested size: 85.35826pt x 113.52417pt.
+Package pdftex.def Info: siamese/retall2cnnMAss.png used on input line 1035.
+(pdftex.def)             Requested size: 76.82234pt x 102.17224pt.
 
-<dataAugmentation/resizedImage.jpg, id=576, 64.24pt x 128.48pt>
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1035
+[]\OT1/cmr/m/n/10 (e) Cnn fine-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25 <./lucasKanade/dataAssociation.jpg>]
+<siameseDev/pool.jpg, id=562, 1014.79124pt x 431.36156pt>
+File: siameseDev/pool.jpg Graphic file (type jpg)
+
+<use siameseDev/pool.jpg>
+Package pdftex.def Info: siameseDev/pool.jpg used on input line 1070.
+(pdftex.def)             Requested size: 99.58464pt x 42.32909pt.
+File: siameseDev/pool.jpg Graphic file (type jpg)
+ <use siameseDev/pool.jpg>
+Package pdftex.def Info: siameseDev/pool.jpg used on input line 1071.
+(pdftex.def)             Requested size: 99.58464pt x 42.32909pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1071--1071
+[]\OT1/cmr/m/n/10 (b) Global av-er-age
+ []
+
+<siameseDev/spp.png, id=563, 914.41624pt x 619.31375pt>
+File: siameseDev/spp.png Graphic file (type png)
+
+<use siameseDev/spp.png>
+Package pdftex.def Info: siameseDev/spp.png used on input line 1072.
+(pdftex.def)             Requested size: 76.82234pt x 52.02199pt.
+ [26 <./siamese/retall1.png (PNG copy)> <./siamese/retall2.png (PNG copy)> <./s
+iamese/retall3.png (PNG copy)> <./siamese/cosineDistance.png> <./siamese/retall
+2cnnMAss.png> <./siameseDev/pool.jpg> <./siameseDev/spp.png>] <dataAugmentation
+/resizedImage.jpg, id=580, 64.24pt x 128.48pt>
 File: dataAugmentation/resizedImage.jpg Graphic file (type jpg)
 
 <use dataAugmentation/resizedImage.jpg>
 Package pdftex.def Info: dataAugmentation/resizedImage.jpg used on input line 1
-035.
+108.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1035--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1108
 []\OT1/cmr/m/n/10 (a) Orig-i-nal
  []
 
-<dataAugmentation/imageBrightnes.jpg, id=577, 64.24pt x 128.48pt>
+<dataAugmentation/imageBrightnes.jpg, id=581, 64.24pt x 128.48pt>
 File: dataAugmentation/imageBrightnes.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageBrightnes.jpg>
 Package pdftex.def Info: dataAugmentation/imageBrightnes.jpg used on input line
- 1036.
+ 1109.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1036
+Underfull \hbox (badness 10000) in paragraph at lines 1109--1109
 []\OT1/cmr/m/n/10 (b) Ran-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1036
+Underfull \hbox (badness 10000) in paragraph at lines 1109--1109
 \OT1/cmr/m/n/10 dom im-age
  []
 
-<dataAugmentation/imageRandomCrop.jpg, id=578, 64.24pt x 128.48pt>
+<dataAugmentation/imageRandomCrop.jpg, id=582, 64.24pt x 128.48pt>
 File: dataAugmentation/imageRandomCrop.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageRandomCrop.jpg>
 Package pdftex.def Info: dataAugmentation/imageRandomCrop.jpg used on input lin
-e 1037.
+e 1110.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1037--1037
+Underfull \hbox (badness 10000) in paragraph at lines 1110--1110
 []\OT1/cmr/m/n/10 (c) Ran-dom
  []
 
-<dataAugmentation/imageVerticalFlip.jpg, id=579, 64.24pt x 128.48pt>
+<dataAugmentation/imageVerticalFlip.jpg, id=583, 64.24pt x 128.48pt>
 File: dataAugmentation/imageVerticalFlip.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageVerticalFlip.jpg>
 Package pdftex.def Info: dataAugmentation/imageVerticalFlip.jpg used on input l
-ine 1038.
+ine 1111.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1038--1038
+Underfull \hbox (badness 10000) in paragraph at lines 1111--1111
 []\OT1/cmr/m/n/10 (d) Ver-ti-cal
  []
 
-<dataAugmentation/imageGaussianBlur.jpg, id=580, 64.24pt x 128.48pt>
+<dataAugmentation/imageGaussianBlur.jpg, id=584, 64.24pt x 128.48pt>
 File: dataAugmentation/imageGaussianBlur.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageGaussianBlur.jpg>
 Package pdftex.def Info: dataAugmentation/imageGaussianBlur.jpg used on input l
-ine 1039.
+ine 1112.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-<dataAugmentation/imageRandomShadow.jpg, id=581, 64.24pt x 128.48pt>
+<dataAugmentation/imageRandomShadow.jpg, id=585, 64.24pt x 128.48pt>
 File: dataAugmentation/imageRandomShadow.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageRandomShadow.jpg>
 Package pdftex.def Info: dataAugmentation/imageRandomShadow.jpg used on input l
-ine 1040.
+ine 1113.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1113
 []\OT1/cmr/m/n/10 (f) Ran-dom
  []
 
-<dataAugmentation/imageZoomIn.jpg, id=582, 64.24pt x 128.48pt>
+<dataAugmentation/imageZoomIn.jpg, id=586, 64.24pt x 128.48pt>
 File: dataAugmentation/imageZoomIn.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageZoomIn.jpg>
-Package pdftex.def Info: dataAugmentation/imageZoomIn.jpg used on input line 10
-43.
+Package pdftex.def Info: dataAugmentation/imageZoomIn.jpg used on input line 11
+16.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-<dataAugmentation/imageTransormed.jpg, id=583, 64.24pt x 128.48pt>
+<dataAugmentation/imageTransormed.jpg, id=587, 64.24pt x 128.48pt>
 File: dataAugmentation/imageTransormed.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageTransormed.jpg>
 Package pdftex.def Info: dataAugmentation/imageTransormed.jpg used on input lin
-e 1044.
+e 1117.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \hbox (badness 1424) in paragraph at lines 1044--1044
+Underfull \hbox (badness 1424) in paragraph at lines 1117--1117
 \OT1/cmr/m/n/10 and trans-la-
  []
 
-<dataAugmentation/imageZoomOut.jpg, id=584, 64.24pt x 128.48pt>
+<dataAugmentation/imageZoomOut.jpg, id=588, 64.24pt x 128.48pt>
 File: dataAugmentation/imageZoomOut.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageZoomOut.jpg>
 Package pdftex.def Info: dataAugmentation/imageZoomOut.jpg used on input line 1
-045.
+118.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1045--1045
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
 []\OT1/cmr/m/n/10 (i) Zoom
  []
 
-<dataAugmentation/imageNoiseGaussian.jpg, id=585, 64.24pt x 128.48pt>
+<dataAugmentation/imageNoiseGaussian.jpg, id=589, 64.24pt x 128.48pt>
 File: dataAugmentation/imageNoiseGaussian.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageNoiseGaussian.jpg>
 Package pdftex.def Info: dataAugmentation/imageNoiseGaussian.jpg used on input 
-line 1046.
+line 1119.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \hbox (badness 3039) in paragraph at lines 1046--1046
+Underfull \hbox (badness 3039) in paragraph at lines 1119--1119
 []\OT1/cmr/m/n/10 (j) Gaus-sian
  []
 
-<dataAugmentation/imageBLURcenter.jpg, id=586, 64.24pt x 128.48pt>
+<dataAugmentation/imageBLURcenter.jpg, id=590, 64.24pt x 128.48pt>
 File: dataAugmentation/imageBLURcenter.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageBLURcenter.jpg>
 Package pdftex.def Info: dataAugmentation/imageBLURcenter.jpg used on input lin
-e 1047.
+e 1120.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26 <./siamese/cosineDistance.png> <./siamese/retall2cnnMAss.png>]
-<siameseDev/loss.png, id=601, 462.528pt x 346.896pt>
+<siameseDev/loss.png, id=592, 462.528pt x 346.896pt>
 File: siameseDev/loss.png Graphic file (type png)
  <use siameseDev/loss.png>
-Package pdftex.def Info: siameseDev/loss.png used on input line 1058.
+Package pdftex.def Info: siameseDev/loss.png used on input line 1131.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<siameseDev/accuracy.png, id=602, 462.528pt x 346.896pt>
+<siameseDev/accuracy.png, id=593, 462.528pt x 346.896pt>
 File: siameseDev/accuracy.png Graphic file (type png)
 
 <use siameseDev/accuracy.png>
-Package pdftex.def Info: siameseDev/accuracy.png used on input line 1059.
+Package pdftex.def Info: siameseDev/accuracy.png used on input line 1132.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<siameseDev/cmcPlots2.png, id=604, 2681.217pt x 1501.7706pt>
-File: siameseDev/cmcPlots2.png Graphic file (type png)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use siameseDev/cmcPlots2.png>
-Package pdftex.def Info: siameseDev/cmcPlots2.png used on input line 1071.
-(pdftex.def)             Requested size: 426.79134pt x 239.05078pt.
-
-<changeCamera/tomeuPont.png, id=605, 2192.19pt x 501.875pt>
-File: changeCamera/tomeuPont.png Graphic file (type png)
-
-<use changeCamera/tomeuPont.png>
-Package pdftex.def Info: changeCamera/tomeuPont.png used on input line 1088.
-(pdftex.def)             Requested size: 398.33858pt x 91.19128pt.
-
-<changeCamera/lowTexturePoitns.png, id=606, 2192.19pt x 501.875pt>
-File: changeCamera/lowTexturePoitns.png Graphic file (type png)
-
-<use changeCamera/lowTexturePoitns.png>
-Package pdftex.def Info: changeCamera/lowTexturePoitns.png used on input line 1
-089.
-(pdftex.def)             Requested size: 398.33858pt x 91.19128pt.
  [27 <./dataAugmentation/resizedImage.jpg> <./dataAugmentation/imageBrightnes.j
 pg> <./dataAugmentation/imageRandomCrop.jpg> <./dataAugmentation/imageVerticalF
 lip.jpg> <./dataAugmentation/imageGaussianBlur.jpg> <./dataAugmentation/imageRa
 ndomShadow.jpg> <./dataAugmentation/imageZoomIn.jpg> <./dataAugmentation/imageT
 ransormed.jpg> <./dataAugmentation/imageZoomOut.jpg> <./dataAugmentation/imageN
-oiseGaussian.jpg> <./dataAugmentation/imageBLURcenter.jpg> <./siameseDev/loss.p
-ng> <./siameseDev/accuracy.png>]
-[28 <./siameseDev/cmcPlots2.png> <./changeCamera/tomeuPont.png (PNG copy)> <./c
-hangeCamera/lowTexturePoitns.png (PNG copy)>]
-<datasets/log1.png, id=639, 2681.217pt x 1501.7706pt>
+oiseGaussian.jpg> <./dataAugmentation/imageBLURcenter.jpg>]
+<siameseDev/cmcPlots2.png, id=613, 2681.217pt x 1501.7706pt>
+File: siameseDev/cmcPlots2.png Graphic file (type png)
+
+<use siameseDev/cmcPlots2.png>
+Package pdftex.def Info: siameseDev/cmcPlots2.png used on input line 1144.
+(pdftex.def)             Requested size: 426.79134pt x 239.05078pt.
+ [28 <./siameseDev/loss.png> <./siameseDev/accuracy.png> <./siameseDev/cmcPlots
+2.png>]
+<datasets/log1.png, id=626, 2681.217pt x 1501.7706pt>
 File: datasets/log1.png Graphic file (type png)
  <use datasets/log1.png>
-Package pdftex.def Info: datasets/log1.png used on input line 1136.
+Package pdftex.def Info: datasets/log1.png used on input line 1193.
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
 
 [29 <./datasets/log1.png>] [30]
-<datasets/sdad2.png, id=657, 2681.217pt x 1501.7706pt>
+<datasets/sdad2.png, id=644, 2681.217pt x 1501.7706pt>
 File: datasets/sdad2.png Graphic file (type png)
 
 <use datasets/sdad2.png>
-Package pdftex.def Info: datasets/sdad2.png used on input line 1246.
+Package pdftex.def Info: datasets/sdad2.png used on input line 1303.
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
 
 
-LaTeX Warning: Reference `instancesImage' on page 31 undefined on input line 12
-50.
+LaTeX Warning: Reference `instancesImage' on page 31 undefined on input line 13
+07.
 
-<datasets/pascal.jpg, id=659, 502.87875pt x 377.41pt>
+<datasets/pascal.jpg, id=646, 502.87875pt x 377.41pt>
 File: datasets/pascal.jpg Graphic file (type jpg)
 
 <use datasets/pascal.jpg>
-Package pdftex.def Info: datasets/pascal.jpg used on input line 1263.
+Package pdftex.def Info: datasets/pascal.jpg used on input line 1320.
 (pdftex.def)             Requested size: 147.95424pt x 111.03552pt.
 
-<datasets/imagenet.jpg, id=660, 192.72pt x 146.146pt>
+<datasets/imagenet.jpg, id=647, 192.72pt x 146.146pt>
 File: datasets/imagenet.jpg Graphic file (type jpg)
 
 <use datasets/imagenet.jpg>
-Package pdftex.def Info: datasets/imagenet.jpg used on input line 1264.
+Package pdftex.def Info: datasets/imagenet.jpg used on input line 1321.
 (pdftex.def)             Requested size: 147.95424pt x 112.19826pt.
- <datasets/coco.jpg, id=661, 120.45pt x 79.9788pt>
+ <datasets/coco.jpg, id=648, 120.45pt x 79.9788pt>
 File: datasets/coco.jpg Graphic file (type jpg)
 
 <use datasets/coco.jpg>
-Package pdftex.def Info: datasets/coco.jpg used on input line 1265.
+Package pdftex.def Info: datasets/coco.jpg used on input line 1322.
 (pdftex.def)             Requested size: 147.95424pt x 98.2513pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [31 <./datasets/sdad2.png>]
-Overfull \hbox (3.32803pt too wide) in paragraph at lines 1276--1284
+Overfull \hbox (3.32803pt too wide) in paragraph at lines 1333--1341
  [][] 
  []
 
 [32 <./datasets/pascal.jpg> <./datasets/imagenet.jpg> <./datasets/coco.jpg>]
-<evaluacionObject/interpol.png, id=682, 2681.217pt x 1501.7706pt>
+<evaluacionObject/interpol.png, id=669, 2681.217pt x 1501.7706pt>
 File: evaluacionObject/interpol.png Graphic file (type png)
 
 <use evaluacionObject/interpol.png>
-Package pdftex.def Info: evaluacionObject/interpol.png used on input line 1316.
+Package pdftex.def Info: evaluacionObject/interpol.png used on input line 1373.
 
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
  [33 <./evaluacionObject/interpol.png>]
-<datasetTracking/View_001.jpg, id=692, 250.9375pt x 188.705pt>
+<datasetTracking/View_001.jpg, id=679, 250.9375pt x 188.705pt>
 File: datasetTracking/View_001.jpg Graphic file (type jpg)
 
 <use datasetTracking/View_001.jpg>
-Package pdftex.def Info: datasetTracking/View_001.jpg used on input line 1360.
+Package pdftex.def Info: datasetTracking/View_001.jpg used on input line 1417.
 (pdftex.def)             Requested size: 227.62206pt x 171.18048pt.
  [34 <./datasetTracking/View_001.jpg>]
-<datasetTracking/trackins.png, id=703, 870.25125pt x 489.62926pt>
+<datasetTracking/trackins.png, id=690, 870.25125pt x 489.62926pt>
 File: datasetTracking/trackins.png Graphic file (type png)
 
 <use datasetTracking/trackins.png>
-Package pdftex.def Info: datasetTracking/trackins.png used on input line 1388.
+Package pdftex.def Info: datasetTracking/trackins.png used on input line 1445.
 (pdftex.def)             Requested size: 318.66948pt x 179.29219pt.
  [35 <./datasetTracking/trackins.png>]
+[36] <changeCamera/tomeuPont.png, id=729, 2192.19pt x 501.875pt>
+File: changeCamera/tomeuPont.png Graphic file (type png)
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1416.
+<use changeCamera/tomeuPont.png>
+Package pdftex.def Info: changeCamera/tomeuPont.png used on input line 1535.
+(pdftex.def)             Requested size: 398.33858pt x 91.19128pt.
 
-[36]
+<changeCamera/lowTexturePoitns.png, id=730, 2192.19pt x 501.875pt>
+File: changeCamera/lowTexturePoitns.png Graphic file (type png)
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1460.
+<use changeCamera/lowTexturePoitns.png>
+Package pdftex.def Info: changeCamera/lowTexturePoitns.png used on input line 1
+536.
+(pdftex.def)             Requested size: 398.33858pt x 91.19128pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Overfull \hbox (133.9887pt too wide) in paragraph at lines 1464--1469
- [][] 
- []
-
-(./memoria.bbl [37] [38] [39] [40]
+ [37]
+(./memoria.bbl [38 <./changeCamera/tomeuPont.png (PNG copy)> <./changeCamera/lo
+wTexturePoitns.png (PNG copy)>] [39] [40]
 Underfull \hbox (badness 1478) in paragraph at lines 285--288
 []\OT1/cmr/m/n/12 Paul B.  Sin-gle shot de-tec-tor ten-sor-flow.  []$\OT1/cmtt/
 m/n/12 https : / / github . com / balancap /
@@ -1538,57 +1519,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 390--395
  []
 
 [42])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1496.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1569.
  [43]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1496.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1569.
  (./memoria.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1496.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1496.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1569.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1569.
 
+Package rerunfilecheck Info: File `memoria.out' has not changed.
+(rerunfilecheck)             Checksum: F2081B144BDF169A6AB75BC484130A77;2745.
 
-
-Package rerunfilecheck Warning: File `memoria.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `memoria.out':
-(rerunfilecheck)             Before: 515F66C26AC8DD14C7336F5B013C08B1;2699
-(rerunfilecheck)             After:  629EE3AED346B1663C9938E609F69A15;2744.
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1496.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1569.
  ) 
 Here is how much of TeX's memory you used:
- 11212 strings out of 494910
- 166175 string characters out of 6179837
- 258691 words of memory out of 5000000
- 14004 multiletter control sequences out of 15000+600000
+ 11198 strings out of 494910
+ 165717 string characters out of 6179837
+ 258668 words of memory out of 5000000
+ 13998 multiletter control sequences out of 15000+600000
  12624 words of font info for 49 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 36i,9n,39p,1315b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.6.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
->
-Output written on memoria.pdf (43 pages, 21159244 bytes).
+ 36i,9n,39p,1315b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.p
+fb>
+Output written on memoria.pdf (43 pages, 20271405 bytes).
 PDF statistics:
- 890 PDF objects out of 1000 (max. 8388607)
- 730 compressed objects within 8 object streams
- 252 named destinations out of 1000 (max. 500000)
- 630 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 879 PDF objects out of 1000 (max. 8388607)
+ 725 compressed objects within 8 object streams
+ 246 named destinations out of 1000 (max. 500000)
+ 628 words of extra memory for PDF output out of 10000 (max. 10000000)
 

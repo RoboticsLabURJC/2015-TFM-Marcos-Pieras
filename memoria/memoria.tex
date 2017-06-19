@@ -153,7 +153,7 @@ Although, this improvements, the big breaktroguht came in 2012, when AlexNet \ci
 
 \begin{figure}[H]
 \centering         
-\includegraphics[width=0.7\linewidth]{intro/figure_1.png}
+\includegraphics[width=0.7\linewidth]{intro/iamgeWihtou.png}
 \caption{Classification error in ImageNet challenge.} \label{intro2}
 \end{figure}
 
@@ -200,36 +200,54 @@ As we said above, Deep learning techinques has increased the perfomance in all t
 
 \section{Objectives}
 
-Once we have contextualized this thesis, we are going to introduce the objectives.
 
-\subsection{Objectives}
+Next we explain the objectives and the requirements of this thesis.
 
-Our goal is to develope a tracking system to track multiple pedestrian in different types of scenes, we include video recorded from a mobile platforms, from elevated points and crowd scenes.
+
+\subsection{Problem description}
+
+The main objective of this thesis is the develping of an algorithm of tracking, particularly tracking multiple pedestrian on real scenes. We evaluate our solution on the Multiple Object Tracking challenge 2016, which include a variety of evaluation sequences. 
 
 \begin{itemize}
 
-\item \textbf{Perfomance measures}, we use the measurment of the MOT \cite{mot} challenge to evaluate our algorithm, we desire to have the highest possible score. 
+\item Perfomance measures, we use the measurment of the MOT \cite{mot} challenge to evaluate our algorithm, we desire to have the highest possible score. 
 
-\item \textbf{Speed}, we plan to get a high speed algorithm.
+\item Speed, our solution should faster as posibles.
 
 \end{itemize}
 
 When we finish our algorithm we will upload the results to MOT's website and compare with the state of the art.
 
+\subsection{Requirements}
+
+Besides of the previous stated objectives, the solution must guarantee the next requirments: 
+
+\begin{itemize}
+
+\item The solution will make use of the developing platform JdeRobot, which is the developing environment of the \textit{Grupo de Robótica} of the \textit{Universidad  Rey Juan Carlos.} 
+
+\item The software will run on the GNU/Linux Ubuntu 16.04 environment.
+
+
+\end{itemize}
+
+
+
+
+
 \section{Theoretical basis}\label{TheoriecArch}
 
-%In this section, we will explain the fundamenal concepts which is based our thesis. We propose a multi people tracking algorithm, in order to do so, we represent each person with a bounding box, in this bounding box we extract some features and study how they move through the frames, so the movemenent of these features will encode the movement of the bounding box; consequently, the movement of the people. So in section \ref{trackingIssues} we will explain how to extract the movement of the bounding boxes, in section \ref{trackingBounding} how we obtain these boxes and finally in section \ref{misMatch} we explain how to solve people identification incongruities. We see this steps in the next figure \ref{stepsAlgo}.
+
 
 
 In this section, we will explain the fundamenal concepts which is based our thesis. We propose a multi people tracking algorithm, in order to do so, we represent each person with a bounding box, in this bounding box we extract some features and study how they move through the frames, based on the the movemenent of these features we will infer the movement of the bounding box, therefore, the movement of the person. So in the section \ref{trackingBounding} we will explain how to extract the bounding boxes, in section \ref{trackingIssues} how to extract the movement of the bounding boxes, and finally in section \ref{misMatch} we explain how to solve people identification incongruities. We can observe the procedure in the next figure \ref{stepsAlgo}.
 
-
 \begin{figure}[H]
-		
+	
 \centering
 
 \subfigure[Detections.]{\includegraphics[width=4.6cm]{intro/deteccions.jpg}}
-\subfigure[Harris Points.]{\includegraphics[width=4.6cm]{intro/pounts.jpg}}
+\subfigure[Features Points.]{\includegraphics[width=4.6cm]{intro/pounts.jpg}}
 \subfigure[Optical flow.]{\includegraphics[width=4.6cm]{intro/alcover2.png}}
 \subfigure[Identity check.]{\includegraphics[height=2.6cm]{intro/out2.png}}\\
 
@@ -250,7 +268,7 @@ In object detection too, the emergence of the neural networks has supposed a tur
 
 \begin{figure}[H]
 \centering         
-\includegraphics[width=0.7\linewidth]{intro/figure_1-22.png}
+\includegraphics[width=0.7\linewidth]{intro/objesName.png}
 \caption{Mean average precion over the years in PASCAL dataset.} \label{deepObjet}
 \end{figure}
 
@@ -258,22 +276,22 @@ In object detection too, the emergence of the neural networks has supposed a tur
 %Actual object detectors are based on three main family of archictectures \cite{cnnComparision}, of which names are: FasterRCNN, RFCN, and SSD. In \ref{refArchite} we can observe a scheme of these systems.
 
 
-Present deep learning object detectors are based on three main family of archictectures \cite{cnnComparision}, named by the reference algorithm of the category: FasterRCNN, SSD, and RFCN. In \ref{refArchite} we can observe a scheme of these systems.
+Present deep learning object detectors are based on three main family of archictectures \cite{cnnComparision}, named by the reference algorithm of the category: FasterRCNN, SSD, and RFCN, the characteristics of these systems are:
 
-\begin{figure}[H]
-		
-\centering
+%\begin{figure}[H]
+%		
+%\centering
+%
+%\subfigure[Faster RCNN.]{\includegraphics[width=5cm]{objectDetection/compFaster.png}}
+%\subfigure[SSD.]{\includegraphics[width=5cm]{objectDetection/compSSD.png}}
+%\subfigure[RFCN.]{\includegraphics[width=5cm]{objectDetection/compRFCN.png}}\\
+%
+%\caption{Object detection architectures.}
+%\label{refArchite}
+%\end{figure}
 
-\subfigure[Faster RCNN.]{\includegraphics[width=5cm]{objectDetection/compFaster.png}}
-\subfigure[SSD.]{\includegraphics[width=5cm]{objectDetection/compSSD.png}}
-\subfigure[RFCN.]{\includegraphics[width=5cm]{objectDetection/compRFCN.png}}\\
-
-\caption{Object detection architectures.}
-\label{refArchite}
-\end{figure}
 
 
-The characteristics of these systems are:
 \begin{itemize}
 
 \item Faster RCNN \cite{fasterrcnn}, it is the last output of a tryology of detectors developed by R. Girshick and his team. Which are called Region-Based object detecors. They work as follows: Use some mechanism to extract region of an image that are probable to be an object and then classify those proposals with a CNN. The first paper to do so, was \cite{rcnn}, and supposse a breaktrough in the field, increasing the precision of the state of the art of those days. But, it had a messy pipeline, slow and difficult to train. Later on, they developed \cite{fastrcnn}, in this paper they applied the region proposal algorithm in the cnn feature map, so, they avoid to compute the features for each proposal. They increase the speed and it could be trained much easily. Finally, they showed FasterRCNN \cite{fasterrcnn}, in this algorithm, they eluded the external region proposal algorithm and they implemented a CNN to compute those proposals. This CNN share parameters with the main net and they saved a lot of time. This network, has become the standard object detector with CNN. With the association of novel net architecture like ResNet \cite{resnet}, Inception \cite{inception}, and \cite{pvanet} they have won all the contests.
@@ -442,21 +460,23 @@ where $ \nabla I(x_{i}) = [I_{x},I_{y}](x_{i}) $ is the image gradient and $M$ i
 I_{x}^{2} & I_{xy}^{2} \\
 I_{xy}^{2} & I_{y}^{2} \end{array} \right).\] 
 
-Computing the eigenvalue descompostion of this matrix, shows the directions of the fastest change, then a measure of the \textit{cornernes}. In the figure \ref{corner} we can observe the relationship between eigenvalues and patches types.
+Computing the eigenvalue descompostion of this matrix, shows the directions of the fastest change, thus a measure of the \textit{cornernes}. There are several algorithms that use in different ways this eigenvalues:
+
+%In the figure \ref{corner} we can observe the relationship between eigenvalues and patches types.
+%
+%
+%
+%
+%\begin{figure}[H]
+%\centering         
+%\includegraphics[width=0.6\linewidth]{lucasKanade/harrisMillora.png}
+%\caption{Eigenvalues response for different regions .} \label{corner}
+%\end{figure}
 
 
 
 
-\begin{figure}[H]
-\centering         
-\includegraphics[width=0.6\linewidth]{lucasKanade/harrisMillora.png}
-\caption{Eigenvalues response for different regions .} \label{corner}
-\end{figure}
-
-
-
-
-There are several algorithms that use in different ways this eigenvalues:
+%There are several algorithms that use in different ways this eigenvalues:
 
 \begin{itemize}
 
@@ -561,7 +581,7 @@ Now, there are more equation than unknows, it is an overdetermined system, we ha
 % 4
 $$(A^{T}A) \hspace{0.1cm} d=A^{T} \hspace{0.1cm} b$$
 
-Using the images notation:
+Using the image notation:
 
 % 5
 
@@ -586,7 +606,26 @@ Using the images notation:
 The system has a solution when $A^{t}A$ is invertible, it will be invertible when is well conditioned, this is when the ratio of the great and the small eigenvalues of the matrix is large but no too much. The matrix $A^{t}A$ in terms of image formulation is the second order matrix that we stated in the section \ref{feature} developing the \textit{cornerness}, then in order to be solvable it should have a strong gradient in both directions. After checking the invertability, we can solve the problem and extract the motion field:
 
 % 6
-$$ d = A^{T} \hspace{0.1cm} b \hspace{0.1cm} (A^{T}A)^{-1} $$
+$$ d = (A^{T}A)^{-1} \hspace{0.1cm}  A^{T}  \hspace{0.1cm} b  $$
+
+Thus, using the image notation:
+
+\[
+\begin{bmatrix}
+    u \\
+    v \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \sum I_{x}^{2} & \sum I_{y}I_{x}  \\
+    \sum I_{x}I_{y} & \sum I_{y}^{2}   \\
+\end{bmatrix}^{-1}
+\begin{bmatrix}
+    - \sum I_{x}I_{t} \\
+    - \sum I_{y}I_{t} \\
+\end{bmatrix}
+\]
+
 
 
 In practice motion is large, the assumption that it is small fails, consequently the approach using Taylor expansions. For two reasons, the linearity does not hold, in order to solve it, we apply an iterative refinement, which conists in compute the displacement, apply it to the pixels, and compute it again till it converges. The other one is there are local minimia and it will fail into it. To solve it, we need to utilize a coarse to fine approach, the idea is to use multiresolution to compute optical flow, the basic is that in a low resolution image the motion between pixels is very small and we can compute optical flow.
@@ -606,7 +645,7 @@ transformed image and the other image, we apply this algorithm in al the resolut
 
 
 
-\subsection{Person reIdentification}\label{misMatch}
+\subsection{Person re-Identification}\label{misMatch}
 
 
 After running the tracking module we might lose some trackets and in the detection step we might recover them. We need a module to check whether these have the same identity. In order to do so, we studied the methods to recover the identity with deep learning techniques.
@@ -638,7 +677,10 @@ The main differences between them, is that in hand-crafted methods feature repre
 \subsubsection{Siamese networks}
 
 
-The first work with siamese architectures were developed by LeCun \cite{siamLecun}, \cite{siameLecun2}. This networks consists of two identical sub-networks that share the parameters joined at their output. Siamese CNN topologies can be grouped under three main categories, depending on the point where the information from each input is combined ( see Figure \ref{siamese1}:
+
+The first work with siamese architectures were developed by LeCun \cite{siamLecun}, \cite{siameLecun2} and they adressed the identification of signatures, besides the siamese networks are used in a variaty of problems like: image recovery \cite{siameseQuer}, feature descriptor \cite{siameDescri}, comparing patches \cite{patch1}, one shot learning \cite{siameseOne}, learning visual similarity \cite{siamesSImi}. 
+
+Siamese CNN topologies can be grouped under three main categories, depending on the point where the information from each input is combined:
 
 \begin{itemize}
 
@@ -650,44 +692,25 @@ The first work with siamese architectures were developed by LeCun \cite{siamLecu
 
 \end{itemize}
 
-While the two first approaches have yield good results and historically were dominant, the best perfomance is obtained with the joint data input strategy. As pointed out by  \cite{patch1} and further corroborated by \cite{patch2}, and \cite{patch3}, jointly using information form both images from the first layer tends to deliver a better perfomance.
-
-\begin{figure}[H]
-		
-\centering
-
-\subfigure[Cost function.]{\includegraphics[width=3cm]{siamese/retall1.png}}
-\subfigure[In-network.]{\includegraphics[width=3cm]{siamese/retall2.png}}
-\subfigure[Input stacking.]{\includegraphics[width=3cm]{siamese/retall3.png}}\\
+While the two first approaches have yield good results and historically were dominant, the best perfomance is obtained with the joint data input strategy. As pointed out by  \cite{patch1} and further corroborated by \cite{patch2}, and \cite{patch3}, jointly using information form both images from the first layer tends to deliver a better perfomance. 
 
 
-\caption{Siamese CNN topologies.}
-\label{siamese1}
-\end{figure}
+In the field of person re-identification, the community has used these architectures, and they also, have developed their own loss function, what is called \textit{contrastive loss}, this loss is an extension of the Hinge loss of the SVM. This loss longs for getting close similar pairs and moving away according to one defined margin, dissimilar pairs, altough, the binary cross entropy is used by the community. Also, the community has focused in the developing of the datasets, increase the size and use of different losses but there are not any landmark dataset.
 
 
-As well as the architecture the community has also developed their own loss function, this is called \textit{contrastive loss}, this loss is an extension of the Hinge loss of the SVM. This loss longs for getting close similar pairs and moving away according to one defined margin, dissimilar pairs. Also, the binary cross entropy is used by the community.
+There are several papers in the literature, one of the most famous is developed by Ahmed \cite{ahmed}, they used In-network architecture although in order to join to the convolutional layers, they used \textit{cross-input neighborhood differences} layer, this layer tried to increase the differences between the features of the inputs and obtain richer representation to the classification layer.
 
-
-Referring to the problem of person re-identification, the community has focused in the developing of the datasets, increase the size and use of different losses. 
-
-
-
-
-% siamese-id
-
-
-Finally, state that siamese networks are used in a variaty of problems like: image recovery \cite{siameseQuer}, feature descriptor \cite{siameDescri}, comparing patches \cite{patch1}, one shot learning \cite{siameseOne}, learning visual similarity \cite{siamesSImi}. 
-
-
-
-
-
+Another paper was published by Leal-Taixé \cite{lealTaixe}, they are also the authors of the MOT challenge, their network used a cost function architecture besides they used as inputs the two images and their optical flow. They used the network as part of a data association algorithm.
 
 
 \section{Software implementation}
 
 In this section, we will explain the implementation of the algorithm based on the theoretical \ref{TheoriecArch} review.
+
+\subsection{Hardware elements}
+
+The developing and testing of the software has been carried out by a personal computer. This computer has a Intel Core i7 processr and 16 GB of RAM, whereas the operative system is Ubuntu 16.04 Xenial. The graphical processing unit consist in AMD sda, but his codecs are not available for our operative systems, therefore we can not take advantage of this hardware unit. For training our deep learning models we used the Amazon Web services platform, which instances is runned in operative system with a Nvidia Tesla K80 GPU.
+
 
 \subsection{System Overview}
 
@@ -931,19 +954,14 @@ After this step we have a bunch of motion vectors, but some vectors in the bound
 \end{figure}
 
 
+Next we erased this points, we compute the motion as the median of all the contibutions.
 
-
-$ Vx = median(v_{i})$
-$ Vy = median(v_{i})$
+$$ Vx = median(v_{i})$$
+$$ Vy = median(v_{i})$$
 
 
 To compute the scale, 
 
-
-
-\subsubsection{Wrong trajectories}
-
-Tracking by matching tends to drift, and we need to erase these wrong trajectories, otherwise will remain on the scene.
 
 
 
@@ -982,15 +1000,19 @@ We can observe this procedure in the figure \ref{data1}, in green we can observe
 \subsubsection{Siamese Network}
 
 
-To mantain the identity of the pedestrian we need a mechanishm to compare miss trackets with current detections. So, we decided to solve it with deep learning techniques, the models we considered:
+To mantain the identity of the pedestrian we need a mechanishm to compare miss trackets with no associated detections. So, we decided to solve it with deep learning techniques.
+
+
+The models we considered are the follwoing:
 
 
 \begin{itemize}
 
-\item \textbf{Siamese network: Joint data input}, according to the literature this architecture gives the best results compared with the other topologies. 
+\item \textbf{Siamese network: Joint data input}, according to the literature this architecture gives the best results compared with the other topologies. The input of the network is the concatenation of the two images. 
 
-\item \textbf{Siamese network: Cost function}, 
-\item \textbf{Siamese network: In-network},
+\item \textbf{Siamese network: Cost function}, this is based on the idea of deep learning as feature extractor and top layers as classifier.
+
+\item \textbf{Siamese network: In-network}, this is a mix of the previous models, where the convolutional networks are shared.
 
 \item \textbf{Feature extractor with cosine distance}, we used well-known architectures for image classification to extract features from the images and then compare with the cosine distance.
 
@@ -1000,20 +1022,71 @@ To mantain the identity of the pedestrian we need a mechanishm to compare miss t
 
 \end{itemize}
 
+We can observe this architectures in the figure \ref{siameseData1}.
+
 \begin{figure}[H]
 		
 \centering
 
-\subfigure[Cost function.]{\includegraphics[width=3cm]{siamese/retall1.png}}
-\subfigure[In-network.]{\includegraphics[width=3cm]{siamese/retall2.png}}
-\subfigure[Input stacking.]{\includegraphics[width=3cm]{siamese/retall3.png}}
-\subfigure[Features with cosine distance.]{\includegraphics[width=3cm]{siamese/cosineDistance.png}}
-\subfigure[Cnn fine-tuned.]{\includegraphics[width=3cm]{siamese/retall2cnnMAss.png}}
+\subfigure[Cost function.]{\includegraphics[width=2.7cm]{siamese/retall1.png}}
+\subfigure[In-network.]{\includegraphics[width=2.7cm]{siamese/retall2.png}}
+\subfigure[Input stacking.]{\includegraphics[width=2.7cm]{siamese/retall3.png}}
+\subfigure[Features with cosine distance.]{\includegraphics[width=2.7cm]{siamese/cosineDistance.png}}
+\subfigure[Cnn fine-tuned.]{\includegraphics[width=2.7cm]{siamese/retall2cnnMAss.png}}\\
 
 
 \caption{Siamese CNN topologies.}
 \label{siameseData1}
 \end{figure}
+
+
+%The base network has the following characteristic, several convolutional layers followed by max pooling, and in the end with a fully connected layer. We used the binary cross entropy as a loss, we tried with the contrastive divergence but it did not converge. As optimizer we used Adam, even though it has a mechanism to decrease the learning rate, we add a exponential decay, it speed up the convergence. To initialize the wrights we used He. inizialization, as activation function we used ReLu, in adition we inizializate the biases with the value of $0.1$, in this way we avoid the dead neurons at the begining. We make use of batch normalization to normailize the ouput of each layer. Also we use Dropout in the fully connected layer to avoid overfitting. In the junction between the convolutional layers and the fully connected historically, a flatten mechansihm of the tensor has been used, but it increases dramatically the number of neurons in the fully connected layer, and it shows problems to converge, from the publication of InceptionV3 it appears with a Global Average pooling, it computes the spatial average of each layer of the tensor, reducing the number of parameters.
+
+
+\begin{itemize}
+
+\item \textbf{Loss}, we used the binary cross entropy as a loss, we tried with the contrastive divergence but it did not converge.
+
+\item \textbf{Optimizer}, As optimizer we used Adam, even though it has a mechanism to decrease the learning rate, we add a exponential decay, it speed up the convergence
+
+\item \textbf{Activation}, we used ReLu. Currently, there other activations functions, but ReLu has been stablished as the reference.
+
+\item \textbf{Inizialization}, To initialize the wrights we used He. inizialization, as activation function we used ReLu, in adition we inizializate the biases with the value of $0.1$, in this way we avoid the dead neurons in the firsts iterations.
+
+\item \textbf{Batch normalization}, We make use of batch normalization to normailize the ouput of each layer.
+
+\item \textbf{Regularization}, we use Dropout in the fully connected layer to avoid overfitting.
+
+
+\item \textbf{Output}, We did not use softmax as ouput, only one neuron with sigmoid activation, in this way the output is constrainet between $0$ and $1$.
+
+
+\item \textbf{Final layers}, In the junction between the convolutional layers and the fully connected historically, a flatten mechansihm of the tensor has been used, but it increases dramatically the number of neurons in the fully connected layer, and it shows problems to converge, from the publication of InceptionV3 it appears with a Global Average pooling, it computes the spatial average of each layer of the tensor, reducing the number of parameters. Also we used the Spatial pyramid pooling layers
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Flatten.]{\includegraphics[width=3.5cm]{siameseDev/pool.jpg}}
+\subfigure[Global average pooling.]{\includegraphics[width=3.5cm]{siameseDev/pool.jpg}}
+\subfigure[Spatial pyramid pooling.]{\includegraphics[width=2.7cm]{siameseDev/spp.png}}\\
+
+
+
+\caption{Final layers.}
+\label{siameseData2}
+\end{figure}
+
+\end{itemize}
+
+  
+
+To develop our models we start with a 
+
+
+
+
+
 
 
 
@@ -1074,22 +1147,6 @@ Finally the comparision using the CMC in the figure \ref{siamesCOMP}, we can obs
 
 
 
-
-
-\subsection{Drawbacks}
-
-
-
-
-\begin{figure}[H]
-		
-\centering
-
-\subfigure[High texture person.]{\includegraphics[width=14cm]{changeCamera/tomeuPont.png}}
-\subfigure[Low texture person.]{\includegraphics[width=14cm]{changeCamera/lowTexturePoitns.png}}
-\caption{Differences texture examples.}
-\label{Fails1}
-\end{figure}
 
 
 
@@ -1413,7 +1470,7 @@ As we have stated above, another metrics are the track quality measures. Each gr
 A number of datasets for image-based re-Identification have been released, and some commonly used datasets are summarized in table \ref{tableID}. 
 
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 
 \begin{tabular}{lllllll}
@@ -1455,18 +1512,34 @@ which we plot as the primary measure of identification performance. It gives an 
 
 
 
-\section{Experimentns}
+\section{Experiments}
 
-\begin{table}[]
+\begin{table}[H]
 \centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{llll|llll|llll|lll}
+
+\resizebox{\textwidth}{!}{\begin{tabular}{llll|llll|llll|lll}
             & \textbf{Rcll} & \textbf{Prcn} & \textbf{FAR} & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} \\
 \textit{v1} & 24.4          & 49.5          & 5.17         & 517         & 12          & 180         & 325         & 27502       & 83462       & 827          & 1053        & -1.3          & 69.3          & -0,5           \\
-\textit{v2} & 30.1          & 51.2          & 6.2          & 517         & 24          & 223         & 270         & 20312       & 67333       & 532          & 899         & 7.5           & 70.2          & 0.3           
-\end{tabular}
+\textit{v2} & 18.6          & 65.0          & 2.08         & 517         & 4           & 138         & 375         & 11078       & 89820       & 874          & 981         & 7.8           & 70.3          & 8.6           
+\end{tabular}}
+\caption{Results algorithm.}
+\label{my-label}
 \end{table}
+
+
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[High texture person.]{\includegraphics[width=14cm]{changeCamera/tomeuPont.png}}
+\subfigure[Low texture person.]{\includegraphics[width=14cm]{changeCamera/lowTexturePoitns.png}}
+\caption{Differences texture examples.}
+\label{Fails1}
+\end{figure}
+
+
+
 
 
 \section{Conclusions}
