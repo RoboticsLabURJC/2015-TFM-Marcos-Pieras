@@ -11,7 +11,7 @@
 \BOOKMARK [2][-]{subsection.3.3}{Person re-Identification}{section.3}% 11
 \BOOKMARK [3][-]{subsubsection.3.3.1}{Siamese networks}{subsection.3.3}% 12
 \BOOKMARK [1][-]{section.4}{Software implementation}{}% 13
-\BOOKMARK [2][-]{subsection.4.1}{Hardware elements}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.1}{System setup}{section.4}% 14
 \BOOKMARK [2][-]{subsection.4.2}{System Overview}{section.4}% 15
 \BOOKMARK [2][-]{subsection.4.3}{Object detector}{section.4}% 16
 \BOOKMARK [2][-]{subsection.4.4}{Tracker}{section.4}% 17
@@ -19,7 +19,7 @@
 \BOOKMARK [3][-]{subsubsection.4.4.2}{Motion estimation}{subsection.4.4}% 19
 \BOOKMARK [2][-]{subsection.4.5}{Data association}{section.4}% 20
 \BOOKMARK [3][-]{subsubsection.4.5.1}{Siamese Network}{subsection.4.5}% 21
-\BOOKMARK [1][-]{section.5}{Datasets}{}% 22
+\BOOKMARK [1][-]{section.5}{Datasets and evaluation procedures}{}% 22
 \BOOKMARK [2][-]{subsection.5.1}{Datasets for object detection}{section.5}% 23
 \BOOKMARK [3][-]{subsubsection.5.1.1}{Pascal Visual Objects Classes}{subsection.5.1}% 24
 \BOOKMARK [3][-]{subsubsection.5.1.2}{VOC07}{subsection.5.1}% 25
@@ -35,5 +35,7 @@
 \BOOKMARK [2][-]{subsection.5.3}{Datasets for pedestrian identification}{section.5}% 35
 \BOOKMARK [3][-]{subsubsection.5.3.1}{Evaluation for pedestrian identification}{subsection.5.3}% 36
 \BOOKMARK [1][-]{section.6}{Experiments}{}% 37
-\BOOKMARK [1][-]{section.7}{Conclusions}{}% 38
-\BOOKMARK [2][-]{subsection.7.1}{Future work}{section.7}% 39
+\BOOKMARK [2][-]{subsection.6.1}{Performance}{section.6}% 38
+\BOOKMARK [2][-]{subsection.6.2}{Timing}{section.6}% 39
+\BOOKMARK [1][-]{section.7}{Conclusions}{}% 40
+\BOOKMARK [2][-]{subsection.7.1}{Future work}{section.7}% 41
