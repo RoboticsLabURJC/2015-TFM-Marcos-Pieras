@@ -87,9 +87,9 @@
 
 Deep learning has rised by drastic improvements over reigning approaches towards the hardest problems in Artificial intelligence (AI), massive investments from industry giants, and exponential growth in research publications. Deep learning is a tool inside the machine learning toolbox, the goal is to make machines learn.
 
-The first incursion was made by Frank Rosenblatt, the Percetron \cite{rosenblat}. Rosenblatt conceived of the Percetron as a simplified mathematical model of how the neurons in our brains operate. This model of the neuron built on the work of Mcculoch-Pitts \cite{McCulloch}, who showed that a neuron model can model the basis OR/AND/NOT functions. Which in the early days of Artificial intelligence, was great, because the predominant tought at that time was that making computers able to perform formal logical reasoning would essentially solve AI. However, the Mcculoch-Pitts model lacked a mechanism for learning, which was crucial for it to be usable for AI. This is were the Perceptron exceeled, Rosenblatt came up with a way to make such artificial neurons learn, inspirated by the Hebb's Rule. This learning method was, if the output of the perceptron was low, increase the weights, and otherwise decrease the weights if the output is too high. Also, another researchers came with ADALINE \cite{adaline} learning procedure, they used the signal before the activation function to compute the derivative, how much the error changes when each weight is changed can be used to drive the error down and find the optimal weights values. Similiar as we train the networks nowadays.
+The first incursion was made by Frank Rosenblatt, the Percetron \cite{rosenblat}. Rosenblatt conceived of the Percetron as a simplified mathematical model of how the neurons in our brains operate. This model of the neuron built on the work of McCuloch-Pitts \cite{McCulloch}, who showed that a neuron model could model the basis OR/AND/NOT functions. Which in the early days of Artificial intelligence, was great, because the predominant tought at that time was that making computers able to perform formal logical reasoning would essentially solve AI. However, the McCuloch-Pitts model lacked a mechanism for learning, which was crucial for it to be usable for AI. This is were the Perceptron exceeled, Rosenblatt came up with a way to make such artificial neurons learn, inspirated by the Hebb's Rule. This learning method was as follows: if the output of the perceptron was low, increase the weights, otherwise decrease the weights if the output is too high. Also, another researchers came with ADALINE \cite{adaline} learning procedure, they used the signal before the activation function to compute the derivative, how much the error changes when each weight is changed can be used to drive the error down and find the optimal weights values. Similiar as we train the networks nowadays.
 
-Researcher were really excited about this idea of Connectionism: that networks of such simple computational units can be vastly much more powerful and solve the hard problems of AI. But in 1969, Minsky and Papert  published an analysis on the limitations of perceptrons, named Perceptrons \cite{minsky69perceptrons}. The biggest cristicm was that a pereceptron could not learn the simple boolean function XOR beacause it is not linearly separable. However, they stated that it can be learnt with multiple layers percepron but the learning procedure did not work for multiple layers. After, this book the interest on Neural networks decreased, and initlizate a period called \textit{AI winter}, AI shifted to logic programming and commonsense reasoning.
+Researchers were really excited about this idea of Connectionism: that networks of such simple computational units could be vastly much more powerful and solve the hard problems of AI. But in 1969, Minsky and Papert  published an analysis on the limitations of perceptrons, named Perceptrons \cite{minsky69perceptrons}. The biggest criticism was that a pereceptron could not learn the simple boolean function XOR because it is not linearly separable. However, they stated that it could be learnt with multiple layers perceptron but the learning procedure did not work for multiple layers. After, this book the interest on Neural networks decreased, and initlizate a period called \textit{AI winter}, AI shifted to logic programming and commonsense reasoning.
 
 This period lasted till 1986 when Rummelhart, Hinton, and Williams published the algorithm of backprogation \cite{Rumelhart}, which specifically adressed the problems discussed by Minsky in Perceptrons, a method to train multiple layer neural nets. With this discovery in 1989, LeCun showed a real world application, recognized handwritten digits \cite{lecunZip}. The architecture of this model was a convolutional neural network. It was inspired by the Neurocognitron \cite{Fukushima} of Fukushima, which took ideas from studies of the brain. In particular the studies of Hubel and Wiesel, they propose that the visual cortex is formed by a hierarchical model, primarilly for simple cells who respond for simple structures and then complex cells respond to a more complicated feature. As we can observe in figure \ref{intro1}, in the lower layer, the network learns Gabor like features, and while going upwards, the networks learns more abstract concepts.
 
@@ -163,11 +163,11 @@ The emergence of these techniques were the culmination of decades of research bu
 
 \begin{itemize}
 
-\item \textbf{Appearance of large and high quality dataset}, The increasing size of the dataset.
+\item \textbf{Appearance of large and high quality dataset}, The increasing size and quality of the dataset helps the networks to converge easily.
 
 \item \textbf{Parallel computation}, The increasing of computing capabilities helped train larger models in least time.
 
-\item \textbf{Optimization details}. With the discovery of the proper inizialization and activation functions nets can be trained.
+\item \textbf{Optimization details}. With the discovery of the proper inizialization and activation functions larger networks can be trained.
 
 
 \end{itemize}
@@ -188,10 +188,10 @@ As we said above, Deep learning techinques has increased the perfomance in all t
 \item \textbf{Siamese based tracking}. In this approach, many candidate patches are passed through the network, and the patch with the highest matching socre is selected as the tracking output \cite{trackingSiamese}.
 
 
-\item \textbf{Tracking as regression}, these methods are an extension of object localization using neural networks, these methods given an image containing an object predict the bounding box which contain the object in every frame \cite{thrun}.
+\item \textbf{Tracking as regression}, these methods are an extension of object localization using neural networks, these methods given an image containing an object predict the bounding box which contain the object in every frame \cite{thrun}. They are restricted to one object.
 
 
-\item \textbf{Tracking with RNN}. From the output of an object detector, these tracking algorithms model the sequence of movement of the objects using an recurrent neural network \cite{savaresee}.
+\item \textbf{Tracking with RNN}. From the output of an object detector, these tracking algorithms model the sequence of movement of objects using an recurrent neural network \cite{savaresee}. These methods are the current state of art.
 
 
 \end{itemize}
@@ -206,7 +206,7 @@ Next we explain the objectives and the requirements of this thesis.
 
 \subsection{Problem description}
 
-The main objective of this thesis is the develping of an algorithm of tracking, particularly tracking multiple pedestrian on real scenes. We evaluate our solution on the Multiple Object Tracking challenge 2016, which include a variety of evaluation sequences. 
+The main objective of this thesis is the develping of an algorithm of tracking, particularly tracking multiple pedestrian on real scenes. We evaluate our solution on the Multiple Object Tracking challenge 2016, which include a variety of evaluation sequences. Our critical parameter are the following:
 
 \begin{itemize}
 
