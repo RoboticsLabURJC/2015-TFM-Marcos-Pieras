@@ -232,6 +232,24 @@ Besides of the previous stated objectives, the solution must guarantee the next 
 \end{itemize}
 
 
+\subsection{Methodology}
+
+In this part we explain chronological the work plan to develope this thesis, we can divide it in 4 steps: 
+
+\begin{itemize}
+
+
+\item Object detector. We studied the fundamentals of object detectors with deep learning technques. We analysed the performance on the main datasets and finally, we chose one to our task.
+
+\item Tracking module. We studied which tracking technique would fit our problem, when it was selected, we implemented on code. At the end of this item, we had a complete algorithm to produce a solution.
+
+\item Siamese networks. We noticed one lack of our algorithm was the management of identity incongruities, we solved that with the study of re-identification techniques and we implemented one of them.
+
+\item Evaluation. we evaluated our solution on the MOT'16 dataset. Also, we studied the capabilties and lacks of our algorithm.
+
+\item Thesis development. We wrote down our solution and conclusions on a document.  
+
+\end{itemize}
 
 
 
@@ -937,11 +955,11 @@ In the next figure we can observe the matching of the feaetues in subsequents fr
 \begin{figure}[hptb]
 \centering         
 \includegraphics[width=0.3\linewidth]{implementation/matching.png}
-\caption{Motion estimation.} \label{motion1}
+\caption{Image and motion vectors.} \label{motion1}
 \end{figure}
 
 
-After this step we have a bunch of motion vectors, but some vectors in the bounding box do not belong to the person, and if we do not erase it will contribute to the motion compuation. Usually this points belong to the static elements of the frames, like the floor or urban furniture, this points in terms of motion between subsequents frames will be very low or almost statics. We can observe this fact plotting the displacement of this points and drawing it in the image. So, we erase the points with a displacement smaller than a threshold. 
+After this step we have a bunch of motion vectors, but some vectors in the bounding box do not belong to the person, and if we do not erase it will contribute to the motion compuation. Usually this points belong to the static elements of the frames, like the floor or urban furniture, this points in terms of motion between subsequents frames will be very low or almost statics. We can observe this fact plotting the displacement of this points and drawing it in the image, we can observe it at \ref{motion2}. So, we erase the points with a displacement smaller than a threshold. 
 
 \begin{figure}[H]
 		
@@ -949,14 +967,26 @@ After this step we have a bunch of motion vectors, but some vectors in the bound
 
 \subfigure[Image points.]{\includegraphics[width=2.5cm]{implementation/reejctMore.png}}
 \subfigure[Displacement graphics.]{\includegraphics[width=13cm]{implementation/filterVeloPoints.png}}\\
-\caption{Different preprocessings.}
+\caption{Image and motion vectors.}
 \label{motion2}
+\end{figure}
+
+But, this behavior will only work on sequences where the camera is fixed, in sequenes produced by a moving camera it will not work, we can observe the plot of displacement vectors on a sequence acquired by a moving camera \ref{motion3}. 
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Image points.]{\includegraphics[width=2.5cm]{implementation/foto004.png}}
+\subfigure[Displacement graphics.]{\includegraphics[width=13cm]{implementation/figurePoints.png}}\\
+\caption{Different preprocessings.}
+\label{motion3}
 \end{figure}
 
 
 Next we erased this points, we compute the motion as the median of all the contibutions displacement vectors. The scale change is computed as follows: for each pair of points, a ratio between current point distance and previous point distance is computed, bounding box scale change is defined as the median over these ratios. 
 
-At this point, we have an implementation of the tracking algorithm given a set of bounding boxes. Nevertheless, we notice running our algorithm on the dataset, that the bounding box could compute the motion of the assigned pedestrian including the points belonging to another pedestrian who appears also in the bounding box and this interaction will cause a wrong estimation of the movement of the target and eventually the pedestrian will not embedded by the bounding box. So, we need a mechanism to detect this fails, therefore we studied how the motion algorithm behaves in this situations. When it has got a trajectory without crossing with other pedestrian, the vertical and horizontal displacement behave like a damping sine wave function ( or increasing sine wave)  and the increment respect the previous displacment is small. We can observe this process in figure \ref{motion2Correct}.
+At this point, we have an implementation of the tracking algorithm given a set of bounding boxes. Nevertheless, we notice running our algorithm on the dataset, that the bounding box could compute the motion of the assigned pedestrian including the points belonging to another pedestrian who appears also in the bounding box and this interaction will cause a wrong estimation of the movement of the target and eventually the pedestrian will not be embedded by the bounding box. So, we need a mechanism to detect this fails, therefore we studied how the motion algorithm behaves in these situations. When it has got a trajectory without crossing with other pedestrian, the vertical and horizontal displacement behave like a damping sine wave   ( or amplified sine wave )   and the increment respect the previous displacment is small. We can observe this process in figure \ref{motion2Correct}.
 
 
 
@@ -972,7 +1002,7 @@ At this point, we have an implementation of the tracking algorithm given a set o
 \end{figure}
 
 
-In contrast, when it crosses with another pedestrian, the displacement gets disrupt, then the normalized different with the previous displacement gets a high value, we can observe this process in figure \ref{motion2nocoorrect}. We set a threshold to notice this interference and delete this bounding box. We delete them from the current tracking execution, but we save the bounding box appearance for following processings.
+In contrast, when it crosses with another pedestrian, the displacement gets disrupt, then the normalized different with the previous displacement gets a high value, we can observe this process in figure \ref{motion2nocoorrect}. We set a threshold to notice this interference and delete this bounding box. We delete them from the current tracking execution, but we save the bounding box for following processings.
 
 \begin{figure}[H]
 		
@@ -1001,11 +1031,11 @@ Once we computed the trajectories, in the next iteration we might have to add a 
 
 \item \textbf{Situation 2}, the tracket has not got a nearby detection, then the bounding box tracket continues.
 
-\item \textbf{Situation 3}, the pedestrian has not got a tracket but has a detection. In this case we need to classify this detection as a new detection, is the first time that the first time that the pedestrian showed in the frame or whether is a tracket lost and we need to check its identity.
+\item \textbf{Situation 3}, the pedestrian has not got a tracket but has got a detection. In this case we need to decided whether this pedestrian is new in the scene or it has been seen before ( it is a lost tracket ).
 
 \end{itemize}
 
-We can observe this procedure in the figure \ref{data1}, in green we can observe the detections and in blue the trackets. We defined nearby as the distance between the centres of the boundings boxes, this distance has to be lower than a threshold to be consider nearby. 
+We can observe the procedure for situations number one and two in the figure \ref{data1}, in green colour we can observe the detections and in blue colour the trackets. We defined nearby as the distance between the centres of the boundings boxes, this distance has to be lower than a threshold to be consider nearby. 
 
 \begin{figure}[hptb]
 \centering         
@@ -1014,7 +1044,7 @@ We can observe this procedure in the figure \ref{data1}, in green we can observe
 \end{figure}
 
 
-As we stated, in situation three, we might delete some tracking bounding box, like we explained in section \ref{mott} and get a new detection that maybe it belongs to the same identity, we need a mechanism to preserve the identity of the pedestrian. In the early version of this algorithm we consider those detections as new, and we assign it a new identity.
+As we stated, in situation number three, we might delete some tracking bounding box, like we explained in section \ref{mott} and get a new detection that it might belong to the same identity, we need a mechanism to preserve the identity of the pedestrians. In an early version of this algorithm we consider those detections as new, and we assign it a new identity.
 
 
 
@@ -1023,7 +1053,7 @@ As we stated, in situation three, we might delete some tracking bounding box, li
 \subsubsection{Siamese Network}
 
 
-To mantain the identity of the pedestrian we need a mehtod to compare miss trackets with no associated detections. So, we decided to solve it with deep learning techniques, the models that we considered are the following:
+To mantain the identity of the pedestrian we need a mehtod to compare miss trackets with no associated detections. So, we decided to solve it with deep learning techniques, the convolutiona neural networks that we considered are the following:
 
 
 \begin{itemize}
@@ -1048,7 +1078,7 @@ We can observe this architectures in the figure \ref{siameseData1}.
 
 \subfigure[Cost function.]{\includegraphics[width=2.7cm]{siamese/retall1.png}}
 \subfigure[In-network.]{\includegraphics[width=2.7cm]{siamese/retall2.png}}
-\subfigure[Input stacking.]{\includegraphics[width=2.7cm]{siamese/retall3.png}}
+\subfigure[Joint data input.]{\includegraphics[width=2.7cm]{siamese/retall3.png}}
 \subfigure[Features with cosine distance.]{\includegraphics[width=2.7cm]{siamese/cosineDistance.png}}
 \subfigure[Cnn fine-tuned.]{\includegraphics[width=2.7cm]{siamese/retall2cnnMAss.png}}\\
 
@@ -1102,11 +1132,9 @@ The main characteristics of the trained networks are the following:
 
   
 
-We developed our models in a VGG way, stacking  several convolutional layers and finishing with a fully connected layers. We started with a few convolutional layers and added more till we reach a satisfaying performance.
+We developed our models in a VGG way, stacking  several convolutional layers and finishing it with a fully connected layers. We started with a few convolutional layers and added more till we reach an overfitting condition, this conditional will manifest when adding more layers the score on the test set decline. We started with $3$ and we end up with $7$ convolutional layer as best performance.
 
-
-
-For the dataset, it does not exist a prominent dataset in the field, so we decided to use the MOT16 ground truth as dataset to adapt the domain. In order to do so, we extract the detections with their identities, and then for each identity we selected all possible random pairs and for the negative set we selected two random identites. The negative dataset is much bigger than the positive dataset, so we limited it to have a balanced dataset. The problem with the MOT16 dataset, is that the ground truth was built with the detections of a classifier and there is not a human intervention, resulting a messy ground truth. We inspected the dataset and around the $70 \%$ of the dataset was wrong, there are a lot of oclussion in detection resulting in erronous pairs.
+For the dataset, it does not exist a prominent dataset in the field, so we decided to use the MOT16 ground truth as dataset to adapt the domain. In order to do so, we extract the detections with their identities, and then for each identity we selected all possible random pairs and for the negative set we selected two random identites. The negative dataset is much bigger than the positive dataset, so we limited it to have a balanced dataset. The problem with the MOT16 dataset, is that the ground truth was built with the detections of a classifier and there is not a human intervention, resulting in a messy ground truth. We inspected the dataset and around the $70 \%$ of the dataset was wrong, there are a lot of oclussion in detection resulting in erronous pairs, pairs are not matching with the same identity.
 
 Then, we decided to discard the MOT16 dataset an use the TownCenter dataset \cite{townCenter} from the University of Oxford. We have got $29824$ positive and negative pairs, then a dataset of $59648$ image pairs. We split the dataset between training and validation set, $80 \%$ and $20 \%$ respectively. For testing we selected a set of identities of the MOT16 dataset. To regularize and enlarge our dataset we added some data augmentation to our datase like we observe in figure \ref{msii1}. For each pair we added one transformation, so we double our dataset. We tried to apply all the transformation for each images but the dataset was too noisy and the network did not converge.
 
@@ -1136,7 +1164,7 @@ Then, we decided to discard the MOT16 dataset an use the TownCenter dataset \cit
 \label{msii1}
 \end{figure}
 
-We trained all the models and obtained a graphs like the figure \ref{lossesSiam}, we observe that the network converge, it decreases the loss and increases the accuracy, also we observe that tests plots are a little bit noisy, but we considered that we applied enough regularization techniques.
+We trained all the models and obtained a graphs like the figure \ref{lossesSiam}, we observe that the network converge, it decreases the loss and increases the accuracy, also we observe that tests plots are a little bit noisy, but we considered that regularization techniques are enough.
 
 \begin{figure}[H]
 		
@@ -1151,7 +1179,7 @@ We trained all the models and obtained a graphs like the figure \ref{lossesSiam}
 
 
 
-Finally the comparision using the CMC in the figure \ref{lossesSiam2}, we can observe that the siamese with less layers than bigger models like VGG or Incpetion perform better, this remarks the idea of training jointly the feature extractor and the classifier and the need of task specific networks.
+Finally, we can observe the comparision using the CMC measure in the figure \ref{lossesSiam2}, we can observe that the siamese with less layers than bigger models Incpetion perform better, this remarks the idea of training jointly the feature extractor and the classifier and the need of task specific networks. Also, the siamese network with the configuration Joint data input, outperforms the other siamese networks.
 
 
 
@@ -1536,20 +1564,39 @@ In this section, we will analyse the performance and the timings of our solution
 
 \subsection{Performance}
 
-We used the measurents of the MOT challenge, the most import measurement is the parameter MOTA,  it is a global measurment because it condenses false positive, false negative and identity switching. We can observe in the table \ref{tableResults}, comparing the previous version of the algoirithm and the lastes versiont that we increased that parameter. 
+Using the code provided by the MOT16 challenge organization, we evaluate our solution, we evalauated the results of the version without re-identification module,\textit{v1}, the version with optical flow forward-bacward \textit{v2}, and the version with re-identification module and without forward-backwward method, also we compare with the state of the art, an anonymous submission to the MOT16's website. The resulsts are showed in table \ref{tableResults}.
+
+
+%\begin{table}[H]
+%\centering
+%
+%\resizebox{\textwidth}{!}{\begin{tabular}{llll|llll|llll|llll}
+%            & \textbf{Rcll} & \textbf{Prcn} & \textbf{FAR} & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} & \textbf{FPS} \\
+%\textit{v1} & 24.4          & 49.5          & 5.17         & 517         & 12          & 180         & 325         & 27502       & 83462       & 827          & 1053        & 9.8          & 69.3          & 6,5        & 17,2   \\
+%\textit{v2} & 19.6          & 61.8          & 2.52         & 517         & 3           & 127         & 387         & 13373       & 88754       & 618          & 936         & 10.8          & 70.3          & 7.5  & 15,85                                        
+%\end{tabular}}
+%\caption{Results algorithm global.}
+%\label{tableResults}
+%\end{table}
+
 
 \begin{table}[H]
 \centering
 
-\resizebox{\textwidth}{!}{\begin{tabular}{llll|llll|llll|lll}
-            & \textbf{Rcll} & \textbf{Prcn} & \textbf{FAR} & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} \\
-\textit{v1} & 24.4          & 49.5          & 5.17         & 517         & 12          & 180         & 325         & 27502       & 83462       & 827          & 1053        & -1.3          & 69.3          & -0,5           \\
-\textit{v2} & 19.6          & 61.8          & 2.52         & 517         & 3           & 127         & 387         & 13373       & 88754       & 618          & 936         & 10.8          & 70.3          & 7.5                                          
+\resizebox{\textwidth}{!}{\begin{tabular}{llll|llll|llll|llll}
+              & \textbf{Rcll} & \textbf{Prcn} & \textbf{FAR} & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} & \textbf{FPS} \\
+\textit{v1}   & 21.4          & 49.5          & 5.17         & 517         & 12          & 180         & 325         & 13339       & 78998       & 827          & 1053        & 9.8           & 69.1          & 6.5            & 18.2         \\
+\textit{v2}   & 21.3          & 50.4          & 5.12         & 517         & 11          & 181         & 325         & 11212       & 75738       & 827          & 1056        & 9.7           & 67.3          & 6.1            & 9.0          \\
+\textit{v3}   & 19.6          & 61.8          & 2.52         & 517         & 3           & 127         & 387         & 13373       & 78999       & 618          & 936         & 10.8          & 70.3          & 7.5            & 15.85        \\
+\textit{SOTA} & -             & -             & -            & 517         & 92          & 219         & 206         & 5333        & 86795       & 391          & -           & 49.3          & 79.0          & -              & 0.8         
 \end{tabular}}
-\caption{Results algorithm.}
+\caption{Results algorithm global.}
 \label{tableResults}
 \end{table}
 
+According to this results, we decided to do not use the forward-backward method, due for its high computation demands. Also, we observe the usage of a mechanism of re-identification increment the MOTA performance, so the overall performance of the detector, with the cost of increae the running time. This improvement come from the reduction in around $24 \%$ the identity switching (ID's) paramter.
+
+Finally we can observe the results in all the sequences \ref{tableResultsSequences}, we get a MOTA of $10.8$ and a frame rate of $15.85$ FPS. 
 
 \begin{table}[H]
 \centering
@@ -1565,52 +1612,33 @@ We used the measurents of the MOT challenge, the most import measurement is the 
 13              & 6.2           & 34.9          & 1.75         & 107         & 0           & 9           & 98          & 1315        & 10743       & 32           & 59          & -5.6          & 67.1          & \multicolumn{1}{l|}{-5.4}           & 20.5         \\ \hline
 \textit{Global} & 19.6          & 61.8          & 2.52         & 517         & 3           & 127         & 387         & 13373       & 88754       & 618          & 936         & 10.8          & 70.3          & 7.5                                 & 15.85       
 \end{tabular}}
-\caption{Results algorithm.}
-\label{my-label}
+\caption{Results algorithm by sequences.}
+\label{tableResultsSequences}
 \end{table}
 
+The algorithm gets the best performance on sequences with a fixed camera from an elevated view point like sequences $4$ and a low angle recording with a high frame rate and close targets like sequences $9,and 11$, but it fails in sequences with low frame rate like sequences $5$ and when the targets are away from the camera like $13$.
 
 
 \subsection{Timing}
 
 
-
-
-%\begin{figure}[H]
-%\centering         
-%\includegraphics[width=0.7\linewidth]{graphicsRearrange/temps/timeGenral.png}
-%\caption{Barplot of the timming.} \label{petsExample}
-%\end{figure}
-%
-%
-%\begin{figure}[H]
-%\centering         
-%\includegraphics[width=0.7\linewidth]{graphicsRearrange/temps/timeSpecfici.png}
-%\caption{Zoom in of the barplot.} \label{petsExample}
-%\end{figure}
+As we stated above the mean frame rate of the algorithm with the person re-identification mechanism is $15.86$. In figure \ref{timing1} we can observe a barplot of per frame time consumption of our algorithm.  We notice the peaks each $30$ frames, these belong to the execution of the siamese network and it depends on how many detections without assignment there are.
 
 \begin{figure}[H]
-		
-\centering
-
-\subfigure[High texture person.]{\includegraphics[width=7cm]{graphicsRearrange/temps/timeGenral.png}}
-\subfigure[Low texture person.]{\includegraphics[width=7cm]{graphicsRearrange/temps/timeSpecfici.png}}
-\caption{Differences texture examples.}
-\label{Fails1}
+\centering         
+\includegraphics[width=0.9\linewidth]{graphicsRearrange/temps/timeGenral.png}
+\caption{Barplot of the timming.} \label{timing1}
 \end{figure}
 
+Getting a zoom of the graph \ref{timing2}, we can observe when the object detector finishes, it is around the frame $75$, then the execution time of the algorithm decresases, the time of reading the frame remain constant, and the tracking gets a peark after the detection and afterwards decreae this is due it erase tracket with the lost mechanism. 
 
 \begin{figure}[H]
-		
-\centering
-
-\subfigure[High texture person.]{\includegraphics[width=7cm]{graphicsRearrange/points/numberOfPoints.png}}
-\subfigure[Low texture person.]{\includegraphics[width=7cm]{graphicsRearrange/points/sizeVstime.png}}
-\caption{Differences texture examples.}
-\label{Fails1}
+\centering         
+\includegraphics[width=0.9\linewidth]{graphicsRearrange/temps/timeSpecfici.png}
+\caption{Zoom in of the barplot.} \label{timing2}
 \end{figure}
 
-
+To optimize our code we studied how to reduce the execution time of the tracking module, plotting the execution time against some dependent variables, in this case, the number of points and the size of the ROI, as we can observe in figure \ref{timing2}. We notice that the execution time is high correlated with the size of the pedestrian's ROI and not with the number of points. The main responsable is the OpenCV's routine \texttt{calcOpticalFlowPyrLK()}, but we could not modify this parameter, and reducing the number of points would have a remarkable importance in the execution time. 
 
 
 
@@ -1618,11 +1646,12 @@ We used the measurents of the MOT challenge, the most import measurement is the 
 		
 \centering
 
-\subfigure[High texture person.]{\includegraphics[width=14cm]{changeCamera/tomeuPont.png}}
-\subfigure[Low texture person.]{\includegraphics[width=14cm]{changeCamera/lowTexturePoitns.png}}
-\caption{Differences texture examples.}
-\label{Fails1}
+\subfigure[Points vs time.]{\includegraphics[width=7.2cm]{graphicsRearrange/points/points1.png}}
+\subfigure[Size ROI vs time.]{\includegraphics[width=7.2cm]{graphicsRearrange/points/timss.png}}
+\caption{Time versus points and size of the ROI.}
+\label{timing2}
 \end{figure}
+
 
 
 
@@ -1632,18 +1661,51 @@ We used the measurents of the MOT challenge, the most import measurement is the 
 
 \section{Conclusions}
 
+
+In this thesis we studied deep learning techniques and their application in a tracking algorithm. We included an object detector and a person re-identification module based on those techniques and we implemented a tracking algorithm.
+
+This tracking algorithm, takes the detections of the object detector and computes the optical flow on the sequences. When it misses some pedestrians it can preserve their identity with a person re-identification module.
+
+Finally we evaluated our algorithm in a well-known challenge, MOT16, and analyses its performance and timing capabilties on it. The algorithms performs reasonably well in sequences of high frame rate and resolution, but in the opposite sequences, low frame rate and resolution the performance drop dramatically. This is happens beacause our algorithm rely on points with high texture, with a low resolution there are less points with this characteristics. Also, we have problems with people who wear low texture or are away from the camera, as we can oberve in figure \ref{Fails1}. The low frame rate, penalize the matching capabilites between frames, it produces wrong matches between images, therefore, wrong displacements.
+
+
+
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[High texture person.]{\includegraphics[width=5cm]{changeCamera/tomeuTetx.png}}
+\subfigure[Low texture person.]{\includegraphics[width=5cm]{changeCamera/donaTetx.png}}
+\subfigure[Far away person.]{\includegraphics[width=5cm]{changeCamera/foto004.png}}
+\caption{Differences texture examples.}
+\label{Fails1}
+\end{figure}
+
+
+
+
+
+
+
+
 \subsection{Future work}
+
+
+This is a first entrance on trackings algorithm, we have a resanoable results. We can add some details to improve our results.
 
 
 \begin{itemize}
 
-\item Port to C++. Port the developed software to high speed software.
-\item GPU implementation. Use Gpu advances, to get a parallel implementation of the code.
+\item Port to C++. We used a srcipting programming languagge, if we switch to a compiled programing language we would increase the time perfomance.
 
-\item Add propbabilistic framework. Include bayesian filter techniques to increase perfomance.
+\item GPU implementation. Computing displacement for each tracket could be computed in a parallel way. They are independent from each other and are a low demanding. 
 
+\item Propbabilistic framework. Include bayesian filter techniques to increase perfomance.
 
-\item Study new siamese architectures, like inception stem.
+\item Siamese architectures. Study new siamese architecture to increase the accuracy of this modeule, like inception stem of InceptionV3 or include the optical flow information in the neural network.
+
+\item Data association. Use much confidence techniques to associate the detections, the current methods relay ond probablistic graphical models.
 
 \end{itemize}
 

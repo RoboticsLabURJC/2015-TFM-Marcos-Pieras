@@ -73,17 +73,17 @@ def two_scales(ax1, time, data1, data2, c1, c2):
     ax1.plot(time, data1, color=c1)
     ax1.set_xlabel('Frames',fontsize=30)
     ax1.set_ylabel('Number of Points',fontsize=30)
-    ax1.tick_params(labelsize=20)
+    ax1.tick_params(labelsize=30)
 
     ax2.plot(time, data2, color=c2)
     ax2.set_ylabel('Time',fontsize=30)
-    ax2.tick_params(labelsize=20)
+    ax2.tick_params(labelsize=30)
     return ax1, ax2
 
 
 # Create some mock data
 t = range(0,sizOO)
-s1 = sats[1:299,0]
+s1 = sats[1:299,2]
 s2 = sats[1:299,1]
 
 # Create axes
@@ -99,5 +99,5 @@ def color_y_axis(ax, color):
     return None
 color_y_axis(ax1, 'r')
 color_y_axis(ax2, 'b')
-plt.tick_params(labelsize=20)
+plt.tick_params(labelsize=30)
 plt.show()
