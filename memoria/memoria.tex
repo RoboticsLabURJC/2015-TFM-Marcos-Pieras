@@ -1179,21 +1179,33 @@ We trained all the models and obtained a graphs like the figure \ref{lossesSiam}
 
 
 
-Finally, we can observe the comparision using the CMC measure in the figure \ref{lossesSiam2}, we can observe that the siamese with less layers than bigger models Incpetion perform better, this remarks the idea of training jointly the feature extractor and the classifier and the need of task specific networks. Also, the siamese network with the configuration Joint data input, outperforms the other siamese networks.
+Finally, we can observe the comparision using the CMC measure in the figure \ref{lossesSiam2}, we can observe that the siamese with Joint data with less layers than bigger models like Inception performs better, this remarks the idea of training jointly the feature extractor and the classifier and the need of task specific networks. Also, the siamese network with the configuration Joint data input, outperforms the other siamese networks. Among the siamese joint data input, the performance increases till the $7$ convoltional layer architecture, then the $8$ convolutional layers drops.
 
-
-
-
-\begin{figure}[H]
-		
-\centering
-
-\subfigure[CMC plot.]{\includegraphics[width=7.5cm]{siameseDev/cmcPlots2.png}}
-\subfigure[Performance-timing comparision.]{\includegraphics[width=7.5cm]{graphicsRearrange/siameseGraph/siameseModels.png}}\\
-
-\caption{Comparision of the systems.}
-\label{lossesSiam2}
+\begin{figure}[hptb]
+\centering         
+\includegraphics[width=12cm]{siameseDev/cmcNetwors.png}
+\caption{CMC plot.} \label{lossesSiam2}
 \end{figure}
+
+Also in the next plot, we observe the performance against the time consumption the siamese network with the joint data input with $7$ convolutional layers gets the best balance between performance and execution time. 
+
+\begin{figure}[hptb]
+\centering         
+\includegraphics[width=12cm]{siameseDev/results.png}
+\caption{Performance-timing comparision.} \label{lossesSiam3}
+\end{figure}
+
+
+%\begin{figure}[H]
+%		
+%\centering
+%
+%\subfigure[CMC plot.]{\includegraphics[width=7.5cm]{siameseDev/cmcNetwors.png}}
+%\subfigure[Performance-timing comparision.]{\includegraphics[width=7.5cm]{graphicsRearrange/siameseGraph/siameseModels.png}}\\
+%
+%\caption{Comparision of the systems.}
+%\label{lossesSiam2}
+%\end{figure}
 
 
 

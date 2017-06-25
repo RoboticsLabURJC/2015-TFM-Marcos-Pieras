@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  24 JUN 2017 19:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  25 JUN 2017 13:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1462,159 +1462,149 @@ ndomShadow.jpg> <./dataAugmentation/imageZoomIn.jpg> <./dataAugmentation/imageT
 ransormed.jpg> <./dataAugmentation/imageZoomOut.jpg> <./dataAugmentation/imageN
 oiseGaussian.jpg> <./dataAugmentation/imageBLURcenter.jpg> <./siameseDev/loss.p
 ng> <./siameseDev/accuracy.png>]
-<siameseDev/cmcPlots2.png, id=681, 2681.217pt x 1501.7706pt>
-File: siameseDev/cmcPlots2.png Graphic file (type png)
+<siameseDev/cmcNetwors.png, id=681, 2681.217pt x 1501.7706pt>
+File: siameseDev/cmcNetwors.png Graphic file (type png)
 
-<use siameseDev/cmcPlots2.png>
-Package pdftex.def Info: siameseDev/cmcPlots2.png used on input line 1191.
-(pdftex.def)             Requested size: 213.39566pt x 119.50247pt.
+<use siameseDev/cmcNetwors.png>
+Package pdftex.def Info: siameseDev/cmcNetwors.png used on input line 1186.
+(pdftex.def)             Requested size: 341.43306pt x 191.22688pt.
 
-<graphicsRearrange/siameseGraph/siameseModels.png, id=682, 2681.217pt x 1501.77
-06pt>
-File: graphicsRearrange/siameseGraph/siameseModels.png Graphic file (type png)
- <use graphicsRearrange/siameseGraph/siameseModels.png>
-Package pdftex.def Info: graphicsRearrange/siameseGraph/siameseModels.png used 
-on input line 1192.
-(pdftex.def)             Requested size: 213.39566pt x 119.50247pt.
- [33 <./siameseDev/cmcPlots2.png> <./graphicsRearrange/siameseGraph/siameseMode
-ls.png>]
-<datasets/log1.png, id=694, 2681.217pt x 1501.7706pt>
+<siameseDev/results.png, id=682, 2681.217pt x 1501.7706pt>
+File: siameseDev/results.png Graphic file (type png)
+
+<use siameseDev/results.png>
+Package pdftex.def Info: siameseDev/results.png used on input line 1194.
+(pdftex.def)             Requested size: 341.43306pt x 191.22688pt.
+ [33 <./siameseDev/cmcNetwors.png> <./siameseDev/results.png>] <datasets/log1.p
+ng, id=692, 2681.217pt x 1501.7706pt>
 File: datasets/log1.png Graphic file (type png)
- <use datasets/log1.png>
-Package pdftex.def Info: datasets/log1.png used on input line 1239.
-(pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
 
-[34 <./datasets/log1.png>]
-<datasets/sdad2.png, id=706, 2681.217pt x 1501.7706pt>
+<use datasets/log1.png>
+Package pdftex.def Info: datasets/log1.png used on input line 1251.
+(pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
+ [34 <./datasets/log1.png>] [35]
+<datasets/sdad2.png, id=709, 2681.217pt x 1501.7706pt>
 File: datasets/sdad2.png Graphic file (type png)
 
 <use datasets/sdad2.png>
-Package pdftex.def Info: datasets/sdad2.png used on input line 1349.
+Package pdftex.def Info: datasets/sdad2.png used on input line 1361.
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [35]
 
 LaTeX Warning: Reference `instancesImage' on page 36 undefined on input line 13
-53.
+65.
 
-<datasets/pascal.jpg, id=713, 502.87875pt x 377.41pt>
+<datasets/pascal.jpg, id=711, 502.87875pt x 377.41pt>
 File: datasets/pascal.jpg Graphic file (type jpg)
 
 <use datasets/pascal.jpg>
-Package pdftex.def Info: datasets/pascal.jpg used on input line 1366.
+Package pdftex.def Info: datasets/pascal.jpg used on input line 1378.
 (pdftex.def)             Requested size: 147.95424pt x 111.03552pt.
 
-<datasets/imagenet.jpg, id=714, 192.72pt x 146.146pt>
+<datasets/imagenet.jpg, id=712, 192.72pt x 146.146pt>
 File: datasets/imagenet.jpg Graphic file (type jpg)
 
 <use datasets/imagenet.jpg>
-Package pdftex.def Info: datasets/imagenet.jpg used on input line 1367.
+Package pdftex.def Info: datasets/imagenet.jpg used on input line 1379.
 (pdftex.def)             Requested size: 147.95424pt x 112.19826pt.
- <datasets/coco.jpg, id=715, 120.45pt x 79.9788pt>
+ <datasets/coco.jpg, id=713, 120.45pt x 79.9788pt>
 File: datasets/coco.jpg Graphic file (type jpg)
 
 <use datasets/coco.jpg>
-Package pdftex.def Info: datasets/coco.jpg used on input line 1368.
+Package pdftex.def Info: datasets/coco.jpg used on input line 1380.
 (pdftex.def)             Requested size: 147.95424pt x 98.2513pt.
 
-Overfull \hbox (3.32803pt too wide) in paragraph at lines 1379--1387
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36 <./datasets/sdad2.png>]
+Overfull \hbox (3.32803pt too wide) in paragraph at lines 1391--1399
  [][] 
  []
 
-[36 <./datasets/sdad2.png> <./datasets/pascal.jpg> <./datasets/imagenet.jpg> <.
-/datasets/coco.jpg>]
-<evaluacionObject/interpol.png, id=729, 2681.217pt x 1501.7706pt>
+[37 <./datasets/pascal.jpg> <./datasets/imagenet.jpg> <./datasets/coco.jpg>]
+<evaluacionObject/interpol.png, id=734, 2681.217pt x 1501.7706pt>
 File: evaluacionObject/interpol.png Graphic file (type png)
 
 <use evaluacionObject/interpol.png>
-Package pdftex.def Info: evaluacionObject/interpol.png used on input line 1419.
+Package pdftex.def Info: evaluacionObject/interpol.png used on input line 1431.
 
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
- [37 <./evaluacionObject/interpol.png>]
-<datasetTracking/View_001.jpg, id=741, 250.9375pt x 188.705pt>
+ [38 <./evaluacionObject/interpol.png>]
+<datasetTracking/View_001.jpg, id=744, 250.9375pt x 188.705pt>
 File: datasetTracking/View_001.jpg Graphic file (type jpg)
 
 <use datasetTracking/View_001.jpg>
-Package pdftex.def Info: datasetTracking/View_001.jpg used on input line 1463.
+Package pdftex.def Info: datasetTracking/View_001.jpg used on input line 1475.
 (pdftex.def)             Requested size: 227.62206pt x 171.18048pt.
-
-Underfull \vbox (badness 6641) has occurred while \output is active []
-
- [38]
-[39 <./datasetTracking/View_001.jpg>]
-<datasetTracking/trackins.png, id=758, 870.25125pt x 489.62926pt>
+ [39 <./datasetTracking/View_001.jpg>]
+<datasetTracking/trackins.png, id=755, 870.25125pt x 489.62926pt>
 File: datasetTracking/trackins.png Graphic file (type png)
 
 <use datasetTracking/trackins.png>
-Package pdftex.def Info: datasetTracking/trackins.png used on input line 1491.
+Package pdftex.def Info: datasetTracking/trackins.png used on input line 1503.
 (pdftex.def)             Requested size: 318.66948pt x 179.29219pt.
  [40 <./datasetTracking/trackins.png>]
-Overfull \hbox (2.47058pt too wide) in paragraph at lines 1547--1548
+Overfull \hbox (2.47058pt too wide) in paragraph at lines 1559--1560
 \OT1/cmr/m/n/12 When eval-u-at-ing iden-ti-fi-ca-tion al-go-rithms, the cu-mu-l
 a-tive match-ing char-ac-ter-is-tics (CMC)
  []
 
 [41] [42]
-<graphicsRearrange/temps/timeGenral.png, id=806, 2681.217pt x 1501.7706pt>
+<graphicsRearrange/temps/timeGenral.png, id=804, 2681.217pt x 1501.7706pt>
 File: graphicsRearrange/temps/timeGenral.png Graphic file (type png)
 
 <use graphicsRearrange/temps/timeGenral.png>
 Package pdftex.def Info: graphicsRearrange/temps/timeGenral.png used on input l
-ine 1629.
+ine 1641.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
 
-<graphicsRearrange/temps/timeSpecfici.png, id=808, 2681.217pt x 1501.7706pt>
+<graphicsRearrange/temps/timeSpecfici.png, id=806, 2681.217pt x 1501.7706pt>
 File: graphicsRearrange/temps/timeSpecfici.png Graphic file (type png)
 
 <use graphicsRearrange/temps/timeSpecfici.png>
 Package pdftex.def Info: graphicsRearrange/temps/timeSpecfici.png used on input
- line 1637.
+ line 1649.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [43 <./graphicsRearrange/temps/timeGenral.png>]
-<graphicsRearrange/points/points1.png, id=818, 2681.217pt x 1501.7706pt>
+<graphicsRearrange/points/points1.png, id=817, 2681.217pt x 1501.7706pt>
 File: graphicsRearrange/points/points1.png Graphic file (type png)
 
 <use graphicsRearrange/points/points1.png>
 Package pdftex.def Info: graphicsRearrange/points/points1.png used on input lin
-e 1649.
+e 1661.
 (pdftex.def)             Requested size: 204.85974pt x 114.73613pt.
 
-<graphicsRearrange/points/timss.png, id=819, 2681.217pt x 1501.7706pt>
+<graphicsRearrange/points/timss.png, id=818, 2681.217pt x 1501.7706pt>
 File: graphicsRearrange/points/timss.png Graphic file (type png)
 
 <use graphicsRearrange/points/timss.png>
 Package pdftex.def Info: graphicsRearrange/points/timss.png used on input line 
-1650.
+1662.
 (pdftex.def)             Requested size: 204.85974pt x 114.73613pt.
  [44 <./graphicsRearrange/temps/timeSpecfici.png> <./graphicsRearrange/points/p
 oints1.png> <./graphicsRearrange/points/timss.png>] <changeCamera/tomeuTetx.png
-, id=831, 365.365pt x 501.875pt>
+, id=830, 365.365pt x 501.875pt>
 File: changeCamera/tomeuTetx.png Graphic file (type png)
 
 <use changeCamera/tomeuTetx.png>
-Package pdftex.def Info: changeCamera/tomeuTetx.png used on input line 1678.
+Package pdftex.def Info: changeCamera/tomeuTetx.png used on input line 1690.
 (pdftex.def)             Requested size: 142.26378pt x 195.41647pt.
 
-<changeCamera/donaTetx.png, id=832, 365.365pt x 501.875pt>
+<changeCamera/donaTetx.png, id=831, 365.365pt x 501.875pt>
 File: changeCamera/donaTetx.png Graphic file (type png)
 
 <use changeCamera/donaTetx.png>
-Package pdftex.def Info: changeCamera/donaTetx.png used on input line 1679.
+Package pdftex.def Info: changeCamera/donaTetx.png used on input line 1691.
 (pdftex.def)             Requested size: 142.26378pt x 195.41647pt.
 
-<changeCamera/foto004.png, id=833, 365.365pt x 501.875pt>
+<changeCamera/foto004.png, id=832, 365.365pt x 501.875pt>
 File: changeCamera/foto004.png Graphic file (type png)
 
 <use changeCamera/foto004.png>
-Package pdftex.def Info: changeCamera/foto004.png used on input line 1680.
+Package pdftex.def Info: changeCamera/foto004.png used on input line 1692.
 (pdftex.def)             Requested size: 142.26378pt x 195.41647pt.
- (./memoria.bbl [45 <./changeCamera/tomeuTetx.png (PNG copy)> <./changeCamera/d
-onaTetx.png (PNG copy)> <./changeCamera/foto004.png (PNG copy)>] [46] [47] [48]
+ [45 <./changeCamera/tomeuTetx.png (PNG copy)> <./changeCamera/donaTetx.png (PN
+G copy)> <./changeCamera/foto004.png (PNG copy)>] (./memoria.bbl [46] [47] [48]
 
 Underfull \hbox (badness 1478) in paragraph at lines 285--288
 []\OT1/cmr/m/n/12 Paul B.  Sin-gle shot de-tec-tor ten-sor-flow.  []$\OT1/cmtt/
@@ -1634,12 +1624,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 390--395
  []
 
 [50])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1721.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1733.
  [51]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1721.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1733.
  (./memoria.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1721.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1721.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1733.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1733.
 
 Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: 73FA3808BED98A07CFBA6F58CB704AF2;2944.
@@ -1650,13 +1640,13 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1721.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1733.
  ) 
 Here is how much of TeX's memory you used:
- 11306 strings out of 494910
- 168389 string characters out of 6179837
- 271169 words of memory out of 5000000
- 14061 multiletter control sequences out of 15000+600000
+ 11305 strings out of 494910
+ 168255 string characters out of 6179837
+ 264216 words of memory out of 5000000
+ 14062 multiletter control sequences out of 15000+600000
  12624 words of font info for 49 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  36i,10n,39p,1324b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1672,10 +1662,10 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.p
 fb>
-Output written on memoria.pdf (51 pages, 22606338 bytes).
+Output written on memoria.pdf (51 pages, 22758754 bytes).
 PDF statistics:
- 986 PDF objects out of 1000 (max. 8388607)
- 801 compressed objects within 9 object streams
- 275 named destinations out of 1000 (max. 500000)
+ 984 PDF objects out of 1000 (max. 8388607)
+ 800 compressed objects within 8 object streams
+ 274 named destinations out of 1000 (max. 500000)
  717 words of extra memory for PDF output out of 10000 (max. 10000000)
 
