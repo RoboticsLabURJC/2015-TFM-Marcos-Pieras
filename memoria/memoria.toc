@@ -1,43 +1,46 @@
 \select@language {american}
-\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
-\contentsline {subsection}{\numberline {1.1}Tracking with deep learning techiniques}{6}{subsection.1.1}
-\contentsline {section}{\numberline {2}Objectives}{7}{section.2}
-\contentsline {subsection}{\numberline {2.1}Problem description}{7}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Requirements}{7}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Methodology}{7}{subsection.2.3}
-\contentsline {section}{\numberline {3}Theoretical basis}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Object detection}{8}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Tracking fundamentals}{11}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Features}{12}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Motion estimation}{14}{subsubsection.3.2.2}
-\contentsline {subsection}{\numberline {3.3}Person re-Identification}{16}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Siamese networks}{17}{subsubsection.3.3.1}
-\contentsline {section}{\numberline {4}Software implementation}{18}{section.4}
-\contentsline {subsection}{\numberline {4.1}System setup}{18}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}System Overview}{19}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Object detector}{20}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Tracker}{21}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Preprocessing and feature extractor}{22}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Motion estimation}{24}{subsubsection.4.4.2}
-\contentsline {subsection}{\numberline {4.5}Data association}{28}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}Siamese Network}{29}{subsubsection.4.5.1}
-\contentsline {section}{\numberline {5}Datasets and evaluation procedures}{33}{section.5}
-\contentsline {subsection}{\numberline {5.1}Datasets for object detection}{34}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Pascal Visual Objects Classes}{34}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}VOC07}{34}{subsubsection.5.1.2}
-\contentsline {subsubsection}{\numberline {5.1.3}VOC12}{35}{subsubsection.5.1.3}
-\contentsline {subsubsection}{\numberline {5.1.4}ImageNet}{35}{subsubsection.5.1.4}
-\contentsline {subsubsection}{\numberline {5.1.5}COCO}{35}{subsubsection.5.1.5}
-\contentsline {subsubsection}{\numberline {5.1.6}Dataset comparison}{35}{subsubsection.5.1.6}
-\contentsline {subsubsection}{\numberline {5.1.7}Evaluation of object detection algorithms}{37}{subsubsection.5.1.7}
-\contentsline {subsection}{\numberline {5.2}Datasets for multiple object tracking}{38}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}PETS}{39}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}MOT challenge}{39}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Evaluation of multiple people tracking algorithms}{39}{subsubsection.5.2.3}
-\contentsline {subsection}{\numberline {5.3}Datasets for pedestrian identification}{41}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Evaluation for pedestrian identification}{42}{subsubsection.5.3.1}
-\contentsline {section}{\numberline {6}Experiments}{42}{section.6}
-\contentsline {subsection}{\numberline {6.1}Performance}{42}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Timing}{43}{subsection.6.2}
-\contentsline {section}{\numberline {7}Conclusions}{44}{section.7}
-\contentsline {subsection}{\numberline {7.1}Future work}{45}{subsection.7.1}
+\contentsline {section}{\numberline {1}Abstract}{4}{section.1}
+\contentsline {section}{\numberline {2}Resumen}{4}{section.2}
+\contentsline {section}{\numberline {3}Introduction}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Tracking with deep learning techiniques}{7}{subsection.3.1}
+\contentsline {section}{\numberline {4}Objectives}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Problem description}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Requirements}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Methodology}{8}{subsection.4.3}
+\contentsline {section}{\numberline {5}Theoretical basis}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}Object detection}{9}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Tracking fundamentals}{12}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Features}{13}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Motion estimation}{15}{subsubsection.5.2.2}
+\contentsline {subsection}{\numberline {5.3}Person re-Identification}{17}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Siamese networks}{18}{subsubsection.5.3.1}
+\contentsline {section}{\numberline {6}Software implementation}{20}{section.6}
+\contentsline {subsection}{\numberline {6.1}System setup}{20}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}System Overview}{20}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Object detector}{21}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Tracker}{22}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Preprocessing and feature extractor}{24}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.2}Motion estimation}{25}{subsubsection.6.4.2}
+\contentsline {subsection}{\numberline {6.5}Data association}{30}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Siamese Network}{31}{subsubsection.6.5.1}
+\contentsline {section}{\numberline {7}Datasets and evaluation procedures}{35}{section.7}
+\contentsline {subsection}{\numberline {7.1}Datasets for object detection}{36}{subsection.7.1}
+\contentsline {subsubsection}{\numberline {7.1.1}Pascal Visual Objects Classes}{36}{subsubsection.7.1.1}
+\contentsline {subsubsection}{\numberline {7.1.2}VOC07}{36}{subsubsection.7.1.2}
+\contentsline {subsubsection}{\numberline {7.1.3}VOC12}{37}{subsubsection.7.1.3}
+\contentsline {subsubsection}{\numberline {7.1.4}ImageNet}{37}{subsubsection.7.1.4}
+\contentsline {subsubsection}{\numberline {7.1.5}COCO}{37}{subsubsection.7.1.5}
+\contentsline {subsubsection}{\numberline {7.1.6}Dataset comparison}{37}{subsubsection.7.1.6}
+\contentsline {subsubsection}{\numberline {7.1.7}Evaluation of object detection algorithms}{39}{subsubsection.7.1.7}
+\contentsline {subsection}{\numberline {7.2}Datasets for multiple object tracking}{40}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}PETS}{41}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}MOT challenge}{41}{subsubsection.7.2.2}
+\contentsline {subsubsection}{\numberline {7.2.3}Evaluation of multiple people tracking algorithms}{41}{subsubsection.7.2.3}
+\contentsline {subsection}{\numberline {7.3}Datasets for pedestrian identification}{43}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Evaluation for pedestrian identification}{44}{subsubsection.7.3.1}
+\contentsline {section}{\numberline {8}Experiments}{44}{section.8}
+\contentsline {subsection}{\numberline {8.1}Performance}{44}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Timing}{45}{subsection.8.2}
+\contentsline {section}{\numberline {9}Conclusions}{46}{section.9}
+\contentsline {subsection}{\numberline {9.1}Future work}{47}{subsection.9.1}
+\contentsline {section}{\numberline {10}Annex}{53}{section.10}

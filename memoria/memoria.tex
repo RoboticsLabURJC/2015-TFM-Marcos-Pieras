@@ -81,6 +81,22 @@
 
 \clearpage
 
+\section{Abstract}
+
+Deep learning has rised by drastic improvements over reigning approaches towards the hardest problems in Artificial intelligence (AI), massive investments from industry giants, and exponential growth in research publications. Deep learning is a tool inside the machine learning toolbox, the goal is to make machines learn.
+
+In this work, we used this techniques to tackle the multiple object tracking problem. Specifically, the problem of tracking multiple pedestrian in all types of video sequences. We start our algorithm with an object detector, we studied the family of object detectors based on deep learning, and we selected one according a perfomance and timing measurments. Once, we have the detections of the pedestrian we applied the Lucas-Kanade algorithm to compute their movement. This algorithm might produce identity incronguties on the pedestrian, to solve it, we propose a person re-identification mechanism based on convolutional neural networks.
+
+Finally, we evaluated and analyses our solution in the famous challenge, called Multple object tracking 2016.  
+
+
+\section{Resumen}
+
+Deep learning ha surgido por grandes mejoras sobre grandes mejoras en los problemas más complicados en Inteligencia Artificial, inversiones masivas de gigantes industriales y por un crecimiento exponencial en el número de publicaciones. Deep learning es una herramienta dentro de la caja de herramientas del Machine Learning, cuyo propósito es hacer aprender a las máquinas.
+
+En este trabajo, hemos usado estas técnicas para abordar el problema de seguimiento de múltiples objetos. Específicamente, el problema de seguimiento de múltiples peatones en todo tipo de secuencias. Empezamos nuestro algoritmo con un detector de objectos, hemos estudiado los tipos de detectores que usan técnicas de deep learning y seleccionamos uno según criterios de rendimiento y tiempo de computación. Una vez que tenemos esas detectiones de los peatones, aplicamos el algoritmo de Lucas-Kanade para calcular su movimiento. Este algoritmo puede producir incongruencias relacionadas con la identidad de los peatones, para solucionarlo, proponemos un mecanismo de reidentificación basado en \textit{convolutional neural networks}.
+
+Finalmente, evaluamos y analizamos nuestra nuestra solución en el famoso deasfío, llamado \textit{Multiple object taracking} de 2016.
 
 
 \section{Introduction}
@@ -146,7 +162,7 @@ In 2006, there was a breaktroguht \cite{hinton06}, Hinton realized that a neural
 
 
 
-Although, this improvements, the big breaktroguht came in 2012, when AlexNet \cite{alexnet} beat the state of the art in the ImageNet challenge, an image classification challenge, where the error rate was $15.3 \%$ whereas the winner of the previous year was $26.3 \%$. In the plot \ref{intro2} we can observe the advance in the state of the art of the ImageNet challenge with the inclusion of deep learning techniques.
+Although, this improvements, the big step forward came in 2012, when AlexNet \cite{alexnet} beat the state of the art in the ImageNet challenge, an image classification challenge, where the error rate was $15.3 \%$ whereas the winner of the previous year was $26.3 \%$. In the plot \ref{intro2} we can observe the advance in the state of the art of the ImageNet challenge with the inclusion of deep learning techniques.
 
 
 
@@ -175,7 +191,7 @@ The emergence of these techniques were the culmination of decades of research bu
 
 \subsection{Tracking with deep learning techiniques}
 
-As we said above, Deep learning techinques has increased the perfomance in all the aspects of computer vision, as well as Tracking, the main ways to apply deep learning techniques to tracking are the following \cite{thrun}:
+As we said above, deep learning techinques has increased the perfomance in all the aspects of computer vision, as well as tracking, the main ways to apply deep learning techniques to tracking are the following \cite{thrun}:
 
 \begin{itemize}
 
@@ -234,7 +250,7 @@ Besides of the previous stated objectives, the solution must guarantee the next 
 
 \subsection{Methodology}
 
-In this part we explain chronological the work plan to develope this thesis, we can divide it in 4 steps: 
+In this part we explain chronological the work plan to develope this thesis, we can divide it in four steps: 
 
 \begin{itemize}
 
@@ -258,7 +274,7 @@ In this part we explain chronological the work plan to develope this thesis, we 
 
 
 
-In this section, we will explain the fundamenal concepts which is based our thesis. We propose a multi people tracking algorithm, in order to do so, we represent each person with a bounding box, in this bounding box we extract some features and study how they move through the frames, based on the the movemenent of these features we will infer the movement of the bounding box, therefore, the movement of the person. So in the section \ref{trackingBounding} we will explain how to extract the bounding boxes, in section \ref{trackingIssues} how to extract the movement of the bounding boxes, and finally in section \ref{misMatch} we explain how to solve people identification incongruities. We can observe the procedure in the next figure \ref{stepsAlgo}.
+In this section, we will explain the fundamental concepts which is based our thesis. We propose a multi people tracking algorithm, in order to do so, we represent each person with a bounding box, in this bounding box we extract some features and study how they move through the frames, based on the the movemenent of these features we will infer the movement of the bounding box, therefore, the movement of the person. So in the section \ref{trackingBounding} we will explain how to extract the bounding boxes, in section \ref{trackingIssues} how to extract the movement of the bounding boxes, and finally in section \ref{misMatch} we explain how to solve people identification incongruities. We can observe the procedure in the next figure \ref{stepsAlgo}.
 
 \begin{figure}[H]
 	
@@ -312,7 +328,7 @@ Present deep learning object detectors are based on three main family of archict
 
 \begin{itemize}
 
-\item Faster RCNN \cite{fasterrcnn}, it is the last output of a tryology of detectors developed by R. Girshick and his team. Which are called Region-Based object detecors. They work as follows: Use some mechanism to extract region of an image that are probable to be an object and then classify those proposals with a CNN. The first paper to do so, was \cite{rcnn}, and supposse a breaktrough in the field, increasing the precision of the state of the art of those days. But, it had a messy pipeline, slow and difficult to train. Later on, they developed \cite{fastrcnn}, in this paper they applied the region proposal algorithm in the cnn feature map, so, they avoid to compute the features for each proposal. They increase the speed and it could be trained much easily. Finally, they showed FasterRCNN \cite{fasterrcnn}, in this algorithm, they eluded the external region proposal algorithm and they implemented a CNN to compute those proposals. This CNN share parameters with the main net and they saved a lot of time. This network, has become the standard object detector with CNN. With the association of novel net architecture like ResNet \cite{resnet}, Inception \cite{inception}, and \cite{pvanet} they have won all the contests.
+\item Faster RCNN \cite{fasterrcnn}, it is the last output of a tryology of detectors developed by R. Girshick and his team. Which are called Region-Based object detectors. They work as follows: Use some mechanism to extract region of an image that are probable to be an object and then classify those proposals with a CNN. The first paper to do so, was \cite{rcnn}, and supposse a breaktrough in the field, increasing the precision of the state of the art of those days. But, it had a messy pipeline, slow and difficult to train. Later on, they developed \cite{fastrcnn}, in this paper they applied the region proposal algorithm in the cnn feature map, so, they avoid to compute the features for each proposal. They increase the speed and it could be trained much easily. Finally, they showed FasterRCNN \cite{fasterrcnn}, in this algorithm, they eluded the external region proposal algorithm and they implemented a CNN to compute those proposals. This CNN share parameters with the main net and they saved a lot of time. This network, has become the standard object detector with CNN. With the association of novel net architecture like ResNet \cite{resnet}, Inception \cite{inception}, and \cite{pvanet} they have won all the contests.
 
 
 \item SSD, it stands fot Single shot multibox detector. These family of method differs from previous ones considering that these treats the problem of object detection as a regression problem. So, they are called Regression-based object detector or single shot object detector due it does not have a region proposal algorithm, they classify the image with one mechanism. The maximium exponent of these algoirthms are \cite{yolo} and \cite{ssd}. These work as follows, they discretize the image at the features level in a fixed grid and for each grid it predicts a class and some number of bounding boxes with different shapes and sizes. It merges all, and apply a Non-Maximum supression algorithm to obtain a set of detections. We can observe this process in \ref{yolo1}. In addition, they apply this process in a multiresolution scheme as we can observe in \ref{yolo2} to deal with objects of different sizes.
@@ -367,7 +383,7 @@ Present deep learning object detectors are based on three main family of archict
 %\end{figure}
 
 
-In the survey \cite{cnnComparision}, they compared the different methods including changing the features extractors ( ResNet, Inception, VGG ) and they measured the precision ( mean average precision ) and computing time. This results are showed in \ref{comparisio}. The conlcusion are as follows, SSD is the fastest detector, RFCN it has the best balance between speed-acurracy, and FasterRCNN, is the most acurate detector altough is slower than the other ones.
+In the survey \cite{cnnComparision}, they compared the different methods including changing the features extractors ( ResNet, Inception, VGG ) and they measured the precision ( mean average precision ) and computing time. This results are showed in \ref{comparisio}. The conclusion are as follows, SSD is the fastest detector, RFCN it has the best balance between speed-acurracy, and FasterRCNN, is the most acurate detector altough is slower than the other ones.
 
 
 
@@ -377,7 +393,7 @@ In the survey \cite{cnnComparision}, they compared the different methods includi
 \caption{Comparision architectures.} \label{comparisio}
 \end{figure}
 
-We will finish off our review with a numeric comparision of the methods, as we can observe in the table \ref{tableDet}. This information is extracted from the original papers with their implementation, all of them are trained with the union of the training set of VOC07, VOC12, and COCO, and subsequently evaluate on VOC07 test set on a Nvidia Titan X GPU.   
+We will finish off our review with a numeric comparision of the methods, as we can observe in the table \ref{tableDet}. This information is extracted from the original papers with their implementation, all of them are trained with the union of the training set of VOC07, VOC12, and COCO, and subsequently evaluate on VOC07 test set on a Nvidia Titan X GPU. These results give us an intuition on which detector will be suitable for our task.
 
 \begin{table}[H]
 \centering
@@ -680,13 +696,13 @@ where $i^{*}$ is the identity of probe $q$, and $sim( . , . )$ is some kind of s
 
 \begin{itemize}
  
-\item \textbf{Hand-crafted systems}. This involves two components, an image descriptor and a distance metric algoritm. The most common image descriptors are those used in computer visiont too, like colour \cite{lbp}, texture \cite{pairwise}, SIFT \cite{sift}, bag of word \cite{bagword}. The general idea of global metric learning is to keep all the vectors of the same class closer while pushing vectors of different classes further apart. The most commonly used formulation is based on the class of Mahalanobis distance function \cite{kiisme}, \cite{lnnn}. Other works focus on learning discriminative subspaces \cite{lda}.
+\item \textbf{Hand-crafted systems}. This involves two components, an image descriptor and a distance metric algoritm. The most common image descriptors are those used in computer vision too, like colour \cite{lbp}, texture \cite{pairwise}, SIFT \cite{sift}, bag of word \cite{bagword}. The general idea of distance metric learning is to keep all the vectors of the same class closer while pushing vectors of different classes further apart. The most commonly used formulation is based on the class of Mahalanobis distance function \cite{kiisme}, \cite{lnnn}. Other works focus on learning discriminative subspaces \cite{lda}.
 
-\item \textbf{Deep learning techniques}. Two types of CNN models are commonly employed in the community, the first is the classification model as used in image classification, the ouptut is identity label, and the second is the siamese model using image pairs as input. The major drawback of the classification models is that they need a great quantity of training data by category, and most of the identifications datasets only provide a few examples for identity. So currently methods focus on siamese model.
+\item \textbf{Deep learning techniques}. Two types of CNN models are commonly employed in the community, the first is the classification model as used in image classification, the ouptut is an identity label, and the second one is the siamese model using image pairs as input. The major drawback of the classification models is that they need a great quantity of training data by category, and most of the identifications datasets only provide a few examples for identity. So currently methods focus on siamese models.
 
 \end{itemize} 
 
-The main differences between them, is that in hand-crafted methods feature representation of the data and the metric are not learned jointly, instead, deep leraning techniques jointly optimize the representation of the input data conditioned on the \textit{similarity} measure being used \cite{EC1}. 
+The main differences between them, is that in hand-crafted methods, feature representation of the data and the metric are not learned jointly, instead, deep leraning techniques jointly optimize the representation of the input data conditioned on the \textit{similarity} measure being used \cite{EC1}. 
 
 
 
@@ -696,7 +712,7 @@ The main differences between them, is that in hand-crafted methods feature repre
 
 
 
-The first work with siamese architectures were developed by LeCun \cite{siamLecun}, \cite{siameLecun2} and they adressed the identification of signatures, besides the siamese networks are used in a variaty of problems like: image recovery \cite{siameseQuer}, feature descriptor \cite{siameDescri}, comparing patches \cite{patch1}, one shot learning \cite{siameseOne}, learning visual similarity \cite{siamesSImi}. 
+The first work with siamese architectures were developed by LeCun \cite{siamLecun}, \cite{siameLecun2} and they adressed the identification of signatures, besides the siamese networks are used in a variaty of problems like: image recovery \cite{siameseQuer}, feature descriptor \cite{siameDescri}, comparing patches \cite{patch1}, one shot learning \cite{siameseOne}, and learning visual similarity \cite{siamesSImi}. 
 
 Siamese CNN topologies can be grouped under three main categories, depending on the point where the information from each input is combined:
 
@@ -704,16 +720,30 @@ Siamese CNN topologies can be grouped under three main categories, depending on 
 
 \item \textbf{Cost function}. Input patches are processed by two parallel branches featuring the same network structure and weights. Finally, the top layers of each branch are fed to a cost function.
 
-\item \textbf{In-network}. The top layers of the parallel branches processing the two different inputs are concatenated and some more layers added on top of that. Finally, the standard softmax log-loss function is employed.
+\item \textbf{In-network}. The top layers of the parallel branches processing the two different inputs are concatenated and some more layers added on top of that.
 
-\item \textbf{Joint data input}. The two input patches are stacked together forming a unified input to the CNN. Again, the softmax log-loss function is used here.
+\item \textbf{Joint data input}. The two input patches are stacked together forming a unified input to the CNN.
 
 \end{itemize}
+
+Graphical we can observe those differences in \ref{siamese2Data1}.
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Cost function.]{\includegraphics[width=2.7cm]{siamese/retall1.png}}
+\subfigure[In-network.]{\includegraphics[width=2.7cm]{siamese/retall2.png}}
+\subfigure[Joint data input.]{\includegraphics[width=2.7cm]{siamese/retall3.png}}
+
+\caption{Siamese CNN topologies.}
+\label{siamese2Data1}
+\end{figure}
+
 
 While the two first approaches have yield good results and historically were dominant, the best perfomance is obtained with the joint data input strategy. As pointed out by  \cite{patch1} and further corroborated by \cite{patch2}, and \cite{patch3}, jointly using information form both images from the first layer tends to deliver a better perfomance. 
 
 
-In the field of person re-identification, the community has used these architectures, and they also, have developed their own loss function, what is called \textit{contrastive loss}, this loss is an extension of the Hinge loss of the SVM. This loss longs for getting close similar pairs and moving away according to one defined margin, dissimilar pairs, altough, the binary cross entropy is used by the community. Also, the community has focused in the developing of the datasets, increase the size and use of different losses but there are not any landmark dataset.
+In the field of person re-identification, the community has used these architectures, and they also, have developed their own loss function, what is called \textit{contrastive loss}, this loss is an extension of the Hinge loss of the SVM. This loss longs for getting close similar pairs and moving away according to one defined margin, dissimilar pairs. Altough, the binary cross entropy is used by the community. Also, the community has focused in the developing of the datasets, increase the size and quality but there are not any landmark dataset.
 
 
 There are several papers in the literature, one of the most famous is developed by Ahmed \cite{ahmed}, they used In-network architecture although in order to join to the convolutional layers, they used \textit{cross-input neighborhood differences} layer, this layer tried to increase the differences between the features of the inputs and obtain richer representation to the classification layer.
@@ -727,7 +757,7 @@ In this section, we will explain the implementation of the algorithm based on th
 
 \subsection{System setup}
 
-The developing and testing of the software has been carried out by a personal computer. This computer has a Intel Core i7 processor and 16 GB of RAM, whereas the operative system is Ubuntu 16.04 Xenial. The graphical processing unit consist in a AMD R7 M265, but its codecs are not available for our operative systems, therefore we can not take advantage of this hardware unit. For training our deep learning models we used the Amazon Web services platform, which instances is runned in operative system with a Nvidia Tesla K80 GPU. 
+The developing and testing of the software has been carried out by a personal computer. This computer has a Intel Core i7 processor and 16 GB of RAM, whereas the operative system is Ubuntu 16.04 Xenial. The graphical processing unit consist in a AMD R7 M265, but its codecs are not available for our operative system, therefore we can not take advantage of this hardware unit. For training our deep learning models we used the Amazon Web services platform, which instances is runned in operative system with a Nvidia Tesla K80 GPU. 
 
 
 \subsection{System Overview}
@@ -737,7 +767,7 @@ The system consists in two threads, one responsible of the execution of the obje
 
 So, the object detector thread, reads images, proces the forward pass of the neural network and save the detections in the shared buffer, it repeats this sequence until it has processed all the predefined list of images.
 
-In another hand, the main tread, activates the object detector thread and waits till it gets the first detection, after this, it starts the tracking algorithm. It reads the images and computes the motion of all the regions of interest. However, at beginning of each cycle it comproves whether it has newer detection to mix in. This is the main operating mode of the algorithm and it summarizes in the figure \ref{system1}. In the next sections we will develolpe in detail these parts. 
+In another hand, the main tread, activates the object detector thread and waits till it gets the first detection, after this, it starts the tracking algorithm. It reads the images and computes the motion of all the regions of interest. However, at beginning of each cycle it comproves whether it has newer detection to mix in. This is the main operating mode of the algorithm and it summarizes in the figure \ref{system1}. In the next sections we will develope in detail these parts. 
 
 \begin{figure}[H]
 		
@@ -807,7 +837,7 @@ According to these results we chose the SSD detector, as object detector on this
 
 \subsection{Tracker}
 
-Once we have the detections, as we have stated previously, the responsible of compute the motion of the detections is this module. First, computing the features and then extract the motion from the movement of those features, we can observe this process in the figure \ref{tracker1}.
+Once we have the detections, as we have stated previously, the responsible of computing the motion of the detections is this module. First, computing the features and then extract the motion from the movement of those features, we can observe this process in the figure \ref{tracker1}.
 
 \begin{figure}[H]
 		
@@ -869,7 +899,8 @@ For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTra
 \end{itemize}
  
  
-The strength of the further processing depends on the quality and quantity of this features, so in other to improve both, we apply some prepreprocessing to the image, we tried several preprocessings like sharpening, image contrast, median filter, and equalization. We can observe the features extraction after this preprocessings in figure \ref{prepoe}.
+The strength of the further processing depends on the quality and quantity of this features, so in other to improve both, we apply some prepreprocessing to the image. We tried several preprocessings techniques like sharpening, image contrast, median filter, and equalization. In \ref{track1w}, we can observe the relation between number of points extracted and time comsuption of those techniques.
+
 
 
 \begin{figure}[H]
@@ -878,7 +909,7 @@ The strength of the further processing depends on the quality and quantity of th
 \caption{Preprocessing methods.} \label{track1w}
 \end{figure}
 
-We realized that the best preprocessing is to equalize the image, in terms of speed, it only consists in equalize an histogram and transform the image, and in terms of quality and quantity, it increases over $ 55 \%$ the number points in comparision to apply it to the raw image. In the figure \ref{prepoes} we can observe the different number of features in the raw and in the equalized image.
+We realized that the best preprocessing in terms of speed and number of points, is to equalize the image. The computation is really simple, it only consists in equalize an histogram and apply that transformation to the image. It increases over $ 55 \%$ the number points in comparision to not apply it to the raw image. In the figure \ref{prepoes} we can observe the different number of features in the raw and in the equalized image.
 
 \begin{figure}[H]
 		
@@ -896,7 +927,7 @@ We realized that the best preprocessing is to equalize the image, in terms of sp
 
 \subsubsection{Motion estimation}\label{mott}
 
-We used the lucas kanade method to matching the points. Also, we implement the same method used in \cite{medianFlow}, the proposed method is based on so called forward-backward consistency assumption that correct tracking should be independent of the direction of time-flow. Algorithmically, the assumption is exploited as follows. First, a tracker produces a trajectory by tracking the point \textit{forward} in time. Second, the point location in the last frame initializes a validation trajectory. The validation trajectory is obtained by \textit{backward} tracking from the last frame to the first one. Third, the two trajectories are compared and if they differ signicantly, the forward trajectory is considered as incorrect. \ref{motion23} illustrates the method when tracking a point between two images. Point number 1 is visible in both images and the tracker is able to localize it correctly. Tracking this point forward or backward results in identilcal trajectories. On the other hand, point number 2 is not visible in the right image and the tracker localizes a different point. Tracking this point backward ends in a different location then the original one. We also implemented the forward method.
+We used the Lucas-Kanade method to matching the points. Also, we implement the same method used in \cite{medianFlow}, the proposed method is based on so called forward-backward consistency assumption. That assumption consits in that correct tracking should be independent of the direction of time-flow. Algorithmically, the assumption is exploited as follows. First, a tracker produces a trajectory by tracking the point \textit{forward} in time. Second, the point location in the last frame initializes a validation trajectory. The validation trajectory is obtained by \textit{backward} tracking from the last frame to the first one. Third, the two trajectories are compared and if they differ signicantly, the forward trajectory is considered as incorrect. \ref{motion23} illustrates the method when tracking a point between two images. Point number $1$  is visible in both images and the tracker is able to localize it correctly. Tracking this point forward or backward results in identilcal trajectories. On the other hand, point number $2$ is not visible in the right image and the tracker localizes a different point. Tracking this point backward ends in a different location than the original one. We also implemented the forward method.
 
 
 %\begin{algorithm}
@@ -934,7 +965,7 @@ We used the lucas kanade method to matching the points. Also, we implement the s
 \end{figure}
 
 
-To compute the matching we used the OpenCV routine \texttt{calcOpticalFlowPyrLK()}, this function implements a sparse iterative version of the Lucas-Kanade optical flow with pyramids. And his parameters are:
+To compute the flow, we used the OpenCV's routine \texttt{calcOpticalFlowPyrLK()}, this function implements a sparse iterative version of the Lucas-Kanade optical flow with pyramids. And his parameters are the following:
  
 \begin{itemize}
 
@@ -950,7 +981,7 @@ To compute the matching we used the OpenCV routine \texttt{calcOpticalFlowPyrLK(
 \end{itemize}
 
 
-In the next figure we can observe the matching of the feaetues in subsequents frames.
+In the next figure we can observe the matching of the features in subsequents frames.
 
 \begin{figure}[hptb]
 \centering         
@@ -959,7 +990,7 @@ In the next figure we can observe the matching of the feaetues in subsequents fr
 \end{figure}
 
 
-After this step we have a bunch of motion vectors, but some vectors in the bounding box do not belong to the person, and if we do not erase it will contribute to the motion compuation. Usually this points belong to the static elements of the frames, like the floor or urban furniture, this points in terms of motion between subsequents frames will be very low or almost statics. We can observe this fact plotting the displacement of this points and drawing it in the image, we can observe it at \ref{motion2}. So, we erase the points with a displacement smaller than a threshold. 
+After this step we have a bunch of motion vectors, but some vectors in the bounding box do not belong to the pedestrian, and if we do not erase it will contribute to the motion compuation. Usually this points belong to the static elements of the scene, like the floor or urban furniture, this points in terms of motion between subsequents frames will be very low or almost statics. We can observe this fact plotting the displacement of this points and drawing it in the image, we can observe it at \ref{motion2}. So, we erase the points with a displacement smaller than a threshold. 
 
 \begin{figure}[H]
 		
@@ -971,7 +1002,7 @@ After this step we have a bunch of motion vectors, but some vectors in the bound
 \label{motion2}
 \end{figure}
 
-But, this behavior will only work on sequences where the camera is fixed, in sequenes produced by a moving camera it will not work, we can observe the plot of displacement vectors on a sequence acquired by a moving camera \ref{motion3}. 
+But, this behavior will only work on sequences where the camera is fixed, in sequenes produced by a moving camera it will not work, we can observe the plot of displacement vectors on a sequence acquired by a moving camera in \ref{motion3}. 
 
 \begin{figure}[H]
 		
@@ -984,25 +1015,29 @@ But, this behavior will only work on sequences where the camera is fixed, in seq
 \end{figure}
 
 
-Next we erased this points, we compute the motion as the median of all the contibutions displacement vectors. The scale change is computed as follows: for each pair of points, a ratio between current point distance and previous point distance is computed, bounding box scale change is defined as the median over these ratios. 
+Next we erased this points, we compute the motion as the median of all the contibutions displacement vectors in each dimension. Also, the scale change is computed as follows: for each pair of points, a ratio between current point distance and previous point distance is computed, bounding box scale change is defined as the median over these ratios. 
 
-At this point, we have an implementation of the tracking algorithm given a set of bounding boxes. Nevertheless, we notice running our algorithm on the dataset, that the bounding box could compute the motion of the assigned pedestrian including the points belonging to another pedestrian who appears also in the bounding box and this interaction will cause a wrong estimation of the movement of the target and eventually the pedestrian will not be embedded by the bounding box. So, we need a mechanism to detect this fails, therefore we studied how the motion algorithm behaves in these situations. When it has got a trajectory without crossing with other pedestrian, the vertical and horizontal displacement behave like a damping sine wave   ( or amplified sine wave )   and the increment respect the previous displacment is small. We can observe this process in figure \ref{motion2Correct}.
-
-
+At this point, we have an implementation of the tracking algorithm given a set of bounding boxes. Nevertheless, we notice running our algorithm on the dataset, that the bounding box could compute the motion of the assigned pedestrian including the points belonging to another pedestrian who appears also in the bounding box. This interaction will cause a wrong estimation of the movement of the target and eventually the pedestrian will not be embedded by the bounding box. We can observe this event in figure \ref{traccs}.
 
 
 \begin{figure}[H]
-		
-\centering
-
-\subfigure[Trajectory.]{\includegraphics[width=15cm]{velocidadas/tomeuPont.png}}\\
-\subfigure[Plots movement.]{\includegraphics[width=16cm]{velocidadas/good_treshold.png}}\\
-\caption{Regular trajectory.}
-\label{motion2Correct}
+\centering         
+\includegraphics[width=0.9\linewidth]{velocidadas/mateuPont.png}
+\caption{Tracking failure.} \label{traccs}
 \end{figure}
 
 
-In contrast, when it crosses with another pedestrian, the displacement gets disrupt, then the normalized different with the previous displacement gets a high value, we can observe this process in figure \ref{motion2nocoorrect}. We set a threshold to notice this interference and delete this bounding box. We delete them from the current tracking execution, but we save the bounding box for following processings.
+So, we need a mechanism to detect these failures, therefore we studied how the motion algorithm behaves in these situations. When it has got a trajectory without crossing with other pedestrian, the vertical and horizontal displacement behave like a damping sine wave (if it goes away of the camera)  or amplified sine wave ( if it goes closer to the camera ). But when it has an interference with another bounding box, it has an steep change in that wave. We can measure that change as the differences between the current displacement and the previous one normalized by current displacement, if this value overtake a thresolh, we consider that tracket as a lost tracket. We can observe this process in the next figure \ref{traccs23}, it belongs to previous trajectory \ref{traccs} 
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=0.9\linewidth]{velocidadas/bad_threshold.png}
+\caption{Tracking failure.} \label{traccs23}
+\end{figure}
+
+
+In contrast, when it does not cross with another pedestrian, the displacement gets disrupt, then the normalized different with the previous displacement gets a high value, we can observe this process in figure \ref{motion2nocoorrect}. We set a threshold to notice this interference and delete this bounding box. We delete them from the current tracking execution, but we save the bounding box for following processings.
 
 \begin{figure}[H]
 		
@@ -1725,6 +1760,7 @@ This is a first entrance on trackings algorithm, we have a resanoable results. W
 \bibliographystyle{plain}
 
 
+\section{Annex}
 
 
 
