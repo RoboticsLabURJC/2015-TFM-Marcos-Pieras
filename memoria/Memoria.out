@@ -20,7 +20,7 @@
 \BOOKMARK [0][-]{chapter.4}{Software implementation}{}% 20
 \BOOKMARK [1][-]{section.4.1}{System overview}{chapter.4}% 21
 \BOOKMARK [1][-]{section.4.2}{System design}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.2.1}{Object detecion by neural networks}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.1}{Object detector by neural networks}{section.4.2}% 23
 \BOOKMARK [2][-]{subsection.4.2.2}{Feature tracking}{section.4.2}% 24
 \BOOKMARK [2][-]{subsection.4.2.3}{Data association}{section.4.2}% 25
 \BOOKMARK [0][-]{chapter.5}{Datasets and evaluation procedures}{}% 26

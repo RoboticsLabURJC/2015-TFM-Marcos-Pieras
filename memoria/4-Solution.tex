@@ -4,9 +4,9 @@ In this chapter, we explain the algorithm that we have designed for solving the 
 
 \section{System overview}
 
-The main contribution of this work is to develope a tracking algorithm that utilizes neural network and do not miss the real time objective. To do so it combines people detection using a neural network, somehow, slow but very accurate, and feature tracking, very quick but prone to drift. 
+The main contribution of this work is to develope a tracking algorithm that utilizes neural network and do not miss the real time objective. To do so it uses the tracking-by-detection framework, it combines people detection using a neural network, somehow, slow but very accurate, and link these detections with feature tracking, very quick but prone to drift. 
 
-The architecture of the system is summarized in the diagram \ref{software1}, it has a sequence of frames as input and a CSV file as output. This file has the structure of the MOT's evaluation software requires. We divided the computing in two threads, the object detector thread and the main thread. The first is responsible of given a frame compute their pedestrian detections and send them to the tracking thread, and the second one, given a detection it computes the tracking procedure, in adition, when a new detection appears it combines with the tracker, this is called data association, and finally it saves the results of the algorithm.
+The architecture of the system is summarized in the diagram \ref{software1}, it has a sequence of frames as input and a CSV file as output. This file has the structure of the MOT's evaluation software requires. We divided the computing in two threads, the object detector thread and the main thread. The first is responsible of given a frame compute their pedestrian detections and send them to the tracking thread, and the second one, the tracking thread, given a detection it computes the tracking procedure, in adition, when a new detection appears it combines with the tracker, this is called data association, and finally it saves the results of the algorithm.
 
 
 
@@ -17,7 +17,7 @@ The architecture of the system is summarized in the diagram \ref{software1}, it 
 \end{figure}
 
 
-Temporally the system works as follows, when the algorithm starts, first of all it launches the object detector thread, it begins to compute the detections of the first frame. Meanwhile, the tracking thread is idle, waiting for the detections. When the object detector finishes, it sends the detection to the tracking thread and at the same time starts to compute the detections of a predefined next frame. When the tracking thread has got a detection, it begins to compute the tracking between frames. Considering that the thread are not syncronized, the object detection thread goes ahead of the tracking thread it will have a detection when the tracking thread could not incorporate, thus, saves the detections and starts to compute the next one. When the tracking thread arrives to a frame that has a detection it has a mechanism to mix detection with trackets, what is called data association module, after running this module it will continue comuting the tracking. We can observe this temporal process in the next figure \ref{software2}, when $T$ represents a temporal step. When the object detector thread finishes computing all the detections it will \textit{die}. The tracking thread computes their task previously stated till it does not have any frame to process.
+Temporally the system works as follows, when the algorithm starts, first of all it launches the object detector thread, it begins to compute the detections of the first frame. Meanwhile, the tracking thread remains idle, waiting for the detections. When the object detector finishes, it sends the detection to the tracking thread and at the same time starts to compute the detections of a predefined new frame. When the tracking thread has got a detection, it begins to compute the tracking between frames. Considering that the thread are not syncronized, the object detection thread goes ahead of the tracking thread it will have a detection whcih the tracking thread could not incorporate, thus, it saves the detections. When the tracking thread arrives to a frame that has a detection it has a mechanism to mix detection with trackets, what is called data association module, after running this module it will continue computing the tracking, when necessary it has a person re-identification module, to solve some possible identity incongruities. We can observe this temporal process in the next figure \ref{software2}, when $T$ represents a temporal step. When the object detector thread finishes computing all the detections it will \textit{die} and the tracking thread computes their task previously stated till it does not have any frame to process.
 
 
 \begin{figure}[H]
@@ -27,7 +27,7 @@ Temporally the system works as follows, when the algorithm starts, first of all 
 \end{figure}
 
 
-In the figure \ref{introTracking3} there is a flow chart of the algorithm and it summarzizes as follows: The object detector thread reads images, processes the forward pass of the neural network and saves the detections in the shared buffer, it repeats this sequence until it has processed all the predefined list of images. In another hand, the main tread, activates the object detector thread and waits till it gets the first detection, after this, it starts the tracking algorithm. It reads the images and computes the motion of all the regions of interest. However, at beginning of each cycle it checks whether it has newer detection to mix in. This is the main operating mode of the algorithm and it summarizes in the figure \ref{system1}. In the next sections we will develope in detail these parts. 
+In the figure \ref{introTracking3} there is a flow chart of the algorithm and it summarizes as follows: The object detector thread reads images, processes the forward pass of the neural network and saves the detections in the shared buffer, it repeats this sequence until it has processed all the predefined list of frames. In another hand, the main tread, activates the object detector thread and waits till it gets the first detection, after this, it starts the tracking algorithm. It reads the images and computes the motion of all the regions of interest. However, at beginning of each cycle it checks whether it has newer detection to mix in. This is the main operating mode of the algorithm and it summarizes in the figure \ref{system1}. In the next sections we will develope in detail these parts. 
 
 \begin{figure}[H]
 	
@@ -41,40 +41,38 @@ In the figure \ref{introTracking3} there is a flow chart of the algorithm and it
 \label{introTracking3}
 \end{figure}
 
-We represent each person with a bounding box, in this bounding box we extract some features and compute how they move through the frames, based on the movement of those features we will infer the movement of the bounding box, therefore, the movement of the person.
+We represent each person with a bounding box, in this bounding box we extract some features and compute how they movement through the frames, based on the movement of those features we will infer the movement of the bounding box, therefore, the movement of the person.
 
 \section{System design}
 
 In this section we explain the parts of the algorithm in detail.
 
-\subsection{Object detecion by neural networks}
+\subsection{Object detector by neural networks}
 
 
 
-As we stated previously we compute the pedestrian detector based on a CNN. This types of systems are very accurate but slow. We are constraint by its execution time, it takes $0.92$ seconds for compute a detection, this allows us to get a new detection after $30$ frames. Thus,  the object detection computes a list of frame's index to compute the detection.
+As we stated previously we compute the pedestrian detector based on a CNN. This types of systems are very accurate but slow. We are constraint by its execution time, it takes $0.92$ seconds for compute each detection, this allows us to get a new detection after $30$ frames. 
 
+%\begin{algorithm}
+%\caption{Object detection thread}\label{euclid}
+%\begin{algorithmic}[1]
+%\Procedure{Detection}{}
+%%\State $A tracker prodcues a trajectory by tracking the point forward in time$
+%%\State $network \gets \textit{patlen}$
+%\State $network = network.init()$
+%\State $FPS = 30$
+%\State $FRAMES SEQUENCES = num of files(sequences)$
+%\State $LIST_INDEXs = createList(FPS,FRAMES_SEQUENCES)$
+%\For {(each object $LIST_INDEX$)}
+%\State $image = read()$
+%\State $detection = network.forward(image)$
+%\State $sharedVariable = detection$
+%\EndFor
+%\EndProcedure
+%\end{algorithmic}
+%\end{algorithm}
 
-
-\begin{algorithm}
-\caption{Object detection thread}\label{euclid}
-\begin{algorithmic}[1]
-\Procedure{Detection}{}
-%\State $A tracker prodcues a trajectory by tracking the point forward in time$
-%\State $network \gets \textit{patlen}$
-\State $network = network.init()$
-\State $FPS = 30$
-\State $FRAMES SEQUENCES = num of files(sequences)$
-\State $LIST_INDEXs = createList(FPS,FRAMES_SEQUENCES)$
-\For {(each object $LIST_INDEX$)}
-\State $image = read()$
-\State $detection = network.forward(image)$
-\State $sharedVariable = detection$
-\EndFor
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
-We selected the Single shot multibox detector as object detector, in section we explain why chose this detector. Finally, in \ref{objectDetector1} we can observe the result of this step.
+We selected the Single shot multibox detector as object detector, in section \ref{valdiation:det} we explain why chose this detector. Finally, in \ref{objectDetector1} we can observe the result of this step.
 
 
 \begin{figure}[H]
@@ -87,38 +85,36 @@ We selected the Single shot multibox detector as object detector, in section we 
 \subsection{Feature tracking}
 
 
-The tracking module is inspired by the well-known tracking algorithm \textit{MedianFlow} by Zalal et al\cite{medianFlow} with his correspondent implementation in Python\cite{medianFlowPython}. Next we explain the tracking module in details.
 
 
-
-The essence of the tracking thread it is the tracking module, called LK in the figure \ref{introTracking3}. It stands for Lucas-Kanade algorithm, due it is the method that we used in this work. This module for each detection computes its displacement by computing the displacement of the features inside this bounding box.
+The essence of the tracking thread it is the tracking module, called LK in the figure \ref{introTracking3}. It stands for Lucas-Kanade algorithm, due it is the method that we used in this work. This module for each detection computes its displacement by computing the displacement of the features inside this bounding box. It computes for each ROI at each step.
 
 
 
 
+%
+%\begin{algorithm}
+%\caption{Object detection thread}\label{euclid}
+%\begin{algorithmic}[1]
+%\Procedure{Detection}{}
+%%\State $A tracker prodcues a trajectory by tracking the point forward in time$
+%%\State $network \gets \textit{patlen}$
+%\State $network = network.init()$
+%\State $FPS = 30$
+%\State $FRAMES SEQUENCES = num of files(sequences)$
+%\State $LIST_INDEXs = createList(FPS,FRAMES_SEQUENCES)$
+%\For {(each object $LIST_INDEX$)}
+%\State $image = read()$
+%\State $detection = network.forward(image)$
+%\State $sharedVariable = detection$
+%\EndFor
+%\EndProcedure
+%\end{algorithmic}
+%\end{algorithm}
 
-\begin{algorithm}
-\caption{Object detection thread}\label{euclid}
-\begin{algorithmic}[1]
-\Procedure{Detection}{}
-%\State $A tracker prodcues a trajectory by tracking the point forward in time$
-%\State $network \gets \textit{patlen}$
-\State $network = network.init()$
-\State $FPS = 30$
-\State $FRAMES SEQUENCES = num of files(sequences)$
-\State $LIST_INDEXs = createList(FPS,FRAMES_SEQUENCES)$
-\For {(each object $LIST_INDEX$)}
-\State $image = read()$
-\State $detection = network.forward(image)$
-\State $sharedVariable = detection$
-\EndFor
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
 
 
-
-For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTrack()}, this function determines strong corners on an image, according the Shi Tomasi method. His parameters are the following:
+For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTrack()}, this function determines strong corners on an image, according the Shi-Tomasi method. His parameters are the following:
  
 \begin{itemize}
 
@@ -134,18 +130,21 @@ For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTra
 
 \end{itemize}
 
+We applied an equalization to the image to obtain more high contrast points, we can observe this in the figure \ref{solution2} and for each ROIs it looks like \ref{solution3}.
+
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=3cm]{implementation/pointsEQU.jpg}
-\caption{Detections of the algorithm.} \label{objectDetector1}
+\caption{Shi-Tomasi points on a person.} \label{solution2}
 \end{figure}
+
 
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=10cm]{intro/pounts.jpg}
-\caption{Detections of the algorithm.} \label{objectDetector1}
+\caption{Detections with feature points.} \label{solution3}
 \end{figure}
 
  
@@ -175,10 +174,7 @@ For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTra
 
 
 
-Motion
-
-
-To compute the flow, we used the OpenCV's routine \texttt{calcOpticalFlowPyrLK()}, this function implements a sparse iterative version of the Lucas-Kanade optical flow with pyramids. And his parameters are the following:
+Once we have all the detections with their points, we can compute its displacement, to do so,  we used the OpenCV's routine \texttt{calcOpticalFlowPyrLK()}, this function implements a sparse iterative version of the Lucas-Kanade optical flow with pyramids. And his parameters are the following:
  
 \begin{itemize}
 
@@ -195,21 +191,21 @@ To compute the flow, we used the OpenCV's routine \texttt{calcOpticalFlowPyrLK()
 
 
 
-In the next figure we can observe the matching of the features in subsequents frames.
+For the example's person we can observe the matching between the points of consecuitve frames. Once we have the correspondaces, we compute the displacement as the median of all of them in each dimension. 
 
 \begin{figure}[hptb]
 \centering         
 \includegraphics[width=0.3\linewidth]{implementation/matching.png}
-\caption{Image and motion vectors.} \label{motion1}
+\caption{Matched feature points.} \label{solution4}
 \end{figure}
 
 
-
+In the figure \ref{solution5} we can observe a representation of this dispalcement for each ROI.
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=10cm]{intro/alcover2.png}
-\caption{Detections of the algorithm.} \label{objectDetector1}
+\caption{Discplacement of each ROI.} \label{solution5}
 \end{figure}
 
 

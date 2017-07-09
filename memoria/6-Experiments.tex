@@ -3,11 +3,11 @@
 
 In this chapter we explain how we chose the elements of our algorithm and the results of it on the datasets.
 
-\section{Validation experiments}
+\section{Validation experiments}\label{valdiation}
 
 
 
-\subsection{Object detector}
+\subsection{Object detector}\label{valdiation:det}
 
 For the choice of the detector we compare the detectors studied in the theoretical review on the \textit{MOT16} dataset. In the figure \ref{objectDetector2} we can observe the ROC curve of different detectors.
 
@@ -49,6 +49,9 @@ Finally, the conclusions of the characteristics are the following:
 According to these results we chose the SSD detector, as object detector on this thesis.
 
 \subsection{Tracking module}
+
+
+The tracking module is inspired by the well-known tracking algorithm \textit{MedianFlow} by Zalal et al\cite{medianFlow} with his correspondent implementation in Python\cite{medianFlowPython}. Next we explain the tracking module in details.
 
 According to \cite{visualTrackingSurvey}, our method belong to tracking using matching, considering that the algorithm performs a matching of the representation of the target model built from the previous frames. We do not build an additional extended model of the appearance and merge it with the matching, instead we will apply an object detector to correct the drift of the matching.
 
