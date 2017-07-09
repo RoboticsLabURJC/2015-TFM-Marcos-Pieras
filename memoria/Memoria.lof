@@ -1,0 +1,92 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Frontal view of autonomous car.\relax }}{2}{figure.caption.9}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Tractography map.\relax }}{3}{figure.caption.10}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Camera for inspection.\relax }}{3}{figure.caption.11}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Augmented reality image.\relax }}{4}{figure.caption.12}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Control room.\relax }}{5}{figure.caption.13}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Visual tracking for science.\relax }}{6}{figure.caption.14}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Visual tracking for sports analysis.\relax }}{6}{figure.caption.15}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Visual tracking for art.\relax }}{7}{figure.caption.16}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Representation of a Convolutional neural network.\relax }}{8}{figure.caption.17}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Classification error in ImageNet challenge.\relax }}{10}{figure.caption.18}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Mean average precision over the years in PASCAL dataset.\relax }}{14}{figure.caption.19}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces SSD detector scheme.\relax }}{16}{figure.caption.20}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces SSD architecture.\relax }}{16}{figure.caption.21}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Comparison architectures.\relax }}{17}{figure.caption.22}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Types of patches.\relax }}{18}{figure.caption.24}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Optical flow example.\relax }}{20}{figure.caption.25}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Optical flow with pyramids.\relax }}{23}{figure.caption.26}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Siamese CNN topologies.\relax }}{25}{figure.caption.27}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Block diagram of the component.\relax }}{28}{figure.caption.28}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Timing of the component.\relax }}{28}{figure.caption.29}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Flow chart of the system.\relax }}{29}{figure.caption.30}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Detections of the algorithm.\relax }}{31}{figure.caption.31}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Detections of the algorithm.\relax }}{32}{figure.caption.32}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Detections of the algorithm.\relax }}{33}{figure.caption.33}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Image and motion vectors.\relax }}{34}{figure.caption.34}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Detections of the algorithm.\relax }}{34}{figure.caption.35}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Tracking failure.\relax }}{35}{figure.caption.36}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Tracking failure.\relax }}{35}{figure.caption.37}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Wrong trajectory.\relax }}{36}{figure.caption.38}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Spatio-temporal data association.\relax }}{37}{figure.caption.39}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Trajectory.}}}{37}{figure.caption.39}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Plots movement.}}}{37}{figure.caption.39}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Spatio-temporal data association.\relax }}{37}{figure.caption.40}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Distribution of VOC07 dataset.\relax }}{39}{figure.caption.41}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Distribution of pascal.\relax }}{41}{figure.caption.42}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Distribution of pascal.\relax }}{42}{figure.caption.43}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Comparision interpolated and normal curve.\relax }}{43}{figure.caption.45}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Example of Pets.\relax }}{45}{figure.caption.46}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Example of measures.\relax }}{46}{figure.caption.47}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Barplot of the timming.\relax }}{49}{figure.caption.49}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Barplot of the timming.\relax }}{50}{figure.caption.50}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Sequence of translational movement.\relax }}{51}{figure.caption.51}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Sequence of no translational movement.\relax }}{51}{figure.caption.52}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Barplot of the timming.\relax }}{52}{figure.caption.53}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Different preprocessings.\relax }}{52}{figure.caption.54}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Ilustration forward backward error.\relax }}{53}{figure.caption.55}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Siamese CNN topologies.\relax }}{54}{figure.caption.56}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Final layers.\relax }}{55}{figure.caption.57}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Data augmentation.\relax }}{57}{figure.caption.58}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Results training.\relax }}{58}{figure.caption.59}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces CMC plot.\relax }}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Pascal VOC.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {ImageNet.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {COCO.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Raw image.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Equalaized image.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Image forward-backward.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Scheme forward-backward.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cost function.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {In-network.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Joint data input.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Features with cosine distance.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Cnn fine-tuned.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Flatten.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Global average pooling.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Spatial pyramid pooling.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original image.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Random image brightness.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Random crop.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Vertical flip.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Gaussian blur.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Random shadow.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Zoom in.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Rotation and translation.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {Zoom out.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {Gaussian noise.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(k)}{\ignorespaces {Opposite vignetting.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Losses.}}}{58}{figure.caption.60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Accuracy.}}}{58}{figure.caption.60}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Performance-timing comparision.\relax }}{59}{figure.caption.61}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Barplot of the timming.\relax }}{61}{figure.caption.64}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Zoom in of the barplot.\relax }}{61}{figure.caption.65}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Time versus points and size of the ROI.\relax }}{62}{figure.caption.66}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Differences texture examples.\relax }}{64}{figure.caption.67}
+\addvspace {10\p@ }

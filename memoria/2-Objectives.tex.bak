@@ -1,0 +1,100 @@
+\chapter{Objetives}\label{cap.objetctives}
+
+Once we put in context our work, in this chapter we explain the objectives of this thesis, its requirements and the methodology to accomplish it.
+
+
+\section{Objective}
+
+The main objective of this thesis is to develope and characterize an algorithm of multiple people tracking with two differents methods: deep learning techniques and feature tracking. The essence of this work is study how combine it, and reach real time operation and a high performance. Finally, validate our solution with a international dataset, the Multiple Object Tracking dataset. We divided this target in several sub-objectives:
+
+\begin{itemize}
+
+
+\item \textbf{Object detector using deep learning}. Study the fundamentals of object detectors with deep learning techniques. We analysed the performance on the main datasets and finally, we chose one to our task. 
+
+\item \textbf{Development of a tracking module}. We studied which tracking technique would fit our problem, when it was selected, we implemented on code.
+
+\item \textbf{Join these two techniques}. We integrated this two techniques to perform a complete tracking algorithm.
+
+\item \textbf{Test the component on an international databases}. We validate our solution on well-known database. 
+
+
+\end{itemize}
+
+\subsection{Requirements}
+
+In adition to the previous objectives, our solution must satisfy the following requirements:
+
+\begin{itemize}
+
+\item The solution will make use of the JdeRobot framework, release 5.5, which is the devveloping environment of the \textit{Grupo de Robótica} of the \textit{Universidad Rey Juan Carlos}.
+
+\item The software will run on the GNU/Lunux Ubuntu 16.04 environment.
+
+\item The algorithm will only make use of video sequences not other information.
+
+\item The algorithm must achieve an execution on real time and guarantee a precision.
+
+
+\end{itemize}
+
+%\section{Working plan}
+%
+%In this part we explain chronologicaly our work to develope our thesis.
+%\begin{itemize}
+%
+%
+%\item \textbf{Object detector using deep learning}. Study the fundamentals of object detectors with deep learning techniques. We analysed the performance on the main datasets and finally, we chose one to our task. 
+%
+%\item \textbf{Development of a tracking module}. We studied which tracking technique would fit our problem, when it was selected, we implemented on code.
+%
+%\item \textbf{Join these two techniques}. We integrated this two techniques to perform a complete tracking algorithm.
+%
+%\item \textbf{Test the component on an international databases}. We validate our solution on well-known database. 
+%
+%
+%\end{itemize}
+
+
+
+\section{Methodology}
+
+To achieve our objectives we used several tools that helped to monitoring the project for all members of the team. It allowed to comment or correct the task.
+
+The main tool, it has been the videoconference, we established a weekly meeting with all the members of the team. In this meetings we showed the results and we shared our feedback with the other members of the team. 
+
+As complementary tools, we used a website and Github repository, these tools helped to control the development of our work. The website was developed using the wiki of JdeRobot \cite{wikiPieras}, this shows the weekly tasks and results. The Git Hub reposository \cite{repoPieras} allows to acces to the code by all the members of the team.
+
+Our developement plan was based on the Spiral model. It consists in four steps. In the first step, we determine the objectives of our project, in the second one, we analyse the risks and evaluate which problems we will face, then we develope and test our prototype and the last step consists to evaluate the results. We apply several iteration of this process till we get a satifsfactory project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
