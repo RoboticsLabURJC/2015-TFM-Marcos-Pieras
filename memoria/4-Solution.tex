@@ -6,7 +6,7 @@ In this chapter, we explain the algorithm that we have designed for solving the 
 
 The main contribution of this work is to develop a tracking algorithm that utilizes a neural network and do not miss the real time objective. To do so we use the tracking-by-detection framework, it combines people detection using a neural network, somehow, slow but very accurate, and link these detections with feature tracking, very quick but prone to drift. 
 
-The architecture of the system is summarized in the diagram \ref{software1}, its inputs is a sequence of frames and its output is a CSV file. This file has the structure of the MOT's evaluation software requires. We divided the computing in two threads, the object detector thread and the main thread. The first is responsible of given a frame compute their pedestrian detections and send them to the tracking thread, and the second one, the tracking thread, given a detection it computes the tracking procedure, in addition, when a new detection appears it combines with the tracker, this is called data association, and finally it saves the results of the algorithm. We called data association to the process of combine a detection with the trackets, this is different to the data association concep in the tracking-by-detection nomenclature. In our algorithm the data association, like in the tracking-by-detection nomenclature, is the tracking module which links the detections. 
+The architecture of the system is summarized in the diagram \ref{software1}, its inputs is a sequence of frames and its output is a CSV file. This file has the structure of the MOT's evaluation software requires. We divided the computing in two threads, the object detector thread and the tracking thread. The first is responsible of given a frame compute their pedestrian detections and send them to the tracking thread, and the second one, the tracking thread, given a detection it computes the tracking procedure, in addition, when a new detection appears it combines with the tracker, this is called data association, and finally it saves the results of the algorithm. We called data association to the process of combine a detection with the trackets, this is different to the data association concept in the tracking-by-detection nomenclature. In our algorithm the data association, like in the tracking-by-detection nomenclature, is the tracking module which links the detections. 
 
 
 
@@ -17,7 +17,7 @@ The architecture of the system is summarized in the diagram \ref{software1}, its
 \end{figure}
 
 
-Temporally the system works as follows, when the algorithm starts, first of all it launches the object detector thread, it begins to compute the detections of the first frame. Meanwhile, the tracking thread remains idle, waiting for the detections. When the object detector finishes, it sends the detection to the tracking thread and at the same time starts to compute the detections of a predefined new frame. When the tracking thread has got a detection, it begins to compute the tracking between frames. Considering that the thread are not synchronized, the object detection thread goes ahead of the tracking thread it will have a detection which the tracking thread could not incorporate, thus, it saves the detections in a shared buffer. When the tracking thread arrives to a frame that has got a detection it has a mechanism to mix detection with trackets, what it is called data association module, after running this module it will continue computing the tracking, when necessary it has a person re-identification module, to solve some possible identity incongruities. We can observe this temporal process in the next figure \ref{software2}, when $T$ represents a temporal step. When the object detector thread finishes computing all the detections it will \textit{die} and the tracking thread computes their task previously stated till it does not have any frame to process.
+Temporally the system works as follows, when the algorithm starts, first of all it launches the object detector thread, it begins to compute the detections of the first frame. Meanwhile, the tracking thread remains idle, waiting for the detections. When the object detector finishes, it sends the detection to the tracking thread and at the same time starts to compute the detections of a predefined new frame. When the tracking thread receives a detection, it begins to compute the tracking between frames. Considering that the thread are not synchronized, the object detection thread goes ahead of the tracking thread it will have a detection which the tracking thread could not incorporate, thus, it saves the detections in a shared buffer. When the tracking thread arrives to a frame that has got a detection it has a mechanism to mix detection with trackets, what it is called data association module, in addition it has a person re-identification module, to solve some possible identity incongruities, then it will continue computing the tracking. We can observe this temporal process in the next figure \ref{software2}, when $T$ represents a temporal step. When the object detector thread finishes computing all the detections it will \textit{die} and when the tracking thread process all the frame it dies too and the component it 
 
 
 \begin{figure}[H]
@@ -27,13 +27,13 @@ Temporally the system works as follows, when the algorithm starts, first of all 
 \end{figure}
 
 
-In the figure \ref{introTracking3} there is a flow chart of the algorithm and it summarizes as follows: The object detector thread reads images, processes the forward pass of the neural network and saves the detections in the shared buffer, it repeats this sequence until it has processed all the predefined list of frames. In another hand, the main tread, activates the object detector thread and waits till it gets the first detection, after this, it starts the tracking algorithm. It reads the images and computes the motion of all the regions of interest. However, at beginning of each cycle it checks whether it has newer detection to mix in. This is the main operating mode of the algorithm and it summarizes in the figure \ref{system1}. In the next sections we will develope in detail these parts. 
+In the figure \ref{introTracking3} there is a flow chart of the algorithm and it summarizes as follows: The object detector thread reads images, processes the forward pass of the neural network and saves the detections in the shared buffer, it repeats this sequence until it has processed all the predefined list of frames. In another hand, the main tread, activates the object detector thread and waits till it gets the first detection, after this, it starts the tracking algorithm. It reads the images and computes the motion of all the regions of interest. However, at beginning of each cycle it checks whether it has newer detection to mix in. This is the main operating mode of the algorithm and it summarizes in the figure \ref{system1}. 
 
 \begin{figure}[H]
 	
 \centering
 
-\subfigure[Main thread.]{\includegraphics[width=5cm]{flows/arc.png}}
+\subfigure[Tracking thread.]{\includegraphics[width=5cm]{flows/arc.png}}
 \subfigure[Object detector thread.]{\includegraphics[width=5cm]{flows/detetc.png}}\\
 
 
@@ -50,7 +50,7 @@ With this approach we accomplish to join two opposite technologies, we can explo
 
 In this section we explain the parts of the algorithm in detail.
 
-\subsection{Object detector by neural networks}
+\subsection{Object detector thread}
 
 
 
@@ -75,7 +75,7 @@ As we stated previously we compute the pedestrian detector based on a CNN. This 
 %\end{algorithmic}
 %\end{algorithm}
 
-We selected the Single shot multibox detector as object detector, in section \ref{valdiation:det} we explain why we chose this detector. This detector works autonomously in his own thread Finally, in \ref{objectDetector1} we can observe the result of this step.
+We selected the Single shot multibox detector as object detector, because it has the best balance between performance and speed, in section \ref{valdiation:det} we make a comparison of the available detectors. Finally, in \ref{objectDetector1} we can observe the result of this step.
 
 
 \begin{figure}[H]
@@ -85,12 +85,16 @@ We selected the Single shot multibox detector as object detector, in section \re
 \end{figure}
 
 
-\subsection{Feature tracking}
+\subsection{Tracking thread}
 
 
 
 
-The essence of the tracking thread it is the tracking module, called LK in the figure \ref{introTracking3}. It stands for Lucas-Kanade algorithm, due it is the method that we used in this work. This module for each detection computes its displacement by computing the displacement of the features inside this bounding box. It computes for each ROI at each step. For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTrack()}, this function determines strong corners on an image, according the Shi-Tomasi method. His parameters are the following:
+The essence of the tracking thread it is the tracking module, called LK in the figure \ref{introTracking3}. It stands for Lucas-Kanade algorithm, due it is the method that we used in this work. This module for each detection computes its displacement by computing the displacement of the features inside this bounding box. 
+
+\subsubsection{Feature extraction}
+
+It computes for each ROI at each step. For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTrack()}, this function determines strong corners on an image, according the Shi-Tomasi method. His parameters are the following:
  
 \begin{itemize}
 
@@ -106,7 +110,7 @@ The essence of the tracking thread it is the tracking module, called LK in the f
 
 \end{itemize}
 
-We applied an equalization to the image to obtain more high contrast points, we can observe this in the figure \ref{solution2} and for each ROIs it looks like \ref{solution3}.
+We applied an equalization transformation to the image before the feature extraction, to obtain more high contrast points, in \ref{exper:validation} we perform a comparision of several preprocessing techniques. We can observe the results of this process in the figure \ref{solution2} and for all the ROIs it looks like \ref{solution3}.
 
 
 \begin{figure}[H]
@@ -166,7 +170,7 @@ We applied an equalization to the image to obtain more high contrast points, we 
 %\end{algorithmic}
 %\end{algorithm}
 
-
+\subsubsection{Feature matching}
 
 
 Once we have all the detections with their feature points, we can compute its displacement, to do so,  we used the OpenCV's routine \texttt{calcOpticalFlowPyrLK()}, this function implements a sparse iterative version of the Lucas-Kanade optical flow with pyramids. And his parameters are the following:
@@ -186,7 +190,7 @@ Once we have all the detections with their feature points, we can compute its di
 
 
 
-For the example's person we can observe the matching between the points of consecutive frames. Once we have the correspondaces, we compute the displacement as the median of all of them in each dimension. We also compute the change of the scale of the ROI, it is computed as follows: for each pair of points, a ratio between current point distance and previous point distance is computed, bounding box scale change is defined as the median over these ratios.
+For the example's person we can observe the matching between the points of consecutive frames in figure \ref{solution4}.
 
 \begin{figure}[hptb]
 \centering         
@@ -195,7 +199,34 @@ For the example's person we can observe the matching between the points of conse
 \end{figure}
 
 
-In the figure \ref{solution5} we can observe a representation of this displacement for each ROI. At this point we have solved the data association problem in the tracking-by-detection nomenclature.
+%--------------------------------
+
+After this step we have a bunch of motion vectors, but some vectors in the bounding box do not belong to the pedestrian, and if we do not erase it will contribute to the motion computation. Usually this points belong to the static elements of the scene, like the floor or urban furniture, this points in terms of motion between subsequent frames will be very low or almost static. We can observe this fact plotting the displacement of this points and drawing it in the image, we can observe it at \ref{motion2}. So, we erase the points with a displacement smaller than a threshold. 
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Image points.]{\includegraphics[width=2.5cm]{implementation/reejctMore.png}}
+\subfigure[Displacement graphics.]{\includegraphics[width=13cm]{implementation/filterVeloPoints.png}}\\
+\caption{Image and motion vectors.}
+\label{motion2}
+\end{figure}
+
+But, this behavior will only work on sequences where the camera is fixed, in sequences produced by a moving camera it will not work, we can observe the plot of displacement vectors on a sequence acquired by a moving camera in \ref{motion3}. 
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Image points.]{\includegraphics[width=2.5cm]{implementation/foto004.png}}
+\subfigure[Displacement graphics.]{\includegraphics[width=13cm]{implementation/figurePoints.png}}\\
+\caption{Image and motion vectors of a moving camera sequence.}
+\label{motion3}
+\end{figure}
+
+
+Once we have the correct correspondaces, we compute the displacement as the median of all of them in each dimension. We also compute the change of the scale of the ROI, it is computed as follows: for each pair of points, a ratio between current point distance and previous point distance is computed, bounding box scale change is defined as the median over these ratios. In the figure \ref{solution5} we can observe a representation of this displacement for each ROI. At this point we have solved the data association problem in the tracking-by-detection nomenclature.
 
 \begin{figure}[H]
 \centering         
@@ -204,10 +235,11 @@ In the figure \ref{solution5} we can observe a representation of this displaceme
 \end{figure}
 
 
+%--------------
 
-Next we erased this points, we compute the motion as the median of all the contibutions displacement vectors in each dimension. Also, the scale change is computed as follows: for each pair of points, a ratio between current point distance and previous point distance is computed, bounding box scale change is defined as the median over these ratios. 
 
-At this point, we have an implementation of the tracking algorithm given a set of bounding boxes. Nevertheless, we notice running our algorithm on the dataset, that the bounding box could compute the motion of the assigned pedestrian including the points belonging to another pedestrian who appears also in the bounding box. This interaction will cause a wrong estimation of the movement of the target and eventually the pedestrian will not be embedded by the bounding box. We can observe this event in figure \ref{traccs}.
+
+At this point, we have an implementation of the tracking algorithm given a set of bounding boxes. Nevertheless, the feature tracking is very sensitive to crossings between pedestrian, although the bounding boxes are fitted to body of the pedestrian it could include points belonging to another pedestrian, in this case the movement estimation is wrong and eventually the pedestrian will not be embedded by the bounding box. We can observe this event in figure \ref{traccs}.
 
 
 \begin{figure}[H]
@@ -217,7 +249,7 @@ At this point, we have an implementation of the tracking algorithm given a set o
 \end{figure}
 
 
-So, we need a mechanism to detect these failures, therefore we studied how the motion algorithm behaves in these situations. When it has got a trajectory without crossing with other pedestrian, the vertical and horizontal displacement behave like a damping sine wave (if it goes away of the camera)  or amplified sine wave ( if it goes closer to the camera ). But when it has got an interference with another pedestrian, it has an steep change in that wave. We can measure that change as the differences between the current displacement and the previous one normalized by current displacement, if this value overtake a thresolhd, we consider that tracket as a lost tracket. We can observe this process in the next figure \ref{traccs23}, it belongs to previous trajectory \ref{traccs} 
+So, we need a mechanism to detect these failures, therefore we studied how the motion algorithm behaves in these situations. When it has got a trajectory without crossing with other pedestrian, the vertical and horizontal displacement behave like a damping sine wave (if it goes away of the camera)  or amplified sine wave ( if it goes closer to the camera ). But when it has got an interference with another pedestrian, it has an steep change in that wave. We can measure that change as the differences between the current displacement and the previous one normalized by current displacement, if this value overtake a threshold, we consider that tracker as a lost track. We can observe this process in the next figure \ref{traccs23}, it belongs to previous trajectory \ref{traccs} 
 
 
 \begin{figure}[H]
@@ -233,8 +265,8 @@ In contrast, when it does not cross with another pedestrian, the displacement do
 		
 \centering
 
-\subfigure[Trajectory.]{\includegraphics[width=15cm]{velocidadas/mateuPont.png}}\\
-\subfigure[Plots movement.]{\includegraphics[width=16cm]{velocidadas/bad_threshold.png}}\\
+\subfigure[Trajectory.]{\includegraphics[width=15cm]{velocidadas/tomeuPont.png}}\\
+\subfigure[Plots movement.]{\includegraphics[width=16cm]{velocidadas/good_treshold.png}}\\
 \caption{Wrong trajectory.}
 \label{motion2nocoorrect}
 \end{figure}
@@ -251,7 +283,7 @@ In contrast, when it does not cross with another pedestrian, the displacement do
 
 
 
-\subsection{Data association}
+\subsubsection{Data association with detected pedestrians by the neural net}
 
 Once we computed the trajectories, in the next iteration we might have to add a detection, so we need a module to combine these trajectories with detections. Thus, for each pedestrian we distinguish three situations:
 
@@ -259,7 +291,7 @@ Once we computed the trajectories, in the next iteration we might have to add a 
 
 
 
-\item \textbf{Situation 1}, the tracket has got a nearby detection, then the detection replace the tracket bounding box. This is what is called spatio-temporal constraint.
+\item \textbf{Situation 1}, the tracket has got a nearby detection, then the detection replaces the tracket bounding box. This is what is called spatio-temporal constraint.
 
 \item \textbf{Situation 2}, the tracket has not got a nearby detection, then the bounding box tracket continues.
 
@@ -267,7 +299,7 @@ Once we computed the trajectories, in the next iteration we might have to add a 
 
 \end{itemize}
 
-We can observe the procedure for situations number one and two in the figure \ref{data1}, in green colour we can observe the detections and in blue colour the trackets. We defined nearby as the distance between the centres of the boundings boxes, this distance has to be lower than a threshold to be consider nearby. 
+We can observe the procedure for situations number one and two in the figure \ref{data1}, in green colour we can observe the detections and in blue colour the trackets. We defined nearby as the distance between the centres of the bounding boxes, this distance has to be lower than a threshold to be considered nearby. 
 
 \begin{figure}[hptb]
 \centering         
@@ -276,12 +308,18 @@ We can observe the procedure for situations number one and two in the figure \re
 \end{figure}
 
 
+To maintain the identity of the pedestrian we need a method to compare miss trackets with no associated detections, this is Situation 3. So, we decided to solve it with deep learning techniques. In particular, a Siamese convolutional neural network, with In-network architecture in \ref{saimss} we can observe a diagram of it. This networks concatenates two ROIs and computes a probability to belong to the same identity. In section \ref{exper:entrenar} we explain why we selected this architecture and how we trained it.
+
+
+
 \begin{figure}[hptb]
 \centering         
-\includegraphics[width=3cm]{siamese/retall2.png}
-\caption{Spatio-temporal data association.} \label{data1}
+\includegraphics[width=3cm]{siamese/retall3.png}
+\caption{Siamese network: In-network.} \label{saimss}
 \end{figure}
 
 
+For each detection we compare with all the miss trackets, if the maximum value of this  comparision is greater than a threshold we assign it to that identity, if it is not we consider that detection as a new identity.
 
 
+The tracking thread computes these steps for every frame in the sequence.

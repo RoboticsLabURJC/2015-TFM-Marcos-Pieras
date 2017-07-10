@@ -77,7 +77,7 @@ In contrast to the previous figure, we can observe the next figure \ref{track2w}
 
 
 
-\subsubsection{Feature extraction}
+\subsubsection{Feature extraction}\label{exper:validation}
 
 The strength of the further processing depends on the quality and quantity of this features, so in other to improve both, we apply some prepreprocessing to the image. We tried several preprocessings techniques like sharpening, image contrast, median filter, and equalization. In \ref{track1w}, we can observe the relation between number of points extracted and time comsuption of those techniques.
 
@@ -122,7 +122,7 @@ We used the Lucas-Kanade method to matching the points. Also, we implement the s
 \label{motion23}
 \end{figure}
 
-\subsection{Siamese networks}
+\subsection{Siamese networks}\label{exper:entrenar}
 
 
 To mantain the identity of the pedestrian we need a method to compare miss trackets with no associated detections. So, we decided to solve it with deep learning techniques, the scheme that we considered are the following:
