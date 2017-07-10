@@ -352,17 +352,6 @@ Laura Leal{-}Taix{\'{e}}, Cristian Canton{-}Ferrer, and Konrad Schindler.
 \newblock Learning by tracking: Siamese {CNN} for robust target association.
 \newblock {\em CoRR}, abs/1604.07866, 2016.
 
-\bibitem{medianFlow}
-Zdenek Kalal, Krystian Mikolajczyk, and Jiri Matas.
-\newblock Forward-backward error: Automatic detection of tracking failures.
-\newblock In {\em Pattern recognition (ICPR), 2010 20th international
-  conference on}, pages 2756--2759. IEEE, 2010.
-
-\bibitem{medianFlowPython}
-{Jay Rambhia}.
-\newblock Median flow tracker in python.
-\newblock \url{https://github.com/jayrambhia/MFTracker} [2015-08-15], 2015.
-
 \bibitem{voc07}
 M.~Everingham, S.~M.~A. Eslami, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and
   A.~Zisserman.
@@ -495,20 +484,45 @@ Patrick Grother, Ross~J. Micheals, and P.~Jonathon Phillips.
   937--945.
 \newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2003.
 
+\bibitem{tensorObjectdte}
+{Alphabet Inc.}
+\newblock Object detetection in tensorflow.
+\newblock
+  \url{https://github.com/tensorflow/models/tree/master/object_detection}
+  [2017-02-21], 2017.
+
 \bibitem{yoloDark}
 {J. Redmon}.
 \newblock You only look once.
 \newblock \url{https://github.com/pjreddie/darknet} [2017-06-11], 2017.
+
+\bibitem{ssdCode2}
+{Wei Lee}.
+\newblock Single shot detector caffe.
+\newblock \url{https://github.com/weiliu89} [2017-02-21], 2017.
 
 \bibitem{ssdCode}
 {Paul B.}
 \newblock Single shot detector tensorflow.
 \newblock \url{https://github.com/balancap/SSD-Tensorflow} [2017-02-21], 2017.
 
-\bibitem{ssdCode2}
-{Wei Lee}.
-\newblock Single shot detector caffe.
-\newblock \url{https://github.com/weiliu89} [2017-02-21], 2017.
+\bibitem{spd}
+Fan Yang, Wongun Choi, and Yuanqing Lin.
+\newblock Exploit all the layers: Fast and accurate cnn object detector with
+  scale dependent pooling and cascaded rejection classifiers.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 2129--2137, 2016.
+
+\bibitem{medianFlow}
+Zdenek Kalal, Krystian Mikolajczyk, and Jiri Matas.
+\newblock Forward-backward error: Automatic detection of tracking failures.
+\newblock In {\em Pattern recognition (ICPR), 2010 20th international
+  conference on}, pages 2756--2759. IEEE, 2010.
+
+\bibitem{medianFlowPython}
+{Jay Rambhia}.
+\newblock Median flow tracker in python.
+\newblock \url{https://github.com/jayrambhia/MFTracker} [2015-08-15], 2015.
 
 \bibitem{townCenter}
 {University of Oxford}.

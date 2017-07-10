@@ -1,12 +1,10 @@
 \chapter{Conclusions}\label{cap.conclusions}
 
+ 
 
+In this thesis we studied deep learning techniques and their application in a tracking algorithm. We were able to build a tracking algorithm that utilizes a neural network and do not miss the real time objective. To do so we used the tracking-by-detection framework, it combines people detection using a neural network, somehow, slow but very accurate, and link these detections with feature tracking, very quick but prone to drift.  In addition we studied the person reidentification problem and we solved with a deep learning techniques.
 
-In this thesis we studied deep learning techniques and their application in a tracking algorithm. We included an object detector and a person re-identification module based on those techniques and we implemented a tracking algorithm.
-
-This tracking algorithm, takes the detections of the object detector and computes the optical flow on the sequences. When it misses some pedestrians it can preserve their identity with a person re-identification module.
-
-Finally we evaluated our algorithm in a well-known challenge, MOT16, and analyses its performance and timing capabilties on it. The algorithms performs reasonably well in sequences of high frame rate and resolution, but in the opposite sequences, low frame rate and resolution the performance drop dramatically. This is happens beacause our algorithm rely on points with high texture, with a low resolution there are less points with this characteristics. Also, we have problems with people who wear low texture or are away from the camera, as we can oberve in figure \ref{Fails1}. The low frame rate, penalize the matching capabilites between frames, it produces wrong matches between images, therefore, wrong displacements.
+Finally we evaluated our algorithm in a well-known challenge, MOT16, and analyses its performance and timing capabilities on it. The algorithms performs reasonably well in sequences of high frame rate and resolution, but in the opposite sequences, low frame rate and resolution the performance drop dramatically. This is happens because our algorithm rely on points with high texture, with a low resolution there are less points with this characteristics. Also, we have problems with people who wear low texture or are away from the camera, as we can observe in figure \ref{Fails1}. The low frame rate, penalize the matching capabilities between frames, it produces wrong matches between images, therefore, wrong displacements.
 
 
 
@@ -15,9 +13,9 @@ Finally we evaluated our algorithm in a well-known challenge, MOT16, and analyse
 		
 \centering
 
-\subfigure[High texture person.]{\includegraphics[width=5cm]{changeCamera/tomeuTetx.png}}
-\subfigure[Low texture person.]{\includegraphics[width=5cm]{changeCamera/donaTetx.png}}
-\subfigure[Far away person.]{\includegraphics[width=5cm]{changeCamera/foto004.png}}
+\subfigure[High texture person.]{\includegraphics[width=3cm]{changeCamera/tomeuTetx.png}}
+\subfigure[Low texture person.]{\includegraphics[width=3cm]{changeCamera/donaTetx.png}}
+\subfigure[Far away person.]{\includegraphics[width=3cm]{changeCamera/foto004.png}}
 \caption{Differences texture examples.}
 \label{Fails1}
 \end{figure}
@@ -32,7 +30,7 @@ Finally we evaluated our algorithm in a well-known challenge, MOT16, and analyse
 \section{Future work}
 
 
-This is a first entrance on trackings algorithm, we have a resanoable results. We can add some details to improve our results.
+This is a first entrance on trackings algorithm, we have a reasonable results. We can add some details to improve our results.
 
 
 \begin{itemize}
