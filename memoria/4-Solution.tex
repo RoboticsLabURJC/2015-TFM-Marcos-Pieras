@@ -4,15 +4,15 @@ In this chapter, we explain the algorithm that we have designed for solving the 
 
 \section{System overview}
 
-The main contribution of this work is to develop a tracking algorithm that utilizes a neural network and do not miss the real time objective. To do so we use the tracking-by-detection framework, it combines people detection using a neural network, somehow, slow but very accurate, and link these detections with feature tracking, very quick but prone to drift. 
+The main contribution of this work is to develop a tracking algorithm that utilizes both a neural network and do not miss the real time operation. To do so we use the tracking-by-detection framework, and combine people detection using a neural network, somehow slow but very accurate, and link these detections with a regular feature tracking, very quick but prone to drift. 
 
-The architecture of the system is summarized in the diagram \ref{software1}, its inputs is a sequence of frames and its output is a CSV file. This file has the structure of the MOT's evaluation software requires. We divided the computing in two threads, the object detector thread and the tracking thread. The first is responsible of given a frame compute their pedestrian detections and send them to the tracking thread, and the second one, the tracking thread, given a detection it computes the tracking procedure, in addition, when a new detection appears it combines with the tracker, this is called data association, and finally it saves the results of the algorithm. We called data association to the process of combine a detection with the trackets, this is different to the data association concept in the tracking-by-detection nomenclature. In our algorithm the data association, like in the tracking-by-detection nomenclature, is the tracking module which links the detections. 
+The architecture of the system is summarized in the diagram \ref{software1}. Its inputs is a sequence of frames and its output is a CSV file. This file has the structure of the MOT's evaluation software requires. We divided the computing in two threads, the \textit{object detector thread} and the \textit{tracking thread}. The first is responsible of given a frame compute their pedestrian detections and send them to the tracking thread, and the second one, the tracking thread, given a detection it computes the tracking procedure, in addition, when a new detection appears it combines with the tracker, this is called data association, and finally it saves the results of the algorithm. We called data association to the process of combine a detection with the trackets, this is different to the data association concept in the tracking-by-detection nomenclature. In our algorithm the data association, like in the tracking-by-detection nomenclature, is the tracking module which links the detections. 
 
 
 
 \begin{figure}[H]
 \centering         
-\includegraphics[width=8cm]{flows/bloque.png}
+\includegraphics[width=12cm]{flows/bloque.png}
 \caption{Block diagram of the component.} \label{software1}
 \end{figure}
 
@@ -22,7 +22,7 @@ Temporally the system works as follows, when the algorithm starts, first of all 
 
 \begin{figure}[H]
 \centering         
-\includegraphics[width=14cm]{timesDiagram/timing.png}
+\includegraphics[width=14cm]{timesDiagram/timing3.png}
 \caption{Timing of the component.} \label{intro1}
 \end{figure}
 
@@ -43,37 +43,50 @@ In the figure \ref{introTracking3} there is a flow chart of the algorithm and it
 
 We represent each person with a bounding box, in this bounding box we extract some features and compute how they movement through the frames, based on the movement of those features we will infer the movement of the bounding box, therefore, the movement of the person.
 
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Detections.]{\includegraphics[width=3cm]{BoundingBox3/bounding1.png}}
+\subfigure[Points.]{\includegraphics[width=3cm]{BoundingBox3/ppints1.png}}
+\subfigure[Displacements.]{\includegraphics[width=3cm]{BoundingBox3/arrow1.png}}\\
+\caption{Image and motion vectors of a moving camera sequence.}
+\label{motion3}
+\end{figure}
+
+
+
+
 With this approach we accomplish to join two opposite technologies, we can exploit their benefits and reduce their drawbacks. We can get an accurate detection every $30$ frames and in between, we link those detections with the tracking by features module. In this way, we reduce the fragility of the tracking, it tends to miss feature points and cause a drift of the estimation, with a new detection, that corrects that drift. In addition, we compensate the slowness of the detection with the speed of the feature tracking.
 
 
-\section{System design}
 
-In this section we explain the parts of the algorithm in detail.
+Next we explain each part in detail.
 
-\subsection{Object detector thread}
+\section{Object detector thread}
 
 
 
 As we stated previously we compute the pedestrian detector based on a CNN. This types of systems are very accurate but slow. We are constraint by its execution time, it takes $0.92$ seconds for compute each detection, this allows us to get a new detection after $30$ frames. 
 
-%\begin{algorithm}
-%\caption{Object detection thread}\label{euclid}
-%\begin{algorithmic}[1]
-%\Procedure{Detection}{}
-%%\State $A tracker prodcues a trajectory by tracking the point forward in time$
-%%\State $network \gets \textit{patlen}$
-%\State $network = network.init()$
-%\State $FPS = 30$
-%\State $FRAMES SEQUENCES = num of files(sequences)$
-%\State $LIST_INDEXs = createList(FPS,FRAMES_SEQUENCES)$
-%\For {(each object $LIST_INDEX$)}
-%\State $image = read()$
-%\State $detection = network.forward(image)$
-%\State $sharedVariable = detection$
-%\EndFor
-%\EndProcedure
-%\end{algorithmic}
-%\end{algorithm}
+\begin{algorithm}
+\caption{Object detection thread}\label{euclid}
+\begin{algorithmic}[1]
+
+\State $FPS = 30$
+\State $numFramesSequences = size(sequences)$
+\State $network = network.init()$
+\State $listIndex = createList(FPS,numFramesSequences)$
+\Procedure{Run}{}
+\For {$indexImage$ in $listIndex$}
+\State $image = read(indexImage)$
+\State $detection = network.forward(image)$
+\State $sharedVariable = detection$
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 We selected the Single shot multibox detector as object detector, because it has the best balance between performance and speed, in section \ref{valdiation:det} we make a comparison of the available detectors. Finally, in \ref{objectDetector1} we can observe the result of this step.
 
@@ -85,14 +98,35 @@ We selected the Single shot multibox detector as object detector, because it has
 \end{figure}
 
 
-\subsection{Tracking thread}
+\section{Tracking thread}
 
 
 
 
 The essence of the tracking thread it is the tracking module, called LK in the figure \ref{introTracking3}. It stands for Lucas-Kanade algorithm, due it is the method that we used in this work. This module for each detection computes its displacement by computing the displacement of the features inside this bounding box. 
 
-\subsubsection{Feature extraction}
+
+
+\begin{algorithm}
+\caption{Tracking thread}\label{euclid}
+\begin{algorithmic}[1]
+
+\State $FPS = 30$
+\State $numFramesSequences = size(sequences)$
+\State $network = network.init()$
+\State $listIndex = createList(FPS,numFramesSequences)$
+\Procedure{Run}{}
+\For {$indexImage$ in $listImages$}
+\State $image = read(indexImage)$
+\State $detection = network.forward(image)$
+\State $sharedVariable = detection$
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsection{Feature extraction}
 
 It computes for each ROI at each step. For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTrack()}, this function determines strong corners on an image, according the Shi-Tomasi method. His parameters are the following:
  
@@ -170,7 +204,7 @@ We applied an equalization transformation to the image before the feature extrac
 %\end{algorithmic}
 %\end{algorithm}
 
-\subsubsection{Feature matching}
+\subsection{Feature matching}
 
 
 Once we have all the detections with their feature points, we can compute its displacement, to do so,  we used the OpenCV's routine \texttt{calcOpticalFlowPyrLK()}, this function implements a sparse iterative version of the Lucas-Kanade optical flow with pyramids. And his parameters are the following:
@@ -283,7 +317,7 @@ In contrast, when it does not cross with another pedestrian, the displacement do
 
 
 
-\subsubsection{Data association with detected pedestrians by the neural net}
+\section{Data association with detected pedestrians by the neural net}
 
 Once we computed the trajectories, in the next iteration we might have to add a detection, so we need a module to combine these trajectories with detections. Thus, for each pedestrian we distinguish three situations:
 
@@ -314,7 +348,7 @@ To maintain the identity of the pedestrian we need a method to compare miss trac
 
 \begin{figure}[hptb]
 \centering         
-\includegraphics[width=3cm]{siamese/retall3.png}
+\includegraphics[width=16cm]{timesDiagram/network.png}
 \caption{Siamese network: In-network.} \label{saimss}
 \end{figure}
 
@@ -323,3 +357,22 @@ For each detection we compare with all the miss trackets, if the maximum value o
 
 
 The tracking thread computes these steps for every frame in the sequence.
+
+
+
+	\vspace{10pt}
+	\begin{lstlisting}[frame=single]
+	layer {
+		name: "mnist"
+		type: "Data"
+		top: "data"
+		top: "label"
+		include {phase: TRAIN}
+		transform_param {scale: 0.00390625}
+		data_param {
+			source: "examples/mnist/mnist_train_lmdb"
+			batch_size: 64
+			backend: LMDB }
+	}
+	\end{lstlisting}
+	
