@@ -6,7 +6,7 @@ In this chapter, we explain the algorithm that we have designed for solving the 
 
 The main contribution of this work is to develop a tracking algorithm that utilizes both a neural network and do not miss the real time operation. To do so we use the tracking-by-detection framework, and combine people detection using a neural network, somehow slow but very accurate, and link these detections with a regular feature tracking, very quick but prone to drift. 
 
-The architecture of the system is summarized in the diagram \ref{software1}. Its inputs is a sequence of frames and its output is a CSV file. This file has the structure of the MOT's evaluation software requires. We divided the computing in two threads, the \textit{object detector thread} and the \textit{tracking thread}. The first is responsible of given a frame compute their pedestrian detections and send them to the tracking thread, and the second one, the tracking thread, given a detection it computes the tracking procedure, in addition, when a new detection appears it combines with the tracker, this is called data association, and finally it saves the results of the algorithm. We called data association to the process of combine a detection with the trackets, this is different to the data association concept in the tracking-by-detection nomenclature. In our algorithm the data association, like in the tracking-by-detection nomenclature, is the tracking module which links the detections. 
+The architecture of the system is summarized in the diagram \ref{software1}. Its inputs is a sequence of frames coming from a directory and its output is a CSV file. This file has the structure of the MOT's evaluation software requires. We divided the computing in two threads, the \textit{object detector thread} and the \textit{tracking thread}. The first is responsible of given a frame compute their pedestrian detections and send them to the \textit{tracking thread}, and the second one, it computes the tracking procedure frame to frame. In addition, when a new detection appears it combines with the tracker, this is called \textit{data association}, and finally it saves the results of the algorithm. We called data association to the process of combining a detection with the blobs. This is different to the data association concept in the tracking-by-detection nomenclature. In our algorithm the data association, like in the tracking-by-detection nomenclature, is the tracking module which links the detections with the blobs.
 
 
 
@@ -17,17 +17,22 @@ The architecture of the system is summarized in the diagram \ref{software1}. Its
 \end{figure}
 
 
-Temporally the system works as follows, when the algorithm starts, first of all it launches the object detector thread, it begins to compute the detections of the first frame. Meanwhile, the tracking thread remains idle, waiting for the detections. When the object detector finishes, it sends the detection to the tracking thread and at the same time starts to compute the detections of a predefined new frame. When the tracking thread receives a detection, it begins to compute the tracking between frames. Considering that the thread are not synchronized, the object detection thread goes ahead of the tracking thread it will have a detection which the tracking thread could not incorporate, thus, it saves the detections in a shared buffer. When the tracking thread arrives to a frame that has got a detection it has a mechanism to mix detection with trackets, what it is called data association module, in addition it has a person re-identification module, to solve some possible identity incongruities, then it will continue computing the tracking. We can observe this temporal process in the next figure \ref{software2}, when $T$ represents a temporal step. When the object detector thread finishes computing all the detections it will \textit{die} and when the tracking thread process all the frame it dies too and the component it 
+%Temporally the system works as follows. The algorithm starts, first of all it launches the \textit{object detector thread}, which begins to compute the detections of the first frame. Meanwhile, the \textit{tracking thread} remains idle, waiting for the detections. When the object detector finishes, it sends the initial detection to the tracking thread and at the same time starts to compute the detections on the next new frame. When the tracking thread receives a detection, it begins to compute the tracking between frames. Considering that the threads are not synchronized, the object detection thread goes ahead of the tracking thread, it will have a detection which the tracking thread could not incorporate, thus, it saves the detections in a shared buffer. When the tracking thread arrives to a frame that has got a detection it has a mechanism to mix detection with the blobs, this detection has been buffered, what it is called data association module, in addition it has a person re-identification module, to solve some possible identity incongruities, then it will continue computing the tracking.
+%We can observe this temporal process in the next figure \ref{software2}, when $T$ represents a temporal step. When the object detector thread finishes computing all the detections it will \textit{die} and when the tracking thread process all the frame it dies too and the component it.
+
+
+Temporally the system works as follows. When the algorithm starts, first of all it launches the \textit{object detector thread}, which begins to compute the detections of the first frame. Meanwhile, the \textit{tracking thread} remains idle, waiting for the detections. When the object detector finishes, it sends the initial detection to the \textit{tracking thread} and at the same time starts to compute the detections on the next new frame. When the \textit{tracking thread} receives a detection, it begins to compute the tracking between frames. Considering that the threads are not synchronized, the \textit{object detection} thread goes ahead of the \textit{tracking thread}, it will have a detection which the \textit{tracking thread} could not incorporate, thus, it saves the detections in a shared buffer. When the \textit{tracking thread} arrives to a frame that has got a detection it has a mechanism to mix detection with the blobs, this detection has been buffered previously, what it is called data association module, in addition it has a person re-identification module, to solve some possible identity incongruities, then it will continue computing the tracking.
+We can observe this temporal process in the next figure \ref{software2timin}, when $T$ represents a temporal step. When the object detector thread finishes computing all the detections it will \textit{die} and when the tracking thread process all the frame it dies too and the component it. 
 
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=14cm]{timesDiagram/timing3.png}
-\caption{Timing of the component.} \label{intro1}
+\caption{Timing of the component.} \label{software2timin}
 \end{figure}
 
 
-In the figure \ref{introTracking3} there is a flow chart of the algorithm and it summarizes as follows: The object detector thread reads images, processes the forward pass of the neural network and saves the detections in the shared buffer, it repeats this sequence until it has processed all the predefined list of frames. In another hand, the main tread, activates the object detector thread and waits till it gets the first detection, after this, it starts the tracking algorithm. It reads the images and computes the motion of all the regions of interest. However, at beginning of each cycle it checks whether it has newer detection to mix in. This is the main operating mode of the algorithm and it summarizes in the figure \ref{system1}. 
+In the figure \ref{introTracking3} there is a flow chart of the algorithm. The object detector thread reads images, processes the forward pass of the neural network and saves the detections in the shared buffer, it repeats this sequence until it has processed all the predefined list of frames. In another hand, the main tread activates the object detector thread and waits till it gets the first detection, after this, it starts the tracking algorithm. It reads the images and computes the motion of all the regions of interest. However, at beginning of each cycle it checks whether it has got newer detection coming from the \textit{object detector thread} to mix it in.
 
 \begin{figure}[H]
 	
@@ -41,24 +46,24 @@ In the figure \ref{introTracking3} there is a flow chart of the algorithm and it
 \label{introTracking3}
 \end{figure}
 
-We represent each person with a bounding box, in this bounding box we extract some features and compute how they movement through the frames, based on the movement of those features we will infer the movement of the bounding box, therefore, the movement of the person.
+We represent each person with a bounding box, in this bounding box \ref{systemintro2} we extract some features and compute how they move through the frames, based on the movement of those features we will infer the movement of the bounding box, therefore, the movement of the person.
 
 
 \begin{figure}[H]
 		
 \centering
 
-\subfigure[Detections.]{\includegraphics[width=3cm]{BoundingBox3/bounding1.png}}
+\subfigure[Detection.]{\includegraphics[width=3cm]{BoundingBox3/bounding1.png}}
 \subfigure[Points.]{\includegraphics[width=3cm]{BoundingBox3/ppints1.png}}
-\subfigure[Displacements.]{\includegraphics[width=3cm]{BoundingBox3/arrow1.png}}\\
+\subfigure[Displacement.]{\includegraphics[width=3cm]{BoundingBox3/arrow1.png}}\\
 \caption{Image and motion vectors of a moving camera sequence.}
-\label{motion3}
+\label{systemintro2}
 \end{figure}
 
 
 
 
-With this approach we accomplish to join two opposite technologies, we can exploit their benefits and reduce their drawbacks. We can get an accurate detection every $30$ frames and in between, we link those detections with the tracking by features module. In this way, we reduce the fragility of the tracking, it tends to miss feature points and cause a drift of the estimation, with a new detection, that corrects that drift. In addition, we compensate the slowness of the detection with the speed of the feature tracking.
+With this approach we accomplish to join two different technologies, we can exploit their benefits and reduce their drawbacks. We can get an accurate detection every $30$ frames and in between, we link those detections with the feature-based tracking module. In this way, we reduce the fragility of the tracking, it tends to miss feature points and cause a drift of the estimation, with a new detection, that corrects that drift. In addition, we compensate the slowness of the detection with the speed of the feature tracking.
 
 
 
@@ -68,14 +73,16 @@ Next we explain each part in detail.
 
 
 
-As we stated previously we compute the pedestrian detector based on a CNN. This types of systems are very accurate but slow. We are constraint by its execution time, it takes $0.92$ seconds for compute each detection, this allows us to get a new detection after $30$ frames. 
+As we stated previously we compute the pedestrian detector based on a CNN. This types of systems are very accurate but slow. We are constraint by execution time of the chosen detector, it takes $0.92$ seconds for compute each detection, this allows us to get a new detection after $30$ frames. The \textit{object detector thread} reads images from the directory, processes the forward pass of the neural network and saves the detections in the shared buffer, it repeats this sequence until it has processed all the predefined list of frames. This process is summarized in \ref{objectThresPseudo}.
+
 
 \begin{algorithm}
-\caption{Object detection thread}\label{euclid}
+%\caption{Object detection thread}\label{euclid}
 \begin{algorithmic}[1]
-
-\State $FPS = 30$
-\State $numFramesSequences = size(sequences)$
+\State \textbf{Input:} sequencesOfImages
+\State \textbf{Output:} sharedVariable
+\State $fpsRate = 30$
+\State $numberFramesSequences = size(sequencesOfImages)$
 \State $network = network.init()$
 \State $listIndex = createList(FPS,numFramesSequences)$
 \Procedure{Run}{}
@@ -86,14 +93,15 @@ As we stated previously we compute the pedestrian detector based on a CNN. This 
 \EndFor
 \EndProcedure
 \end{algorithmic}
+\caption{Object detection thread}\label{objectThresPseudo}
 \end{algorithm}
 
-We selected the Single shot multibox detector as object detector, because it has the best balance between performance and speed, in section \ref{valdiation:det} we make a comparison of the available detectors. Finally, in \ref{objectDetector1} we can observe the result of this step.
+We selected the Single shot multibox detector (SSD) as object detector, because it has got the best balance between performance and speed, in section \ref{valdiation:det} we make a comparison of the available detectors. This detector was trained with the union of the COCO and the VOC07 dataset and implemented on TensorFlow. Finally, in \ref{objectDetector1} we can observe the result of this step.
 
 
 \begin{figure}[H]
 \centering         
-\includegraphics[width=10cm]{intro/deteccions.jpg}
+\includegraphics[width=12cm]{intro/deteccions.jpg}
 \caption{Detections of the algorithm.} \label{objectDetector1}
 \end{figure}
 
@@ -103,48 +111,29 @@ We selected the Single shot multibox detector as object detector, because it has
 
 
 
-The essence of the tracking thread it is the tracking module, called LK in the figure \ref{introTracking3}. It stands for Lucas-Kanade algorithm, due it is the method that we used in this work. This module for each detection computes its displacement by computing the displacement of the features inside this bounding box. 
+The essence of the \textit{tracking thread} it is the tracking module, called LK in the figure \ref{introTracking3}. It stands for Lucas-Kanade algorithm, due it is the method that we used in this work. This module for each detection computes its displacement by computing the displacement of the features inside this bounding box. 
 
-
-
-\begin{algorithm}
-\caption{Tracking thread}\label{euclid}
-\begin{algorithmic}[1]
-
-\State $FPS = 30$
-\State $numFramesSequences = size(sequences)$
-\State $network = network.init()$
-\State $listIndex = createList(FPS,numFramesSequences)$
-\Procedure{Run}{}
-\For {$indexImage$ in $listImages$}
-\State $image = read(indexImage)$
-\State $detection = network.forward(image)$
-\State $sharedVariable = detection$
-\EndFor
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
 
 
 \subsection{Feature extraction}
 
-It computes for each ROI at each step. For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTrack()}, this function determines strong corners on an image, according the Shi-Tomasi method. His parameters are the following:
+It computes for each blob at each step. For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTrack()}, this function determines strong corners on an image, according the Shi-Tomasi method. His parameters and values are the following:
  
 \begin{itemize}
 
 \item \texttt{image}, input image
 
-\item \texttt{maxCorners}, maximum number of corners to return. If there are more corners than are found, the strongest of them is returned.
-\item \texttt{qualityLevel}, parameter characterizing the minimal accepted quality of image corners.
-\item \texttt{minDistance}, minimum possible Euclidean distance between the returned corners.
-\item \texttt{mask}, optional region of interest.
-\item \texttt{blockSize}, Size of an average block for computing a derivative covariation matrix over each pixel neighborhood.
-\item \texttt{useHarrisDetector},  Parameter indicating whether to use a Harris detector.
-\item \texttt{k},  Free parameter of the Harris detector.
+\item \texttt{maxCorners}, maximum number of corners to return. If there are more corners than are found, the strongest of them is returned. We set this value experimentally to 60.
+\item \texttt{qualityLevel}, parameter characterizing the minimal accepted quality of image corners. We set this value experimentally to 0.1.
+\item \texttt{minDistance}, minimum possible Euclidean distance between the returned corners. We set this value experimentally to 2.
+\item \texttt{mask}, optional region of interest. Not used.
+\item \texttt{blockSize}, Size of an average block for computing a derivative covariation matrix over each pixel neighborhood. We set this value experimentally to 7.
+\item \texttt{useHarrisDetector},  Parameter indicating whether to use a Harris detector. Not used.
+\item \texttt{k},  Free parameter of the Harris detector. Not used.
 
 \end{itemize}
 
-We applied an equalization transformation to the image before the feature extraction, to obtain more high contrast points, in \ref{exper:validation} we perform a comparision of several preprocessing techniques. We can observe the results of this process in the figure \ref{solution2} and for all the ROIs it looks like \ref{solution3}.
+We applied an equalization transformation to the image before the feature extraction, to obtain more high contrast points, in \ref{exper:validation} we perform a comparision of several preprocessing techniques. We can observe the results of this process in the figure \ref{solution2} and for all the blobs it looks like \ref{solution3}.
 
 
 \begin{figure}[H]
@@ -177,7 +166,7 @@ We applied an equalization transformation to the image before the feature extrac
 \begin{figure}[H]
 \centering         
 \includegraphics[width=10cm]{intro/pounts.jpg}
-\caption{Detections with feature points.} \label{solution3}
+\caption{Blobs with their feature points.} \label{solution3}
 \end{figure}
 
  
@@ -207,7 +196,7 @@ We applied an equalization transformation to the image before the feature extrac
 \subsection{Feature matching}
 
 
-Once we have all the detections with their feature points, we can compute its displacement, to do so,  we used the OpenCV's routine \texttt{calcOpticalFlowPyrLK()}, this function implements a sparse iterative version of the Lucas-Kanade optical flow with pyramids. And his parameters are the following:
+Once we have all the detections with their feature points, we can compute its displacement, to do so,  we used the OpenCV's routine \texttt{calcOpticalFlowPyrLK()}, this function implements a sparse iterative version of the Lucas-Kanade optical flow with pyramids. And his parameters and values are the following:
  
 \begin{itemize}
 
@@ -217,9 +206,9 @@ Once we have all the detections with their feature points, we can compute its di
 \item \texttt{nextPts}, output vector of 2D points containing the calculated new positions of input features in the second image. 
 \item \texttt{status}, output status vector, it tells you whether the flow has been found.  
 \item \texttt{err}, each element of the vector is set to an error for the corresponding feature.
-\item \texttt{winSize}, size of the search window at each pyramid level. 
-\item \texttt{maxLevel}, number of pyramid levels.  
-\item \texttt{criteria}, parameter, specifying the termination criteria of the iterative search algorithm.
+\item \texttt{winSize}, size of the search window at each pyramid level. We set this value experimentally to 15.
+\item \texttt{maxLevel}, number of pyramid levels. We set this value experimentally to 4. 
+\item \texttt{criteria}, parameter, specifying the termination criteria of the iterative search algorithm. We set this value experimentally to 10 iterations.
 \end{itemize}
 
 
@@ -233,9 +222,11 @@ For the example's person we can observe the matching between the points of conse
 \end{figure}
 
 
+
+
 %--------------------------------
 
-After this step we have a bunch of motion vectors, but some vectors in the bounding box do not belong to the pedestrian, and if we do not erase it will contribute to the motion computation. Usually this points belong to the static elements of the scene, like the floor or urban furniture, this points in terms of motion between subsequent frames will be very low or almost static. We can observe this fact plotting the displacement of this points and drawing it in the image, we can observe it at \ref{motion2}. So, we erase the points with a displacement smaller than a threshold. 
+After this step we have a bunch of motion vectors, but some vectors in the bounding box do not belong to the pedestrian, and if we do not erase it will contribute to the motion computation. Usually this points belong to the static elements of the scene, like the floor or urban furniture, this points in terms of motion between subsequent frames will be very low or almost static. We can observe this fact plotting the displacement of this points and drawing it in the image, we can observe it at \ref{motion2}. So, we erase the points with a displacement smaller than a threshold. We set this value experimentally to 1.0. 
 
 \begin{figure}[H]
 		
@@ -260,20 +251,63 @@ But, this behavior will only work on sequences where the camera is fixed, in seq
 \end{figure}
 
 
-Once we have the correct correspondaces, we compute the displacement as the median of all of them in each dimension. We also compute the change of the scale of the ROI, it is computed as follows: for each pair of points, a ratio between current point distance and previous point distance is computed, bounding box scale change is defined as the median over these ratios. In the figure \ref{solution5} we can observe a representation of this displacement for each ROI. At this point we have solved the data association problem in the tracking-by-detection nomenclature.
+\subsection{Blob matching}
+
+
+Once we have the correct correspondaces, we compute the displacement as the median of all of them in each dimension. We also compute the change of the scale of the blob, it is computed as follows: for each pair of points, a ratio between current point distance and previous point distance is computed, bounding box scale change is defined as the median over these ratios. In the figure \ref{solution5} we can observe a representation of this displacement for each blob.
+
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=10cm]{intro/alcover2.png}
-\caption{Displacement of each ROI.} \label{solution5}
+\caption{Displacement of each blob.} \label{solution5}
 \end{figure}
 
 
+With this discplacement and the change in scale we can update the position of the blob in the next frame. In the figure \ref{solution4} we can observe the previous estimation and the new one. At this point we have solved the data association problem in the tracking-by-detection nomenclature.
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=10cm]{intro/deteccionsBLOB.jpg}
+\caption{Uploaded estimation.} \label{solution4}
+\end{figure}
+
 %--------------
 
+%In \ref{trackingModule} there is a pseudocode that summarizes these steps, this pseudocode given two temporal blobs, \textit{Blob1} and \textit{Blob2} computes its displacement in each coordinate and its change in scale. At this point, we have an implementation of the tracking algorithm given a set of bounding boxes.
+
+In \ref{trackingModule} there is a pseudocode that summarizes these steps, this pseudocode given the current blob computes the new estimation, \textit{Blob1} and \textit{Blob2}, respectively. At this point, we have an implementation of the tracking algorithm given a set of bounding boxes.
 
 
-At this point, we have an implementation of the tracking algorithm given a set of bounding boxes. Nevertheless, the feature tracking is very sensitive to crossings between pedestrian, although the bounding boxes are fitted to body of the pedestrian it could include points belonging to another pedestrian, in this case the movement estimation is wrong and eventually the pedestrian will not be embedded by the bounding box. We can observe this event in figure \ref{traccs}.
+
+\begin{algorithm}
+%\caption{Object detection thread}\label{euclid}
+\begin{algorithmic}[1]
+\State \textbf{Input:} Blob1,Blob2 
+\State \textbf{Output:} displacementX,displacementY,diffScale
+%\Procedure{RUN}{}
+\State $blob1Equ = equalize(Blob1)$
+\State $features1 = cv2.goodFeaturesToTrack(blob1Equ)$
+\State $blob2Equ = equalize(Blob2)$
+\State $features2 = cv2.calcOpticalFlowPyrLK(blob1Equ,blob2Equ,features1)$
+\State $displacement = features2-features1 $
+\If{displacement $>$ threshold}
+\State delete(displacement)
+\EndIf
+\State $displacementX = median(displacement[:,0]) $
+\State $displacementY = median(displacement[:,1]) $
+\State $diffScale = median(features2/features1) $
+%\EndProcedure
+\end{algorithmic}
+\caption{LK module}\label{trackingModule}
+\end{algorithm}
+
+
+\vspace{2cm}
+
+
+Nevertheless, the feature tracking is very sensitive to crossings between pedestrian, although the bounding boxes are fitted to body of the pedestrian it could include points belonging to another pedestrian, in this case the movement estimation is wrong and eventually the pedestrian will not be embedded by the bounding box. We can observe this event in figure \ref{traccs}.
 
 
 \begin{figure}[H]
@@ -289,7 +323,7 @@ So, we need a mechanism to detect these failures, therefore we studied how the m
 \begin{figure}[H]
 \centering         
 \includegraphics[width=0.9\linewidth]{velocidadas/bad_threshold.png}
-\caption{Tracking failure.} \label{traccs23}
+\caption{Tracking failure displacements.} \label{traccs23}
 \end{figure}
 
 
@@ -342,37 +376,54 @@ We can observe the procedure for situations number one and two in the figure \re
 \end{figure}
 
 
-To maintain the identity of the pedestrian we need a method to compare miss trackets with no associated detections, this is Situation 3. So, we decided to solve it with deep learning techniques. In particular, a Siamese convolutional neural network, with In-network architecture in \ref{saimss} we can observe a diagram of it. This networks concatenates two ROIs and computes a probability to belong to the same identity. In section \ref{exper:entrenar} we explain why we selected this architecture and how we trained it.
+To maintain the identity of the pedestrian we need a method to compare miss trackets with no associated detections, this is Situation 3. So, we decided to solve it with deep learning techniques. In particular, a Siamese convolutional neural network, with In-network architecture in \ref{saimss} we can observe a diagram and the feature dimension of each layer. This networks concatenates two blobs and computes a probability to belong to the same identity. It has got 7 convolutional layer and 1 fully connected layer, it was implemented on Keras with a Theano backend. In section \ref{exper:entrenar} we explain why we selected this architecture and how we trained it.
 
 
 
-\begin{figure}[hptb]
+\begin{figure}[!]
 \centering         
 \includegraphics[width=16cm]{timesDiagram/network.png}
 \caption{Siamese network: In-network.} \label{saimss}
 \end{figure}
 
 
-For each detection we compare with all the miss trackets, if the maximum value of this  comparision is greater than a threshold we assign it to that identity, if it is not we consider that detection as a new identity.
-
-
-The tracking thread computes these steps for every frame in the sequence.
+For each detection we compare with all the miss trackets, if the maximum value of this  comparision is greater than a threshold we assign it to that identity, if it is not we consider that detection as a new identity. We can observe this data association process in \ref{dataAssoc22}.
 
 
 
-	\vspace{10pt}
-	\begin{lstlisting}[frame=single]
-	layer {
-		name: "mnist"
-		type: "Data"
-		top: "data"
-		top: "label"
-		include {phase: TRAIN}
-		transform_param {scale: 0.00390625}
-		data_param {
-			source: "examples/mnist/mnist_train_lmdb"
-			batch_size: 64
-			backend: LMDB }
-	}
-	\end{lstlisting}
-	
+\begin{algorithm}
+\caption{Data Association}\label{dataAssoc22}
+\begin{algorithmic}[1]
+\State \textbf{Input:} listBlobs,listDetections,listLostBlobs 
+\State \textbf{Output:} listBlobs
+\Procedure{Run}{}
+\State $siamese = siamese.init()$
+\For {$i$ in $listBlobs$}
+\State $distance = euclideanDistance(blob[i],listDetections)$
+\State $distanceOrdered = argmin(distance)$
+\State $\%$ Situation1
+\If{distanceOrdered[0] $<$ threshold}
+\State newBlobs.append(listDetections[idx])
+\State delete(listDetections[idx])
+\State $\%$ Situation2
+\Else
+\State newBlobs.append(listBlobs[i])
+\EndIf
+\EndFor
+\State $\%$ Situation3
+\For {$i$ in $listDetectionsNotAssigned$}
+\State $similarity = siamese.forward(listLostBlobs,DetectionsNotAssigned[i])$
+\State $similarityOrdered = argmin(similarity)$
+\If{similarityOrdered[0] $<$ threshold}
+\State newBlobs.append(listDetectionsNotAssigned[i])
+\State delete(listDetectionsNotAssigned[i])
+\Else
+\State newBlobs.append(listDetectionsNotAssigned[i])
+\EndIf
+\EndFor
+\EndProcedure
+\State listBlobs=newBlobs
+\end{algorithmic}
+\end{algorithm}
+
+

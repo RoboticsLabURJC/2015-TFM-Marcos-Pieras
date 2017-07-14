@@ -1,6 +1,5 @@
-\contentsline {chapter}{List of Figures}{VII}{chapter*.4}
+\contentsline {chapter}{List of Figures}{VI}{chapter*.4}
 \contentsline {chapter}{List of tables}{IX}{chapter*.5}
-\contentsline {chapter}{Acronyms}{X}{chapter*.6}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Computer vision}{2}{section.1.1}
 \contentsline {section}{\numberline {1.2}Object tracking}{4}{section.1.2}
@@ -21,36 +20,34 @@
 \contentsline {section}{\numberline {4.1}System overview}{27}{section.4.1}
 \contentsline {section}{\numberline {4.2}Object detector thread}{31}{section.4.2}
 \contentsline {section}{\numberline {4.3}Tracking thread}{32}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Feature extraction}{33}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.1}Feature extraction}{32}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Feature matching}{34}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Data association with detected pedestrians by the neural net}{39}{section.4.4}
-\contentsline {chapter}{\numberline {5}Datasets and evaluation procedures}{42}{chapter.5}
-\contentsline {section}{\numberline {5.1}Datasets for object detection}{42}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Pascal Visual Objects Classes}{42}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}VOC07}{43}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}VOC12}{43}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}ImageNet}{43}{subsection.5.1.4}
-\contentsline {subsection}{\numberline {5.1.5}COCO}{44}{subsection.5.1.5}
-\contentsline {subsection}{\numberline {5.1.6}Dataset comparison}{44}{subsection.5.1.6}
-\contentsline {subsection}{\numberline {5.1.7}Evaluation of object detection algorithms}{46}{subsection.5.1.7}
-\contentsline {section}{\numberline {5.2}Datasets for multiple object tracking}{48}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}PETS}{48}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}MOT challenge}{49}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Evaluation of multiple people tracking algorithms}{49}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}Datasets for pedestrian identification}{51}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Evaluation for pedestrian identification}{52}{subsection.5.3.1}
-\contentsline {chapter}{\numberline {6}Experiments}{53}{chapter.6}
-\contentsline {section}{\numberline {6.1}Validation experiments}{53}{section.6.1}
-\contentsline {section}{\numberline {6.2}System setup}{53}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Object detector}{53}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Tracking module}{56}{subsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.2.1}Feature extraction}{57}{subsubsection.6.2.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2.2}Matching module}{59}{subsubsection.6.2.2.2}
-\contentsline {subsection}{\numberline {6.2.3}Siamese networks}{59}{subsection.6.2.3}
-\contentsline {section}{\numberline {6.3}Algorithm evaluation}{65}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Performance}{65}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Timing}{66}{subsection.6.3.2}
-\contentsline {chapter}{\numberline {7}Conclusions}{69}{chapter.7}
-\contentsline {section}{\numberline {7.1}Future work}{70}{section.7.1}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{71}{section.7.1}
-\contentsline {chapter}{\numberline {8}Annex}{80}{chapter.8}
+\contentsline {subsection}{\numberline {4.3.3}Blob matching}{37}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Data association with detected pedestrians by the neural net}{40}{section.4.4}
+\contentsline {chapter}{\numberline {5}Datasets and evaluation procedures}{44}{chapter.5}
+\contentsline {section}{\numberline {5.1}Datasets for object detection}{44}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Pascal Visual Objects Classes}{45}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}ImageNet}{47}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}COCO}{48}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Evaluation of object detection algorithms}{50}{section.5.2}
+\contentsline {section}{\numberline {5.3}Datasets for multiple object tracking}{52}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}PETS}{52}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}MOT challenge}{53}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Evaluation of multiple people tracking algorithms}{53}{section.5.4}
+\contentsline {section}{\numberline {5.5}Datasets for pedestrian identification}{55}{section.5.5}
+\contentsline {section}{\numberline {5.6}Evaluation for pedestrian identification}{56}{section.5.6}
+\contentsline {chapter}{\numberline {6}Experiments}{58}{chapter.6}
+\contentsline {section}{\numberline {6.1}Validation experiments}{58}{section.6.1}
+\contentsline {section}{\numberline {6.2}System setup}{58}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Object detector}{58}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Tracking module}{61}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}Feature extraction}{62}{subsubsection.6.2.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.2}Matching module}{64}{subsubsection.6.2.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Siamese networks}{64}{subsection.6.2.3}
+\contentsline {section}{\numberline {6.3}Algorithm evaluation}{70}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Performance}{70}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Timing}{71}{subsection.6.3.2}
+\contentsline {chapter}{\numberline {7}Conclusions}{74}{chapter.7}
+\contentsline {section}{\numberline {7.1}Future work}{75}{section.7.1}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{76}{section.7.1}
+\contentsline {chapter}{\numberline {8}Annex}{85}{chapter.8}

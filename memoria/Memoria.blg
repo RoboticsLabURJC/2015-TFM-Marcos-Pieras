@@ -20,6 +20,10 @@ Repeated entry---line 1011 of file Memoria.bib
  : @article{tld
  :             ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 1056 of file Memoria.bib
+ : @misc{tensorObjectdte
+ :                      ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "rosenblat"
 Warning--I didn't find a database entry for "horn"
 Warning--I didn't find a database entry for "ahmed"
@@ -34,4 +38,4 @@ Warning--can't use both author and editor fields in ward
 Warning--can't use both author and editor fields in cuk1
 Warning--can't use both author and editor fields in prid450
 Warning--can't use both author and editor fields in faceCMC
-(There was 1 error message)
+(There were 2 error messages)

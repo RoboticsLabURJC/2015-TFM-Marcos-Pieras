@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  12 JUL 2017 18:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  14 JUL 2017 18:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -834,202 +834,17 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip73
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
-Package: glossaries 2016/01/24 v4.21 (NLCT)
-
-(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
-
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks30
-\XKV@tempa@toks=\toks31
-)
-\XKV@depth=\count173
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
-Package: mfirstuc 2015/12/17 v2.02 (NLCT)
-
-(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count174
-)
-\@glsmfirst=\toks32
-\@glsmrest=\toks33
-)
-(/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty
-Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/xfor/xfor.sty
-Package: xfor 2009/02/05 v1.05 (NLCT)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-base.sty
-Package: datatool-base 2016/01/18 v2.25 (NLCT)
-
-(/usr/share/texlive/texmf-dist/tex/latex/substr/substr.sty
-Package: substr 2009/10/20 v1.2 Handle substrings
-\c@su@anzahl=\count175
-)
-(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-fp.sty
-Package: datatool-fp 2016/01/18 v2.25 (NLCT)
-
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp.sty
-Package: fp 1995/04/02
-
-`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
-(/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
-Package: defpattern 1994/10/12
-\actioncount=\count176
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
-Package: fp-basic 1996/05/13
-\FP@xs=\count177
-\FP@xia=\count178
-\FP@xib=\count179
-\FP@xfa=\count180
-\FP@xfb=\count181
-\FP@rega=\count182
-\FP@regb=\count183
-\FP@regs=\count184
-\FP@times=\count185
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
-Package: fp-addons 1995/03/15
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-snap.sty
-Package: fp-snap 1995/04/05
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-exp.sty
-Package: fp-exp 1995/04/03
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-trigo.sty
-Package: fp-trigo 1995/04/14
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-pas.sty
-Package: fp-pas 1994/08/29
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
-Package: fp-random 1995/02/23
-\FPseed=\count186
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
-Package: fp-eqn 1995/04/03
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-upn.sty
-Package: fp-upn 1996/10/21
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
-Package: fp-eval 1995/04/03
-)))
-\@dtl@toks=\toks34
-\@dtl@tmpcount=\count187
-\dtl@tmplength=\skip74
-\dtl@sortresult=\count188
-\@dtl@numgrpsepcount=\count189
-\@dtl@datatype=\count190
-\dtl@codeA=\count191
-\dtl@codeB=\count192
-\@dtl@foreach@level=\count193
-)
-(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries-compatible-
-307.sty
-Package: glossaries-compatible-307 2016/01/24 v4.21 (NLCT)
-)
-\gls@level=\count194
-\@gls@tmpb=\toks35
-\gls@tmplen=\skip75
-\glskeylisttok=\toks36
-\glslabeltok=\toks37
-\glsshorttok=\toks38
-\glslongtok=\toks39
-
-(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.st
-y
-Package: glossary-hypernav 2016/01/24 v4.21 (NLCT)
-) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
-Package: glossary-list 2016/01/24 v4.21 (NLCT)
-\glslistdottedwidth=\skip76
-) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
-Package: glossary-long 2016/01/24 v4.21 (NLCT)
-
-(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip77
-\LTright=\skip78
-\LTpre=\skip79
-\LTpost=\skip80
-\LTchunksize=\count195
-\LTcapwidth=\dimen151
-\LT@head=\box33
-\LT@firsthead=\box34
-\LT@foot=\box35
-\LT@lastfoot=\box36
-\LT@cols=\count196
-\LT@rows=\count197
-\c@LT@tables=\count198
-\c@LT@chunks=\count199
-\LT@p@ftn=\toks40
-)
-\glsdescwidth=\skip81
-\glspagelistwidth=\skip82
-)
-(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
-Package: glossary-super 2016/01/24 v4.21 (NLCT)
-
-(/usr/share/texlive/texmf-dist/tex/latex/supertabular/supertabular.sty
-Package: supertabular 2004/02/20 v4.1e the supertabular environment
-\c@tracingst=\count266
-\ST@wd=\dimen152
-\ST@rightskip=\skip83
-\ST@leftskip=\skip84
-\ST@parfillskip=\skip85
-\ST@pageleft=\dimen153
-\ST@headht=\dimen154
-\ST@tailht=\dimen155
-\ST@pagesofar=\dimen156
-\ST@pboxht=\dimen157
-\ST@lineht=\dimen158
-\ST@stretchht=\dimen159
-\ST@prevht=\dimen160
-\ST@toadd=\dimen161
-\ST@dimen=\dimen162
-\ST@pbox=\box37
-))
-(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
-Package: glossary-tree 2016/01/24 v4.21 (NLCT)
-\glstreeindent=\skip86
-))
-\glswrite=\write3
-\glo@main@file=\write4
-\openout4 = `Memoria.glo'.
-
-Package glossaries Info: Writing glossary file Memoria.glo on input line 35.
-\glo@acronym@file=\write5
-\openout5 = `Memoria.acn'.
-
-Package glossaries Info: Writing glossary file Memoria.acn on input line 35.
-
-\@input{0-Acronimos.aux}
-\openout2 = `0-Acronimos.aux'.
-
-(./0-Acronimos.tex) (./Memoria.aux (./0-Portada.aux) (./0-Agradecimientos.aux)
-(./0-Abstract.aux) (./0-Resumen.aux) (./1-Introduction.aux
+) (./Memoria.aux (./0-Portada.aux) (./0-Agradecimientos.aux) (./0-Abstract.aux)
+(./0-Resumen.aux) (./1-Introduction.aux
 
 LaTeX Warning: Label `intro1' multiply defined.
 
 ) (./2-Objectives.aux) (./3-Theoretic.aux) (./4-Solution.aux
 
-LaTeX Warning: Label `intro1' multiply defined.
-
-
 LaTeX Warning: Label `introTracking3' multiply defined.
 
 
-LaTeX Warning: Label `euclid' multiply defined.
-
-
-LaTeX Warning: Label `motion3' multiply defined.
+LaTeX Warning: Label `solution4' multiply defined.
 
 ) (./5-Datasets.aux
 
@@ -1066,17 +881,17 @@ File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count267
-\scratchdimen=\dimen163
-\scratchbox=\box38
-\nofMPsegments=\count268
-\nofMParguments=\count269
-\everyMPshowfont=\toks41
-\MPscratchCnt=\count270
-\MPscratchDim=\dimen164
-\MPnumerator=\count271
-\makeMPintoPDFobject=\count272
-\everyMPtoPDFconversion=\toks42
+\scratchcounter=\count173
+\scratchdimen=\dimen151
+\scratchbox=\box33
+\nofMPsegments=\count174
+\nofMParguments=\count175
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count176
+\MPscratchDim=\dimen152
+\MPnumerator=\count177
+\makeMPintoPDFobject=\count178
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1096,15 +911,9 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
-Package caption Info: longtable package is loaded.
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
-)
 Package caption Info: rotating package is loaded.
-Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box39
+\AtBeginShipoutBox=\box34
 Package hyperref Info: Link coloring OFF on input line 85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1113,15 +922,15 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count273
+\c@section@level=\count179
 )
 LaTeX Info: Redefining \ref on input line 85.
 LaTeX Info: Redefining \pageref on input line 85.
 LaTeX Info: Redefining \nameref on input line 85.
 
 (./Memoria.out) (./Memoria.out)
-\@outlinefile=\write6
-\openout6 = `Memoria.out'.
+\@outlinefile=\write3
+\openout3 = `Memoria.out'.
 
 
 *geometry* driver: auto-detecting
@@ -1158,10 +967,10 @@ LaTeX Info: Redefining \nameref on input line 85.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count274
+\c@lstlisting=\count180
 \openout2 = `0-Portada.aux'.
 
-(./0-Portada.tex <figures/logo.jpg, id=228, 632.3625pt x 321.2pt>
+(./0-Portada.tex <figures/logo.jpg, id=216, 632.3625pt x 321.2pt>
 File: figures/logo.jpg Graphic file (type jpg)
 
 <use figures/logo.jpg>
@@ -1173,13 +982,9 @@ LaTeX Font Info:    Try loading font information for OT1+lmss on input line 17.
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
 
-\openout3 = `Memoria.ist'.
-
-
-
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/logo.jpg>]
-<figures/CC-BY-SA.png, id=239, 1284.8pt x 452.69125pt>
+<figures/CC-BY-SA.png, id=227, 1284.8pt x 452.69125pt>
 File: figures/CC-BY-SA.png Graphic file (type png)
 
 <use figures/CC-BY-SA.png>
@@ -1224,188 +1029,51 @@ l.87 \include{0-Portada}
 
 
 ] (./Memoria.toc
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 5.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 4.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 5.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 4.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 5.
+(Font)              <12> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 5.
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+(Font)              <6> on input line 4.
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [4
 
 
-] [5])
-\tf@toc=\write7
-\openout7 = `Memoria.toc'.
-
- [6]
-(./Memoria.lof [7
-
-
 ])
-\tf@lof=\write8
-\openout8 = `Memoria.lof'.
+\tf@toc=\write4
+\openout4 = `Memoria.toc'.
+
+ [5]
+(./Memoria.lof [6
+
+
+] [7])
+\tf@lof=\write5
+\openout5 = `Memoria.lof'.
 
  [8] (./Memoria.lot)
-\tf@lot=\write9
-\openout9 = `Memoria.lot'.
+\tf@lot=\write6
+\openout6 = `Memoria.lot'.
 
  [9
-
-
-] (./Memoria.acr
-
-Package glossaries Warning: Glossary entry `bidmc' has not been defined on inpu
-t line 5.
-
-
-Package glossaries Warning: Glossary entry `bidmc' has not been defined on inpu
-t line 5.
-
-
-Package glossaries Warning: Glossary entry `bidmc' has not been defined on inpu
-t line 5.
-
-
-Package glossaries Warning: Glossary entry `ia' has not been defined on input l
-ine 23.
-
-
-Package glossaries Warning: Glossary entry `ia' has not been defined on input l
-ine 23.
-
-
-Package glossaries Warning: Glossary entry `ia' has not been defined on input l
-ine 23.
-
-
-Package glossaries Warning: Glossary entry `isbi' has not been defined on input
- line 25.
-
-
-Package glossaries Warning: Glossary entry `isbi' has not been defined on input
- line 25.
-
-
-Package glossaries Warning: Glossary entry `isbi' has not been defined on input
- line 25.
-
-
-Package glossaries Warning: Glossary entry `json' has not been defined on input
- line 28.
-
-
-Package glossaries Warning: Glossary entry `json' has not been defined on input
- line 28.
-
-
-Package glossaries Warning: Glossary entry `json' has not been defined on input
- line 28.
-
-
-Package glossaries Warning: Glossary entry `lmdb' has not been defined on input
- line 33.
-
-
-Package glossaries Warning: Glossary entry `lmdb' has not been defined on input
- line 33.
-
-
-Package glossaries Warning: Glossary entry `lmdb' has not been defined on input
- line 33.
-
-
-Package glossaries Warning: Glossary entry `mnist' has not been defined on inpu
-t line 43.
-
-
-Package glossaries Warning: Glossary entry `mnist' has not been defined on inpu
-t line 43.
-
-
-Package glossaries Warning: Glossary entry `mnist' has not been defined on inpu
-t line 43.
-
-
-Package glossaries Warning: Glossary entry `nist' has not been defined on input
- line 46.
-
-
-Package glossaries Warning: Glossary entry `nist' has not been defined on input
- line 46.
-
-
-Package glossaries Warning: Glossary entry `nist' has not been defined on input
- line 46.
-
-
-Package glossaries Warning: Glossary entry `rle' has not been defined on input 
-line 52.
-
-
-Package glossaries Warning: Glossary entry `rle' has not been defined on input 
-line 52.
-
-
-Package glossaries Warning: Glossary entry `rle' has not been defined on input 
-line 52.
-
-
-Package glossaries Warning: Glossary entry `rna' has not been defined on input 
-line 54.
-
-
-Package glossaries Warning: Glossary entry `rna' has not been defined on input 
-line 54.
-
-
-Package glossaries Warning: Glossary entry `rna' has not been defined on input 
-line 54.
-
-
-Package glossaries Warning: Glossary entry `ssd' has not been defined on input 
-line 59.
-
-
-Package glossaries Warning: Glossary entry `ssd' has not been defined on input 
-line 59.
-
-
-Package glossaries Warning: Glossary entry `ssd' has not been defined on input 
-line 59.
-
-
-Package glossaries Warning: Glossary entry `va' has not been defined on input l
-ine 63.
-
-
-Package glossaries Warning: Glossary entry `va' has not been defined on input l
-ine 63.
-
-
-Package glossaries Warning: Glossary entry `va' has not been defined on input l
-ine 63.
-
-) [10
-
 
 
 ]
@@ -1423,28 +1091,28 @@ l.22 T
 
 
 
-] <aplicaciones/autonomous.jpg, id=497, 903.375pt x 401.5pt>
+] <aplicaciones/autonomous.jpg, id=471, 903.375pt x 401.5pt>
 File: aplicaciones/autonomous.jpg Graphic file (type jpg)
 
 <use aplicaciones/autonomous.jpg>
 Package pdftex.def Info: aplicaciones/autonomous.jpg used on input line 35.
 (pdftex.def)             Requested size: 227.62204pt x 101.16505pt.
 
-<aplicaciones/diffusion.jpg, id=499, 3339.47626pt x 2759.30875pt>
+<aplicaciones/diffusion.jpg, id=473, 3339.47626pt x 2759.30875pt>
 File: aplicaciones/diffusion.jpg Graphic file (type jpg)
 
 <use aplicaciones/diffusion.jpg>
 Package pdftex.def Info: aplicaciones/diffusion.jpg used on input line 45.
 (pdftex.def)             Requested size: 227.62204pt x 188.07681pt.
  [2 <./aplicaciones/autonomous.jpg>]
-<aplicaciones/factory.jpg, id=506, 963.6pt x 602.25pt>
+<aplicaciones/factory.jpg, id=480, 963.6pt x 602.25pt>
 File: aplicaciones/factory.jpg Graphic file (type jpg)
 
 <use aplicaciones/factory.jpg>
 Package pdftex.def Info: aplicaciones/factory.jpg used on input line 54.
 (pdftex.def)             Requested size: 227.62204pt x 142.26393pt.
 
-<aplicaciones/picassioHuai.png, id=508, 192.72pt x 200.85037pt>
+<aplicaciones/picassioHuai.png, id=482, 192.72pt x 200.85037pt>
 File: aplicaciones/picassioHuai.png Graphic file (type png)
 
 <use aplicaciones/picassioHuai.png>
@@ -1452,35 +1120,35 @@ Package pdftex.def Info: aplicaciones/picassioHuai.png used on input line 65.
 (pdftex.def)             Requested size: 227.62204pt x 237.2251pt.
  [3 <./aplicaciones/diffusion.jpg> <./aplicaciones/factory.jpg>] [4 <./aplicaci
 ones/picassioHuai.png>]
-<aplicaciones/policias.jpg, id=528, 236.05779pt x 142.72417pt>
+<aplicaciones/policias.jpg, id=502, 236.05779pt x 142.72417pt>
 File: aplicaciones/policias.jpg Graphic file (type jpg)
 
 <use aplicaciones/policias.jpg>
 Package pdftex.def Info: aplicaciones/policias.jpg used on input line 114.
 (pdftex.def)             Requested size: 227.62204pt x 137.62776pt.
 
-<aplicaciones/Seleccio_007.png, id=530, 3152.77875pt x 1491.5725pt>
+<aplicaciones/Seleccio_007.png, id=504, 3152.77875pt x 1491.5725pt>
 File: aplicaciones/Seleccio_007.png Graphic file (type png)
 
 <use aplicaciones/Seleccio_007.png>
 Package pdftex.def Info: aplicaciones/Seleccio_007.png used on input line 123.
 (pdftex.def)             Requested size: 227.62204pt x 107.67535pt.
  [5 <./aplicaciones/policias.jpg>]
-<aplicaciones/Seleccio_010.png, id=545, 1233.60875pt x 904.37875pt>
+<aplicaciones/Seleccio_010.png, id=520, 1233.60875pt x 904.37875pt>
 File: aplicaciones/Seleccio_010.png Graphic file (type png)
 
 <use aplicaciones/Seleccio_010.png>
 Package pdftex.def Info: aplicaciones/Seleccio_010.png used on input line 133.
 (pdftex.def)             Requested size: 142.26378pt x 104.28426pt.
 
-<aplicaciones/Seleccio_011.png, id=546, 736.7525pt x 384.43625pt>
+<aplicaciones/Seleccio_011.png, id=521, 736.7525pt x 384.43625pt>
 File: aplicaciones/Seleccio_011.png Graphic file (type png)
 
 <use aplicaciones/Seleccio_011.png>
 Package pdftex.def Info: aplicaciones/Seleccio_011.png used on input line 134.
 (pdftex.def)             Requested size: 199.16928pt x 103.92235pt.
 
-<aplicaciones/singing.jpg, id=548, 642.4pt x 321.2pt>
+<aplicaciones/singing.jpg, id=523, 642.4pt x 321.2pt>
 File: aplicaciones/singing.jpg Graphic file (type jpg)
 
 <use aplicaciones/singing.jpg>
@@ -1492,14 +1160,14 @@ caciones/Seleccio_011.png>]
 LaTeX Warning: Citation `rosenblat' on page 7 undefined on input line 154.
 
 [7 <./aplicaciones/singing.jpg>]
-<intro/model.png, id=570, 686.26387pt x 398.08725pt>
+<intro/model.png, id=544, 686.26387pt x 398.08725pt>
 File: intro/model.png Graphic file (type png)
  <use intro/model.png>
 Package pdftex.def Info: intro/model.png used on input line 165.
 (pdftex.def)             Requested size: 341.43306pt x 198.0591pt.
 
 [8 <./intro/model.png>]
-<intro/iamgeWihtou.png, id=586, 2681.217pt x 1501.7706pt>
+<intro/iamgeWihtou.png, id=561, 2681.217pt x 1501.7706pt>
 File: intro/iamgeWihtou.png Graphic file (type png)
 
 <use intro/iamgeWihtou.png>
@@ -1524,28 +1192,28 @@ Chapter 3.
 
 
 
-] <intro/objesName.png, id=630, 2681.217pt x 1501.7706pt>
+] <intro/objesName.png, id=604, 2681.217pt x 1501.7706pt>
 File: intro/objesName.png Graphic file (type png)
 
 <use intro/objesName.png>
 Package pdftex.def Info: intro/objesName.png used on input line 42.
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
  [14 <./intro/objesName.png>]
-<objectDetection/retall1.png, id=651, 346.29375pt x 311.06212pt>
+<objectDetection/retall1.png, id=626, 346.29375pt x 311.06212pt>
 File: objectDetection/retall1.png Graphic file (type png)
 
 <use objectDetection/retall1.png>
 Package pdftex.def Info: objectDetection/retall1.png used on input line 77.
 (pdftex.def)             Requested size: 199.16928pt x 178.91153pt.
 
-<objectDetection/retall2.png, id=652, 346.29375pt x 311.06212pt>
+<objectDetection/retall2.png, id=627, 346.29375pt x 311.06212pt>
 File: objectDetection/retall2.png Graphic file (type png)
 
 <use objectDetection/retall2.png>
 Package pdftex.def Info: objectDetection/retall2.png used on input line 78.
 (pdftex.def)             Requested size: 199.16928pt x 178.91153pt.
  [15]
-<objectDetection/ssdArchitecture2.png, id=665, 738.65962pt x 271.31363pt>
+<objectDetection/ssdArchitecture2.png, id=639, 738.65962pt x 271.31363pt>
 File: objectDetection/ssdArchitecture2.png Graphic file (type png)
 
 <use objectDetection/ssdArchitecture2.png>
@@ -1553,7 +1221,7 @@ Package pdftex.def Info: objectDetection/ssdArchitecture2.png used on input lin
 e 88.
 (pdftex.def)             Requested size: 341.43306pt x 125.4102pt.
 
-<objectDetection/comparisionTensor.png, id=669, 697.70662pt x 421.27388pt>
+<objectDetection/comparisionTensor.png, id=643, 697.70662pt x 421.27388pt>
 File: objectDetection/comparisionTensor.png Graphic file (type png)
 
 <use objectDetection/comparisionTensor.png>
@@ -1563,21 +1231,21 @@ ne 106.
  [16 <./objectDetection/retall1.png> <./objectDetection/retall2.png> <./objectD
 etection/ssdArchitecture2.png>]
 [17 <./objectDetection/comparisionTensor.png>]
-<lucasKanade/flat.png, id=686, 278.54062pt x 274.626pt>
+<lucasKanade/flat.png, id=661, 278.54062pt x 274.626pt>
 File: lucasKanade/flat.png Graphic file (type png)
 
 <use lucasKanade/flat.png>
 Package pdftex.def Info: lucasKanade/flat.png used on input line 162.
 (pdftex.def)             Requested size: 142.26378pt x 140.26692pt.
 
-<lucasKanade/edge.png, id=687, 274.626pt x 275.22826pt>
+<lucasKanade/edge.png, id=662, 274.626pt x 275.22826pt>
 File: lucasKanade/edge.png Graphic file (type png)
 
 <use lucasKanade/edge.png>
 Package pdftex.def Info: lucasKanade/edge.png used on input line 163.
 (pdftex.def)             Requested size: 142.26378pt x 142.57356pt.
 
-<lucasKanade/corner.png, id=688, 272.81924pt x 268.6035pt>
+<lucasKanade/corner.png, id=663, 272.81924pt x 268.6035pt>
 File: lucasKanade/corner.png Graphic file (type png)
 
 <use lucasKanade/corner.png>
@@ -1589,7 +1257,7 @@ LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 227
 .
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) <lucasKanade/retall1g.png, id=708, 1171.37625pt x 890.32625pt>
+) <lucasKanade/retall1g.png, id=682, 1171.37625pt x 890.32625pt>
 File: lucasKanade/retall1g.png Graphic file (type png)
 
 <use lucasKanade/retall1g.png>
@@ -1602,7 +1270,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 240.
 
-<lucasKanade/retall2g.png, id=709, 1171.37625pt x 890.32625pt>
+<lucasKanade/retall2g.png, id=683, 1171.37625pt x 890.32625pt>
 File: lucasKanade/retall2g.png Graphic file (type png)
 
 <use lucasKanade/retall2g.png>
@@ -1613,14 +1281,14 @@ opy)>]
 
 LaTeX Warning: Citation `horn' on page 21 undefined on input line 282.
 
-[21] [22] <lucasKanade/piram.png, id=732, 723.30225pt x 440.847pt>
+[21] [22] <lucasKanade/piram.png, id=707, 723.30225pt x 440.847pt>
 File: lucasKanade/piram.png Graphic file (type png)
 
 <use lucasKanade/piram.png>
 Package pdftex.def Info: lucasKanade/piram.png used on input line 382.
 (pdftex.def)             Requested size: 273.14923pt x 166.48094pt.
  [23 <./lucasKanade/piram.png>] [24]
-<siamese/retall1.png, id=767, 803.0pt x 1067.99pt>
+<siamese/retall1.png, id=742, 803.0pt x 1067.99pt>
 File: siamese/retall1.png Graphic file (type png)
  <use siamese/retall1.png>
 Package pdftex.def Info: siamese/retall1.png used on input line 444.
@@ -1630,13 +1298,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 444--444
 []\OT1/lmr/m/n/10 (a) Cost func-
  []
 
-<siamese/retall2.png, id=768, 803.0pt x 1067.99pt>
+<siamese/retall2.png, id=743, 803.0pt x 1067.99pt>
 File: siamese/retall2.png Graphic file (type png)
  <use siamese/retall2.png>
 Package pdftex.def Info: siamese/retall2.png used on input line 445.
 (pdftex.def)             Requested size: 76.82234pt x 102.16084pt.
 
-<siamese/retall3.png, id=769, 803.0pt x 1067.99pt>
+<siamese/retall3.png, id=744, 803.0pt x 1067.99pt>
 File: siamese/retall3.png Graphic file (type png)
  <use siamese/retall3.png>
 Package pdftex.def Info: siamese/retall3.png used on input line 446.
@@ -1655,7 +1323,7 @@ LaTeX Warning: Citation `lealTaixe' on page 26 undefined on input line 461.
 
  (./4-Solution.tex
 Chapter 4.
-<flows/bloque.png, id=796, 794.97pt x 362.35374pt>
+<flows/bloque.png, id=771, 794.97pt x 362.35374pt>
 File: flows/bloque.png Graphic file (type png)
  <use flows/bloque.png>
 Package pdftex.def Info: flows/bloque.png used on input line 15.
@@ -1665,311 +1333,395 @@ Package pdftex.def Info: flows/bloque.png used on input line 15.
 
 
 
-]
-
-LaTeX Warning: Reference `software2' on page 28 undefined on input line 20.
-
-<timesDiagram/timing3.png, id=802, 738.76pt x 484.81125pt>
+] <timesDiagram/timing3.png, id=777, 738.76pt x 484.81125pt>
 File: timesDiagram/timing3.png Graphic file (type png)
 
 <use timesDiagram/timing3.png>
-Package pdftex.def Info: timesDiagram/timing3.png used on input line 25.
+Package pdftex.def Info: timesDiagram/timing3.png used on input line 30.
 (pdftex.def)             Requested size: 398.33858pt x 261.4095pt.
  [28 <./flows/bloque.png>]
-
-LaTeX Warning: Reference `system1' on page 29 undefined on input line 30.
-
-<flows/arc.png, id=809, 340.27126pt x 658.46pt>
+<flows/arc.png, id=784, 340.27126pt x 658.46pt>
 File: flows/arc.png Graphic file (type png)
  <use flows/arc.png>
-Package pdftex.def Info: flows/arc.png used on input line 36.
+Package pdftex.def Info: flows/arc.png used on input line 41.
 (pdftex.def)             Requested size: 142.26378pt x 275.29541pt.
 
-<flows/detetc.png, id=810, 339.2675pt x 520.94624pt>
+<flows/detetc.png, id=785, 339.2675pt x 520.94624pt>
 File: flows/detetc.png Graphic file (type png)
  <use flows/detetc.png>
-Package pdftex.def Info: flows/detetc.png used on input line 37.
+Package pdftex.def Info: flows/detetc.png used on input line 42.
 (pdftex.def)             Requested size: 142.26378pt x 218.44617pt.
 
 [29 <./timesDiagram/timing3.png>]
-<BoundingBox3/bounding1.png, id=816, 404.51125pt x 566.115pt>
+<BoundingBox3/bounding1.png, id=792, 404.51125pt x 566.115pt>
 File: BoundingBox3/bounding1.png Graphic file (type png)
 
 <use BoundingBox3/bounding1.png>
-Package pdftex.def Info: BoundingBox3/bounding1.png used on input line 51.
+Package pdftex.def Info: BoundingBox3/bounding1.png used on input line 56.
 (pdftex.def)             Requested size: 85.35826pt x 119.45778pt.
 
-<BoundingBox3/ppints1.png, id=817, 404.51125pt x 566.115pt>
+<BoundingBox3/ppints1.png, id=793, 404.51125pt x 566.115pt>
 File: BoundingBox3/ppints1.png Graphic file (type png)
 
 <use BoundingBox3/ppints1.png>
-Package pdftex.def Info: BoundingBox3/ppints1.png used on input line 52.
+Package pdftex.def Info: BoundingBox3/ppints1.png used on input line 57.
 (pdftex.def)             Requested size: 85.35826pt x 119.45778pt.
 
-<BoundingBox3/arrow1.png, id=818, 404.51125pt x 566.115pt>
+<BoundingBox3/arrow1.png, id=794, 404.51125pt x 566.115pt>
 File: BoundingBox3/arrow1.png Graphic file (type png)
 
 <use BoundingBox3/arrow1.png>
-Package pdftex.def Info: BoundingBox3/arrow1.png used on input line 53.
+Package pdftex.def Info: BoundingBox3/arrow1.png used on input line 58.
 (pdftex.def)             Requested size: 85.35826pt x 119.45778pt.
  [30 <./flows/arc.png> <./flows/detetc.png> <./BoundingBox3/bounding1.png (PNG 
 copy)> <./BoundingBox3/ppints1.png (PNG copy)> <./BoundingBox3/arrow1.png (PNG 
 copy)>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 74.
+put line 96.
 
-<intro/deteccions.jpg, id=832, 1927.2pt x 1084.05pt>
+<intro/deteccions.jpg, id=809, 1927.2pt x 1084.05pt>
 File: intro/deteccions.jpg Graphic file (type jpg)
 
 <use intro/deteccions.jpg>
-Package pdftex.def Info: intro/deteccions.jpg used on input line 96.
-(pdftex.def)             Requested size: 284.52756pt x 160.03659pt.
+Package pdftex.def Info: intro/deteccions.jpg used on input line 104.
+(pdftex.def)             Requested size: 341.43306pt x 192.0439pt.
  [31] [32 <./intro/deteccions.jpg>]
-<implementation/pointsEQU.jpg, id=849, 135.50626pt x 326.21875pt>
+<implementation/pointsEQU.jpg, id=826, 135.50626pt x 326.21875pt>
 File: implementation/pointsEQU.jpg Graphic file (type jpg)
 
 <use implementation/pointsEQU.jpg>
-Package pdftex.def Info: implementation/pointsEQU.jpg used on input line 152.
+Package pdftex.def Info: implementation/pointsEQU.jpg used on input line 141.
 (pdftex.def)             Requested size: 85.35826pt x 205.49898pt.
- [33]
-<intro/pounts.jpg, id=854, 1927.2pt x 1084.05pt>
+
+<intro/pounts.jpg, id=827, 1927.2pt x 1084.05pt>
 File: intro/pounts.jpg Graphic file (type jpg)
  <use intro/pounts.jpg>
-Package pdftex.def Info: intro/pounts.jpg used on input line 179.
+Package pdftex.def Info: intro/pounts.jpg used on input line 168.
 (pdftex.def)             Requested size: 284.52756pt x 160.03659pt.
 
-[34 <./implementation/pointsEQU.jpg> <./intro/pounts.jpg>]
-<implementation/matching.png, id=860, 987.2082pt x 1172.9421pt>
+[33 <./implementation/pointsEQU.jpg>]
+<implementation/matching.png, id=833, 987.2082pt x 1172.9421pt>
 File: implementation/matching.png Graphic file (type png)
 
 <use implementation/matching.png>
-Package pdftex.def Info: implementation/matching.png used on input line 231.
+Package pdftex.def Info: implementation/matching.png used on input line 220.
 (pdftex.def)             Requested size: 136.57462pt x 162.25993pt.
-
-<implementation/reejctMore.png, id=862, 135.50626pt x 326.21875pt>
+ [34 <./intro/pounts.jpg>]
+<implementation/reejctMore.png, id=839, 135.50626pt x 326.21875pt>
 File: implementation/reejctMore.png Graphic file (type png)
 
 <use implementation/reejctMore.png>
-Package pdftex.def Info: implementation/reejctMore.png used on input line 244.
+Package pdftex.def Info: implementation/reejctMore.png used on input line 235.
 (pdftex.def)             Requested size: 71.13188pt x 171.24748pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--244
+Underfull \hbox (badness 10000) in paragraph at lines 235--235
 []\OT1/lmr/m/n/10 (a) Im-age
  []
 
-<implementation/filterVeloPoints.png, id=863, 2681.217pt x 1501.7706pt>
+<implementation/filterVeloPoints.png, id=840, 2681.217pt x 1501.7706pt>
 File: implementation/filterVeloPoints.png Graphic file (type png)
 
 <use implementation/filterVeloPoints.png>
 Package pdftex.def Info: implementation/filterVeloPoints.png used on input line
- 245.
+ 236.
 (pdftex.def)             Requested size: 369.88582pt x 207.17583pt.
  [35 <./implementation/matching.png>]
-<implementation/foto004.png, id=870, 125.46875pt x 326.21875pt>
+<implementation/foto004.png, id=847, 125.46875pt x 326.21875pt>
 File: implementation/foto004.png Graphic file (type png)
 
 <use implementation/foto004.png>
-Package pdftex.def Info: implementation/foto004.png used on input line 256.
+Package pdftex.def Info: implementation/foto004.png used on input line 247.
 (pdftex.def)             Requested size: 71.13188pt x 184.95107pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--256
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
 []\OT1/lmr/m/n/10 (a) Im-age
  []
 
-<implementation/figurePoints.png, id=871, 2681.217pt x 1501.7706pt>
+<implementation/figurePoints.png, id=848, 2681.217pt x 1501.7706pt>
 File: implementation/figurePoints.png Graphic file (type png)
 
 <use implementation/figurePoints.png>
-Package pdftex.def Info: implementation/figurePoints.png used on input line 257
+Package pdftex.def Info: implementation/figurePoints.png used on input line 248
 .
 (pdftex.def)             Requested size: 369.88582pt x 207.17583pt.
  [36 <./implementation/reejctMore.png (PNG copy)> <./implementation/filterVeloP
 oints.png> <./implementation/foto004.png (PNG copy)> <./implementation/figurePo
 ints.png>]
-<intro/alcover2.png, id=883, 583.27913pt x 325.215pt>
+<intro/alcover2.png, id=860, 583.27913pt x 325.215pt>
 File: intro/alcover2.png Graphic file (type png)
  <use intro/alcover2.png>
-Package pdftex.def Info: intro/alcover2.png used on input line 267.
+Package pdftex.def Info: intro/alcover2.png used on input line 262.
 (pdftex.def)             Requested size: 284.52756pt x 158.64713pt.
 
-<velocidadas/mateuPont.png, id=885, 1686.3pt x 487.8225pt>
+<intro/deteccionsBLOB.jpg, id=862, 1927.2pt x 1084.05pt>
+File: intro/deteccionsBLOB.jpg Graphic file (type jpg)
+
+<use intro/deteccionsBLOB.jpg>
+Package pdftex.def Info: intro/deteccionsBLOB.jpg used on input line 272.
+(pdftex.def)             Requested size: 284.52756pt x 160.03659pt.
+ [37 <./intro/alcover2.png> <./intro/deteccionsBLOB.jpg>] <velocidadas/mateuPon
+t.png, id=871, 1686.3pt x 487.8225pt>
 File: velocidadas/mateuPont.png Graphic file (type png)
 
 <use velocidadas/mateuPont.png>
-Package pdftex.def Info: velocidadas/mateuPont.png used on input line 281.
+Package pdftex.def Info: velocidadas/mateuPont.png used on input line 315.
 (pdftex.def)             Requested size: 409.71692pt x 118.52383pt.
- [37 <./intro/alcover2.png> <./velocidadas/mateuPont.png (PNG copy)>]
-<velocidadas/bad_threshold.png, id=894, 2681.217pt x 1501.7706pt>
+ [38 <./velocidadas/mateuPont.png (PNG copy)>]
+<velocidadas/bad_threshold.png, id=879, 2681.217pt x 1501.7706pt>
 File: velocidadas/bad_threshold.png Graphic file (type png)
 
 <use velocidadas/bad_threshold.png>
-Package pdftex.def Info: velocidadas/bad_threshold.png used on input line 291.
+Package pdftex.def Info: velocidadas/bad_threshold.png used on input line 325.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
 
-<velocidadas/tomeuPont.png, id=896, 1686.3pt x 487.8225pt>
+<velocidadas/tomeuPont.png, id=881, 1686.3pt x 487.8225pt>
 File: velocidadas/tomeuPont.png Graphic file (type png)
 
 <use velocidadas/tomeuPont.png>
-Package pdftex.def Info: velocidadas/tomeuPont.png used on input line 302.
+Package pdftex.def Info: velocidadas/tomeuPont.png used on input line 336.
 (pdftex.def)             Requested size: 426.79134pt x 123.45892pt.
 
-<velocidadas/good_treshold.png, id=897, 2681.217pt x 1501.7706pt>
+<velocidadas/good_treshold.png, id=882, 2681.217pt x 1501.7706pt>
 File: velocidadas/good_treshold.png Graphic file (type png)
 
 <use velocidadas/good_treshold.png>
-Package pdftex.def Info: velocidadas/good_treshold.png used on input line 303.
+Package pdftex.def Info: velocidadas/good_treshold.png used on input line 337.
 (pdftex.def)             Requested size: 455.24408pt x 254.9768pt.
- [38 <./velocidadas/bad_threshold.png>]
-[39 <./velocidadas/tomeuPont.png (PNG copy)> <./velocidadas/good_treshold.png>]
-<lucasKanade/dataAssociation.jpg, id=911, 1927.2pt x 1084.05pt>
+ [39 <./velocidadas/bad_threshold.png>]
+[40 <./velocidadas/tomeuPont.png (PNG copy)> <./velocidadas/good_treshold.png>]
+<lucasKanade/dataAssociation.jpg, id=896, 1927.2pt x 1084.05pt>
 File: lucasKanade/dataAssociation.jpg Graphic file (type jpg)
 
 <use lucasKanade/dataAssociation.jpg>
-Package pdftex.def Info: lucasKanade/dataAssociation.jpg used on input line 340
+Package pdftex.def Info: lucasKanade/dataAssociation.jpg used on input line 374
 .
 (pdftex.def)             Requested size: 341.43306pt x 192.0439pt.
 
-<timesDiagram/network.png, id=914, 1400.23125pt x 285.065pt>
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 383.
+
+<timesDiagram/network.png, id=899, 1400.23125pt x 285.065pt>
 File: timesDiagram/network.png Graphic file (type png)
 
 <use timesDiagram/network.png>
-Package pdftex.def Info: timesDiagram/network.png used on input line 351.
+Package pdftex.def Info: timesDiagram/network.png used on input line 385.
 (pdftex.def)             Requested size: 455.24408pt x 92.67982pt.
- [40 <./lucasKanade/dataAssociation.jpg>])
-[41 <./timesDiagram/network.png>]
+) [41 <./lucasKanade/dataAssociation.jpg>]
+[42] [43 <./timesDiagram/network.png>]
 \openout2 = `5-Datasets.aux'.
 
  (./5-Datasets.tex
 Chapter 5.
-[42
-
-
-
-] <datasets/log1.png, id=946, 2681.217pt x 1501.7706pt>
-File: datasets/log1.png Graphic file (type png)
-
-<use datasets/log1.png>
-Package pdftex.def Info: datasets/log1.png used on input line 39.
-(pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
- [43 <./datasets/log1.png>] [44]
-<datasets/sdad2.png, id=962, 2681.217pt x 1501.7706pt>
+<datasets/sdad2.png, id=916, 2681.217pt x 1501.7706pt>
 File: datasets/sdad2.png Graphic file (type png)
 
 <use datasets/sdad2.png>
-Package pdftex.def Info: datasets/sdad2.png used on input line 149.
-(pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
+Package pdftex.def Info: datasets/sdad2.png used on input line 30.
+(pdftex.def)             Requested size: 426.79134pt x 239.05078pt.
+ [44
 
 
-LaTeX Warning: Reference `instancesImage' on page 45 undefined on input line 15
-3.
 
-<datasets/pascal.jpg, id=964, 502.87875pt x 377.41pt>
+]
+<datasets/logFinal.png, id=925, 915.72113pt x 572.43863pt>
+File: datasets/logFinal.png Graphic file (type png)
+
+<use datasets/logFinal.png>
+Package pdftex.def Info: datasets/logFinal.png used on input line 44.
+(pdftex.def)             Requested size: 426.79134pt x 266.79263pt.
+
+<datasetExample/voc07aeroplane_03.jpg, id=927, 502.87875pt x 401.5pt>
+File: datasetExample/voc07aeroplane_03.jpg Graphic file (type jpg)
+
+<use datasetExample/voc07aeroplane_03.jpg>
+Package pdftex.def Info: datasetExample/voc07aeroplane_03.jpg used on input lin
+e 54.
+(pdftex.def)             Requested size: 139.41832pt x 111.31035pt.
+
+<datasetExample/voc07bottle_05.jpg, id=928, 502.87875pt x 376.40625pt>
+File: datasetExample/voc07bottle_05.jpg Graphic file (type jpg)
+
+<use datasetExample/voc07bottle_05.jpg>
+Package pdftex.def Info: datasetExample/voc07bottle_05.jpg used on input line 5
+5.
+(pdftex.def)             Requested size: 147.95424pt x 110.7402pt.
+
+<datasetExample/voc07train_05.jpg, id=929, 502.87875pt x 376.40625pt>
+File: datasetExample/voc07train_05.jpg Graphic file (type jpg)
+
+<use datasetExample/voc07train_05.jpg>
+Package pdftex.def Info: datasetExample/voc07train_05.jpg used on input line 56
+.
+(pdftex.def)             Requested size: 147.95424pt x 110.7402pt.
+ [45 <./datasets/sdad2.png>]
+<datasetExample/voc12bicycle_03.jpg, id=940, 502.87875pt x 376.40625pt>
+File: datasetExample/voc12bicycle_03.jpg Graphic file (type jpg)
+
+<use datasetExample/voc12bicycle_03.jpg>
+Package pdftex.def Info: datasetExample/voc12bicycle_03.jpg used on input line 
+68.
+(pdftex.def)             Requested size: 142.26378pt x 106.48428pt.
+
+<datasetExample/voc12bird_01.jpg, id=941, 502.87875pt x 334.24875pt>
+File: datasetExample/voc12bird_01.jpg Graphic file (type jpg)
+
+<use datasetExample/voc12bird_01.jpg>
+Package pdftex.def Info: datasetExample/voc12bird_01.jpg used on input line 69.
+
+(pdftex.def)             Requested size: 159.3356pt x 105.90604pt.
+
+<datasetExample/voc12dog_01.jpg, id=942, 502.87875pt x 377.41pt>
+File: datasetExample/voc12dog_01.jpg Graphic file (type jpg)
+
+<use datasetExample/voc12dog_01.jpg>
+Package pdftex.def Info: datasetExample/voc12dog_01.jpg used on input line 70.
+(pdftex.def)             Requested size: 142.26378pt x 106.76825pt.
+ [46 <./datasets/logFinal.png> <./datasetExample/voc07aeroplane_03.jpg> <./data
+setExample/voc07bottle_05.jpg> <./datasetExample/voc07train_05.jpg>]
+<datasetExample/imageNet0.jpeg, id=954, 501.875pt x 376.40625pt>
+File: datasetExample/imageNet0.jpeg Graphic file (type jpg)
+
+<use datasetExample/imageNet0.jpeg>
+Package pdftex.def Info: datasetExample/imageNet0.jpeg used on input line 90.
+(pdftex.def)             Requested size: 147.95424pt x 110.9642pt.
+
+<datasetExample/imageNet1.jpeg, id=955, 501.875pt x 501.875pt>
+File: datasetExample/imageNet1.jpeg Graphic file (type jpg)
+
+<use datasetExample/imageNet1.jpeg>
+Package pdftex.def Info: datasetExample/imageNet1.jpeg used on input line 91.
+(pdftex.def)             Requested size: 112.38829pt x 112.3886pt.
+
+<datasetExample/imageNet2.jpeg, id=956, 501.875pt x 397.485pt>
+File: datasetExample/imageNet2.jpeg Graphic file (type jpg)
+
+<use datasetExample/imageNet2.jpeg>
+Package pdftex.def Info: datasetExample/imageNet2.jpeg used on input line 92.
+(pdftex.def)             Requested size: 142.26378pt x 112.67181pt.
+ [47 <./datasetExample/voc12bicycle_03.jpg> <./datasetExample/voc12bird_01.jpg>
+ <./datasetExample/voc12dog_01.jpg>]
+[48 <./datasetExample/imageNet0.jpeg> <./datasetExample/imageNet1.jpeg> <./data
+setExample/imageNet2.jpeg>]
+<datasetExample/coco1.png, id=977, 893.3375pt x 475.7775pt>
+File: datasetExample/coco1.png Graphic file (type png)
+
+<use datasetExample/coco1.png>
+Package pdftex.def Info: datasetExample/coco1.png used on input line 124.
+(pdftex.def)             Requested size: 199.16928pt x 106.0725pt.
+
+<datasets/pascal.jpg, id=979, 502.87875pt x 377.41pt>
 File: datasets/pascal.jpg Graphic file (type jpg)
 
 <use datasets/pascal.jpg>
-Package pdftex.def Info: datasets/pascal.jpg used on input line 166.
+Package pdftex.def Info: datasets/pascal.jpg used on input line 145.
 (pdftex.def)             Requested size: 147.95424pt x 111.03552pt.
 
-<datasets/imagenet.jpg, id=965, 192.72pt x 146.146pt>
+<datasets/imagenet.jpg, id=980, 192.72pt x 146.146pt>
 File: datasets/imagenet.jpg Graphic file (type jpg)
 
 <use datasets/imagenet.jpg>
-Package pdftex.def Info: datasets/imagenet.jpg used on input line 167.
+Package pdftex.def Info: datasets/imagenet.jpg used on input line 146.
 (pdftex.def)             Requested size: 147.95424pt x 112.19826pt.
- <datasets/coco.jpg, id=966, 120.45pt x 79.9788pt>
+ <datasets/coco.jpg, id=981, 120.45pt x 79.9788pt>
 File: datasets/coco.jpg Graphic file (type jpg)
 
 <use datasets/coco.jpg>
-Package pdftex.def Info: datasets/coco.jpg used on input line 168.
+Package pdftex.def Info: datasets/coco.jpg used on input line 147.
 (pdftex.def)             Requested size: 147.95424pt x 98.2513pt.
- [45 <./datasets/sdad2.png>]
-Overfull \hbox (2.80547pt too wide) in paragraph at lines 179--187
+ [49 <./datasetExample/coco1.png>]
+Overfull \hbox (2.80547pt too wide) in paragraph at lines 158--166
  [][] 
  []
 
-[46 <./datasets/pascal.jpg> <./datasets/imagenet.jpg> <./datasets/coco.jpg>]
-<evaluacionObject/interpol.png, id=983, 2681.217pt x 1501.7706pt>
+[50 <./datasets/pascal.jpg> <./datasets/imagenet.jpg> <./datasets/coco.jpg>]
+<evaluacionObject/interpol.png, id=999, 2681.217pt x 1501.7706pt>
 File: evaluacionObject/interpol.png Graphic file (type png)
 
 <use evaluacionObject/interpol.png>
-Package pdftex.def Info: evaluacionObject/interpol.png used on input line 219.
+Package pdftex.def Info: evaluacionObject/interpol.png used on input line 198.
 (pdftex.def)             Requested size: 318.66948pt x 178.48605pt.
- [47 <./evaluacionObject/interpol.png>]
-<datasetTracking/View_001.jpg, id=992, 250.9375pt x 188.705pt>
+ [51 <./evaluacionObject/interpol.png>]
+<datasetTracking/View_001.jpg, id=1008, 250.9375pt x 188.705pt>
 File: datasetTracking/View_001.jpg Graphic file (type jpg)
 
 <use datasetTracking/View_001.jpg>
-Package pdftex.def Info: datasetTracking/View_001.jpg used on input line 263.
+Package pdftex.def Info: datasetTracking/View_001.jpg used on input line 242.
 (pdftex.def)             Requested size: 227.62206pt x 171.18048pt.
- [48] [49 <./datasetTracking/View_001.jpg>]
-<datasetTracking/trackins.png, id=1009, 870.25125pt x 489.62926pt>
+ [52]
+Overfull \hbox (0.79485pt too wide) in paragraph at lines 254--254
+[]\OT1/lmr/bx/n/17.28 Evaluation of mul-ti-ple peo-ple track-ing al-go-rithms 
+ []
+
+[53 <./datasetTracking/View_001.jpg>]
+<datasetTracking/trackins.png, id=1024, 870.25125pt x 489.62926pt>
 File: datasetTracking/trackins.png Graphic file (type png)
 
 <use datasetTracking/trackins.png>
-Package pdftex.def Info: datasetTracking/trackins.png used on input line 291.
+Package pdftex.def Info: datasetTracking/trackins.png used on input line 270.
 (pdftex.def)             Requested size: 318.66948pt x 179.29219pt.
- [50 <./datasetTracking/trackins.png>]
-[51]) [52]
+ [54 <./datasetTracking/trackins.png>]
+[55] [56]) [57]
 \openout2 = `6-Experiments.aux'.
 
  (./6-Experiments.tex
 Chapter 6.
 
-LaTeX Warning: Reference `objectDetector2' on page 53 undefined on input line 1
+LaTeX Warning: Reference `objectDetector2' on page 58 undefined on input line 1
 4.
 
-<evaluacionObject/dadas.png, id=1051, 2681.217pt x 1501.7706pt>
+<evaluacionObject/dadas.png, id=1072, 2681.217pt x 1501.7706pt>
 File: evaluacionObject/dadas.png Graphic file (type png)
 
 <use evaluacionObject/dadas.png>
 Package pdftex.def Info: evaluacionObject/dadas.png used on input line 20.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
- [53
+ [58
 
 
 
 ]
-<evaluacionObject/meanAverage2.png, id=1058, 2681.217pt x 1501.7706pt>
+<evaluacionObject/meanAverage2.png, id=1078, 2681.217pt x 1501.7706pt>
 File: evaluacionObject/meanAverage2.png Graphic file (type png)
 
 <use evaluacionObject/meanAverage2.png>
 Package pdftex.def Info: evaluacionObject/meanAverage2.png used on input line 2
 9.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
- [54 <./evaluacionObject/dadas.png> <./evaluacionObject/meanAverage2.png>]
-<evaluacionObject/motdetece.png, id=1074, 2681.217pt x 1501.7706pt>
+ [59 <./evaluacionObject/dadas.png> <./evaluacionObject/meanAverage2.png>]
+<evaluacionObject/motdetece.png, id=1094, 2681.217pt x 1501.7706pt>
 File: evaluacionObject/motdetece.png Graphic file (type png)
 
 <use evaluacionObject/motdetece.png>
 Package pdftex.def Info: evaluacionObject/motdetece.png used on input line 63.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
- [55]
+ [60]
 
-LaTeX Warning: Reference `TheoriecArch' on page 56 undefined on input line 76.
+LaTeX Warning: Reference `TheoriecArch' on page 61 undefined on input line 76.
 
-<changeCamera/tomeu.png, id=1088, 2071.74pt x 501.875pt>
+<changeCamera/tomeu.png, id=1107, 2071.74pt x 501.875pt>
 File: changeCamera/tomeu.png Graphic file (type png)
 
 <use changeCamera/tomeu.png>
 Package pdftex.def Info: changeCamera/tomeu.png used on input line 80.
 (pdftex.def)             Requested size: 409.71692pt x 99.24748pt.
- [56 <./evaluacionObject/motdetece.png>]
-<changeCamera/out2.png, id=1097, 2192.19pt x 501.875pt>
+ [61 <./evaluacionObject/motdetece.png>]
+<changeCamera/out2.png, id=1116, 2192.19pt x 501.875pt>
 File: changeCamera/out2.png Graphic file (type png)
 
 <use changeCamera/out2.png>
 Package pdftex.def Info: changeCamera/out2.png used on input line 88.
 (pdftex.def)             Requested size: 409.71692pt x 93.795pt.
 
-<tracker/preprocesing.png, id=1099, 2681.217pt x 1501.7706pt>
+<tracker/preprocesing.png, id=1118, 2681.217pt x 1501.7706pt>
 File: tracker/preprocesing.png Graphic file (type png)
 
 <use tracker/preprocesing.png>
 Package pdftex.def Info: tracker/preprocesing.png used on input line 108.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
- [57 <./changeCamera/tomeu.png (PNG copy)> <./changeCamera/out2.png (PNG copy)>
+ [62 <./changeCamera/tomeu.png (PNG copy)> <./changeCamera/out2.png (PNG copy)>
 ]
-<implementation/pointsSIN_EQU.jpg, id=1105, 135.50626pt x 326.21875pt>
+<implementation/pointsSIN_EQU.jpg, id=1125, 135.50626pt x 326.21875pt>
 File: implementation/pointsSIN_EQU.jpg Graphic file (type jpg)
 
 <use implementation/pointsSIN_EQU.jpg>
@@ -1985,21 +1737,21 @@ Underfull \hbox (badness 2990) in paragraph at lines 119--119
 []\OT1/lmr/m/n/10 (b) Equal-ized im-
  []
 
-[58 <./tracker/preprocesing.png> <./implementation/pointsSIN_EQU.jpg>]
-<tracker/forwardBack.png, id=1116, 914.2155pt x 268.90463pt>
+[63 <./tracker/preprocesing.png> <./implementation/pointsSIN_EQU.jpg>]
+<tracker/forwardBack.png, id=1136, 914.2155pt x 268.90463pt>
 File: tracker/forwardBack.png Graphic file (type png)
 
 <use tracker/forwardBack.png>
 Package pdftex.def Info: tracker/forwardBack.png used on input line 134.
 (pdftex.def)             Requested size: 199.16928pt x 58.58064pt.
 
-<tracker/forwardBack2.png, id=1117, 716.07526pt x 311.06212pt>
+<tracker/forwardBack2.png, id=1137, 716.07526pt x 311.06212pt>
 File: tracker/forwardBack2.png Graphic file (type png)
 
 <use tracker/forwardBack2.png>
 Package pdftex.def Info: tracker/forwardBack2.png used on input line 135.
 (pdftex.def)             Requested size: 199.16928pt x 86.51773pt.
- [59 <./tracker/forwardBack.png> <./tracker/forwardBack2.png>]
+ [64 <./tracker/forwardBack.png> <./tracker/forwardBack2.png>]
 File: siamese/retall1.png Graphic file (type png)
  <use siamese/retall1.png>
 Package pdftex.def Info: siamese/retall1.png used on input line 168.
@@ -2018,14 +1770,14 @@ File: siamese/retall3.png Graphic file (type png)
 Package pdftex.def Info: siamese/retall3.png used on input line 170.
 (pdftex.def)             Requested size: 76.82234pt x 102.16084pt.
 
-<siamese/cosineDistance.png, id=1127, 240.9pt x 320.397pt>
+<siamese/cosineDistance.png, id=1147, 240.9pt x 320.397pt>
 File: siamese/cosineDistance.png Graphic file (type png)
 
 <use siamese/cosineDistance.png>
 Package pdftex.def Info: siamese/cosineDistance.png used on input line 171.
 (pdftex.def)             Requested size: 76.82234pt x 102.17224pt.
 
-<siamese/retall2cnnMAss.png, id=1128, 240.9pt x 320.397pt>
+<siamese/retall2cnnMAss.png, id=1148, 240.9pt x 320.397pt>
 File: siamese/retall2cnnMAss.png Graphic file (type png)
 
 <use siamese/retall2cnnMAss.png>
@@ -2036,30 +1788,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--172
 []\OT1/lmr/m/n/10 (e) Cnn fine-
  []
 
-[60 <./siamese/cosineDistance.png> <./siamese/retall2cnnMAss.png>]
-<siameseDev/flatten2.png, id=1140, 779.91376pt x 575.14874pt>
+[65 <./siamese/cosineDistance.png> <./siamese/retall2cnnMAss.png>]
+<siameseDev/flatten2.png, id=1160, 779.91376pt x 575.14874pt>
 File: siameseDev/flatten2.png Graphic file (type png)
 
 <use siameseDev/flatten2.png>
 Package pdftex.def Info: siameseDev/flatten2.png used on input line 203.
 (pdftex.def)             Requested size: 128.0374pt x 94.42154pt.
 
-<siameseDev/globalPooling.png, id=1141, 178.86826pt x 172.54463pt>
+<siameseDev/globalPooling.png, id=1161, 178.86826pt x 172.54463pt>
 File: siameseDev/globalPooling.png Graphic file (type png)
 
 <use siameseDev/globalPooling.png>
 Package pdftex.def Info: siameseDev/globalPooling.png used on input line 204.
 (pdftex.def)             Requested size: 113.81102pt x 109.78577pt.
 
-<siameseDev/spp2.png, id=1142, 779.91376pt x 575.14874pt>
+<siameseDev/spp2.png, id=1162, 779.91376pt x 575.14874pt>
 File: siameseDev/spp2.png Graphic file (type png)
 
 <use siameseDev/spp2.png>
 Package pdftex.def Info: siameseDev/spp2.png used on input line 205.
 (pdftex.def)             Requested size: 113.81102pt x 83.92538pt.
- [61 <./siameseDev/flatten2.png (PNG copy)> <./siameseDev/globalPooling.png> <.
+ [66 <./siameseDev/flatten2.png (PNG copy)> <./siameseDev/globalPooling.png> <.
 /siameseDev/spp2.png (PNG copy)>]
-<dataAugmentation/resizedImage.jpg, id=1154, 64.24pt x 128.48pt>
+<dataAugmentation/resizedImage.jpg, id=1173, 64.24pt x 128.48pt>
 File: dataAugmentation/resizedImage.jpg Graphic file (type jpg)
 
 <use dataAugmentation/resizedImage.jpg>
@@ -2071,7 +1823,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 236--236
 []\OT1/lmr/m/n/10 (a) Orig-i-nal
  []
 
-<dataAugmentation/imageBrightnes.jpg, id=1155, 64.24pt x 128.48pt>
+<dataAugmentation/imageBrightnes.jpg, id=1174, 64.24pt x 128.48pt>
 File: dataAugmentation/imageBrightnes.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageBrightnes.jpg>
@@ -2088,7 +1840,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 237--237
 \OT1/lmr/m/n/10 dom im-age
  []
 
-<dataAugmentation/imageRandomCrop.jpg, id=1156, 64.24pt x 128.48pt>
+<dataAugmentation/imageRandomCrop.jpg, id=1175, 64.24pt x 128.48pt>
 File: dataAugmentation/imageRandomCrop.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageRandomCrop.jpg>
@@ -2100,7 +1852,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--238
 []\OT1/lmr/m/n/10 (c) Ran-dom
  []
 
-<dataAugmentation/imageVerticalFlip.jpg, id=1157, 64.24pt x 128.48pt>
+<dataAugmentation/imageVerticalFlip.jpg, id=1176, 64.24pt x 128.48pt>
 File: dataAugmentation/imageVerticalFlip.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageVerticalFlip.jpg>
@@ -2112,7 +1864,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 239--239
 []\OT1/lmr/m/n/10 (d) Ver-ti-cal
  []
 
-<dataAugmentation/imageGaussianBlur.jpg, id=1158, 64.24pt x 128.48pt>
+<dataAugmentation/imageGaussianBlur.jpg, id=1177, 64.24pt x 128.48pt>
 File: dataAugmentation/imageGaussianBlur.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageGaussianBlur.jpg>
@@ -2120,7 +1872,7 @@ Package pdftex.def Info: dataAugmentation/imageGaussianBlur.jpg used on input l
 ine 240.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-<dataAugmentation/imageRandomShadow.jpg, id=1159, 64.24pt x 128.48pt>
+<dataAugmentation/imageRandomShadow.jpg, id=1178, 64.24pt x 128.48pt>
 File: dataAugmentation/imageRandomShadow.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageRandomShadow.jpg>
@@ -2132,7 +1884,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 241--241
 []\OT1/lmr/m/n/10 (f) Ran-dom
  []
 
-<dataAugmentation/imageZoomIn.jpg, id=1160, 64.24pt x 128.48pt>
+<dataAugmentation/imageZoomIn.jpg, id=1179, 64.24pt x 128.48pt>
 File: dataAugmentation/imageZoomIn.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageZoomIn.jpg>
@@ -2140,7 +1892,7 @@ Package pdftex.def Info: dataAugmentation/imageZoomIn.jpg used on input line 24
 4.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
 
-<dataAugmentation/imageTransormed.jpg, id=1161, 64.24pt x 128.48pt>
+<dataAugmentation/imageTransormed.jpg, id=1180, 64.24pt x 128.48pt>
 File: dataAugmentation/imageTransormed.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageTransormed.jpg>
@@ -2152,7 +1904,7 @@ Underfull \hbox (badness 1424) in paragraph at lines 245--245
 \OT1/lmr/m/n/10 and trans-la-
  []
 
-<dataAugmentation/imageZoomOut.jpg, id=1162, 64.24pt x 128.48pt>
+<dataAugmentation/imageZoomOut.jpg, id=1181, 64.24pt x 128.48pt>
 File: dataAugmentation/imageZoomOut.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageZoomOut.jpg>
@@ -2164,7 +1916,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 246--246
 []\OT1/lmr/m/n/10 (i) Zoom
  []
 
-<dataAugmentation/imageNoiseGaussian.jpg, id=1163, 64.24pt x 128.48pt>
+<dataAugmentation/imageNoiseGaussian.jpg, id=1182, 64.24pt x 128.48pt>
 File: dataAugmentation/imageNoiseGaussian.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageNoiseGaussian.jpg>
@@ -2176,66 +1928,66 @@ Underfull \hbox (badness 3039) in paragraph at lines 247--247
 []\OT1/lmr/m/n/10 (j) Gaus-sian
  []
 
-<dataAugmentation/imageBLURcenter.jpg, id=1164, 64.24pt x 128.48pt>
+<dataAugmentation/imageBLURcenter.jpg, id=1183, 64.24pt x 128.48pt>
 File: dataAugmentation/imageBLURcenter.jpg Graphic file (type jpg)
 
 <use dataAugmentation/imageBLURcenter.jpg>
 Package pdftex.def Info: dataAugmentation/imageBLURcenter.jpg used on input lin
 e 248.
 (pdftex.def)             Requested size: 56.9055pt x 113.81358pt.
- [62]
-<siameseDev/loss.png, id=1171, 462.528pt x 346.896pt>
+ [67]
+<siameseDev/loss.png, id=1190, 462.528pt x 346.896pt>
 File: siameseDev/loss.png Graphic file (type png)
 
 <use siameseDev/loss.png>
 Package pdftex.def Info: siameseDev/loss.png used on input line 259.
 (pdftex.def)             Requested size: 213.39566pt x 160.05048pt.
 
-<siameseDev/accuracy.png, id=1172, 462.528pt x 346.896pt>
+<siameseDev/accuracy.png, id=1191, 462.528pt x 346.896pt>
 File: siameseDev/accuracy.png Graphic file (type png)
 
 <use siameseDev/accuracy.png>
 Package pdftex.def Info: siameseDev/accuracy.png used on input line 260.
 (pdftex.def)             Requested size: 213.39566pt x 160.05048pt.
- [63 <./dataAugmentation/resizedImage.jpg> <./dataAugmentation/imageBrightnes.j
+ [68 <./dataAugmentation/resizedImage.jpg> <./dataAugmentation/imageBrightnes.j
 pg> <./dataAugmentation/imageRandomCrop.jpg> <./dataAugmentation/imageVerticalF
 lip.jpg> <./dataAugmentation/imageGaussianBlur.jpg> <./dataAugmentation/imageRa
 ndomShadow.jpg> <./dataAugmentation/imageZoomIn.jpg> <./dataAugmentation/imageT
 ransormed.jpg> <./dataAugmentation/imageZoomOut.jpg> <./dataAugmentation/imageN
 oiseGaussian.jpg> <./dataAugmentation/imageBLURcenter.jpg>] <siameseDev/cmcNetw
-ors.png, id=1189, 2681.217pt x 1501.7706pt>
+ors.png, id=1210, 2681.217pt x 1501.7706pt>
 File: siameseDev/cmcNetwors.png Graphic file (type png)
 
 <use siameseDev/cmcNetwors.png>
 Package pdftex.def Info: siameseDev/cmcNetwors.png used on input line 272.
 (pdftex.def)             Requested size: 341.43306pt x 191.22688pt.
 
-<siameseDev/results.png, id=1190, 2681.217pt x 1501.7706pt>
+<siameseDev/results.png, id=1211, 2681.217pt x 1501.7706pt>
 File: siameseDev/results.png Graphic file (type png)
 
 <use siameseDev/results.png>
 Package pdftex.def Info: siameseDev/results.png used on input line 280.
 (pdftex.def)             Requested size: 341.43306pt x 191.22688pt.
- [64 <./siameseDev/loss.png> <./siameseDev/accuracy.png> <./siameseDev/cmcNetwo
-rs.png>] [65 <./siameseDev/results.png>]
-<graphicsRearrange/temps/timeGenral.png, id=1209, 2681.217pt x 1501.7706pt>
+ [69 <./siameseDev/loss.png> <./siameseDev/accuracy.png> <./siameseDev/cmcNetwo
+rs.png>] [70 <./siameseDev/results.png>]
+<graphicsRearrange/temps/timeGenral.png, id=1229, 2681.217pt x 1501.7706pt>
 File: graphicsRearrange/temps/timeGenral.png Graphic file (type png)
 
 <use graphicsRearrange/temps/timeGenral.png>
 Package pdftex.def Info: graphicsRearrange/temps/timeGenral.png used on input l
 ine 357.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
- [66]
-<graphicsRearrange/temps/timeSpecfici.png, id=1215, 2681.217pt x 1501.7706pt>
+ [71]
+<graphicsRearrange/temps/timeSpecfici.png, id=1235, 2681.217pt x 1501.7706pt>
 File: graphicsRearrange/temps/timeSpecfici.png Graphic file (type png)
 
 <use graphicsRearrange/temps/timeSpecfici.png>
 Package pdftex.def Info: graphicsRearrange/temps/timeSpecfici.png used on input
  line 365.
 (pdftex.def)             Requested size: 409.71692pt x 229.47226pt.
- [67 <./graphicsRearrange/temps/timeGenral.png> <./graphicsRearrange/temps/time
+ [72 <./graphicsRearrange/temps/timeGenral.png> <./graphicsRearrange/temps/time
 Specfici.png>]
-<graphicsRearrange/points/points1.png, id=1224, 2681.217pt x 1501.7706pt>
+<graphicsRearrange/points/points1.png, id=1243, 2681.217pt x 1501.7706pt>
 File: graphicsRearrange/points/points1.png Graphic file (type png)
 
 <use graphicsRearrange/points/points1.png>
@@ -2243,20 +1995,20 @@ Package pdftex.def Info: graphicsRearrange/points/points1.png used on input lin
 e 377.
 (pdftex.def)             Requested size: 204.85974pt x 114.73613pt.
 
-<graphicsRearrange/points/timss.png, id=1225, 2681.217pt x 1501.7706pt>
+<graphicsRearrange/points/timss.png, id=1244, 2681.217pt x 1501.7706pt>
 File: graphicsRearrange/points/timss.png Graphic file (type png)
 
 <use graphicsRearrange/points/timss.png>
 Package pdftex.def Info: graphicsRearrange/points/timss.png used on input line 
 378.
 (pdftex.def)             Requested size: 204.85974pt x 114.73613pt.
-) [68 <./graphicsRearrange/points/points1.png> <./graphicsRearrange/points/tims
+) [73 <./graphicsRearrange/points/points1.png> <./graphicsRearrange/points/tims
 s.png>]
 \openout2 = `7-Conclusions.aux'.
 
  (./7-Conclusions.tex
 Chapter 7.
-<changeCamera/tomeuTetx.png, id=1235, 365.365pt x 501.875pt>
+<changeCamera/tomeuTetx.png, id=1254, 365.365pt x 501.875pt>
 File: changeCamera/tomeuTetx.png Graphic file (type png)
 
 <use changeCamera/tomeuTetx.png>
@@ -2267,7 +2019,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--16
 []\OT1/lmr/m/n/10 (a) High tex-ture
  []
 
-<changeCamera/donaTetx.png, id=1236, 365.365pt x 501.875pt>
+<changeCamera/donaTetx.png, id=1255, 365.365pt x 501.875pt>
 File: changeCamera/donaTetx.png Graphic file (type png)
 
 <use changeCamera/donaTetx.png>
@@ -2278,25 +2030,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--17
 []\OT1/lmr/m/n/10 (b) Low tex-ture
  []
 
-<changeCamera/foto004.png, id=1237, 365.365pt x 501.875pt>
+<changeCamera/foto004.png, id=1256, 365.365pt x 501.875pt>
 File: changeCamera/foto004.png Graphic file (type png)
 
 <use changeCamera/foto004.png>
 Package pdftex.def Info: changeCamera/foto004.png used on input line 18.
 (pdftex.def)             Requested size: 85.35826pt x 117.25142pt.
- [69
+ [74
 
 
 
-]) [70 <./changeCamera/tomeuTetx.png (PNG copy)> <./changeCamera/donaTetx.png (
+]) [75 <./changeCamera/tomeuTetx.png (PNG copy)> <./changeCamera/donaTetx.png (
 PNG copy)> <./changeCamera/foto004.png (PNG copy)>]
 \openout2 = `8-Bibliografia.aux'.
 
- (./8-Bibliografia.tex (./Memoria.bbl [71
+ (./8-Bibliografia.tex (./Memoria.bbl [76
 
 
 
-] [72]
+] [77]
 Underfull \hbox (badness 7326) in paragraph at lines 125--128
 []\OT1/lmr/m/n/12 M. Pieras.  Wiki jder-obot: Mar-cos pieras.  []$\OT1/lmtt/m/n
 /12 http : / / jderobot . org /
@@ -2308,30 +2060,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--134
 https : / / github . com /
  []
 
-[73] [74] [75] [76]
-Underfull \hbox (badness 1132) in paragraph at lines 418--423
+[78] [79] [80] [81]
+Underfull \hbox (badness 1132) in paragraph at lines 440--445
 \OT1/lmtt/m/n/12 ie . cuhk . edu . hk / []ccloy / downloads _ qmul _ undergroun
 d _ reid . html$[] \OT1/lmr/m/n/12 [2016-12-15],
  []
 
-[77] [78]
-Underfull \hbox (badness 1478) in paragraph at lines 505--508
+[82] [83]
+Underfull \hbox (badness 1478) in paragraph at lines 527--530
 []\OT1/lmr/m/n/12 Paul B.  Sin-gle shot de-tec-tor ten-sor-flow.  []$\OT1/lmtt/
 m/n/12 https : / / github . com / balancap /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 528--533
+Underfull \hbox (badness 10000) in paragraph at lines 550--555
 \OT1/lmtt/m/n/12 ActiveVision / Research / Projects / 2009bbenfold _ headpose /
  project . html #
  []
 
-)) [79]
+)) [84]
 \openout2 = `9-Annexos.aux'.
 
  (./9-Annexos.tex
 Chapter 8.
-) [80
+) [85
 
 
 
@@ -2346,7 +2098,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 155.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 155.
 Package rerunfilecheck Info: File `Memoria.out' has not changed.
-(rerunfilecheck)             Checksum: CB5464D7E25D106F4EF01FD2EAE4CAD9;3729.
+(rerunfilecheck)             Checksum: 0D949D5E2EA1C1C95B8021CA0F8F2C51;3540.
 
 
 LaTeX Warning: There were undefined references.
@@ -2357,16 +2109,16 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 155.
  ) 
 Here is how much of TeX's memory you used:
- 16759 strings out of 494910
- 249251 string characters out of 6179837
- 400464 words of memory out of 5000000
- 19135 multiletter control sequences out of 15000+600000
- 78979 words of font info for 65 fonts, out of 8000000 for 9000
+ 12639 strings out of 494910
+ 189695 string characters out of 6179837
+ 286176 words of memory out of 5000000
+ 15128 multiletter control sequences out of 15000+600000
+ 75725 words of font info for 63 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 46i,13n,79p,1935b,1860s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
+ 36i,13n,43p,1455b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/
+dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
+/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/l
 m/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texm
 f/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcs
 c10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fo
@@ -2378,12 +2130,11 @@ ic/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texm
 f/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
-8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/font
-s/type1/public/lm/lmtt12.pfb>
-Output written on Memoria.pdf (92 pages, 37752620 bytes).
+8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
+Output written on Memoria.pdf (96 pages, 40136502 bytes).
 PDF statistics:
- 1464 PDF objects out of 1728 (max. 8388607)
- 1206 compressed objects within 13 object streams
- 389 named destinations out of 1000 (max. 500000)
- 914 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1485 PDF objects out of 1728 (max. 8388607)
+ 1214 compressed objects within 13 object streams
+ 380 named destinations out of 1000 (max. 500000)
+ 945 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,11 +1,14 @@
 \chapter{Datasets and evaluation procedures}\label{cap.dataset}
 
 
-Next we explain the datasets and measures utilized in this thesis.
+In this chapter we explain the datasets and evaluation procedures that we used to adjust our algorithm, or part of it and for experimentally validating the developed solution, allowing an objective comparision between solutions. We explain the three main datasets in this thesis: object detection, tracking, and person reidentification and each of them their measures to evaluate.
 
 \section{Datasets for object detection}
 
-This section describes the most common datasets used in object detection tasks. Throughout the history of computer vision research datasets have played a critical role.  They not only provide a means to train and evaluate algorithms, they drive research in new and more challenging directions. In order to accomplish this, they provide:
+%This section describes the most common datasets used in object detection tasks. Throughout the history of computer vision research datasets have played a critical role.  They not only provide a means to train and evaluate algorithms, they drive research in new and more challenging directions. In order to accomplish this, they provide:
+
+
+This section describes the most common datasets used in object detection tasks. Throughout the history of computer vision research datasets have played a critical role.  They not only provide a means to train and compare fairly algorithms, they drive research in new and more challenging directions. In order to accomplish this, they provide:
 
 
 \begin{itemize}
@@ -19,58 +22,92 @@ This section describes the most common datasets used in object detection tasks. 
 
 
 
-In the next subsections, we will explain the main datasets for object detection task.
+In the next subsections, we will explain several well known international datasets for object detection. These dataset are provided in the context of an international challenges, these challenges look for an improvement on the object detection algorithms. In \ref{instancesCategorydata} we show the comparision of the dataset in two key parameters, number of categories and instances per category, these parameters are critical in the election of one of them.
 
 
-\subsection{Pascal Visual Objects Classes}
-
-The Pascal Visual Object Classes (VOC) challenge  \cite{voc07} is a benchmark in visual object category recognition and detection. Organised annually from $2005$ to $2012$, the challenge and its associated dataset has become accepted as one of the landmark benchmark for object detection. All the images are from the flickr consumer photographs website and annotated with the Mechanical turk tool.
-
-The most popular editions of the challenge for object detection are those from years $2007$ and $2012$.
-
-\subsection{VOC07}
-
-%The VOC2007 dataset consists of annotated consumer photographs collected from %the flickr website. In addition, 
-
-The challenge of the year 2007 contains ten thousand images in the trainval and test sets, with almost twelve thousand objects. This was one the first datasets for object detection before the era deep learning. Also, it is very useful for researchers, due it has $2.5$ mean object per image and it is very challenging. In the figure \ref{data07} we can observe the distribution of images and objects instances. 
-
-\begin{figure}[hptb]
+\begin{figure}[H]
 \centering         
-\includegraphics[width=0.7\linewidth]{datasets/log1.png}
-\caption{Distribution of VOC07 dataset.} \label{data07}
+\includegraphics[width=15cm]{datasets/sdad2.png}
+\caption{Comparision datasets.} \label{instancesCategorydata}
 \end{figure}
 
 
 
-\subsection{VOC12}
+\subsection{Pascal Visual Objects Classes}
 
-The 2012's edition is also, one of the most used dataset in object detection tasks. It increases the volume of images of the 2007 edition up to ten thousand images on trainval and test set and similar quantity of instances per image. 
+The Pascal Visual Object Classes (VOC) challenge  \cite{voc07} is a benchmark in visual object category recognition and detection. Organised annually from $2005$ to $2012$, the challenge and its associated dataset has become accepted as one of the landmark benchmarks for object detection. All the images are taken from the \texttt{flickr} consumer photographs website and annotated with the Mechanical turk tool. The most popular editions of the challenge for object detection are those from years $2007$ and $2012$.
+
+The challenge of the year 2007 \cite{voc07website} contains 5000 images in the trainval and test sets, with almost 12000 objects. This was one the first datasets for object detection before the deep learning era. Also, it is very useful for researchers, due it has $2.5$ mean object per image and it is very challenging. In the figure \ref{data07} we can observe the distribution of images and objects instances. 
+
+\begin{figure}[hptb]
+\centering         
+\includegraphics[width=15cm]{datasets/logFinal.png}
+\caption{Distribution of VOC07 dataset.} \label{data07}
+\end{figure}
+
+
+In the figure \ref{voc07data} we can observe an example of several images with their ground truth.
+
+\begin{figure}[H]
+		
+\centering
+\subfigure[]{\includegraphics[width=4.9cm]{datasetExample/voc07aeroplane_03.jpg}}
+\subfigure[]{\includegraphics[width=5.2cm]{datasetExample/voc07bottle_05.jpg}}
+\subfigure[]{\includegraphics[width=5.2cm]{datasetExample/voc07train_05.jpg}}
+\caption{Few samples of the VOC07 dataset .} \label{voc07data}
+
+\end{figure}
+
+
+The 2012's edition \cite{voc12website} is also one of the most used dataset in object detection tasks. It increases the volume of images of the 2007 edition up to 10000 images on trainval and test set and similar quantity of instances per image. In the figure \ref{voc12data} we can observe an example of several images with their ground truth.
+
+
+\begin{figure}[H]
+		
+\centering
+\subfigure[]{\includegraphics[width=5cm]{datasetExample/voc12bicycle_03.jpg}}
+\subfigure[]{\includegraphics[width=5.6cm]{datasetExample/voc12bird_01.jpg}}
+\subfigure[]{\includegraphics[width=5cm]{datasetExample/voc12dog_01.jpg}}
+\caption{Few samples of the VOC12 dataset .} \label{voc12data}
+
+\end{figure}
+
+
+The datasets from Pascal challenge are very useful to test object detection algorithms, their quantity is very handy ( a few thousands of images ) and contains a challenging quantity of objects per image, very interesting for the algorithms. But its little amount of images does not permit to train a network on this dataset, although it can be used to finetune the network.
 
 
 \subsection{ImageNet}
 
 
 
-ImageNet project \cite{imagenet} with the challenge ImageNet Large Scale Visual Recognition Challenge [ILSVRC] was the first large-scale database, temporally developed to supply the deep learning techniques, eager of feed with tons of images. ImageNet aims to populate the majority of the 80000 synsets of WordNet with an average of 500-1000 clean and full resolution images. The collection was based on the query of that words on several image search engines and human refined on the Amazon Mechanical Turk platform.
+ImageNet project \cite{imagenet} with the challenge ImageNet Large Scale Visual Recognition Challenge [ILSVRC] was the first large-scale database, temporally developed to supply the deep learning techniques, eager of feed with tons of images. ImageNet aims to populate the majority of the 80000 synsets of WordNet with an average of 500-1000 clean and full resolution images. The collection was based on the query of that words on several image search engines and human refined on the Amazon Mechanical Turk platform. It can be downloaded from here \cite{imagenetWebsite}.
 
-In 2016, the project collects more than 10 million of annotated images with 1000 classes. Although its main purpose is image classification, it has an object detection challenge with $200$ categories with over a 1 million images with objects annotated.
+In 2016, the project collects more than 10 million of annotated images with 1000 classes. Although its main purpose is image classification, it has an object detection challenge with $200$ categories with over a 1 million images with annotated objects. In the figure \ref{imagenetdata22} we can observe an example of several images.
 
+\begin{figure}[H]
+		
+\centering
+\subfigure[]{\includegraphics[width=5.2cm]{datasetExample/imageNet0.jpeg}}
+\subfigure[]{\includegraphics[width=3.95cm]{datasetExample/imageNet1.jpeg}}
+\subfigure[]{\includegraphics[width=5cm]{datasetExample/imageNet2.jpeg}}
+\caption{Few samples of the ImageNet dataset .} \label{imagenetdata22}
 
+\end{figure}
 
-
-
+The datasets for the ImageNet challenge are not used to much in object detection tasks, it contains a few instances per image. This did not encourage researcher to use it. Although it is used to train 
+neural networks in image classification tasks. Although those trained architectures can be incorporated in the object detection algorithms.
 
 
 \subsection{COCO}
 
-The Microsoft Common Objects in Context also known as COCO dataset \cite{coco}, is a dataset that address the three core research problems in scene understanding:
+The Microsoft Common Objects in Context also known as COCO dataset \cite{coco}, is a dataset that addresses the three core research problems in scene understanding:
 
 
 \begin{itemize}
 
-\item detecting non-iconic views of objects, for many dataset most of the objects have an iconic representation, they appear unobstructed , near the center of the photo and with their canonical shape. So in this dataset, they included images to struggle the object recognition task, like objects in the background, partially occluded, amid clutter. Therefore, reflecting the composition of actual everyday scenes.
+\item detecting non-iconic views of objects. For many datasets most of the objects have an iconic representation, they appear unobstructed, near the center of the photo and with their canonical shape. So in this dataset, they included images to struggle the object recognition task, like objects in the background, partially occluded, amid clutter. Therefore, reflecting the composition of actual everyday scenes.
 
-\item contextual reasoning between objects, nowadays natural images contain multiple objects, and their identity can only be solved using context, due to small size or ambiguos appearance in the image, so in this dataset, images contain scenes rather isolated objects. 
+\item contextual reasoning between objects. Nowadays natural images contain multiple objects, and their identity can only be solved using context, due to small size or ambiguos appearance in the image, so in this dataset, images contain scenes rather isolated objects. 
 
 \item the precise 2D localization of objects, also the detailed spatial understanding of object layout will be a core component of an image understanding system, so this dataset struggle to do so.
 
@@ -79,78 +116,20 @@ The Microsoft Common Objects in Context also known as COCO dataset \cite{coco}, 
 \end{itemize}
 
 
-So, the three main tasks of this challenge are object classification, object detection and semantic scene labelling. This dataset contains 91 object categories, with 2.5 million labelled object instances in 328 thousand images, labeled with the Amazon Mechanical Turk tool.
-
-%
-%\subsubsection{Dataset comparison}
-%
-%The table \ref{dataset0} summarizes the main statistics of the datasets and the figure \ref{diagrama2} the ratio of instances per images of the sets.
-%
-%The datasets from Pascal challenge are very useful to test object detection algorithms, their quantity is very handy ( a few thousands of images ) and contains a challenging quantity of objects per image, very interesting for the algorithms. But it little amount of images doesn't permit to train a network on this dataset, although it can be used to finetune the network.
-%
-%The datasets for the ImageNet challenge are not used to much in object detection tasks, it contains a few instances per image, this not encourage researcher to use it. Although, is very utilize to extract features and then finetune your net.
-%
-%
-%The COCO datasets, is the most recent one, is the one focus on object recognition, and the detection suppose a challenge due the objects are in common places and are very challenging to detect. And it is very interesting to due of the quantity of instances per image.
-%
-%
-%\begin{table}[H]
-%\centering
-%
-%\begin{tabular}{lllll}
-%                                 & \textbf{VOC07} & \textbf{VOC12} & \textbf{ImageNet [ 2014 ]} & \textbf{Coco [ 2015 ]} \\
-%\textit{trainval set}            & 5011           & 11540          & 476688                     & 165482                 \\
-%\textit{test set}                & 4952           & 10991          & 40152                      & 81434                  \\
-%\textit{Number of classes}       & 20             & 20             & 200                        & 80                     \\
-%\textit{Mean obj per image}      & 2.5            & 2.4            & 1.1                        & 7.2                    \\
-%\textit{Number person instances} & 4690           & 8566           & -                          & 300000                
-%\end{tabular}
-%\caption{Datasets tables}
-%\label{dataset0}
-%\end{table}
-%
-%
-%\begin{figure}[H]
-%\centering         
-%\includegraphics[width=0.7\linewidth]{datasets/genral3.png}
-%\caption{Distribution of pascal.} \label{diagrama2}
-%\end{figure}
-%
-%
-%
-%\begin{figure}[H]
-%		
-%\centering
-%\subfigure[Pascal VOC.]{\includegraphics[width=5.2cm]{datasets/pascal.jpg}}
-%\subfigure[ImageNet.]{\includegraphics[width=5.2cm]{datasets/imagenet.jpg}}
-%\subfigure[COCO.]{\includegraphics[width=5.2cm]{datasets/coco.jpg}}
-%
-%\label{iconic}
-%\end{figure}
-%
+So, the three main tasks of this challenge are object classification, object detection and semantic scene labelling. This dataset contains 91 object categories, with 2.5 million labelled object instances in 328 thousand images, labeled with the Amazon Mechanical Turk tool. It can be downloaded from here \cite{cocoWebsite}. In the figure \ref{cocoss} there is an example of it.
 
 
-\subsection{Dataset comparison}
-
-%The table \ref{dataset0} summarizes the main statistics of the datasets and the figure %\ref{diagrama2} the ratio of instances per images of the sets.
-
-The datasets from Pascal challenge are very useful to test object detection algorithms, their quantity is very handy ( a few thousands of images ) and contains a challenging quantity of objects per image, very interesting for the algorithms. But its little amount of images does not permit to train a network on this dataset, although it can be used to finetune the network.
-
-The datasets for the ImageNet challenge are not used to much in object detection tasks, it contains a few instances per image, this did not encourage researcher to use it.
-
-
-The COCO datasets, is the most recent one, is the one focus on object recognition, and the detection suppose a challenge due the objects are in common places and are very challenging to detect. And it is very interesting to due of the quantity of instances per image.
-
-
-The COCO challenge contains 91 object categories with 82 of them having more than 5 thousand labeled instances. In total the dataset has 2.5 million labeled instances in 328 thousand images. In contrast to ImageNet dataset, COCO has fewer categories but more instances per category. Also, it has more instances per category than the VOC dataset. We can observe that difference in the chart \ref{instancesCategory}. This fact aid in learning detailed object models capable to chance the variability and also its 2D location.
-
-\begin{figure}[H]
+\begin{figure}[hptb]
 \centering         
-\includegraphics[width=0.7\linewidth]{datasets/sdad2.png}
-\caption{Distribution of pascal.} \label{instancesCategory}
+\includegraphics[width=7cm]{datasetExample/coco1.png}
+\caption{Sample of the COCO dataset .} \label{cocoss}
 \end{figure}
 
-In addition, another prominent feature of the COCO over the other two, is the number of labelled instances per image which may aid in learning contextual information. This difference can be seen in \ref{instancesImage} chart.
+
+
+The COCO dataset, is the most recent one, is the one focus on object recognition, and the detection supposes a challenge due the objects are in common places and are very challenging to detect. And it is very interesting to due of the quantity of instances per image. The COCO challenge contains 91 object categories with 82 of them having more than 5 thousand labeled instances. In total the dataset has 2.5 million labeled instances in 328 thousand images. 
+
+In contrast to ImageNet dataset, COCO has fewer categories but more instances per category. Also, it has more instances per category than the VOC dataset. This fact aid in learning detailed object models capable to chance the variability and also its 2D location. In addition, another prominent feature of the COCO over the other two, is the number of labelled instances per image which may aid in learning contextual information.
 
 %\begin{figure}[H]
 %\centering         
@@ -189,9 +168,9 @@ Finally, the table \ref{dataset0} summarizes the main statistics of the dataset 
 \end{table}
 
 
-\subsection{Evaluation of object detection algorithms}
+\section{Evaluation of object detection algorithms}
 
-In order to compare the performance of the different datasets, each challenges establish a clear measure. In this thesis, we used the interpolated average precision (AP), used in the Pascal VOC challenge (based on \cite{salton}).
+In order to compare the performance of the different algorithms, each challenge establishes a clear measure. In this thesis, we used the interpolated average precision (AP), used in the Pascal VOC challenge (based on \cite{salton}).
 
 For each class, the precision-recall curve is computed from a method's ranked output.
 
@@ -228,7 +207,7 @@ $$ a_{0} = \dfrac{area(B_{p} \cap B_{gt})}{area(B_{p} \cup B_{gt})} $$
 
 where $B_{p} \cap B_{gt}$ denotes the intersection of the predicted and ground truth bounding boxes and $ B_{p} \cup B_{gt} $ their union. The treshold of 50 \%  was set deliberately low to account for inaccuracies in bounding boxes in the ground truth data. Multiple detections of the same object in an image were considered false detections.
 
-Finally, we want to point out, even we don't take into account in our implementation,  setting the threshold IoU to a value of $0.5$ could cause misdetections of small objects \cite{imagenet}, they propose an adaptive setting of that threshold based on the size of the ground truth and so detect correctly small objects. In practice this change only affects $5.5\%$ of objects in the detection validation set.
+Finally, setting the threshold IoU to a value of $0.5$ could cause misdetections of small objects, in \cite{imagenet} they propose an adaptive setting of that threshold based on the size of the ground truth and so detect correctly small objects. In practice, this change only affects $5.5\%$ of objects in the detection validation set.
 
 
 
@@ -243,7 +222,7 @@ Evaluating and comparing multi-target tracking methods is not trivial for numero
 
 \begin{itemize}
 
-\item First, the perfect solution one aims to achieve is difficult to define clearly. Partially visible, occluded, or cropped targets, reflections, and objects that are very closely resemble targets; all impose intrinsic ambiguities, such that even humans may not agree on one particular ideal solution.
+\item First, the perfect solution is difficult to define clearly. Partially visible, occluded, or cropped targets, reflections, and objects that are very close resemble targets; all impose intrinsic ambiguities, such that even humans may not agree on one particular ideal solution.
 
 \item Second, a number of different evaluation metrics with free parameters and ambiguous definitions often lead to inconsistent quantitative results across the literature.
 
@@ -252,11 +231,11 @@ Evaluating and comparing multi-target tracking methods is not trivial for numero
 \end{itemize}
 
 
-In contrast to other research areas in computer vision, still lacks large-scale benchmarks.
+In contrast to other research areas in computer vision, multiple object tracking still lacks large-scale benchmarks.
 
 \subsection{PETS}
 
-Targeted primarily at surveillance applications \cite{pets}. The 2009 version consisted of 3 subsets, S1 targeted at person count and density estimation, S2 targeted at people tracking, and S3 targeted at flow analysis and event recognition. In the \ref{petsExample} we can observe one image from this dataset.
+Targeted primarily at surveillance applications \cite{pets}, the 2009 version consisted of 3 subsets: S1 targeted at person count and density estimation, S2 targeted at people tracking, and S3 targeted at flow analysis and event recognition. In the figure \ref{petsExample} we can observe one image from this dataset.
 
 \begin{figure}[H]
 \centering         
@@ -269,19 +248,19 @@ Even for this widely used benchmark, we observe that tracking results are common
 
 \subsection{MOT challenge}
 
-The aim of the Multiple object tracking [MOT] is to standardize the use of multiple people trackings datasets, in order to do so, they solve the problems in this kind of dataset, explained above.
+The aim of the Multiple object tracking [MOT] is to standardize the use of multiple people tracking datasets, in order to do so, they solve the problems in this kind of dataset.
 
 
-\subsection{Evaluation of multiple people tracking algorithms}
+\section{Evaluation of multiple people tracking algorithms}
 
 A critical point with any dataset is how to measure the performance of the algorithms. A large number of metrics for quantitative evaluation of multiple target tracking have been proposed. Choosing unique general evaluation is still ongoing. 
 
-On the one hand, it is desirable to summarize the performance into one single number to enable a direct comparison. On the other hand, one might not want to lose information about the individual errors made by the algorithms and provide several performance estimates, which precludes a clear ranking.
+On one hand, it is desirable to summarize the performance into one single number to enable a direct comparison. On the other hand, one might not want to lose information about the individual errors made by the algorithms and provide several performance estimates, which precludes a clear ranking.
 
 
-We will explain two sets of measures that have established themselves in the literature the CLEAR metrics \cite{clear}, and a set of track quality measures \cite{wu}.
+We will explain two sets of measures that have established themselves in the literature: the CLEAR metrics \cite{clear}, and a set of track quality measures \cite{wu}.
 
-As in the object detection metrics, we can classify each tracket, whether it is a true positive, that describes an actual (annotated) target, whether the output is a false alarm ( or false positive, FP ). This decisions is typically made by the well-known thresholding measure of Intersection of the union [IoU]. Also a target that is mised by any tracker is a false negative.
+As in the object detection metrics, we can classify each tracket, whether it is a true positive, that describes an actual (annotated) target, whether the output is a false alarm ( or false positive, FP ). This decision is typically made by the well-known thresholding measure of Intersection of the union [IoU]. Also a target that is missed by any tracker is a false negative.
 
 Due to we are working with multiple object, we assume that each ground truth trajectory has one unique start and one unique end point, that is not fragmented. So we need to penalty re-identification. This is called, identity switch [IDSW], and it is counted as if a ground truth target $i$ is matched to track $j$ and the last known assignment was $ k = j$. The next figure summarizes the stated measures ( the grey area indicate the the matching threshold ).
 
@@ -292,23 +271,20 @@ Due to we are working with multiple object, we assume that each ground truth tra
 \caption{Example of measures.} \label{petsExample}
 \end{figure}
 
-Then after determining true matches and establishing the correspondandes it is now possible to compute the metrics over all the sequences.
-
-
-The multiple object tracking accuracy [MOTA] \cite{clear} is perhaps the most widely used figure to evaluate a tracker's perfomance. The main reason for this is its expressiveness as it combines as it combines three sources of errors defined above:
+Then, after determining true matches and establishing the correspondances it is possible to compute the metrics over all the sequences. The multiple object tracking accuracy [MOTA] \cite{clear} is perhaps the most widely used figure to evaluate a tracker's perfomance. The main reason for this is its expressiveness as it combines three sources of errors defined above:
 
 $$ MOTA = 1 - \frac{\sum_{t} (FN_{t}+FP_{t}+IDSW_{t})}{ \sum_{t} GT_{t}}$$
 
-where $t$ is the frame index and GT is the number of ground truth objects. This measures gives an indication of the overall performance.
+where $t$ is the frame index and GT is the number of ground truth objects. This measure gives an indication of the overall performance.
 
 The multiple object tracking precision [MOTP] is the average dissimilarity between all true postives and their corresponding ground truth targets. For bounding box overlap, that is computed as 
 
 $$ MOTP =  \frac{\sum _{t,i} d_{t,i}}{ \sum_{t} c_{t}} $$
 
-where $c_{t}$ denotes the number of matches in frame $t$ and $d_{t,i}$ is the bounding box overlap of target $i$ with its assigned ground truth object. Thereby gives the average overlap between all correctly matched hypotheses. So, the MOTP is a measure of localization precision.
+where $c_{t}$ denotes the number of matches in frame $t$ and $d_{t,i}$ is the bounding box overlap of target $i$ with its assigned ground truth object. Thereby it gives the average overlap between all correctly matched hypotheses. So, the MOTP is a measure of localization precision.
 
 
-As we have stated above, another metrics are the track quality measures. Each ground truth trajectory can be classified as mostly tracked (MT), partially tracked (PT), and mostly lost (ML). This is done based on how much of the trajectory is recovered by the tracking algorithm. A target is mostly tracked if it is successfully tracked for at least $80 \%$ of its life span, without consider if there are an identity switch. If a track is only recovered for less than $20 \%$ of its total length, it is said to be mostly lost (ML). All other tracks are partially tracked. Finally antoher quality measure is track fragmentations (FM), it counts how many times a ground truth trajectory is resumed at a later point.
+As we have stated above, another metric is the track quality. Each ground truth trajectory can be classified as mostly tracked (MT), partially tracked (PT), and mostly lost (ML). This is done based on how much of the trajectory is recovered by the tracking algorithm. A target is mostly tracked if it is successfully tracked for at least $80 \%$ of its life span, without considering if there was an identity switch. If a track is only recovered for less than $20 \%$ of its total length, it is said to be mostly lost (ML). All other tracks are partially tracked. Finally antoher quality measure is track fragmentations (FM), it counts how many times a ground truth trajectory is resumed at a later point.
 
 
 \section{Datasets for pedestrian identification}
@@ -338,15 +314,15 @@ A number of datasets for image-based re-Identification have been released, and s
 \label{tableID}
 \end{table}
 
-Over recent years, progress can observed, dataset's scale is increasing. Many of these datasets are relatively small in size, especially those of early days, but recent datasets, such as CUHK03 and Market-1501, are larger. Both have over 1000 ID's and over 10000 bounding boxes, and both datasets provide good amount of data for training deep learning models. In adition, the bounding boxes tend to be produced by pedestrian detectors, instead of being hand-drawn. Also, more cameras are used during collection, this helps to increase generalization. Altough quantity of datasets, there are not a prominent dataset in the literature.
+Over recent year, dataset's scale is increasing. Many of these datasets are relatively small in size, especially those of early days, but recent datasets, such as CUHK03 and Market-1501, are larger. Both have over 1000 ID's and over 10000 bounding boxes, and both datasets provide good amount of data for training deep learning models. In adition, the bounding boxes tend to be produced by pedestrian detectors, instead of being hand-drawn. Also, more cameras are used during collection, this helps to increase generalization. Altough quantity of datasets, there is not a prominent dataset in the literature.
 
-\subsection{Evaluation for pedestrian identification}
+\section{Evaluation for pedestrian identification}
 
 % http://ws680.nist.gov/publication/get_pdf.cfm?pub_id=50759
 
 When evaluating identification algorithms, the cumulative matching characteristics (CMC) curve is usually used. CMC represents the probability that a query identity appears in differentsized candidate lists.
 
-Formally \cite{faceCMC}, for each probe $p$ from $P_{G}$ we sort the similarity scores against gallery $G$, and obtain the rank of the match. Identification performance is then stated as the fraction of probes whose gallery match it at rank $r$  or lower. If the set of probes with a close match is:
+Formally \cite{faceCMC}, for each probe $p$ from $P_{G}$ we sort the similarity scores against gallery $G$, and obtain the rank of the match. Identification performance is then stated as the fraction of probes whose gallery match is at rank $r$  or lower. If the set of probes with a close match is:
 
 $$ C(r) = \big\{ p_{j}: rank(p_{j}) \leq r  \bigr\} \hspace{0.3cm} \forall p_{j} \in P_{G}  $$
 
