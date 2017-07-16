@@ -50,7 +50,7 @@ We show the results of our algorithm in the table \ref{tableResults}. We reach 1
 
 %According to this results, we decided to do not use the forward-backward method, due for its high computation demands and its limited improvement. Also, we observe the usage of a mechanism of re-identification increment the MOTA performance, so the overall performance of the detector, with the cost of increase the running time. This improvement come from the reduction in around $24 \%$ the identity switching (ID's) parameter. From this statistical comparision we discard the forward-backward method and it is worth to use the person re-identification module.
 
-In addition, we show the results for each sequences, we can observe the results in all the sequences \ref{tableResultsSequences}. 
+In addition, we show the results for each sequences, we can observe the results in the table \ref{tableResultsSequences}. 
 
 
 %\begin{table}[]
@@ -156,9 +156,9 @@ In contrast, our algorithm struggles in sequences with low frame rate and resolu
 %\label{tableResults}
 %\end{table}
 
-We compare our algorithm with the MOT16 leaderboard \cite{motResults}, we only include the algorithms which belong to a research paper, in the table \ref{tableSOTatomeu} and the figure \ref{experimenComp} we can observe those results. We observe that these algorithms overtake on the MOTA measure but we pass them in processing speed, even their processing speed parameter do not include the execution of their detector.
+We compare our algorithm with the MOT16 leaderboard \cite{motResults}, we only include the algorithms which belong to a research paper, in the table \ref{tableSOTatomeu} and the figure \ref{experimenComp} we can observe those results. We observe that these algorithms overtake our solution on the MOTA measure but we pass them in processing speed, even their processing speed parameter do not include the execution of their detector.
 
-These algorithms are focused on solving the data association module from the tracking-by-detection paradigm, to do so they have access to the detection at each frame. They worked on how to link those detections. Instead, we were focused on how to develop a tracking-by-detection with neural networks on real time.
+These algorithms are focused on solving the data association module from the tracking-by-detection paradigm, to do so they have access to the detection at each frame. They focus on how to link those detections and disdain the processing speed. Instead, we were focused on how to develop a tracking-by-detection with neural networks on real time.
  
 
 \begin{table}[!]
