@@ -7,7 +7,21 @@
 \contentsline {table}{\numberline {5.1}{\ignorespaces Datasets tables\relax }}{50}{table.caption.50}
 \contentsline {table}{\numberline {5.2}{\ignorespaces Statistical comparision datasets.\relax }}{56}{table.caption.54}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Results algorithm global.\relax }}{70}{table.caption.69}
-\contentsline {table}{\numberline {6.2}{\ignorespaces Results algorithm by sequences.\relax }}{71}{table.caption.70}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Results of our algorithm.\relax }}{58}{table.caption.55}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Results algorithm by sequences.\relax }}{59}{table.caption.56}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Pascal VOC.}}}{59}{table.caption.56}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {ImageNet.}}}{59}{table.caption.56}
+\contentsline {subtable}{\numberline {(c)}{\ignorespaces {COCO.}}}{59}{table.caption.56}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Comprarision with the MOT's results\relax }}{61}{table.caption.61}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Our algorithm}}}{61}{table.caption.61}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Ground truth}}}{61}{table.caption.61}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Our algorithm}}}{61}{table.caption.61}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Ground truth}}}{61}{table.caption.61}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Our algorithm}}}{61}{table.caption.61}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Ground truth}}}{61}{table.caption.61}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Our algorithm}}}{61}{table.caption.61}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Ground truth}}}{61}{table.caption.61}
+\contentsline {table}{\numberline {6.4}{\ignorespaces Comparision tracking modules.\relax }}{67}{table.caption.71}
+\contentsline {table}{\numberline {6.5}{\ignorespaces Comparision with reidentification module.\relax }}{73}{table.caption.78}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

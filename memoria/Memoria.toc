@@ -38,16 +38,15 @@
 \contentsline {section}{\numberline {5.6}Evaluation for pedestrian identification}{56}{section.5.6}
 \contentsline {chapter}{\numberline {6}Experiments}{58}{chapter.6}
 \contentsline {section}{\numberline {6.1}Validation experiments}{58}{section.6.1}
-\contentsline {section}{\numberline {6.2}System setup}{58}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Object detector}{58}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Tracking module}{61}{subsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.2.1}Feature extraction}{62}{subsubsection.6.2.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2.2}Matching module}{64}{subsubsection.6.2.2.2}
-\contentsline {subsection}{\numberline {6.2.3}Siamese networks}{64}{subsection.6.2.3}
-\contentsline {section}{\numberline {6.3}Algorithm evaluation}{70}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Performance}{70}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Timing}{71}{subsection.6.3.2}
-\contentsline {chapter}{\numberline {7}Conclusions}{74}{chapter.7}
-\contentsline {section}{\numberline {7.1}Future work}{75}{section.7.1}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{76}{section.7.1}
-\contentsline {chapter}{\numberline {8}Annex}{85}{chapter.8}
+\contentsline {subsection}{\numberline {6.1.1}Ordinary execution}{58}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Comparative}{61}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Detection experiments}{61}{section.6.2}
+\contentsline {section}{\numberline {6.3}Feature-based tracking experiments}{64}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Feature extraction improvement}{65}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Matching module}{67}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Data Association experiments}{68}{section.6.4}
+\contentsline {section}{\numberline {6.5}Timing performance}{73}{section.6.5}
+\contentsline {chapter}{\numberline {7}Conclusions}{76}{chapter.7}
+\contentsline {section}{\numberline {7.1}Future work}{77}{section.7.1}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{78}{section.7.1}
+\contentsline {chapter}{\numberline {8}Annex}{87}{chapter.8}

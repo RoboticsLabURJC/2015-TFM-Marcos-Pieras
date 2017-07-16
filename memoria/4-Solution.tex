@@ -113,8 +113,6 @@ We selected the Single shot multibox detector (SSD) as object detector, because 
 
 The essence of the \textit{tracking thread} it is the tracking module, called LK in the figure \ref{introTracking3}. It stands for Lucas-Kanade algorithm, due it is the method that we used in this work. This module for each detection computes its displacement by computing the displacement of the features inside this bounding box. 
 
-
-
 \subsection{Feature extraction}
 
 It computes for each blob at each step. For extracting the features, we use the OpenCV routine \texttt{goodFeaturesToTrack()}, this function determines strong corners on an image, according the Shi-Tomasi method. His parameters and values are the following:

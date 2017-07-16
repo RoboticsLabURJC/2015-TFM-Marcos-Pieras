@@ -38,16 +38,15 @@
 \BOOKMARK [1][-]{section.5.6}{Evaluation for pedestrian identification}{chapter.5}% 38
 \BOOKMARK [0][-]{chapter.6}{Experiments}{}% 39
 \BOOKMARK [1][-]{section.6.1}{Validation experiments}{chapter.6}% 40
-\BOOKMARK [1][-]{section.6.2}{System setup}{chapter.6}% 41
-\BOOKMARK [2][-]{subsection.6.2.1}{Object detector}{section.6.2}% 42
-\BOOKMARK [2][-]{subsection.6.2.2}{Tracking module}{section.6.2}% 43
-\BOOKMARK [3][-]{subsubsection.6.2.2.1}{Feature extraction}{subsection.6.2.2}% 44
-\BOOKMARK [3][-]{subsubsection.6.2.2.2}{Matching module}{subsection.6.2.2}% 45
-\BOOKMARK [2][-]{subsection.6.2.3}{Siamese networks}{section.6.2}% 46
-\BOOKMARK [1][-]{section.6.3}{Algorithm evaluation}{chapter.6}% 47
-\BOOKMARK [2][-]{subsection.6.3.1}{Performance}{section.6.3}% 48
-\BOOKMARK [2][-]{subsection.6.3.2}{Timing}{section.6.3}% 49
-\BOOKMARK [0][-]{chapter.7}{Conclusions}{}% 50
-\BOOKMARK [1][-]{section.7.1}{Future work}{chapter.7}% 51
-\BOOKMARK [0][-]{section.7.1}{Bibliograf\355a}{}% 52
-\BOOKMARK [0][-]{chapter.8}{Annex}{}% 53
+\BOOKMARK [2][-]{subsection.6.1.1}{Ordinary execution}{section.6.1}% 41
+\BOOKMARK [2][-]{subsection.6.1.2}{Comparative}{section.6.1}% 42
+\BOOKMARK [1][-]{section.6.2}{Detection experiments}{chapter.6}% 43
+\BOOKMARK [1][-]{section.6.3}{Feature-based tracking experiments}{chapter.6}% 44
+\BOOKMARK [2][-]{subsection.6.3.1}{Feature extraction improvement}{section.6.3}% 45
+\BOOKMARK [2][-]{subsection.6.3.2}{Matching module}{section.6.3}% 46
+\BOOKMARK [1][-]{section.6.4}{Data Association experiments}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.5}{Timing performance}{chapter.6}% 48
+\BOOKMARK [0][-]{chapter.7}{Conclusions}{}% 49
+\BOOKMARK [1][-]{section.7.1}{Future work}{chapter.7}% 50
+\BOOKMARK [0][-]{section.7.1}{Bibliograf\355a}{}% 51
+\BOOKMARK [0][-]{chapter.8}{Annex}{}% 52

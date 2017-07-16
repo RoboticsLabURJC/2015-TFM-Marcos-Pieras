@@ -1,33 +1,212 @@
 \chapter{Experiments}\label{cap.experiments}
 
 
-In this chapter we explain how we chose the elements of our algorithm and the results of it on the datasets.
+In this chapter we explain the validation experiments of our solution and characterize the quality of each module. Also, we explain several alternatives that we considered for each module.
+
 
 \section{Validation experiments}\label{valdiation}
 
-\section{System setup}
+\subsection{Ordinary execution}
 
-The developing and testing of the software has been carried out by a personal computer. This computer has a Intel Core i7 processor and 16 GB of RAM, whereas the operative system is Ubuntu 16.04 Xenial. The graphical processing unit consist in a AMD R7 M265, but its codecs are not available for our operative system, therefore we can not take advantage of this hardware unit. For training our deep learning models we used the Amazon Web services platform, which instances are running in operative system with a Nvidia Tesla K80 GPU. 
 
-\subsection{Object detector}\label{valdiation:det}
 
-For the choice of the detector we compare the detectors studied in the theoretical review \ref{trackingBounding} and we tested on the \textit{MOT16} dataset. In the figure \ref{objectDetector2} we can observe the ROC curve of different detectors.
+Using the code provided by the MOT16 challenge organization, we evaluate our solution. The evaluation procedure and dataset are explained in previous sections,  \ref{datasetracksEval} and \ref{datasetracks} respectively. The principal measure to compare the algoirhtms is the MOTA, this measure combines three error sources: false positives [FP], missed targets [FN] and identity switches [IDs]. Another measure is the track quality, this measure classify each trajectory as mostly tracked [MT], partially tracket [PT], and mostly lost [ML]. 
+
+
+We show the results of our algorithm in the table \ref{tableResults}. We reach 10.8 of MOTA at 15.85 FPS, also around of $24 \%$  of the blobs are partially tracket.
+
+
+
+
+%\begin{table}[H]
+%\centering
+%
+%\resizebox{\textwidth}{!}{\begin{tabular}{l|llll|llll|lll|l}
+%              &  \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} & \textbf{FPS} \\
+%\textit{v1}   &  517         & 12          & 180         & 325         & 13339       & 78998       & 827          & 1053        & 9.8           & 69.1          & 6.5            & 18.2         \\
+%\textit{v2}  & 517         & 11          & 181         & 325         & 11212       & 75738       & 827          & 1056        & 9.7           & 67.3          & 6.1            & 9.0          \\
+%\textit{v3}   & 517         & 3           & 127         & 387         & 13373       & 78999       & 618          & 936         & 10.8          & 70.3          & 7.5            & 15.85        \\
+%\textit{SOTA} & 517         & 92          & 219         & 206         & 5333        & 86795       & 391          & -           & 49.3          & 79.0          & -              & 0.8         
+%\end{tabular}}
+%\caption{Results algorithm global.}
+%\label{tableResults}
+%\end{table}
+
+
+\begin{table}[H]
+\centering
+
+\resizebox{\textwidth}{!}{\begin{tabular}{l|llll|lll|ll|l}
+              &  \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs}  & \textbf{MOTA} & \textbf{MOTP}  & \textbf{FPS} \\
+\textit{Our algorithm}   & 517         & 3           & 127         & 387         & 13373       & 78999       & 618             & 10.8          & 70.3                & 15.85        \\
+\end{tabular}}
+\caption{Results of our algorithm.}
+\label{tableResults}
+\end{table}
+
+
+
+
+
+%According to this results, we decided to do not use the forward-backward method, due for its high computation demands and its limited improvement. Also, we observe the usage of a mechanism of re-identification increment the MOTA performance, so the overall performance of the detector, with the cost of increase the running time. This improvement come from the reduction in around $24 \%$ the identity switching (ID's) parameter. From this statistical comparision we discard the forward-backward method and it is worth to use the person re-identification module.
+
+In addition, we show the results for each sequences, we can observe the results in all the sequences \ref{tableResultsSequences}. 
+
+
+%\begin{table}[]
+%\centering
+%\caption{My caption}
+%\begin{tabular}{lllll}
+%Name        & FPS & Resolution & Density & Description                        \\ \hline
+%\textit{02} & 30  & 1920x1080  & 29.7    & Fixed camera, low angle            \\
+%\textit{04} & 30  & 1920x1080  & 45.3    & Fixed camera, elevated viewpoint   \\
+%\textit{05} & 14  & 640x480    & 8.1     & Moving camera, low angle           \\
+%\textit{09} & 30  & 1920x1080  & 10      & Fixed camera, low angle            \\
+%\textit{10} & 30  & 1920x1080  & 18.8    & Moving camera, low angle           \\
+%\textit{11} & 30  & 1920x1080  & 10.2    & Moving camera, low angle           \\
+%\textit{13} & 25  & 1920x1080  & 15.3    & Moving camera, elevated  viewpoint
+%\end{tabular}
+%\label{my-label}
+%\end{table}
+
+
+\begin{table}[!]
+\centering
+
+\resizebox{\textwidth}{!}{\begin{tabular}{l|llll|lll|ll|l}
+                & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs}  & \textbf{MOTA} & \textbf{MOTP}  & \textbf{FPS} \\
+\textit{02}     & 54          & 0           & 13          & 41          & 2181        & 15526       & 113                  & 0.1           & 67.1           & 9.02         \\
+\textit{04}     & 83          & 0           & 41          & 42          & 5495        & 33980             & 290         & 16.6          & 71.1          &  12.3         \\
+\textit{05}              & 125         & 3           & 43          & 79          & 28571       & 4713              & 109         & -12.2         & 67.8          & 17.94        \\
+\textit{09}              & 25          & 1           & 19          & 5           & 932         & 3225              & 71          & 19.7          & 62           & 10.52        \\
+\textit{10}              & 54          & 0           & 4           & 50          & 404         & 11647       & 81                    & 1.5           & 68.4                 & 14.23        \\
+\textit{11}              & 69          & 0           & 16          & 53          & 948         & 7366        & 72                   & 8.6           & 71.4                 & 17.49        \\
+\textit{13}              & 107         & 0           & 9           & 98          & 1315        & 10743       & 32                    & -5.6          & 67.1                  & 20.5         \\ \hline
+\textit{Global} & 517         & 3           & 127         & 387         & 13373       & 78999       & 618                  & 10.8          & 70.3           & 15.85       
+\end{tabular}}
+\caption{Results algorithm by sequences.}
+\label{tableResultsSequences}
+\end{table}
+
+
+The algorithm gets the best performance on sequences with a fixed camera from an elevated view point and a low angle recording with a high frame rate and close targets like sequences $4,9 $, and $11$. In the figure \ref{seq1} and \ref{seq2} we can observe a snapshot of these sequences.
+
+
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Our algorithm]{\includegraphics[width=7cm]{comparision/our04.jpg}}
+\subfigure[Ground truth]{\includegraphics[width=7cm]{comparision/gt04.png}}\\
+\caption{Comparision between our algorithm with MOT-04 ground truth.}
+\label{seq1}
+\end{figure}
+
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Our algorithm]{\includegraphics[width=7cm]{comparision/our09.jpg}}
+\subfigure[Ground truth]{\includegraphics[width=7cm]{comparision/gt09.png}}\\
+\caption{Comparision between our algorithm with MOT-09 ground truth.}
+\label{seq2}
+\end{figure}
+
+
+In contrast, our algorithm struggles in sequences with low frame rate and resolution like sequences $5$ and when the targets are away from the camera like $13$. In the figure \ref{seq3} and \ref{seq4} we can observe a snapshot of these sequences.
+
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Our algorithm]{\includegraphics[width=7cm]{comparision/our13.jpg}}
+\subfigure[Ground truth]{\includegraphics[width=7cm]{comparision/gt13.png}}\\
+\caption{Comparision between our algorithm with MOT-13 ground truth}
+\label{seq3}
+\end{figure}
+
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[Our algorithm]{\includegraphics[width=7cm]{comparision/our05.jpg}}
+\subfigure[Ground truth]{\includegraphics[width=7cm]{comparision/gt05.png}}\\
+\caption{Comparision between our algorithm with MOT-05 ground truth}
+\label{seq4}
+\end{figure}
+
+
+
+
+\subsection{Comparative}
+
+%\begin{table}[H]
+%\centering
+%
+%\resizebox{\textwidth}{!}{\begin{tabular}{l|llll|llll|lll|l}
+%              &  \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} & \textbf{FPS} \\
+%\textit{Our}   & 517         & 3           & 127         & 387         & 13373       & 78999       & 618          & 936         & 10.8          & 70.3          & 7.5            & 15.85        \\
+%\textit{SOTA} & 517         & 92          & 219         & 206         & 5333        & 86795       & 391          & -           & 49.3          & 79.0          & -              & 0.8         
+%\end{tabular}}
+%\caption{Results algorithm global.}
+%\label{tableResults}
+%\end{table}
+
+We compare our algorithm with the MOT16 leaderboard \cite{motResults}, we only include the algorithms which belong to a research paper, in the table \ref{tableSOTatomeu} and the figure \ref{experimenComp} we can observe those results. We observe that these algorithms overtake on the MOTA measure but we pass them in processing speed, even their processing speed parameter do not include the execution of their detector.
+
+These algorithms are focused on solving the data association module from the tracking-by-detection paradigm, to do so they have access to the detection at each frame. They worked on how to link those detections. Instead, we were focused on how to develop a tracking-by-detection with neural networks on real time.
+ 
+
+\begin{table}[!]
+\centering
+\begin{tabular}{l|llll|lll|ll|l}
+                 & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{MOTA} & \textbf{MOTP} & \textbf{FPS} \\
+\textit{DP\_NMS} & 517         & 28          & 169         & 320         & 1123        & 121578      & 972          & 32.2          & 76.4          & 212.6        \\
+CEM              & 517         & 40          & 198         & 279         & 6837        & 114322      & 642          & 33.2          & 75.8          & 0.3          \\
+\textit{SMOT}    & 517         & 22          & 253         & 242         & 17426       & 107552      & 3108         & 29.7          & 76.3          & 0.2          \\
+\textit{LP2D}    & 517         & 44          & 211         & 262         & 5084        & 111163      & 915          & 35.7          & 75.8          & 49.3         \\
+\textit{MDPNN}   & 517         & 72          & 287         & 215         & 2681        & 92856       & 774          & 47.2          & 75.8          & 1.0          \\
+\textit{LMP}     & 517         & 98          & 222         & 197         & 8886        & 85487       & 852          & 48.8          & 79            & 0.5          \\
+\textit{Our method}     & 517         & 3           & 127         & 387         & 13373       & 78999       & 618          & 10.8          & 70.3          & 15.85       
+\end{tabular}
+\caption{Comprarision with the MOT's results}
+\label{tableSOTatomeu}
+\end{table}
+
+
+
+\begin{figure}[!]
+\centering         
+\includegraphics[width=16cm]{comparision/timeDAta.png}
+\caption{Comparision with other algorithms.} \label{experimenComp}
+\end{figure}
+
+
+
+\section{Detection experiments}\label{valdiation:det}
+
+
+For the choice of the detector we compared the detectors studied in the theoretical review \ref{trackingBounding} and we tested on the \textit{MOT16} dataset. In the figure \ref{experimDet1} we can observe the ROC curves of different detectors.
 
 
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=0.9\linewidth]{evaluacionObject/dadas.png}
-\caption{ROCs curves on the MOT16 dataset.} \label{expsa1}
+\caption{ROCs curves on the MOT16 dataset.} \label{experimDet1}
 \end{figure}
 
-In the figure \ref{expsa2} we can observe the mean average precision against the time consumption.
+In the figure \ref{experimDet2} we can observe the mean average precision against the time consumption.
 
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=0.9\linewidth]{evaluacionObject/meanAverage2.png}
-\caption{Mean average precision against time.} \label{expsa2}
+\caption{Mean average precision against time.} \label{experimDet2}
 \end{figure}
 
 With this information we can summarize the study of the detectors:
@@ -45,15 +224,15 @@ With this information we can summarize the study of the detectors:
 
 \item \textbf{PVANET}, the code is not publicly available.
 
-\item \textbf{SSD}, we tested several feature extractor with this model. Their score are the following: the SSD model with VGG as feature extractor, it scores $0.4612$ average precision and  takes $0.73$ seconds, SSD with Inception as feature extractor, it scores $0.3499$ average precision and  takes $0.73$ seconds, and SSD with MobileNet as feature extractor, it scores $0.2995$ average precision and  takes $0.198$ seconds. The original code \cite{ssdCode2} is not optimized for CPU execution it takes about $3.5$ seconds and the Caffe framework does not allow to run it in a multithreading way, so we discard it. The VGG version come from a particular developers \cite{ssdCode} and the Inception and MobileNet from TensorFlow organization \cite{tensorObjectdte}.
+\item \textbf{SSD}, we tested several feature extractors with this model. Their score are the following: the SSD model with VGG as feature extractor. It scores $0.4612$ average precision and  takes $0.73$ seconds, SSD with Inception as feature extractor. It scores $0.3499$ average precision and  takes $0.73$ seconds, and SSD with MobileNet as feature extractor. It scores $0.2995$ average precision and  takes $0.198$ seconds. The original code \cite{ssdCode2} is not optimized for CPU execution, it takes about $3.5$ seconds and the Caffe framework does not allow to run it in a multithreading way, so we discarded it. The VGG version come from a particular developers \cite{ssdCode} and the Inception and MobileNet from TensorFlow organization \cite{tensorObjectdte}.
 
 
 \end{itemize}
 
-According to these results the object detector with the best balance between precision and time consumption is the SSD detector with VGG feature extractor. Detectors like SSD-Inception and SSD-MobileNet are really fast but their performance is $23 \%$ lower than the SSD with VGG. In contrast RFCN, is more accurate but it takes $700 \%$ more time than SSD with VGG.
+According to these results the object detector with the best balance between precision and time consumption is the SSD detector with VGG feature extractor. Detectors like SSD-Inception and SSD-MobileNet are really fast but their performance is $23 \%$ lower than the SSD with VGG. In contrast, RFCN is more accurate but it takes $700 \%$ more time than SSD with VGG.
 
 
-Finally, we want to mention, that the MOT organization provide a sete of detections, they include FasterRCNN, DPM v5, and SPD \cite{spd}. We are not able to reproduce their results, due we can not access to original code. In the figure \ref{expasss3} we can observe those detections.
+The MOT organization provides a set of detections, they include FasterRCNN, DPM v5, and SPD \cite{spd}. We are not able to reproduce their results, because we can not access to the original code. In the figure \ref{experimDet3} we can observe those detections.
 
 
 
@@ -61,44 +240,41 @@ Finally, we want to mention, that the MOT organization provide a sete of detecti
 \begin{figure}[H]
 \centering         
 \includegraphics[width=0.9\linewidth]{evaluacionObject/motdetece.png}
-\caption{ROCs curves on the MOT16 dataset.} \label{expasss3}
+\caption{ROCs curves on the MOT16 dataset.} \label{experimDet3}
 \end{figure}
 
 
-\subsection{Tracking module}
+\section{Feature-based tracking experiments}
 
 
-The tracking module is inspired by the well-known tracking algorithm \textit{MedianFlow} by Zalal et al\cite{medianFlow} with his correspondent implementation in Python\cite{medianFlowPython}. Next we explain the tracking module in details.
+The tracking module is inspired by the well-known tracking algorithm \textit{MedianFlow} by Zalal et al\cite{medianFlow} with its correspondent implementation in Python\cite{medianFlowPython}.
 
-According to \cite{visualTrackingSurvey}, our method belong to tracking by detection, but how we link those detections are based on tracking by matching. The algorithm performs a matching of the representation of the target model built from the previous frames. We do not build an additional extended model of the appearance and merge it with the matching, instead we will apply an object detector to correct the drift of the matching.
-
-
-The tracking using matching is based on the optical flow, explained in \ref{TheoriecArch}, it computes the new position through gradient descent in several frames. We will assume that the motion is pure translational. As we can observe in the sequences of frames \ref{track1w} of the dataset, the pedestrians move in translation way in the image plane, so this assumption is achieved.
+The tracking using matching is based on the optical flow, explained in \ref{matchi}, it computes the new position through gradient descent in several frames. We will assume that the motion is pure translational. As we can observe in the sequences of frames \ref{experiTrack1} of the dataset, the pedestrians move in translation way in the image plane, so this assumption is achieved.
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=0.9\linewidth]{changeCamera/tomeu.png}
-\caption{Sequence of translational movement.} \label{track1w}
+\caption{Sequence of translational movement.} \label{experiTrack1}
 \end{figure}
 
-In contrast to the previous figure, we can observe the next figure \ref{track2w} where the assumption of translation motion is not fulfilled ( this sequences does not belong to the used dataset, only showed to contrast the previous idea) and a translational assumption will failed.
+In contrast to the previous figure, we can observe the next figure \ref{experiTrack2} where the assumption of translation motion is not fulfilled ( this sequences does not belong to the used dataset, only showed to contrast the previous idea) and a translational assumption will failed.
 
 \begin{figure}[H]
 \centering         
 \includegraphics[width=0.9\linewidth]{changeCamera/out2.png}
-\caption{Sequence of no translational movement.} \label{track2w}
+\caption{Sequence of no translational movement.} \label{experiTrack2}
 \end{figure}
 
-We tested other tracking by matching algorithms like MeanShift, but we discard it due to his problems to tracking pedestrian with a messy background.
+We tested other tracking by matching algorithms like MeanShift, but we discarded it due to his problems to tracking pedestrian with a messy background.
 
 
 
 
 
 
-\subsubsection{Feature extraction}\label{exper:validation}
+\subsection{Feature extraction improvement}\label{exper:validation}
 
-The strength of the further processing depends on the quality and quantity of this features, so in other to improve both, we apply some prepreprocessing to the image. We tried several preprocessings techniques like sharpening, image contrast, median filter, and equalization. In \ref{track1w}, we can observe the relation between number of points extracted and time consumption of those techniques.
+The strength of the further processing depends on the quality and quantity of this features, so in other to improve both, we apply some prepreprocessing to the image. We tried several preprocessings techniques like sharpening, image contrast, median filter, and equalization. In \ref{experiTrack3}, we can observe the relation between number of points extracted and time consumption of those techniques.
 
 
 
@@ -106,25 +282,27 @@ The strength of the further processing depends on the quality and quantity of th
 \begin{figure}[H]
 \centering         
 \includegraphics[width=0.9\linewidth]{tracker/preprocesing.png}
-\caption{Barplot of the timming.} \label{timing1}
+\caption{Plot of different processings.} \label{experiTrack3}
 \end{figure}
 
-We realized that the best preprocessing in terms of speed and number of points, is to equalize the image. The computation is really simple, it only consists in equalize an histogram and apply that transformation to the image. It increases over $ 55 \%$ the number points in comparision to not apply it to the raw image. In the figure \ref{prepoes} we can observe the different number of features in the raw and in the equalized image.
+We realized that the best preprocessing in terms of speed and number of points, is to equalize the image. The computation is really simple, it only consists in equalize an histogram and apply that transformation to the image. It increases over $ 55 \%$ the number points in comparision to not applying it to the raw image. In the figure \ref{experiTrack4} we can observe the different number of features in the raw and in the equalized image.
 
 \begin{figure}[H]
 		
 \centering
 
-\subfigure[Raw image.]{\includegraphics[width=3cm]{implementation/pointsSIN_EQU.jpg}}
-\subfigure[Equalized image.]{\includegraphics[width=3cm]{implementation/pointsEQU.jpg}}\\
-\caption{Different preprocessings.}
-\label{prepoes}
+\subfigure[]{\includegraphics[width=3cm]{implementation/pointsSIN_EQU.jpg}}
+\subfigure[]{\includegraphics[width=3cm]{implementation/pointsEQU.jpg}}\\
+\caption{Comparision between feature extraction on raw and equalized image.}
+\label{experiTrack4}
 \end{figure}
 
 
-\subsubsection{Matching module}
+\subsection{Matching module}
 
-As we said previously we used the Lukas-Kanade algorithm to get the displacement of the features but, we implement the same method used in \cite{medianFlow} too. The proposed method is based on so called forward-backward consistency assumption. That assumption consists in that correct tracking should be independent of the direction of time-flow. Algorithmically, the assumption is exploited as follows. First, a tracker produces a trajectory by tracking the point \textit{forward} in time. Second, the point location in the last frame initializes a validation trajectory. The validation trajectory is obtained by \textit{backward} tracking from the last frame to the first one. Third, the two trajectories are compared and if they differ significantly, the forward trajectory is considered as incorrect. \ref{motion23} illustrates the method when tracking a point between two images. Point number $1$  is visible in both images and the tracker is able to localize it correctly. Tracking this point forward or backward results in identical trajectories. On the other hand, point number $2$ is not visible in the right image and the tracker localizes a different point. Tracking this point backward ends in a different location than the original one. We also implemented the forward method. We replaced for the tracking module in the algorithm, in section \ref{expeEVAL} we comment its performance.
+As we said previously, we used the Lukas-Kanade algorithm to get the displacement of the features but we implemented the same method used in \cite{medianFlow} too. The proposed method is based on so called forward-backward consistency assumption. That assumption consists in that correct tracking should be independent of the direction of time-flow.
+Algorithmically, the assumption is exploited as follows. First, a tracker produces a trajectory by tracking the point \textit{forward} in time. Second, the point location in the last frame initializes a validation trajectory. The validation trajectory is obtained by \textit{backward} tracking from the last frame to the first one. Third, the two trajectories are compared and if they differ significantly, the forward trajectory is considered as incorrect. 
+Figure \ref{experiTrack5} illustrates the method when tracking a point between two images. Point number $1$  is visible in both images and the tracker is able to localize it correctly. Tracking this point forward or backward results in identical trajectories. On the other hand, point number $2$ is not visible in the right image and the tracker localizes a different point. Tracking this point backward ends in a different location than the original one. We also implemented the forward method. We replaced for the tracking module in the algorithm.
 
 
 \begin{figure}[H]
@@ -134,10 +312,28 @@ As we said previously we used the Lukas-Kanade algorithm to get the displacement
 \subfigure[Image forward-backward.]{\includegraphics[width=7cm]{tracker/forwardBack.png}}
 \subfigure[Scheme forward-backward.]{\includegraphics[width=7cm]{tracker/forwardBack2.png}}\\
 \caption{Illustration forward backward error.}
-\label{motion23}
+\label{experiTrack5}
 \end{figure}
 
-\subsection{Siamese networks}\label{exper:entrenar}
+
+In the table \ref{tableResultsTrack} we observe the result of the forward and the forward-backwward method. Both have the same MOTA but the forward-backward methods takes around 10 $\%$ more time.
+
+\begin{table}[H]
+\centering
+
+\resizebox{\textwidth}{!}{\begin{tabular}{l|llll|llll|lll|l}
+              &  \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} & \textbf{FPS} \\
+\textit{Forward}   & 517         & 3           & 127         & 387         & 13373       & 78999       & 618             & 10.8          & 70.3                & 15.85        \\
+\textit{Forward-Backward}  & 517         & 11          & 181         & 325         & 11212       & 75738       & 827          & 1056        & 9.7           & 67.3          & 6.1            & 9.0          \\
+  
+\end{tabular}}
+\caption{Comparision tracking modules.}
+\label{tableResultsTrack}
+\end{table}
+
+
+
+\section{Data Association experiments}\label{exper:entrenar}
 
 
 We solved the person reidentification problem with deep learning techniques, thus we tested several models:
@@ -284,70 +480,25 @@ Also in the next plot, we observe the performance against the time consumption t
 
 
 
-\section{Algorithm evaluation}\label{expeEVAL}
-
-
-
-In this section, we will analyze the performance and the timings of our solution.
-
-\subsection{Performance}
-
-Using the code provided by the MOT16 challenge organization, we evaluate our solution, we tested the version without re-identification module,\textit{v1}, the version with optical flow forward-backward \textit{v2}, and the version with re-identification module and without forward-backward method, also we compare with the state of the art of the challenge, an anonymous submission to the MOT16's website. The results are showed in table \ref{tableResults}.
-
-
-%\begin{table}[H]
-%\centering
-%
-%\resizebox{\textwidth}{!}{\begin{tabular}{llll|llll|llll|llll}
-%            & \textbf{Rcll} & \textbf{Prcn} & \textbf{FAR} & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} & \textbf{FPS} \\
-%\textit{v1} & 24.4          & 49.5          & 5.17         & 517         & 12          & 180         & 325         & 27502       & 83462       & 827          & 1053        & 9.8          & 69.3          & 6,5        & 17,2   \\
-%\textit{v2} & 19.6          & 61.8          & 2.52         & 517         & 3           & 127         & 387         & 13373       & 88754       & 618          & 936         & 10.8          & 70.3          & 7.5  & 15,85                                        
-%\end{tabular}}
-%\caption{Results algorithm global.}
-%\label{tableResults}
-%\end{table}
+In the table \ref{tableResultsSiamee}, we can check the difference between the algorithm with and without person reidentification module, with the reidentification we reduce around $24 \%$ the identity switching (ID's).
 
 
 \begin{table}[H]
 \centering
 
-\resizebox{\textwidth}{!}{\begin{tabular}{llll|llll|llll|llll}
-              & \textbf{Rcll} & \textbf{Prcn} & \textbf{FAR} & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} & \textbf{FPS} \\
-\textit{v1}   & 21.4          & 49.5          & 5.17         & 517         & 12          & 180         & 325         & 13339       & 78998       & 827          & 1053        & 9.8           & 69.1          & 6.5            & 18.2         \\
-\textit{v2}   & 21.3          & 50.4          & 5.12         & 517         & 11          & 181         & 325         & 11212       & 75738       & 827          & 1056        & 9.7           & 67.3          & 6.1            & 9.0          \\
-\textit{v3}   & 19.6          & 61.8          & 2.52         & 517         & 3           & 127         & 387         & 13373       & 78999       & 618          & 936         & 10.8          & 70.3          & 7.5            & 15.85        \\
-\textit{SOTA} & -             & -             & -            & 517         & 92          & 219         & 206         & 5333        & 86795       & 391          & -           & 49.3          & 79.0          & -              & 0.8         
+\resizebox{\textwidth}{!}{\begin{tabular}{l|llll|llll|lll|l}
+              &  \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \textbf{MOTAL} & \textbf{FPS} \\
+\textit{Without reidentification}   & 517         & 12           & 180         & 325         & 13339       & 78929       & 827             & 9.8          & 69.1                & 18.2        \\
+\textit{With reidentification}  & 517         & 3          & 127         & 387         & 13373       & 78999       & 618                 & 10.8           & 70.3                   & 15.85          \\
+  
 \end{tabular}}
-\caption{Results algorithm global.}
-\label{tableResults}
+\caption{Comparision with reidentification module.}
+\label{tableResultsSiamee}
 \end{table}
 
-According to this results, we decided to do not use the forward-backward method, due for its high computation demands and its limited improvement. Also, we observe the usage of a mechanism of re-identification increment the MOTA performance, so the overall performance of the detector, with the cost of increase the running time. This improvement come from the reduction in around $24 \%$ the identity switching (ID's) parameter. From this statistical comparision we discard the forward-backward method and it is worth to use the person re-identification module.
 
-Finally, with the algorithm selected, we can observe the results in all the sequences \ref{tableResultsSequences}, we get a MOTA of $10.8$ and a frame rate of $15.85$ FPS.  
+\section{Timing performance}\label{expeEVAL}
 
-\begin{table}[H]
-\centering
-
-\resizebox{\textwidth}{!}{\begin{tabular}{llll|llll|llll|llll}
-                & \textbf{Rcll} & \textbf{Prcn} & \textbf{FAR} & \textbf{GT} & \textbf{MT} & \textbf{PT} & \textbf{ML} & \textbf{FP} & \textbf{FN} & \textbf{IDs} & \textbf{FM} & \textbf{MOTA} & \textbf{MOTP} & \multicolumn{1}{l|}{\textbf{MOTAL}} & \textbf{FPS} \\
-\textit{02}     & 12.9          & 51.4          & 3.63         & 54          & 0           & 13          & 41          & 2181        & 15526       & 113          & 146         & 0.1           & 67.1          & \multicolumn{1}{l|}{0.7}            & 9.02         \\
-\textit{04}     & 28.5          & 71.2          & 5.23         & 83          & 0           & 41          & 42          & 5495        & 33980       & 185          & 290         & 16.6          & 71.1          & \multicolumn{1}{l|}{17.0}           & 12.3         \\
-05              & 30.9          & 42.4          & 3.41         & 125         & 3           & 43          & 79          & 28571       & 4713        & 83           & 109         & -12.2         & 67.8          & \multicolumn{1}{l|}{-11.1}          & 17.94        \\
-09              & 38.7          & 68.6          & 1.78         & 25          & 1           & 19          & 5           & 932         & 3225        & 62           & 71          & 19.7          & 71.2          & \multicolumn{1}{l|}{20.9}           & 10.52        \\
-10              & 5.4           & 62.4          & 0.62         & 54          & 0           & 4           & 50          & 404         & 11647       & 81           & 133         & 1.5           & 68.4          & \multicolumn{1}{l|}{2.1}            & 14.23        \\
-11              & 19.7          & 65.6          & 1.05         & 69          & 0           & 16          & 53          & 948         & 7366        & 72           & 121         & 8.6           & 71.4          & \multicolumn{1}{l|}{9.4}            & 17.49        \\
-13              & 6.2           & 34.9          & 1.75         & 107         & 0           & 9           & 98          & 1315        & 10743       & 32           & 59          & -5.6          & 67.1          & \multicolumn{1}{l|}{-5.4}           & 20.5         \\ \hline
-\textit{Global} & 19.6          & 61.8          & 2.52         & 517         & 3           & 127         & 387         & 13373       & 88754       & 618          & 936         & 10.8          & 70.3          & 7.5                                 & 15.85       
-\end{tabular}}
-\caption{Results algorithm by sequences.}
-\label{tableResultsSequences}
-\end{table}
-
-The algorithm gets the best performance on sequences with a fixed camera from an elevated view point and a low angle recording with a high frame rate and close targets like sequences $4,9$,and $11$, but it fails in sequences with low frame rate like sequences $5$ and when the targets are away from the camera like $13$.
-
-
-\subsection{Timing}
 
 
 As we stated above the mean frame rate of the algorithm with the person re-identification mechanism is $15.86$. In figure \ref{timing1} we can observe a barplot of per frame time consumption of our algorithm.  We notice the peaks each $30$ frames, these belong to the execution of the siamese network and it depends on how many detections without assignment there are.
@@ -379,3 +530,6 @@ To optimize our code we studied how to reduce the execution time of the tracking
 \caption{Time versus points and size of the ROI.}
 \label{timing2}
 \end{figure}
+
+
+

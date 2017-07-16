@@ -60,51 +60,53 @@
 \contentsline {figure}{\numberline {5.9}{\ignorespaces Example of Pets.\relax }}{53}{figure.caption.52}
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Example of measures.\relax }}{54}{figure.caption.53}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces ROCs curves on the MOT16 dataset.\relax }}{59}{figure.caption.55}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Mean average precision against time.\relax }}{59}{figure.caption.56}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces ROCs curves on the MOT16 dataset.\relax }}{61}{figure.caption.57}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Sequence of translational movement.\relax }}{62}{figure.caption.58}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Sequence of no translational movement.\relax }}{62}{figure.caption.59}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Barplot of the timming.\relax }}{63}{figure.caption.60}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Different preprocessings.\relax }}{63}{figure.caption.61}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Illustration forward backward error.\relax }}{64}{figure.caption.62}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Siamese CNN topologies.\relax }}{65}{figure.caption.63}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Final layers.\relax }}{66}{figure.caption.64}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Data augmentation.\relax }}{68}{figure.caption.65}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Results training.\relax }}{69}{figure.caption.66}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces CMC plot.\relax }}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Pascal VOC.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {ImageNet.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {COCO.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Raw image.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Equalized image.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Image forward-backward.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Scheme forward-backward.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cost function.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {In-network.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Joint data input.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Features with cosine distance.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Cnn fine-tuned.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Flatten.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Global average pooling.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Spatial pyramid pooling.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original image.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Random image brightness.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Random crop.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Vertical flip.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Gaussian blur.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Random shadow.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Zoom in.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Rotation and translation.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {Zoom out.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {Gaussian noise.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(k)}{\ignorespaces {Opposite vignetting.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Losses.}}}{69}{figure.caption.67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Accuracy.}}}{69}{figure.caption.67}
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Performance-timing comparision.\relax }}{70}{figure.caption.68}
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Barplot of the timming.\relax }}{72}{figure.caption.71}
-\contentsline {figure}{\numberline {6.16}{\ignorespaces Zoom in of the barplot.\relax }}{72}{figure.caption.72}
-\contentsline {figure}{\numberline {6.17}{\ignorespaces Time versus points and size of the ROI.\relax }}{73}{figure.caption.73}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Comparision between our algorithm with MOT-04 ground truth.\relax }}{59}{figure.caption.57}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Comparision between our algorithm with MOT-09 ground truth.\relax }}{60}{figure.caption.58}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Comparision between our algorithm with MOT-13 ground truth\relax }}{60}{figure.caption.59}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Comparision between our algorithm with MOT-05 ground truth\relax }}{60}{figure.caption.60}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Comparision with other algorithms.\relax }}{62}{figure.caption.62}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces ROCs curves on the MOT16 dataset.\relax }}{62}{figure.caption.63}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Mean average precision against time.\relax }}{63}{figure.caption.64}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces ROCs curves on the MOT16 dataset.\relax }}{64}{figure.caption.65}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Sequence of translational movement.\relax }}{65}{figure.caption.66}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Sequence of no translational movement.\relax }}{65}{figure.caption.67}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Plot of different processings.\relax }}{66}{figure.caption.68}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Comparision between feature extraction on raw and equalized image.\relax }}{66}{figure.caption.69}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Illustration forward backward error.\relax }}{67}{figure.caption.70}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Siamese CNN topologies.\relax }}{68}{figure.caption.72}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Final layers.\relax }}{69}{figure.caption.73}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Data augmentation.\relax }}{71}{figure.caption.74}
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Results training.\relax }}{72}{figure.caption.75}
+\contentsline {figure}{\numberline {6.18}{\ignorespaces CMC plot.\relax }}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Image forward-backward.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Scheme forward-backward.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cost function.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {In-network.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Joint data input.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Features with cosine distance.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Cnn fine-tuned.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Flatten.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Global average pooling.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Spatial pyramid pooling.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original image.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Random image brightness.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Random crop.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Vertical flip.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Gaussian blur.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Random shadow.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Zoom in.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Rotation and translation.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {Zoom out.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {Gaussian noise.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(k)}{\ignorespaces {Opposite vignetting.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Losses.}}}{72}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Accuracy.}}}{72}{figure.caption.76}
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Performance-timing comparision.\relax }}{73}{figure.caption.77}
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Barplot of the timming.\relax }}{74}{figure.caption.79}
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Zoom in of the barplot.\relax }}{74}{figure.caption.80}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Time versus points and size of the ROI.\relax }}{75}{figure.caption.81}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Differences texture examples.\relax }}{75}{figure.caption.74}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Differences texture examples.\relax }}{77}{figure.caption.82}
 \addvspace {10\p@ }

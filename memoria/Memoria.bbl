@@ -506,6 +506,11 @@ Patrick Grother, Ross~J. Micheals, and P.~Jonathon Phillips.
   937--945.
 \newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2003.
 
+\bibitem{motResults}
+{MOTChallenge}.
+\newblock Mot 16 results.
+\newblock \url{https://motchallenge.net/results/MOT16/} [2017-02-21], 2017.
+
 \bibitem{tensorObjectdte}
 {Alphabet Inc.}
 \newblock Object detetection in tensorflow.
