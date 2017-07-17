@@ -244,10 +244,24 @@ The MOT organization provides a set of detections, they include FasterRCNN, DPM 
 \end{figure}
 
 
-\section{Feature-based tracking experiments}
+\section{Feature-based tracking experiments}\label{trackingsesad}
 
 
-The tracking module is inspired by the well-known tracking algorithm \textit{MedianFlow} by Zalal et al\cite{medianFlow} with its correspondent implementation in Python\cite{medianFlowPython}.
+
+We started developing our tracking module with simple artificial objects like the one in the figure \ref{trs}. As soon we had got expertise we shift to much complex models like people. Finally, the last version of the tracking module was inspired by the well-known tracking algorithm \textit{MedianFlow} by Zalal et al\cite{medianFlow} with its correspondent implementation in Python\cite{medianFlowPython}.
+ 
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=6cm]{tracker/scale1points.png}
+\caption{Artificial object to start tracking.} \label{trs}
+\end{figure}
+
+
+
+
+
+%The tracking module is inspired by the well-known tracking algorithm \textit{MedianFlow} by Zalal et al\cite{medianFlow} with its correspondent implementation in Python\cite{medianFlowPython}.
 
 The tracking using matching is based on the optical flow, explained in \ref{matchi}, it computes the new position through gradient descent in several frames. We will assume that the motion is pure translational. As we can observe in the sequences of frames \ref{experiTrack1} of the dataset, the pedestrians move in translation way in the image plane, so this assumption is achieved.
 
@@ -330,6 +344,32 @@ In the table \ref{tableResultsTrack} we observe the result of the forward and th
 \caption{Comparision tracking modules.}
 \label{tableResultsTrack}
 \end{table}
+
+\subsection{Tracking analysis}
+
+In this part we realize a qualitative analysis of the tracking module. The main disadvantage of the feature-based tracking is the dependence on the quality of the features, this method needs blobs with high texture to accomplish a good tracking. Thus, a sequence of low resolution there are less points with these characteristics. Also, we have problems with people who wear low texture clothes or are away from the camera, as we can observe in figure \ref{Fails1}.
+
+
+\begin{figure}[H]
+		
+\centering
+
+\subfigure[High texture person.]{\includegraphics[width=5cm]{changeCamera/tomeuTetx.png}}
+\subfigure[Low texture person.]{\includegraphics[width=5cm]{changeCamera/donaTetx.png}}
+\subfigure[Far away person.]{\includegraphics[width=5cm]{changeCamera/foto004.png}}
+\caption{Differences texture examples.}
+\label{Fails1}
+\end{figure}
+
+
+Although a low frame rate could penalize the matching capabilities between frames, the pyramidal implementation of the Lucas-Kanade method solve it. In the figure \ref{fails2} we show the matching procedure of a blob belonging to a low frame rate sequence, and its result is correct.
+
+
+\begin{figure}[H]
+\centering         
+\includegraphics[width=6cm]{lucasKanade/matchinBo.png}
+\caption{Blob matching low frame rate sequence.} \label{fails2}
+\end{figure}
 
 
 
@@ -461,11 +501,11 @@ We trained all the models and obtained a graphs like the figure \ref{lossesSiam}
 
 
 
-Finally, we can observe the comparision using the CMC measure in the figure \ref{lossesSiam2}, we notice that the siamese network with joint data input with less layers than bigger models like Inception performs better, this remarks the idea of training jointly the feature extractor and the classifier and the need of task specific networks. Also, the siamese network with the configuration joint data input, outperforms the other siamese networks. Among the siamese joint data input, the performance increases till the $7$ convolutional layer architecture, then the $8$ convolutional layers drops.
+Finally, we can observe the comparision using the CMC measure in the figure \ref{lossesSiam2}, we notice that the siamese network with joint data input with less layers than bigger models like Inception performs better, this remarks the idea of training jointly the feature extractor and the classifier and the need of task specific networks. Also, the siamese network with the configuration joint data input, outperforms the other siamese networks. Among the siamese joint data input, the performance increases till the $6$ convolutional layer architecture, then the $7$ convolutional layers drops.
 
 \begin{figure}[hptb]
 \centering         
-\includegraphics[width=12cm]{siameseDev/cmcNetwors.png}
+\includegraphics[width=12cm]{siameseDev/cmc2.png}
 \caption{CMC plot.} \label{lossesSiam2}
 \end{figure}
 
@@ -473,7 +513,7 @@ Also in the next plot, we observe the performance against the time consumption t
 
 \begin{figure}[hptb]
 \centering         
-\includegraphics[width=12cm]{siameseDev/results.png}
+\includegraphics[width=12cm]{siameseDev/graps1.png}
 \caption{Performance-timing comparision.} \label{lossesSiam3}
 \end{figure}
 

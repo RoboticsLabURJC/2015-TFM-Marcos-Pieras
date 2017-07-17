@@ -374,13 +374,13 @@ We can observe the procedure for situations number one and two in the figure \re
 \end{figure}
 
 
-To maintain the identity of the pedestrian we need a method to compare miss trackets with no associated detections, this is Situation 3. So, we decided to solve it with deep learning techniques. In particular, a Siamese convolutional neural network, with In-network architecture in \ref{saimss} we can observe a diagram and the feature dimension of each layer. This networks concatenates two blobs and computes a probability to belong to the same identity. It has got 7 convolutional layer and 1 fully connected layer, it was implemented on Keras with a Theano backend. In section \ref{exper:entrenar} we explain why we selected this architecture and how we trained it.
+To maintain the identity of the pedestrian we need a method to compare miss trackets with no associated detections, this is Situation 3. So, we decided to solve it with deep learning techniques. In particular, a Siamese convolutional neural network, with In-network architecture in \ref{saimss} we can observe a diagram and the feature dimension of each layer. This networks concatenates two blobs and computes a probability to belong to the same identity. It has got 6 convolutional layer and 1 fully connected layer, it was implemented on Keras with a Theano backend. In section \ref{exper:entrenar} we explain why we selected this architecture and how we trained it.
 
 
 
 \begin{figure}[!]
 \centering         
-\includegraphics[width=16cm]{timesDiagram/network.png}
+\includegraphics[width=16cm]{timesDiagram/network6conv.png}
 \caption{Siamese network: In-network.} \label{saimss}
 \end{figure}
 

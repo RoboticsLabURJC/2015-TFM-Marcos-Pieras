@@ -29,7 +29,7 @@ ax.tick_params(labelsize=25)
 
 ax.set_ylabel('rank1 score',fontsize=40)
 ax.set_xlabel('time',fontsize=40)
-ax.legend(['conv4','conv5','conv6','conv7','conv8','convSPP','inception_cosine','inception_tuned','siamese_cost','siamese_INnetwork'],loc='upper right',fontsize=30)
+ax.legend(['conv3','conv4','conv5','conv6','conv7','convSPP','inception_cosine','inception_tuned','siamese_cost','siamese_INnetwork'],loc='upper right',fontsize=30)
 plt.show()
 
 '''
@@ -62,4 +62,3 @@ ax.set_ylabel('rank1 score',fontsize=40)
 ax.set_xlabel('time',fontsize=40)
 ax.legend(['conv_4','conv_5','conv_7','conv_8','cost_function','in_network','conv_SPP'],loc='upper right',fontsize=30)
 plt.show()
-'''

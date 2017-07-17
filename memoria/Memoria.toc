@@ -42,11 +42,13 @@
 \contentsline {subsection}{\numberline {6.1.2}Comparative}{61}{subsection.6.1.2}
 \contentsline {section}{\numberline {6.2}Detection experiments}{61}{section.6.2}
 \contentsline {section}{\numberline {6.3}Feature-based tracking experiments}{64}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Feature extraction improvement}{65}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.1}Feature extraction improvement}{66}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Matching module}{67}{subsection.6.3.2}
-\contentsline {section}{\numberline {6.4}Data Association experiments}{68}{section.6.4}
-\contentsline {section}{\numberline {6.5}Timing performance}{73}{section.6.5}
-\contentsline {chapter}{\numberline {7}Conclusions}{76}{chapter.7}
-\contentsline {section}{\numberline {7.1}Future work}{77}{section.7.1}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{78}{section.7.1}
-\contentsline {chapter}{\numberline {8}Annex}{87}{chapter.8}
+\contentsline {subsection}{\numberline {6.3.3}Tracking analysis}{68}{subsection.6.3.3}
+\contentsline {section}{\numberline {6.4}Data Association experiments}{70}{section.6.4}
+\contentsline {section}{\numberline {6.5}Timing performance}{75}{section.6.5}
+\contentsline {chapter}{\numberline {7}Conclusions}{78}{chapter.7}
+\contentsline {section}{\numberline {7.1}Contributions}{78}{section.7.1}
+\contentsline {section}{\numberline {7.2}Future works}{79}{section.7.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{81}{section.7.2}
+\contentsline {chapter}{\numberline {8}Annex}{90}{chapter.8}

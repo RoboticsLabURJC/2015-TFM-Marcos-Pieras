@@ -1,48 +1,58 @@
 \chapter{Conclusions}\label{cap.conclusions}
 
- 
 
-In this thesis we studied deep learning techniques and their application in a tracking algorithm. We were able to build a tracking algorithm that utilizes a neural network and do not miss the real time objective. To do so we used the tracking-by-detection framework, it combines people detection using a neural network, somehow, slow but very accurate, and link these detections with feature tracking, very quick but prone to drift.  In addition we studied the person reidentification problem and we solved with a deep learning techniques.
+In this chapter the main contributions of this work are summarized, and a few lines of future development are sketched.
 
-Finally we evaluated our algorithm in a well-known challenge, MOT16, and analyses its performance and timing capabilities on it. The algorithms performs reasonably well in sequences of high frame rate and resolution, but in the opposite sequences, low frame rate and resolution the performance drop dramatically. This is happens because our algorithm rely on points with high texture, with a low resolution there are less points with this characteristics. Also, we have problems with people who wear low texture or are away from the camera, as we can observe in figure \ref{Fails1}. The low frame rate, penalize the matching capabilities between frames, it produces wrong matches between images, therefore, wrong displacements.
+\section{Contributions}
 
-
-
-
-\begin{figure}[H]
-		
-\centering
-
-\subfigure[High texture person.]{\includegraphics[width=3cm]{changeCamera/tomeuTetx.png}}
-\subfigure[Low texture person.]{\includegraphics[width=3cm]{changeCamera/donaTetx.png}}
-\subfigure[Far away person.]{\includegraphics[width=3cm]{changeCamera/foto004.png}}
-\caption{Differences texture examples.}
-\label{Fails1}
-\end{figure}
+%In this thesis we have studied deep learning techniques and their application in a hybrid tracking algorithm. We were able to build a people tracking algorithm in videos that utilizes a neural network and does not miss the real time operation. To do it we used the tracking-by-detection framework, and combined people detection using a neural network, somehow slow but very accurate, with feature-based object tracking, very quick but prone to drift.  In addition, we have studied the person reidentification problem to improve data association and we solved with deep learning techniques.
 
 
 
+In this thesis we have studied deep learning techniques and their application in a hybrid tracking algorithm. We were able to build a people tracking algorithm in videos that utilizes a neural network and does not miss the real time operation. To do it we used the tracking-by-detection framework, and combined people detection using a neural network with feature-based object tracking. The person blobs obtained with a trained neural network are associated to the tracked blobs from the feature-based tracking. All the frames are analyzed for feature-based tracking, but only a subset of them ( time sampling ) is used for person detection with the convolutional neural network, because this processing is slow. All the frames in the feature-based tracking thread are delayed in a a buffer, waiting for the result from the CNN, this way both threads are synchronized. Thus, the system works on real time but with a time offset compared to the input video, but at the same frame rate. In addition, we have studied the person reidentification problem to improve data association. We trained several siamese cnn architectures and compared with our own dataset.
+
+Finally we have evaluated our algorithm in a well-known challenge, MOT16, and analysed its performance and timing capabilities on it. The algorithm performs reasonably well in sequences of high frame rate and resolution, but in low frame rate and resolution sequences the performance drops dramatically. 
+
+
+To develop this task, in section \ref{cap.objetctives} we divided the main objectives in several subtasks. Next discuss their fulfilment:
+\begin{itemize}
+
+\item \textbf{Object detector using deep learning}. We studied the main deep learning architectures for object detection. We carried out a statistical comparison of them, explained in section \ref{valdiation:det}, and with this results we chose one.
+
+
+\item \textbf{Development of a tracking module}. We studied several tracking methods that could fit our problem. We realized that the feature-based tracking fit our requirements of speed and accuracy. We developed a tracking module starting from a simple model to much more complex like the MedianFilter \ref{trackingsesad}. 
+
+\item \textbf{Join these two techniques}. Once we have developed the previous subtasks, we joined. With this combination we have got their benefits reducing their drawbacks. In addition, we added a person reidentification module to solve the identity incongruities. This is the main contribution of this work, explained in \ref{trackingsesad}.  
+
+\item \textbf{Test the component on an international databases}. We tested our solution on an international database Multiple Object tracking 2016, and analysed the results \ref{valdiation}.
+
+
+\end{itemize}
+
+With stating the objectives and the developed work, we can say that we have fulfil the objectives of this work. We built a tracking algorithm with neural networks that gets a satisfactory accuracy on a dataset, with almost reach a real time operation.
 
 
 
 
 
-\section{Future work}
+\section{Future works}
 
 
-This is a first entrance on trackings algorithm, we have a reasonable results. We can add some details to improve our results.
+This work is a first entrance on robust tracking algorithm using deep learning techniques, we have reasonable results. We can add some details to improve them.
 
 
 \begin{itemize}
 
-\item Port to C++. We used a srcipting programming languagge, if we switch to a compiled programing language we would increase the time perfomance.
+\item Port to C++. We used a scripting programming language, if we switched to a compiled programing language we would increase the time performance.
 
-\item GPU implementation. Computing displacement for each tracket could be computed in a parallel way. They are independent from each other and are a low demanding. 
+\item GPU implementation. Computing displacement for each blob could be computed in a parallel way. 
 
-\item Propbabilistic framework. Include bayesian filter techniques to increase perfomance.
+\item Probabilistic framework. Include bayesian filter techniques to increase perfomance.
 
-\item Siamese architectures. Study new siamese architecture to increase the accuracy of this modeule, like inception stem of InceptionV3 or include the optical flow information in the neural network.
+\item Siamese architectures. Study new siamese architectures to increase the accuracy of this module, like inception stem of InceptionV3 or include the optical flow information into the neural network.
 
-\item Data association. Use much confidence techniques to associate the detections, the current methods relay ond probablistic graphical models.
+\item Data association. Use more confidence techniques to associate the detections, the current methods relay on probabilistic graphical models.
 
 \end{itemize}
+
+
