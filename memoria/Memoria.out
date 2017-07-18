@@ -19,11 +19,11 @@
 \BOOKMARK [0][-]{chapter.4}{Software implementation}{}% 19
 \BOOKMARK [1][-]{section.4.1}{System overview}{chapter.4}% 20
 \BOOKMARK [1][-]{section.4.2}{Object detector thread}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.3}{Tracking thread}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.3}{Feature-based tracking thread}{chapter.4}% 22
 \BOOKMARK [2][-]{subsection.4.3.1}{Feature extraction}{section.4.3}% 23
 \BOOKMARK [2][-]{subsection.4.3.2}{Feature matching}{section.4.3}% 24
 \BOOKMARK [2][-]{subsection.4.3.3}{Blob matching}{section.4.3}% 25
-\BOOKMARK [1][-]{section.4.4}{Data association with detected pedestrians by the neural net}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.4}{Data association with detected pedestrians}{chapter.4}% 26
 \BOOKMARK [0][-]{chapter.5}{Datasets and evaluation procedures}{}% 27
 \BOOKMARK [1][-]{section.5.1}{Datasets for object detection}{chapter.5}% 28
 \BOOKMARK [2][-]{subsection.5.1.1}{Pascal Visual Objects Classes}{section.5.1}% 29
