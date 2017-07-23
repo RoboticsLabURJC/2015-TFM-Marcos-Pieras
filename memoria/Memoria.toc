@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {1.2}Object tracking}{4}{section.1.2}
 \contentsline {section}{\numberline {1.3}Deep learning in computer vision}{7}{section.1.3}
 \contentsline {chapter}{\numberline {2}Objectives}{11}{chapter.2}
-\contentsline {section}{\numberline {2.1}Objective}{11}{section.2.1}
+\contentsline {section}{\numberline {2.1}Description of the problem}{11}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Requirements}{12}{subsection.2.1.1}
 \contentsline {section}{\numberline {2.2}Methodology}{12}{section.2.2}
 \contentsline {chapter}{\numberline {3}Theoretical background}{13}{chapter.3}
@@ -14,7 +14,7 @@
 \contentsline {subsection}{\numberline {3.1.2}Feature tracking}{18}{subsection.3.1.2}
 \contentsline {subsubsection}{\numberline {3.1.2.1}Features}{18}{subsubsection.3.1.2.1}
 \contentsline {subsubsection}{\numberline {3.1.2.2}Motion estimation}{20}{subsubsection.3.1.2.2}
-\contentsline {section}{\numberline {3.2}Person re-Identification}{24}{section.3.2}
+\contentsline {section}{\numberline {3.2}Person reidentification}{24}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Siamese networks}{25}{subsection.3.2.1}
 \contentsline {chapter}{\numberline {4}Software implementation}{27}{chapter.4}
 \contentsline {section}{\numberline {4.1}System overview}{27}{section.4.1}
@@ -32,23 +32,23 @@
 \contentsline {section}{\numberline {5.2}Evaluation of object detection algorithms}{52}{section.5.2}
 \contentsline {section}{\numberline {5.3}Datasets for multiple object tracking}{54}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}PETS}{54}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}MOT challenge}{55}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Evaluation of multiple people tracking algorithms}{55}{section.5.4}
-\contentsline {section}{\numberline {5.5}Datasets for pedestrian identification}{57}{section.5.5}
-\contentsline {section}{\numberline {5.6}Evaluation for pedestrian identification}{58}{section.5.6}
-\contentsline {chapter}{\numberline {6}Experiments}{60}{chapter.6}
-\contentsline {section}{\numberline {6.1}Validation experiments}{60}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Ordinary execution}{60}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Comparative}{63}{subsection.6.1.2}
-\contentsline {section}{\numberline {6.2}Detection experiments}{63}{section.6.2}
-\contentsline {section}{\numberline {6.3}Feature-based tracking experiments}{66}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Feature extraction improvement}{68}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Matching module}{69}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Tracking analysis}{70}{subsection.6.3.3}
-\contentsline {section}{\numberline {6.4}Data Association experiments}{72}{section.6.4}
-\contentsline {section}{\numberline {6.5}Timing performance}{77}{section.6.5}
-\contentsline {chapter}{\numberline {7}Conclusions}{80}{chapter.7}
-\contentsline {section}{\numberline {7.1}Contributions}{80}{section.7.1}
-\contentsline {section}{\numberline {7.2}Future works}{81}{section.7.2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{83}{section.7.2}
-\contentsline {chapter}{\numberline {8}Annex}{92}{chapter.8}
+\contentsline {subsection}{\numberline {5.3.2}Town Centre Dataset}{55}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}MOT challenge}{56}{subsection.5.3.3}
+\contentsline {section}{\numberline {5.4}Evaluation of multiple people tracking algorithms}{56}{section.5.4}
+\contentsline {section}{\numberline {5.5}Datasets for pedestrian identification}{58}{section.5.5}
+\contentsline {section}{\numberline {5.6}Evaluation for pedestrian identification}{59}{section.5.6}
+\contentsline {chapter}{\numberline {6}Experiments}{61}{chapter.6}
+\contentsline {section}{\numberline {6.1}Detection experiments}{61}{section.6.1}
+\contentsline {section}{\numberline {6.2}Feature-based tracking experiments}{64}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Feature extraction improvement}{65}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Matching module}{66}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Tracking analysis}{67}{subsection.6.2.3}
+\contentsline {section}{\numberline {6.3}Data Association experiments}{69}{section.6.3}
+\contentsline {section}{\numberline {6.4}Global validation experiments}{76}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Typical execution}{76}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Comparison with other algorithms}{78}{subsection.6.4.2}
+\contentsline {section}{\numberline {6.5}Timing performance}{80}{section.6.5}
+\contentsline {chapter}{\numberline {7}Conclusions}{84}{chapter.7}
+\contentsline {section}{\numberline {7.1}Contributions}{84}{section.7.1}
+\contentsline {section}{\numberline {7.2}Future works}{86}{section.7.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{87}{section.7.2}

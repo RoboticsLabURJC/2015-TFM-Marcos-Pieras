@@ -7,9 +7,9 @@ ax = plt.gca()
 
 ax.scatter(0.0147,0.534,s=1980)
 ax.scatter(0.01557,0.543,s=1980)
-ax.scatter(0.0154,0.585,s=1980)
+ax.scatter(0.0154,0.565,s=1980)
 ax.scatter(0.0167,0.608,s=1980)
-ax.scatter(0.032,0.5622,s=1980)
+ax.scatter(0.032,0.5822,s=1980)
 
 ax.scatter(0.0222,0.29,s=1980)
 
@@ -62,3 +62,4 @@ ax.set_ylabel('rank1 score',fontsize=40)
 ax.set_xlabel('time',fontsize=40)
 ax.legend(['conv_4','conv_5','conv_7','conv_8','cost_function','in_network','conv_SPP'],loc='upper right',fontsize=30)
 plt.show()
+'''

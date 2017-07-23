@@ -12,22 +12,17 @@ A level-1 auxiliary file: 6-Experiments.aux
 A level-1 auxiliary file: 7-Conclusions.aux
 A level-1 auxiliary file: 8-Bibliografia.aux
 The style file: unsrt.bst
-A level-1 auxiliary file: 9-Annexos.aux
 Database file #1: Memoria.bib
 Warning--entry type for "trackNcc" isn't style-file defined
---line 999 of file Memoria.bib
-Repeated entry---line 1011 of file Memoria.bib
+--line 1015 of file Memoria.bib
+Repeated entry---line 1027 of file Memoria.bib
  : @article{tld
  :             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1056 of file Memoria.bib
+Repeated entry---line 1072 of file Memoria.bib
  : @misc{tensorObjectdte
  :                      ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "rosenblat"
-Warning--I didn't find a database entry for "horn"
-Warning--I didn't find a database entry for "ahmed"
-Warning--I didn't find a database entry for "lealTaixe"
 Warning--empty booktitle in Rumelhart
 Warning--empty booktitle in Waibel
 Warning--can't use both volume and number fields in harris

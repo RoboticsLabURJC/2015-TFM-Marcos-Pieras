@@ -27,7 +27,7 @@ We can observe this temporal process in the next figure \ref{software2timin}, wh
 
 \begin{figure}[H]
 \centering         
-\includegraphics[width=\textwidth]{timesDiagram/timingVersion(1).png}
+\includegraphics[width=\textwidth]{timesDiagram/timeFInas3.png}
 \caption{Timing of the component.} \label{software2timin}
 \end{figure}
 
@@ -372,7 +372,7 @@ We can observe the procedure for first and second situations in the figure \ref{
 \end{figure}
 
 
-To maintain the identity of the pedestrian we need a method to compare missed trackets those with no associated detections. We decided to solve it with deep learning techniques. In particular, a Siamese convolutional neural network, with In-network architecture in figure \ref{saimss} we can observe a diagram and the feature dimension of each layer. This network concatenates two blobs and computes a probability to belong to the same identity. It has got 6 convolutional layer and 1 fully connected layer, it was implemented on Keras with a Theano backend. In section \ref{exper:entrenar} we explain why we selected this architecture and how we trained it.
+To maintain the identity of the pedestrian we need a method to compare missed trackets those with no associated detections. We decided to solve it with deep learning techniques. In particular, a Siamese convolutional neural network, with In-network architecture in figure \ref{saimss} we can observe a diagram and the feature dimension of each layer. This network concatenates two blobs, substracts the channel means and normalized the images to the range 0 and 1, and computes a probability to belong to the same identity. It has got 6 convolutional layer and 1 fully connected layer, it was implemented on Keras with a Theano backend. In section \ref{exper:entrenar} we explain why we selected this architecture and how we trained it.
 
 
 

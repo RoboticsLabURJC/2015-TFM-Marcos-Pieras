@@ -103,10 +103,16 @@ img3 = cv2.resize(img3b,(777,573), interpolation = cv2.INTER_CUBIC)
 #vis1 = np.concatenate((img1, img2,img3,img4,img5), axis=1)
 
 
-
+'''
 cv2.imwrite('flatten2.png', img1)
 cv2.imwrite('global2.png', img2)
 cv2.imwrite('spp2.png', img3)
+'''
 
+img1b = cv2.imread('pool.jpg')
 
+ims1 = img1b[:,0:740,:]
+ims2 = img1b[:,740:,:]
 
+cv2.imwrite('flatten2.png', ims1)
+cv2.imwrite('global2.png', ims2)

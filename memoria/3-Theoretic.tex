@@ -5,7 +5,7 @@ In this chapter we explain the theoretical concepts of our work, these include t
 \section{Tracking}
 
 
-As we explained in previous chapters, there are a traditional family of methods to solve the tracking problem. But with the incursion of deep learning techniques, they have been adapted to it and create new paradigms. The main ways to apply deep learning techniques to tracking are the following \cite{thrun}:
+As we explained in previous chapters, there are a traditional family of methods to solve the tracking problem. But with the incursion of deep learning techniques, they have been adapted to it or create new paradigms. The main ways to apply deep learning techniques to tracking are the following \cite{thrun}:
 
 
 \begin{itemize}
@@ -19,7 +19,7 @@ As we explained in previous chapters, there are a traditional family of methods 
 \item \textbf{Siamese based tracking}. In this approach, many candidate patches are passed through the network, and the patch with the highest matching score is selected as the tracking output \cite{trackingSiamese}.
 
 
-\item \textbf{Tracking as regression}, these methods are an extension of object localization using neural networks, these methods given an image containing an object predict the bounding box which contain the object in every frame \cite{thrun}. They are restricted to one object.
+\item \textbf{Tracking as regression}, these methods are an extension of object localization using neural networks, these methods given an image predict the bounding box which contain the object in every frame \cite{thrun}. They are restricted to one object.
 
 
 \item \textbf{Tracking with RNN}. From the output of an object detector, these tracking algorithms model the sequence of movement of objects using an recurrent neural network \cite{savaresee}. These methods represent the current state of art in tracking.
@@ -29,7 +29,7 @@ As we explained in previous chapters, there are a traditional family of methods 
 
 
 
-For this thesis we chose the tracking-by-detection paradigm. We get the detections with a object detector based on deep learning networks, and we link those detections with a tracking by matching, particularly, tracking by feature.
+For this thesis we chose the tracking-by-detection paradigm. We get the detections with an object detector based on deep learning networks, and we link those detections with a tracking by matching, particularly, feature-based tracking.
 
 \subsection{Detection in tracking}\label{trackingBounding}
 
@@ -135,7 +135,7 @@ We will finish off our review with a numeric comparison of the methods, as we ca
 
 \subsubsection{Features}\label{feature}
 
-Our goal is to find points in an image, that can be found in other images and then compute some information, in this case, the movement. The characteristics of good features are:
+Our goal is to find points in an image, which can be found in other images and then compute some information, in this case, the movement. The characteristics of good features are:
 
 \begin{itemize}
 
@@ -387,7 +387,7 @@ transformed image and the other image, we apply this algorithm in all the resolu
 
 
 
-\section{Person re-Identification}\label{misMatch}
+\section{Person reidentification}\label{misMatch}
 
 One of the problems of tracking is the reidentification of pedestrians. Add a module of reidentification helps to maintain the identity of the pedestrians.
 
@@ -458,6 +458,6 @@ In the field of person re-identification, the community has used these architect
 
 There are several papers in the literature, one of the most famous is developed by Ahmed \cite{ahmed}, they used In-network architecture although in order to join to the convolutional layers, they used \textit{cross-input neighborhood differences} layer, this layer tried to increase the differences between the features of the inputs and obtain richer representation to the classification layer.
 
-Another paper was published by Leal-Taixé \cite{lealTaixe}, they are also the authors of the MOT challenge, their network used a cost function architecture besides they used as inputs the two images and their optical flow. They used the network as part of a data association algorithm.
+Another paper was published by Leal-Taixé \cite{patch3}, they are also the authors of the MOT challenge, their network used a cost function architecture besides they used as inputs the two images and their optical flow. They used the network as part of a data association algorithm.
 
 

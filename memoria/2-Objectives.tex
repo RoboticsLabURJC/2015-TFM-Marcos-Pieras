@@ -1,37 +1,40 @@
 \chapter{Objectives}\label{cap.objetctives}
 
-Once we put in context our work, in this chapter we explain the objectives of this thesis, its requirements and the methodology to accomplish it.
+Once we have put in context our work, in this chapter we explain the objectives of this thesis, its requirements and the methodology to accomplish them.
 
 
-\section{Objective}
+\section{Description of the problem}
 
-The main objective of this thesis is to develop and characterize an algorithm of multiple people tracking with two diferents methods: deep learning techniques and feature tracking. The essence of this work is study how combine it, and reach real time operation and a high performance. Finally, validate our solution with a international dataset, the Multiple Object Tracking dataset. We divided this target in several sub-objectives:
+The main objective of this thesis is to develop and characterize an algorithm of multiple people tracking merging two diferents methods: deep learning techniques and feature-based tracking. The essence of this work is to study how combine them, and reach real time operation and high performance while keeping robustness at the same time. Finally, validate our solution with a international dataset, the Multiple Object Tracking dataset. We divided this target into several sub-objectives:
 
 \begin{itemize}
 
 
-\item \textbf{Object detector using deep learning}. Study the fundamentals of object detectors with deep learning techniques. We analyzed the performance on the main datasets and finally, we chose one to our task. 
+\item \textbf{Object detector using deep learning}. Study the fundamentals of object detectors with deep learning techniques. Analyze the performance on the main datasets and finally, we choose one to our task. 
 
-\item \textbf{Development of a tracking module}. We studied which tracking technique would fit our problem, when it was selected, we implemented on code.
+\item \textbf{Development of a tracking module}. Study of which feature-based tracking technique would fit best our problem, and implementation of it in software code.
 
-\item \textbf{Join these two techniques}. We integrated this two techniques to perform a complete tracking algorithm.
 
-\item \textbf{Test the component on an international databases}. We validate our solution on well-known database. 
+We studied which tracking technique would fit our problem, when it was selected, we implemented on code.
+
+\item \textbf{Integration of these two techniques}. We would integrate these two techniques to perform a complete robust and fast tracking algorithm.
+
+\item \textbf{Test the component on an international databases}. We should validate our solution on well-known international databases already used in the scientific community. 
 
 
 \end{itemize}
 
 \subsection{Requirements}
 
-In addition to the previous objectives, our solution must satisfy the following requirements:
+In addition to the previous objectives, our solution must also hold the following requirements:
 
 \begin{itemize}
 
-\item The solution will make use of the JdeRobot framework, release 5.5, which is the developing environment of the \textit{Grupo de Robótica} of the \textit{Universidad Rey Juan Carlos}.
+\item The solution will make use of the JdeRobot framework, release 5.5, which is the developing environment of the Robotics Laboratory of \textit{Universidad Rey Juan Carlos}.
 
 \item The software will run on the GNU/Linux Ubuntu 16.04 environment.
 
-\item The algorithm will only make use of video sequences not other information.
+\item The algorithm will only make use of video sequences, not other information.
 
 \item The algorithm must achieve an execution on real time and guarantee a precision.
 
@@ -59,13 +62,11 @@ In addition to the previous objectives, our solution must satisfy the following 
 
 \section{Methodology}
 
-To achieve our objectives we used several tools that helped to monitoring the project for all members of the team. It allowed to comment or correct the task.
+To achieve our objectives we have used several tools that helped to monitoring the project for all members of the team. They allowed to comment or correct the task. The main tool has been the videoconference. We established a weekly meeting with all the members of the team. In these meetings we showed the results so far and shared our feedback with the other members of the team. 
 
-The main tool, it has been the videoconference, we established a weekly meeting with all the members of the team. In this meetings we showed the results and we shared our feedback with the other members of the team. 
+As complementary tools, we used a website and Github repository, they helped to control the development of our work. The website was developed using the wiki of JdeRobot \cite{wikiPieras}, and it shows the weekly tasks and results. The Git Hub repository \cite{repoPieras} allows to access to the code by all the members of the team.
 
-As complementary tools, we used a website and Github repository, these tools helped to control the development of our work. The website was developed using the wiki of JdeRobot \cite{wikiPieras}, this shows the weekly tasks and results. The Git Hub repository \cite{repoPieras} allows to access to the code by all the members of the team.
-
-Our development plan was based on the Spiral model. It consists in four steps. In the first step, we determine the objectives of our project, in the second one, we analyze the risks and evaluate which problems we will face, then we develope and test our prototype and the last step consists to evaluate the results. We apply several iteration of this process till we get a satisfactory project.
+Our development plan was based on the spiral model. It consists of four steps per iteration. In the first step, we determine the objectives of that development iteration, in the second one, we analyze the risks and evaluate which problems we will face, then we develope and test our prototype and the last step evaluates the results. We apply several iterations of this process till we get a satisfactory final project and the global targets are achieved.
 
 
 
