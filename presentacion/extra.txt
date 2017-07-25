@@ -1,0 +1,17 @@
+\begin{frame}{Resultat: teixit tipus II}
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t1_14.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/pd_14.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t2_14.jpg}}\\
+
+\subfloat[GT]{\includegraphics[width=25mm]{./conclusiones/groundedema_14.png}}&
+\subfloat[Original]{\includegraphics[width=25mm]{./conclusiones/algo3_modif_resu14.png}}&
+\subfloat[Modificacions]{\includegraphics[width=25mm]{./conclusiones/algo3a_14.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}

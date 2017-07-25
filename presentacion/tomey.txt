@@ -1,0 +1,1744 @@
+\documentclass[10pt]{beamer}
+\usepackage[catalan]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage{caption}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{amssymb,amsthm,amsmath,epsfig,times,subfig,graphicx,tikz,multirow}
+\usepackage{graphics,graphicx,makeidx}
+\usepackage{xcolor}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+\newtheorem{Def}{Definició}
+\newtheorem{rmk}{Remark}
+\newtheorem{exam}{Example}
+
+\newcommand{\TM}{{T_{\text{M}}}}
+\newcommand{\TNM}{{T_{\text{nM}}}}
+\newcommand{\TP}{{T_{\text{P}}}}
+\newcommand{\TLK}{{T_{\text{LK}}}}
+\newcommand{\TD}{{T_{\text{D}}}}
+\newcommand{\TSS}[1][]{T_{#1}^{\text{SS}}}
+
+
+
+\newcommand{\SM}{{S_{\text{M}}}}
+\newcommand{\SNM}{{S_{\text{nM}}}}
+\newcommand{\SP}{{S_{\text{P}}}}
+\newcommand{\SL}{{S_{\text{L}}}}
+\newcommand{\SD}{{S_{\text{D}}}}
+\newcommand{\SSS}[1][]{S_{#1}^{\text{SS}}}
+
+
+\newcommand{\ILK}{{I_{\text{LK}}}}
+\newcommand{\IKD}{{I_{\text{KD}}}}
+\newcommand{\IRC}{{I_{\text{RC}}}}
+\newcommand{\IYG}{{T_{\text{YG}}}}
+\newcommand{\IGD}{{I_{\text{GD}}}}
+
+\mode<presentation>
+{
+\usetheme{CambridgeUS}
+%\setbeamercovered{transparent}
+%\useinnertheme[shadow]{rounded}
+\usecolortheme{orchid}
+}
+
+
+
+\title[Anàlisi d'algorismes de segmentació de tumors]{Una anàlisi comparativa d'algorismes per a la detecció i segmentació de tumors cerebrals}
+\author[M. Pieras]{%
+  Marcos Pieras Sagardoy\\ \vspace{0.25cm}
+  Tutors: Manuel González Hidalgo \and
+  Sebastià Massanet
+}
+\institute[UIB]{
+ \includegraphics[scale=0.2]{logo_uib.png}
+ }
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+\begin{center}
+\Large \textbf{\insertsection}
+\end{center}
+  \end{frame}
+}
+
+\begin{document}
+
+\let\newblock\relax
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Índex}
+  \tableofcontents
+\end{frame}
+
+
+\section{Introducció}
+
+\begin{frame}
+\frametitle{Introducció}
+A Espanya segons registres poblacionals de càncer:
+\begin{itemize}
+	\item Tumors primaris al SNC, representen 2\% del total de càncers en adults.
+	\item En menors de 15 anys, un 15\% del total.
+\end{itemize}
+Mortalitat podria ser establerta per avanços en:
+\begin{itemize}
+	\item Tractaments
+	\item Tècniques diagnòstiques, entre altres, d'imatge
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Imatges mèdiques}
+\begin{Def}{Imatges mèdiques: }
+Tècniques i processos per crear imatges del cos humà amb propòsits clínics
+\end{Def}
+
+Permet visualitzar estructures anatòmiques i funcionals del cos humà.
+
+\begin{itemize}
+
+\item Entendre l'anatomia
+\item Processos fisiològics
+\item Comportament d'òrgans sota influència de fisiologia anormal
+
+\end{itemize}
+
+Diverses tècniques.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{MRI}
+
+Mètode estàndard per avaluar naturalesa i extensió de tumors cerebrals.
+
+\begin{Def}
+Tota aquella alteració de teixits que produeix un augment de volum.
+\end{Def}
+
+Se classifiquen:
+\begin{itemize}
+	\item Benignes
+	\item Malignes
+\end{itemize}
+\end{frame}
+
+
+\subsection{Objectius}
+\begin{frame}{Objectius}
+\begin{enumerate}
+\item Introducció al camp del processament d'imatges mèdiques i a la segmentació de tumors.
+\item Implementació de tres algorismes automàtics i no supervisats de segmentació de tumors cerebrals a partir d'imatges MRI.
+\item Comparació qualitativa i quantitativa dels resultats dels 3 algorismes.
+\end{enumerate}
+\end{frame}
+
+
+\section{Imatge de Ressonància Magnètica}
+
+
+\begin{frame}
+\frametitle{MRI}
+
+Basada en el fenomen de NMR.\\ \vspace{0.25cm}
+
+\begin{itemize}
+\item Elevada sensibilitat per detectar tumors
+\item No invasiva
+\item Proveeix un bon contrast entre teixits
+\item Àmpliament disponible a clíniques
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{MRI: Principi físic}
+Depèn de les propietats del nucli de l'àtom, concretament del Spin.\\ \vspace{0.25cm}
+
+De mitjana el cos humà, té un 60 \% d'aigua, aquesta està composta per 2 àtoms de H i un de O.\\ \vspace{0.25cm}
+
+Per tant, spins més abundants són el protons de H i aquests són els nuclis que s'he detecten a l'escàner de MRI.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Estat inicial}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{./mri/conjunt_spinsN.jpg}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Aplicant un camp magnètic}
+\begin{figure}[htb]
+
+\centering
+\includegraphics[width=0.8\textwidth]{./mri/conjunt_magne.jpg}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Magnetització longitudinal}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{./mri/estat_inicial.jpg}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{figure}[htb]
+\frametitle{Senyal RF aplicada}
+\centering
+\includegraphics[width=0.8\textwidth]{./mri/RF_spinN.jpg}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Magnetització transversal}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{./mri/transvers_spinN.jpg}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{T2-\textit{relaxation}}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{./mri/RF_spinN.jpg}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+\begin{frame}
+\frametitle{T1-\textit{relaxation}}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{./mri/estat_inicial.jpg}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}[htb]
+\frametitle{T1 per diferents teixits}
+\centering
+\includegraphics[width=0.8\textwidth]{./mri/t1_teixits.png}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Obtenció de la imatge}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.72\textwidth]{./mri/tetr.png}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Altres tipus d'imatges}
+\begin{itemize}
+	\item \textit{Fluid-attenuated inversion recovery, (FLAIR)}
+	\item \textit{Contrast image}
+\end{itemize}
+
+\end{frame}
+
+
+
+\section{Segmentació de tumors}
+
+
+\begin{frame}{Segmentació de tumors cerebrals}
+
+Són díficils de segmentar
+
+\begin{itemize}
+	\item Ampli rang d'aparença
+	\item Varien en grandària
+	\item Varien en posició
+	\item Varien en intensitat (vist en MRI)
+	\item Sobreposen en intensitats amb altres teixits
+	\item Ocupar un nou teixit, fa canviar l'estructura anatòmica normal
+	\item Varien entre pacient i pacient
+	\item Envoltats d'edema i/o necrosi
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Imatges MRI amb tumor}
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+\subfloat[T1]{\includegraphics[width=30mm]{./conclusiones/t1_14.jpg}}&
+\subfloat[Flair]{\includegraphics[width=30mm]{./conclusiones/pd_14.jpg}}&
+\subfloat[T2]{\includegraphics[width=30mm]{./conclusiones/t2_14.jpg}}\\
+
+%\subfloat[GT: Regió tumoral]{\includegraphics[width=30mm]{./conclusiones/tumr.png}}&
+%\subfloat[GT: Tumor actiu]{\includegraphics[width=30mm]{./conclusiones/groundactive_14.png}}&
+%\subfloat[GT: Regió tumoral]{\includegraphics[width=30mm]{./conclusiones/groundedema_14.png}}\\
+\end{tabular}
+\caption{Imatges MRI amb tumor.} \label{pseudo}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tipus de segmentació}
+Classificació de la segmentació segons el grau d'interacció humana.
+
+\begin{itemize}
+\item Segmentació manual
+\item Segmentació semiautomàtica
+\item Segmentació automàtica
+\end{itemize}
+ 
+\end{frame}
+
+\begin{frame}
+\frametitle{Mètodes de segmentació automàtics}
+
+\begin{itemize}
+\item \textit{Thresholded-based techniques}
+\item \textit{Region-based classification techniques}
+\item \textit{Pixel classification techniques}
+\item \textit{Model-based techniques}
+\end{itemize}
+
+
+\pause
+Segons Gordillo, els mètodes de segmentació automàtics amb millors resultats:
+\hspace{3cm}
+\begin{itemize}
+\item Contenen coneixement anatòmic
+\item Empren tècniques de \textit{Pixel classification}
+\item Ús de pre-processament
+
+\end{itemize}
+
+\end{frame}
+
+
+\section{Algorismes}
+
+
+\subsection{Mètodes de clustering}
+\begin{frame}\frametitle{Mètodes de clustering}
+\begin{Def}{Clustering: }
+És el procés d'agrupar dades amb característiques similars en un mateix clúster i per agrupar dades amb característiques diferents a diferents clústers.
+\end{Def}
+
+\textbf{$K$-means}\\
+Passes:
+\begin{algorithmic}[1]
+ \State{Seleccionar $k$ centroides.}
+ \State{Assignar cada punt al centroide més proper, així cada conjunt de punts assignats a un centroide és un clúster.}
+ \State{Actualitzar els centroides de cada clúster a partir dels punts assignat a cada clúster.}
+
+\State{Repetir les passes 2 i 3 fins que les posicions del centroides no variïn.}
+\end{algorithmic}
+
+
+\end{frame}
+
+\begin{frame}\frametitle{Mètodes de clustering}
+
+Per resoldre la incertesa i la ambigüitat.\\
+\vspace{0.45cm}
+\pause
+\textbf{\textit{Fuzzy} $K$-means}\\
+Passes:
+\begin{algorithmic}[1]
+
+    \State{Inicialitzar els valors: Nombre de clústers.}
+	\State{Inicialitzar la matriu de pertinença.}
+	\State{Posar el comptador de cicles a zero.}
+	\State{Calcular els centres dels clústers a partir de la matriu de pertinença}
+	\State{Actualitzar la matriu de pertinença}
+	
+\end{algorithmic}
+Criteri d'aturada:
+\begin{itemize}
+\item Nombre màxim d'iteracions
+\item Variació de la matriu de pertinença sigui petita
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Algorismes}
+
+\subsubsection{Algorisme I}
+
+\begin{frame}{Introducció algorisme I}
+\begin{itemize}
+\item Ming-Ni Wu de la \textit{National Taichung of technology} i Li-Hong de la \textit{Universiti teknologi Malaysia.}
+\item Segmentació a partir de la transformació de color i el mètode $K$-means
+\item Implementació amb Matlab, basat en \textit{Color based segmentation using $k$-means clustering}
+\item Imatge d'entrada: T1 \textit{contrast image}
+\item Imatge de sortida: imatge BW, amb segmentació del tumor
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}
+
+
+\begin{figure}[htb]
+\frametitle{Diagrama de flux}
+\centering
+
+\includegraphics[width=0.6\textwidth, height=7.5cm]{./algo1/diagDsegon.png}
+%\caption{Conjunt de spins.} \label{fig:horizonte}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Transformacions de color}
+
+\textbf{1}: Transformació a Pseudocolor
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{cc}
+
+
+\subfloat{\includegraphics[width=40mm]{./algo1/t1_21.png}}&
+\subfloat{\includegraphics[width=40mm]{./algo1/pseudocolo.png}}\\
+\end{tabular}
+%\caption{Imatge d'entrada (a) i imatge en Pseudocolor (b).} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformació a CIElab}
+
+\textbf{2}: Transformació a CIElab
+
+\begin{Def}{CIElab: }
+Espai de color que intenta linealitzar la percepció del color.
+\end{Def}
+
+Capes:
+\begin{itemize}
+\item L*: Capa de lluminositat
+\item a*: Capa cromàtica, indica on el color cau al voltant de l'eix vermell-verd
+\item b*: Capa cromàtica, indica on el color cau al voltant de l'eix blau-groc
+
+
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Resultat clústers $k$-means}
+
+\textbf{3}: Aplicar $k$-means, K = 3.
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+\subfloat{\includegraphics[width=35mm]{./algo1/cluster1.png}}&
+\subfloat{\includegraphics[width=35mm]{./algo1/cluster2.png}}&
+\subfloat{\includegraphics[width=35mm]{./algo1/cluster3.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Clúster seleccionat.}
+\textbf{4}: Selecció del clúster
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/cluster3.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{\textit{Thresholding} en color}
+\textbf{5}: \textit{Thresholding} en color
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/blue.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textit{Thresholding} a blanc i negre}
+\textbf{5}: \textit{Thresholding} a blanc i negre
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/BW.png}
+
+\end{figure}
+\pause
+L'algorisme falla per regions tumorals amb necrosi
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Modificacions: clúster seleccionat}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/cluster3.png}
+
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Modificacions: \textit{Thresholding}}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/imSegmentedWhite.png}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Modificacions: Omplida}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/imagefilld.png}
+
+\end{figure}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Modificacions: Punts interiors}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/dedins.png}
+
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Resultat sense modificacions}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/BW.png}
+
+
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Resultat amb modificacions}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/final.png}
+
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Resultat final}
+Apliquem \textit{opening} i dilatació
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo1/result.png}
+
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Resultats per tipus tumor I}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{ccc}
+\subfloat[Imatge T1]{\includegraphics[width=30mm]{./conclusiones/t1_01.jpg}}&
+%\subfloat[GT]{\includegraphics[width=30mm]{./conclusiones/groundedema_1.png}}&
+\subfloat[Original]{\includegraphics[width=30mm]{./conclusiones/t1s.png}}&
+\subfloat[Modificat]{\includegraphics[width=30mm]{./conclusiones/result1.png}}\\
+\end{tabular}
+\caption{Comparació resultats Algorisme I.} 
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Resultats per tipus tumor II}
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+\subfloat[Imatge T1]{\includegraphics[width=30mm]{./conclusiones/t1_14.jpg}}&
+%\subfloat{\includegraphics[width=30mm]{./conclusiones/groundedema_14.png}}&
+\subfloat[Original]{\includegraphics[width=30mm]{./conclusiones/segona.png}}&
+\subfloat[Modificat]{\includegraphics[width=30mm]{./conclusiones/result14a1.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\caption{Comparació resultats Algorisme I.} 
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Resultats per tipus tumor III}
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+\subfloat[Imatge T1]{\includegraphics[width=30mm]{./conclusiones/t1_13.jpg}}&
+%\subfloat{\includegraphics[width=30mm]{./conclusiones/groundedema_13.png}}&
+\subfloat[Original]{\includegraphics[width=30mm]{./conclusiones/primera.png}}&
+\subfloat[Modificat]{\includegraphics[width=30mm]{./conclusiones/result13a1.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\caption{Comparació resultats Algorisme I.} 
+\end{figure}
+
+\end{frame}
+
+
+\subsubsection{Algorisme II}
+
+\begin{frame}{Introducció algorisme II}
+\begin{itemize}
+\item Chunlin Li, Dmitry B. Geldof Lawrence O. Hall de \textit{University of South Florida}.
+\item Segmentació de teixits amb \textit{fuzzy} $k$-means i classificació d'aquests amb coneixement anatòmic.
+\item Implementació amb Matlab.
+\item Imatge d'entrada: T1 \textit{contrast image}, T2-\textit{weighted image} i PD.
+\item Imatge de sortida: imatge BW, amb segmentació del tumor.
+\end{itemize}
+
+
+\end{frame}
+\begin{frame}{Imatges d'entrada}
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat[T1]{\includegraphics[width=30mm]{./algo2/t1.jpg}}&
+\subfloat[PD]{\includegraphics[width=30mm]{./algo2/pd.jpg}}&
+\subfloat[T2]{\includegraphics[width=30mm]{./algo2/t2.jpg}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Diagrama de flux}
+
+
+
+\begin{figure}[htbp]
+\captionsetup[figure]{labelformat=empty}
+\centering
+\includegraphics[width=40mm]{./algo2/primera.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Distribució dels clústers}
+10 clústers
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=60mm]{./algo2/diag22.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Clústers obtinguts}
+
+\begin{figure}[htbp]
+\captionsetup[subfigure]{labelformat=empty}
+\centering
+\begin{tabular}{ccccc}
+\subfloat{\includegraphics[width=20mm]{./algo2/1.png}}&
+\subfloat{\includegraphics[width=20mm]{./algo2/2.png}}&
+\subfloat{\includegraphics[width=20mm]{./algo2/3.png}}&
+\subfloat{\includegraphics[width=20mm]{./algo2/4.png}}&
+\subfloat{\includegraphics[width=20mm]{./algo2/5.png}}\\
+\subfloat{\includegraphics[width=20mm]{./algo2/6.png}}&
+\subfloat{\includegraphics[width=20mm]{./algo2/7.png}}&
+\subfloat{\includegraphics[width=20mm]{./algo2/8.png}}&
+\subfloat{\includegraphics[width=20mm]{./algo2/9.png}}&
+\subfloat{\includegraphics[width=20mm]{./algo2/10.png}}
+\end{tabular}
+\caption{Clústers per ordre de T2.} \label{clusters2}
+\end{figure}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Separació de teixit crani}
+No és un "teixit"   d'interès.\\ \vspace{0.25cm}
+
+Passes per separar el teixits crani
+\begin{algorithmic}[1]
+\State Agrupar 3 primers clústers
+\State Calcular centroide
+\State Calcular punts del quadrangle
+\State Comparar amb resta de clústers
+\end{algorithmic}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Agrupar 3 primers clústers}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=60mm]{./algo2/all.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Calcular centroide}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=60mm]{./algo2/centroid.png}
+
+%\caption{} \label{pseudo}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Calcular punts del quadrangle: Regles}
+Des del centroide per cada eix, movem finestra 8x8 fins:
+\begin{itemize}
+\item \textit{K} píxels de \textit{background} en una fila.
+\item \textit{L} píxels de \textit{background} en tota la finestra.
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Calcular punts del quadrangle: Resultat}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=60mm]{./algo2/pounts.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Comparar amb resta de clústers}
+
+\begin{figure}[h!]
+\centering
+%\begin{center}}
+\begin{tabular}{cccc}
+\includegraphics[width=2cm]{./algo2/4.png} &
+ \includegraphics[width=2cm]{./algo2/5.png} &
+  \includegraphics[width=2cm]{./algo2/6.png} &
+   \includegraphics[width=2cm]{./algo2/7.png} \\
+\subfloat{\includegraphics[width=2cm]{./algo2/bw4.png}} &
+\subfloat{\includegraphics[width=2cm]{./algo2/bw5.png}}&
+\subfloat{\includegraphics[width=2cm]{./algo2/bw6.png}} &
+\subfloat{\includegraphics[width=2cm]{./algo2/bw7.png}} \\
+\end{tabular}
+%\end{center}
+%\caption{Effects of the fuzzy erosion and dilation.}
+\end{figure}
+\end{frame}
+
+
+
+
+\begin{frame}{Localització de la matèria blanca}
+Seguint l'ordre dels clústers a T2, anem a localitzar la matèria blanca. 
+\begin{figure}[h]
+\centering
+\subfloat{\includegraphics[width=20mm]{./algo2/5.png}}
+\subfloat{\includegraphics[width=20mm]{./algo2/6.png}}
+
+\end{figure}
+Per fer-ho es defineixen dues  mesures de compacitat.
+
+\end{frame}
+
+
+
+\begin{frame}{Concepte de \textit{Biorthogonal thickness}}
+\begin{Def}
+És la menor distància horizontal o vertical d'un objecte.
+\end{Def}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=60mm]{./algo2/biorthogonal.jpg}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Densitat}
+\begin{Def}
+Nombre de píxels per àrea.
+\end{Def}
+
+\begin{itemize}
+
+\item Nombre de píxels abans de l'erosió: $N_{0}$
+
+\item Nombre de píxels després de l'erosió: $N_{e}$
+
+\item Densitat: $ N_{e}/N_{o} $
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Diagrama de flux Localització WM}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=105mm]{./algo2/diagaramWM.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Localització de la WM}
+Si les mesures de BT i densitat no són prou determinants.\\
+\vspace{0.5cm}
+\pause
+Examinem píxels a la banda.
+\begin{figure}[h!]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{cc}
+\subfloat[WM]{\includegraphics[width=3cm]{./algo2/wmMerged.png}}&
+\subfloat[GM]{\includegraphics[width=3cm]{./algo2/6.png}}\\
+
+\end{tabular}
+%\end{center}
+%\caption{Effects of the fuzzy erosion and dilation.}
+\end{figure}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{Generació de la banda}
+
+\begin{figure}[h!]
+\setcounter{subfigure}{0}
+\centering
+\begin{center}
+\begin{tabular}{ccc}
+\subfloat[Clústers agrupats]{\includegraphics[width=3cm]{./algo2/allMeged.png}}&
+\subfloat[Erosió]{\includegraphics[width=3cm]{./algo2/dilate.png}}&
+\subfloat[Substracció]{\includegraphics[width=3cm]{./algo2/boundaru.png}}\\
+\end{tabular}
+\end{center}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Píxels a la banda}
+\begin{figure}[h!]
+\centering
+\begin{tabular}{cc}
+
+
+\subfloat{\includegraphics[width=2.7cm]{./algo2/wmMerged.png}}&
+\subfloat{\includegraphics[width=2.7cm]{./algo2/6.png}}\\
+\subfloat{\includegraphics[width=2.7cm]{./algo2/wmBound.png}}&
+\subfloat{\includegraphics[width=2.7cm]{./algo2/bandGM.png}}\\
+\end{tabular}
+%\end{center}
+%\caption{Effects of the fuzzy erosion and dilation.}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Model de la matèria blanca}
+
+Estudiarem l'anormalitat de la matèria blanca.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo2/puntsW.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Punts obtinguts}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=80mm]{./algo2/pointswWMmodif4.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Obtenció punt: Punt mitjà}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=80mm]{./algo2/poutsModif.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Obtenció punt: Punts de la \textit{Region of interest}}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=80mm]{./algo2/roiPoints.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Obtenció punt: \textit{Region of interest}}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=80mm]{./algo2/ssspo.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Obtenció punt: Punts de distància mínima}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=80mm]{./algo2/wddModif.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Obtenció punt: Punts de distància mínima}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=80mm]{./algo2/ssssdaModif.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Anormalitat de la matèria blanca}
+
+Condicions perquè una WM sigui anormal:
+
+\begin{itemize}
+
+\item Distància entre dues components $P_{i}$, sigui més gran que un cert llindar (25).
+\item Hi hagi dos forats. Excepte entre 1-3 i 9-11.
+
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Líquid cefaloraquidi}
+
+Major clúster a l'ordre T2: Tumor o Líquid cefaloraquidi.
+
+\pause
+
+Per localitzar la CSF creem un model.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo2/csf_model.jpg}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Líquid cefaloraquidi: Creació del model}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo2/btmModif2.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Líquid cefaloraquidi: Creació del model}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=40mm]{./algo2/mask.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Líquid cefaloraquidi: Creació del model}
+
+Clúster amb major nombre de píxels dins el model, etiqueta com CSF.
+
+\begin{figure}[h!]
+\centering
+\begin{tabular}{cc}
+
+
+\subfloat{\includegraphics[width=2cm]{./algo2/9.png}}&
+\subfloat{\includegraphics[width=2cm]{./algo2/10.png}}\\
+\subfloat{\includegraphics[width=2cm]{./algo2/secondMAsk.png}}&
+\subfloat{\includegraphics[width=2cm]{./algo2/topMask.png}}\\
+\end{tabular}
+%\end{center}
+%\caption{Effects of the fuzzy erosion and dilation.}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Líquid cefaloraquidi: Anormalitat}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=35mm]{./algo2/simetrCSF.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\pause
+Mesura d'anormalitat: Simetria
+
+\end{frame}
+
+\begin{frame}{Líquid cefaloraquidi: Anormalitat II}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=50mm]{./algo2/right.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+\begin{frame}{Líquid cefaloraquidi: Anormalitat III}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=50mm]{./algo2/left.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Líquid cefaloraquidi: Anormalitat: Mesura}
+
+
+$$ \text{mesura} = \dfrac{1}{1+\left(\dfrac{L-R}{100}\right)^{2}} $$
+
+on $R$ són el nombre de píxels a la dreta i $L$ són el nombre de píxels a l'esquerra.\\
+
+Si mesura $>$ 0.1 es classifica la CSF com anormal.
+
+\end{frame}
+
+
+
+\begin{frame}{Matèria grisa}
+Clústers entre WM i CSF s'etiqueten com GM.
+Mesura d'anormalitat: BT.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=40mm]{./algo2/8.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Distribució de clústers}
+7 clústers
+\begin{figure}[h!]
+\centering
+\includegraphics[width=80mm]{./algo2/taulaConclusions.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Clústers resultants}
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat{\includegraphics[width=35mm]{./algo2/4_2.png}}&
+\subfloat{\includegraphics[width=35mm]{./algo2/5_2.png}}&
+\subfloat{\includegraphics[width=35mm]{./algo2/6_2.png}}\\
+
+\end{tabular}
+\caption{Clústers restants.} \label{mostres}
+\end{figure}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=35mm]{./algo2/resu.png}
+
+\caption{Resultat} \label{pseudo}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Resultats per tipus tumor I}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat{\includegraphics[width=30mm]{./conclusiones/t1_01.jpg}}&
+\subfloat{\includegraphics[width=30mm]{./conclusiones/pd_01.jpg}}&
+\subfloat{\includegraphics[width=30mm]{./conclusiones/t2_01.jpg}}\\
+
+%\subfloat[GT]{\includegraphics[width=30mm]{./conclusiones/groundedema_1.png}}&
+\subfloat[Resultat]{\includegraphics[width=30mm]{./conclusiones/algo2rsult1.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Resultats per tipus tumor II}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat{\includegraphics[width=30mm]{./conclusiones/t1_14.jpg}}&
+\subfloat{\includegraphics[width=30mm]{./conclusiones/pd_14.jpg}}&
+\subfloat{\includegraphics[width=30mm]{./conclusiones/t2_14.jpg}}\\
+
+%\subfloat[GT]{\includegraphics[width=30mm]{./conclusiones/groundedema_14.png}}&
+\subfloat[Resultat]{\includegraphics[width=30mm]{./conclusiones/algo2rsult14.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Resultats per tipus tumor III}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat{\includegraphics[width=30mm]{./conclusiones/t1_13.jpg}}&
+\subfloat{\includegraphics[width=30mm]{./conclusiones/pd_13.jpg}}&
+\subfloat{\includegraphics[width=30mm]{./conclusiones/t2_13.jpg}}\\
+
+%\subfloat[GT]{\includegraphics[width=30mm]{./conclusiones/groundedema_13.png}}&
+\subfloat[Resultat]{\includegraphics[width=30mm]{./conclusiones/algo2rsult13.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+
+
+
+
+\subsubsection{Algorisme III}
+
+
+\begin{frame}{Introducció}
+
+\begin{itemize}
+\item Chunlin Li, Dmitry B. Geldof Lawrence O. Hall de \textit{University of South Florida}.
+\item Tècniques de \textit{Pixel classification} i \textit{thresholded-based}.
+\item Implementació amb Matlab.
+\item Imatge d'entrada: T1 \textit{contrast image}, T2-\textit{weighted image} i flair.
+\item Imatge de sortida: imatge BW, amb segmentació del tumor.
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=30mm]{./algo3/algo3.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+
+\end{frame}
+\begin{frame}{Imatges d'entrada}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat[T1]{\includegraphics[width=30mm]{./algo3/t1_01.jpg}}&
+\subfloat[Flair]{\includegraphics[width=30mm]{./algo3/pd_01.jpg}}&
+\subfloat[T2]{\includegraphics[width=30mm]{./algo3/t2_01.jpg}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Separació de píxels intracranials}
+\begin{figure}[htbp]
+\centering
+\subfloat{\includegraphics[width=40mm]{./algo3/cluster1.png}}
+\subfloat{\includegraphics[width=40mm]{./algo3/cluster2.png}}
+
+
+\caption{Clústers restants.} \label{mostres}
+\end{figure}
+
+
+
+\end{frame}
+
+
+\begin{frame}{Separació de píxels intracranials}
+\begin{figure}[htbp]
+\centering
+
+\begin{tabular}{ccc}
+
+
+\subfloat[Intracranial T1]{\includegraphics[width=35mm]{./algo3/intraT1.png}}&
+\subfloat[Intracranial PD]{\includegraphics[width=35mm]{./algo3/intraPD.png}}&
+
+\subfloat[Intracranial T2]{\includegraphics[width=35mm]{./algo3/intraT2.png}}\\
+\end{tabular}
+
+\end{figure}
+
+
+
+\end{frame}
+
+
+\begin{frame}{\textit{Adaptative histogram thresholding}}
+Mètode basat en \textit{thresholding} per segmentar. EL valor del TH serà el nivell de gris amb màxima freqüència.
+\pause
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\subfloat[GT]{\includegraphics[width=35mm]{./algo3/groundedema_1.png}}
+\subfloat[GT en T1]{\includegraphics[width=35mm]{./algo3/edemaT1.png}}
+\subfloat[GT en PD]{\includegraphics[width=35mm]{./algo3/tumorPD.png}}
+
+
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{\textit{Adaptative histogram thresholding}: En T1, histograma}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=60mm]{./algo3/tumorT1edema.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textit{Adaptative histogram thresholding}: En T1, segmentació}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=60mm]{./algo3/imagT1.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{\textit{Adaptative histogram thresholding}: En PD, histograma}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=60mm]{./algo3/hsitPDedema.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\end{frame}
+\begin{frame}{\textit{Adaptative histogram thresholding}: En PD, segmentació}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=60mm]{./algo3/imagPD.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textit{Adaptative histogram thresholding}: Segmentació}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=60mm]{./algo3/intersectionSense.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textit{Adaptative histogram thresholding}: Píxels no tumorals}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=60mm]{./algo3/puntsqsobren.png}
+
+%\caption{cc.} \label{pseudo}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textit{Density screening}: Histogrames 3D}
+
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\subfloat[T1-PD]{\includegraphics[width=42mm]{./algo3/histT1-PD.png}}
+\subfloat[T1-T2]{\includegraphics[width=42mm]{./algo3/histT1-T2.png}}
+\subfloat[PD-T2]{\includegraphics[width=42mm]{./algo3/histPD-T2.png}}
+
+
+\end{figure}
+
+
+
+\end{frame}
+
+\begin{frame}{\textit{Density screening}: Histogrames 3D, thresholding}
+
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\subfloat[T1-PD]{\includegraphics[width=42mm]{./algo3/histT1-PD-TH.png}}
+\subfloat[T1-T2]{\includegraphics[width=42mm]{./algo3/histT1-T2-TH.png}}
+\subfloat[PD-T2]{\includegraphics[width=42mm]{./algo3/histPD-T2-TH.png}}
+
+
+\end{figure}
+
+
+
+\end{frame}
+
+\begin{frame}{\textit{Density screening}: Segmentació}
+
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\subfloat[Resultat T1-PD]{\includegraphics[width=42mm]{./algo3/imageHistT1.png}}
+\subfloat[Resultat T1-T2]{\includegraphics[width=42mm]{./algo3/imageHistT2.png}}
+\subfloat[Resultat PD-T2]{\includegraphics[width=42mm]{./algo3/imagehistT3.png}}
+
+
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Resultat}
+Modificacions: Dilatació, omplida i erosió.
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\begin{tabular}{cc}
+
+
+\centering
+\subfloat[Original]{\includegraphics[width=35mm]{./algo3/resuklt01.png}}&
+\subfloat[Modificacions]{\includegraphics[width=35mm]{./algo3/a_1.png}}\\
+
+\end{tabular}
+
+\end{figure}
+\end{frame}
+
+
+
+
+\begin{frame}{Resultats per tipus tumor I}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t1_01.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/pd_01.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t2_01.jpg}}\\
+
+%\subfloat[GT]{\includegraphics[width=25mm]{./conclusiones/groundedema_1.png}}&
+\subfloat[Original]{\includegraphics[width=25mm]{./conclusiones/algo3_modif_resu1.png}}&
+\subfloat[Modificat]{\includegraphics[width=25mm]{./conclusiones/algo3a_1.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Resultats per tipus tumor II}
+
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t1_14.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/pd_14.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t2_14.jpg}}\\
+
+%\subfloat[GT]{\includegraphics[width=25mm]{./conclusiones/groundedema_1.png}}&
+\subfloat[Original]{\includegraphics[width=25mm]{./conclusiones/algo3_modif_resu14.png}}&
+\subfloat[Modificat]{\includegraphics[width=25mm]{./conclusiones/algo3a_14.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Resultats per tipus tumor III}
+\setcounter{subfigure}{0}
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+
+
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t1_13.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/pd_13.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t2_13.jpg}}\\
+
+%\subfloat[GT]{\includegraphics[width=25mm]{./conclusiones/groundedema_1.png}}&
+\subfloat[Original]{\includegraphics[width=25mm]{./conclusiones/algo3_modif_resu13.png}}&
+\subfloat[Modificat]{\includegraphics[width=25mm]{./conclusiones/algo3a_13.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+
+\section{Experiments}
+\subsection{Avaluació dels algorismes}
+\begin{frame}{Avaluació dels algorismes I}
+
+Mesures objectives que es basen en la comparació de les segmentacions amb una \textit{ground truth}.
+
+\pause
+
+\begin{table}[h]
+\centering
+\caption{Matriu de confusió}
+\label{taulaTP}
+\begin{tabular}{llll}
+                                           & Algorisme:tumor                          & Algorisme: no tumor                       &  \\ \cline{2-3}
+\multicolumn{1}{l|}{ground truth:tumor}    & \multicolumn{1}{l|}{reals positius (TP)} & \multicolumn{1}{l|}{falsos negatius (FN)} &  \\ \cline{2-3}
+\multicolumn{1}{l|}{ground truth:no tumor} & \multicolumn{1}{l|}{falsos positius(FP)} & \multicolumn{1}{l|}{reals negatius(TN)}   &  \\ \cline{2-3}
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+
+\begin{frame}{Avaluació dels algorismes II}
+
+$$ \text{Precisió} = \dfrac{TP}{TP+FP}.$$
+
+$$ \text{Recall} = \dfrac{TP}{TP+FN}.$$
+
+\pause
+
+\vspace{1.5cm}
+$$  F-\text{mesura} = 2\cdot \dfrac{\text{Precisió}\cdot \text{Recall}}{\text{Precisió}+\text{Recall}} . $$
+\end{frame}
+\subsection{Resultats}
+
+\begin{frame}
+\begin{table}[h]
+\centering
+\caption{Resultats estadístics per l'algorisme I amb i sense modificacions}
+\label{algorisme1}
+\begin{tabular}{|l|l|l|l|}
+\hline
+                              & Precisió & Recall & F-mesura \\ \hline
+Algorisme I                   & 0.69     & 0.28   & 0.37     \\ \hline
+Algorisme I amb modificacions & 0.78     & 0.38   & 0.47\\ \hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+
+
+\begin{frame}
+
+\begin{table}[h]
+\centering
+\caption{Taula resultats estadístics per l'algorisme III amb i sense modificacions.}
+\label{algorisme3}
+\begin{tabular}{|l|l|l|l|}
+\hline
+                                & Precisió & Recall & F-mesura \\ \hline
+Algorisme III                   & 0.65     & 0.37   & 0.43     \\ \hline
+Algorisme III amb modificacions & 0.64     & 0.61   & 0.58     \\ \hline
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{table}[h]
+\centering
+\caption{Resultats estadístics pels tres algorismes.}
+\label{general}
+\begin{tabular}{|l|l|l|l|}
+\hline
+              & Precisió & Recall & F-mesura \\ \hline
+Algorisme I   & 0.78     & 0.38   & 0.47 	 \\ \hline
+Algorisme II  & 0.81     & 0.9    & 0.82 	 \\ \hline
+Algorisme III & 0.64     & 0.61   & 0.58 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\end{frame}
+
+
+\begin{frame}{Resultats gràfics: tipus de tumor I}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{cccc}
+
+
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t1_01.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/pd_01.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t2_01.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/groundedema_1.png}}\\
+
+
+\subfloat[Algorisme I]{\includegraphics[width=25mm]{./conclusiones/result1a1.png}}&
+\subfloat[Algorisme II]{\includegraphics[width=25mm]{./conclusiones/algo2rsult1.png}}&
+\subfloat[Algorisme III]{\includegraphics[width=25mm]{./conclusiones/algo3a_1.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Resultats gràfics: tipus de tumor II}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{cccc}
+
+
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t1_14.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/pd_14.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t2_14.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/groundedema_14.png}}\\
+
+
+\subfloat[Algorisme I]{\includegraphics[width=25mm]{./conclusiones/result14a1.png}}&
+\subfloat[Algorisme II]{\includegraphics[width=25mm]{./conclusiones/algo2rsult14.png}}&
+\subfloat[Algorisme III]{\includegraphics[width=25mm]{./conclusiones/algo3a_14.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Resultats gràfics: tipus de tumor III}
+\begin{figure}[htbp]
+\setcounter{subfigure}{0}
+\centering
+\begin{tabular}{cccc}
+
+
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t1_13.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/pd_13.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/t2_13.jpg}}&
+\subfloat{\includegraphics[width=25mm]{./conclusiones/groundedema_13.png}}\\
+
+
+\subfloat[Algorisme I]{\includegraphics[width=25mm]{./conclusiones/result13a1.png}}&
+\subfloat[Algorisme II]{\includegraphics[width=25mm]{./conclusiones/algo2rsult13.png}}&
+\subfloat[Algorisme III]{\includegraphics[width=25mm]{./conclusiones/algo3a_13.png}}\\
+%\caption{cc.} \label{pseudo}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+
+\section{Conclusions}
+\begin{frame}{Conclusions}
+En aquest treball:
+\begin{itemize}
+\item S'han implementat tres algorismes automàtics i no supervisats per a la segmentació de tumors cerebrals en MRI.
+\item S'han introduït modificacions.
+\item S'han comparat objectivament amb una \textit{ground truth}.
+\end{itemize}
+
+
+
+
+\end{frame}
+\begin{frame}{Conclusions: Resultats}
+A partir de la comparació objectiva, podem afirmar:
+\begin{itemize}
+
+\item Modificacions a l'algorisme I i III, són millores
+
+\pause
+
+\item L'algorisme que millor determina la regió tumoral, és l'algorisme II.
+ 
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\centering
+\Large{\textbf{Gràcies per l'atenció!}}
+\end{frame}
+
+
+\end{document}
+
+
+
