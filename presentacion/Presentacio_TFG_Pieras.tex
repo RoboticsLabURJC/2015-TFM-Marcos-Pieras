@@ -509,25 +509,25 @@ Testing of the component on an international databases, the Multiple object trac
 
 
 \end{frame}
-%
-%\begin{frame}{Data Association: Siamese architecture}
-%
-%
-%
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics[width=120mm]{./tracker/network6conv.png}
-%
-%\end{figure}
-%
-%
-%\end{frame}
+
+\begin{frame}{Data Association: Siamese architecture}
+
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=120mm]{./tracker/network6conv.png}
+
+\end{figure}
+
+
+\end{frame}
 
 
 
 
-
-
+\section{Experiments}
+%
 %\begin{frame}{Object detectors with deep learning}
 %
 %
@@ -564,92 +564,100 @@ Testing of the component on an international databases, the Multiple object trac
 
 
 \end{frame}
-%
-%\begin{frame}{Data augmentation}
-%
-%
-%
-%\begin{figure}[htbp]
-%\centering
-%\begin{tabular}{ccccc}
-%\subfloat[Original]{\includegraphics[width=12mm]{augmentation/resizedImage.jpg}}
-%\subfloat[Random brightness]{\includegraphics[width=12mm]{augmentation/imageBrightnes.jpg}}
-%\subfloat[Random crop]{\includegraphics[width=12mm]{augmentation/imageRandomCrop.jpg}}
-%\subfloat[Vertical flip]{\includegraphics[width=12mm]{augmentation/imageVerticalFlip.jpg}}
-%\subfloat[Gaussian blur]{\includegraphics[width=12mm]{augmentation/imageGaussianBlur.jpg}}
-%\subfloat[Random shadow]{\includegraphics[width=12mm]{augmentation/imageRandomShadow.jpg}}\\
-%
-%\subfloat[Zoom in]{\includegraphics[width=12mm]{augmentation/imageZoomIn.jpg}}
-%\subfloat[Translation and rotation]{\includegraphics[width=12mm]{augmentation/imageTransormed.jpg}}
-%\subfloat[Zoom out]{\includegraphics[width=12mm]{augmentation/imageZoomOut.jpg}}
-%\subfloat[Gaussian noise]{\includegraphics[width=12mm]{augmentation/imageNoiseGaussian.jpg}}
-%\subfloat[Opposite Vignetting]{\includegraphics[width=12mm]{augmentation/imageBLURcenter.jpg}}
-%
-%
-%\end{tabular}
-%%\caption{Imatges MRI amb tumor.} \label{pseudo}
-%\end{figure}
-%
-%
-%
-%\end{frame}
+
+\begin{frame}{Data augmentation}
+
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccccc}
+\subfloat[Original]{\includegraphics[width=12mm]{augmentation/resizedImage.jpg}}
+\subfloat[Random brightness]{\includegraphics[width=12mm]{augmentation/imageBrightnes.jpg}}
+\subfloat[Random crop]{\includegraphics[width=12mm]{augmentation/imageRandomCrop.jpg}}
+\subfloat[Vertical flip]{\includegraphics[width=12mm]{augmentation/imageVerticalFlip.jpg}}
+\subfloat[Gaussian blur]{\includegraphics[width=12mm]{augmentation/imageGaussianBlur.jpg}}
+\subfloat[Random shadow]{\includegraphics[width=12mm]{augmentation/imageRandomShadow.jpg}}\\
+
+\subfloat[Zoom in]{\includegraphics[width=12mm]{augmentation/imageZoomIn.jpg}}
+\subfloat[Translation and rotation]{\includegraphics[width=12mm]{augmentation/imageTransormed.jpg}}
+\subfloat[Zoom out]{\includegraphics[width=12mm]{augmentation/imageZoomOut.jpg}}
+\subfloat[Gaussian noise]{\includegraphics[width=12mm]{augmentation/imageNoiseGaussian.jpg}}
+\subfloat[Opposite Vignetting]{\includegraphics[width=12mm]{augmentation/imageBLURcenter.jpg}}
+
+
+\end{tabular}
+%\caption{Imatges MRI amb tumor.} \label{pseudo}
+\end{figure}
+
+
+
+\end{frame}
 
 %
-%\begin{frame}{Parameters training network I}
-%
-%
-%\begin{itemize}
-%
-%\item \textbf{Loss}: Binary cross entropy.
-%\item \textbf{Optimizer}: Adam with exponential decay.
-%
-%\item \textbf{Activation}: ReLu. 
-%
-%\item \textbf{Initialization}: He. initialization. Biases with the value of $0.1$.
-%
-%
-%\item \textbf{Regularization}: Dropout in the fully connected layer.
-%
-%
-%
-%\end{itemize}
-%
-%
-%\end{frame}
-%
-%
-%\begin{frame}{Parameters training network II}
-%
-%\begin{itemize}
-%
-%
-%\item \textbf{Preprocessing}: Centre the data and normalized.
-%
-%\item \textbf{Final layers}: Flatten, Global Average Pooling and Spatial pyramid pooling.
-%
-%
-%\begin{figure}[htbp]
-%\centering
-%\begin{tabular}{ccc}
-%\subfloat[Flatten]{\includegraphics[width=30mm]{siameseLayers/flatten2.png}}
-%\subfloat[Global Average Pooling]{\includegraphics[width=25mm]{siameseLayers/global2.png}}
-%\subfloat[Spatial pyramid pooling]{\includegraphics[width=25mm]{siameseLayers/spp2.png}}
-%
-%
-%
-%\end{tabular}
-%%\caption{Imatges MRI amb tumor.} \label{pseudo}
-%\end{figure}
-%
-%
-%\item \textbf{Output}: Sigmoid activation.
-%
-%
-%\end{itemize}
-%
-%
-%
-%\end{frame}
+\begin{frame}{Parameters training network I}
+
+
+\begin{itemize}
+
+\item \textbf{Loss}: Binary cross entropy.
+
+\vspace{0.75cm}
+
+\item \textbf{Optimizer}: Adam with exponential decay.
+
+\vspace{0.75cm}
+
+\item \textbf{Activation}: ReLu. 
+
+\vspace{0.75cm}
+
+\item \textbf{Initialization}: He. initialization. Biases with the value of $0.1$.
+
+\vspace{0.75cm}
+
+\item \textbf{Regularization}: Dropout in the fully connected layer.
+
+
+
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}{Parameters training network II}
+
+\begin{itemize}
+
+
+\item \textbf{Preprocessing}: Centre the data and normalized.
+
+\item \textbf{Final layers}: Flatten, Global Average Pooling and Spatial pyramid pooling.
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+\subfloat[Flatten]{\includegraphics[width=30mm]{siameseLayers/flatten2.png}}
+\subfloat[Global Average Pooling]{\includegraphics[width=25mm]{siameseLayers/global2.png}}
+
+
+
+
+\end{tabular}
+%\caption{Imatges MRI amb tumor.} \label{pseudo}
+\end{figure}
+
+
+\item \textbf{Output}: Sigmoid activation.
+
+
+\end{itemize}
+
+
+
+\end{frame}
 
 
 %\begin{frame}{Results training}
