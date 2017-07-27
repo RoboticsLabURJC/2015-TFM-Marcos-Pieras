@@ -136,7 +136,7 @@ plt.bar(y_pos, performance2, align='center', alpha=0.5)
 plt.xticks(y_pos, objects,fontsize=30)
 plt.ylabel('Top-5 error',fontsize=40)
 plt.xlabel('Year',fontsize=40)
-plt.title('ILSVRC',fontsize=60)
+#plt.title('ILSVRC',fontsize=60)
 plt.tick_params(labelsize=40)
  
 plt.show()
