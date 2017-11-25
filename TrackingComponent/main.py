@@ -3,7 +3,8 @@ import numpy as np
 import os
 import time
 import sys
-sys.path.insert(0, '/home/marc/Dropbox/tfmDeepLearning/semana6/mejoraLK')
+# import classFlow.py
+sys.path.insert(0, '/home/marc/repo2/TrackingComponent')
 from classFlow import *
 import time
 import matplotlib.pyplot as plt
