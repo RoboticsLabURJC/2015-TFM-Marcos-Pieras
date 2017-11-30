@@ -51,7 +51,7 @@ listOfDetections = [i*DETECTION_RATE for i in range(0,1000) if i*DETECTION_RATE 
 NUM_ITERATIONS = np.shape(listOfDetections)[0]
 print(listOfDetections)
 print(NUM_ITERATIONS)
-print(MAX_FRAME)
+
 
 #                                                       siamese netwrk
 def create_model(): 
