@@ -39,17 +39,19 @@ from keras import regularizers
 
 DETECTION_RATE = 30
 
-
-PATH_IMAGES = '/home/marc/datasetTracking/mot16/test/MOT16-14/img1'
+PATH_SAVE = '/home/marc/Escriptori/savee'
+PATH_IMAGES = '/home/marc/Escriptori/MOT16-14/img1'
 
 listImages = os.listdir( PATH_IMAGES )
 listImages.sort()
 numFiles = np.shape(listImages)
 
 MAX_FRAME = numFiles[0]
-listOfDetections = [i*DETECTION_RATE for i in range(0,1000) if i*DETECTION_RATE <= MAX_FRAME]
+listOfDetections = [i*DETECTION_RATE for i in range(0,1000) if i*DETECTION_RATE < MAX_FRAME]
 NUM_ITERATIONS = np.shape(listOfDetections)[0]
-
+print(listOfDetections)
+print(NUM_ITERATIONS)
+print(MAX_FRAME)
 
 #                                                       siamese netwrk
 def create_model(): 
@@ -79,7 +81,7 @@ def create_model():
 #                                                                                               end siamese
 
 modelSiamese = create_model()
-weights_path = '/home/marc/Escriptori/siameseDATASET/FirstApproach/convModel/model3/main1weights-improvement-64.hdf5'
+weights_path = '/home/marc/repo2/TrackingComponent/main1weights-improvement-64.hdf5'
 modelSiamese.load_weights(weights_path)
 
 
@@ -135,7 +137,7 @@ class myThread (threading.Thread):
                 select_threshold=0.2
                 nms_threshold=.45
                 net_shape=(300, 300)
-
+                print('obj',i,indexFrame)
 
                 #def process_image(img, select_threshold=0.2, nms_threshold=.45, net_shape=(300, 300)):
 
@@ -241,7 +243,7 @@ for x in range(1,numFiles[0]-1):
 
     
     startA = time.time()
-
+    print(x)
     if x == 1:
         
         frame1 = frame1x
@@ -261,6 +263,8 @@ for x in range(1,numFiles[0]-1):
         # Situation 1
 
         detecctionBuff = thread.resultadso()
+        #print(detecctionBuff[0])
+        print(detecctionBuff[indexDetections][:][:])
         detecction = detecctionBuff[indexDetections][:][:]
        
         roiAux = []
@@ -492,7 +496,7 @@ for x in range(1,numFiles[0]-1):
     numPersonas = np.shape(roi)[0]  
     endEND = time.time()
     sats[x,3]= endEND-startEND
-
+    cv2.imwrite(PATH_SAVE+'/'+str(x)+'.jpg',framePintar)
 
 siz =  range(0,numFiles[0]-1)
 print('ds',np.mean(sats[:,0]),np.mean(sats[:,1]),np.mean(sats[:,2]),np.mean(sats[:,0]+sats[:,1]+sats[:,2]))
@@ -504,4 +508,4 @@ plt.bar(siz,sats[:,0]+sats[:,1], color='b')
 plt.bar(siz,sats[:,1], color='y')
 plt.show()
 																
-np.savetxt('/home/marc/Dropbox/tfmDeepLearning/semana8/componente/scoreTest/MOT16-14.txt', results, delimiter=',',fmt="%.5e") 
+#np.savetxt('/home/marc/Dropbox/tfmDeepLearning/semana8/componente/scoreTest/MOT16-14.txt', results, delimiter=',',fmt="%.5e") 
